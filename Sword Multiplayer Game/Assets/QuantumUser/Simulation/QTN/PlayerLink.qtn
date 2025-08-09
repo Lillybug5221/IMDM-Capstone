@@ -1,0 +1,10 @@
+component PlayerLink {
+    PlayerRef Player;
+    EntityRef Entity;
+}
+
+input {
+    FPVector2 LeftStickDirection;
+    FPVector2 RightStickDirection;
+    button Jump;
+}
