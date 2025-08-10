@@ -40,7 +40,7 @@ MonoBehaviour:
       DisableFill:
         _value: 0
     StaticColliders:
-      Enabled: 1
+      Enabled: 0
       Color: {r: 0.4705882, g: 0.7371198, b: 1, a: 0.5}
       Scale: 0
       OnlyDrawSelected:
@@ -57,7 +57,7 @@ MonoBehaviour:
         _value: 0
     KinematicColliders:
       Enabled: 1
-      Color: {r: 1, g: 1, b: 1, a: 0.5}
+      Color: {r: 1, g: 0.9117421, b: 0, a: 0.5}
       Scale: 0
       OnlyDrawSelected:
         _value: 0

@@ -3,6 +3,34 @@ component PlayerLink {
     EntityRef Entity;
 }
 
+component ActionState {
+    int StartTick;
+    int StartUpFrames;
+    int ActiveFrames;
+    int EndLagFrames;
+    int TotalDuration;
+    bool HitboxSpawned;
+    int Damage;
+}
+
+component MeleeHitbox
+{
+    EntityRef Owner;   // The player who spawned it
+    FP Radius;         // How big the hitbox is
+    FP Height;
+    FPVector3 Center;
+    FPQuaternion Rotation;
+    int Lifetime;       // Seconds until removal
+    int SpawnFrame;      // When it was spawned
+    int Damage;        // Damage to deal
+    bool DamageApplied;
+}
+
+component Damageable
+{
+    int Health;
+}
+
 input {
     FPVector2 LeftStickDirection;
     FPVector2 RightStickDirection;

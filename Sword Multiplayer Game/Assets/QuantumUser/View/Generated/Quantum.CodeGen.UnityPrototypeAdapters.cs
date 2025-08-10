@@ -50,19 +50,6 @@ namespace Quantum.Prototypes.Unity {
   #endif //;
   
   [System.SerializableAttribute()]
-  public unsafe partial class AsteroidsProjectilePrototype : Quantum.QuantumUnityPrototypeAdapter<Quantum.Prototypes.AsteroidsProjectilePrototype> {
-    public FP TTL;
-    public Quantum.QuantumEntityPrototype Owner;
-    partial void ConvertUser(Quantum.QuantumEntityPrototypeConverter converter, ref Quantum.Prototypes.AsteroidsProjectilePrototype prototype);
-    public override Quantum.Prototypes.AsteroidsProjectilePrototype Convert(Quantum.QuantumEntityPrototypeConverter converter) {
-      var result = new Quantum.Prototypes.AsteroidsProjectilePrototype();
-      converter.Convert(this.TTL, out result.TTL);
-      converter.Convert(this.Owner, out result.Owner);
-      ConvertUser(converter, ref result);
-      return result;
-    }
-  }
-  [System.SerializableAttribute()]
   public unsafe partial class KCCPrototype : Quantum.QuantumUnityPrototypeAdapter<Quantum.Prototypes.KCCPrototype> {
     public AssetRef<KCCSettings> Settings;
     partial void ConvertUser(Quantum.QuantumEntityPrototypeConverter converter, ref Quantum.Prototypes.KCCPrototype prototype);
@@ -110,6 +97,34 @@ namespace Quantum.Prototypes.Unity {
       var result = new Quantum.Prototypes.KCCModifierPrototype();
       converter.Convert(this.Processor, out result.Processor);
       converter.Convert(this.Entity, out result.Entity);
+      ConvertUser(converter, ref result);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  public unsafe partial class MeleeHitboxPrototype : Quantum.QuantumUnityPrototypeAdapter<Quantum.Prototypes.MeleeHitboxPrototype> {
+    public Quantum.QuantumEntityPrototype Owner;
+    public FP Radius;
+    public FP Height;
+    public FPVector3 Center;
+    [UnitAttribute(Units.Degrees)]
+    public FPVector3 Rotation;
+    public Int32 Lifetime;
+    public Int32 SpawnFrame;
+    public Int32 Damage;
+    public QBoolean DamageApplied;
+    partial void ConvertUser(Quantum.QuantumEntityPrototypeConverter converter, ref Quantum.Prototypes.MeleeHitboxPrototype prototype);
+    public override Quantum.Prototypes.MeleeHitboxPrototype Convert(Quantum.QuantumEntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.MeleeHitboxPrototype();
+      converter.Convert(this.Owner, out result.Owner);
+      converter.Convert(this.Radius, out result.Radius);
+      converter.Convert(this.Height, out result.Height);
+      converter.Convert(this.Center, out result.Center);
+      converter.Convert(this.Rotation, out result.Rotation);
+      converter.Convert(this.Lifetime, out result.Lifetime);
+      converter.Convert(this.SpawnFrame, out result.SpawnFrame);
+      converter.Convert(this.Damage, out result.Damage);
+      converter.Convert(this.DamageApplied, out result.DamageApplied);
       ConvertUser(converter, ref result);
       return result;
     }

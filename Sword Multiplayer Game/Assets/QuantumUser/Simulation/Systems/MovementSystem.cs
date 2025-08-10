@@ -23,12 +23,6 @@ namespace Quantum
             
             FPVector3 playerPosition = filter.Transform->Position;
             FPVector3 opponentPosition = new FPVector3(0,0,0);
-            /*
-            if(frame.Unsafe.TryGetPointer<Transform3D>(filter.Entity, out var transform))
-            {
-                playerPosition = transform->Position;
-                //Log.Debug("playerpos is" + playerPosition);
-            }*/
 
             foreach (var pair in frame.GetComponentIterator<PlayerLink>()) {
                 EntityRef entity = pair.Entity;
@@ -37,7 +31,7 @@ namespace Quantum
                     if(frame.Unsafe.TryGetPointer<Transform3D>(entity, out var enemyTransform))
                     {
                         opponentPosition = enemyTransform->Position;
-                        Log.Debug("opponent pos is" + opponentPosition);
+                        //Log.Debug("opponent pos is" + opponentPosition);
                     }
                 }
             }
@@ -54,7 +48,18 @@ namespace Quantum
             var actionDirection = input->RightStickDirection;
             //magic numbers in this context are bad, I need to figure out components later, just prototyping for now.
             if(actionDirection.Magnitude > FP.FromFloat_UNSAFE(0.2f)){
-                Log.Debug("right stick input recieved.");
+                int startUp = 60;
+                int active = 60;
+                int endLag = 60;
+                frame.Add(filter.Entity,new ActionState{
+                    StartTick = frame.Number,
+                    StartUpFrames = startUp,
+                    ActiveFrames = active,
+                    EndLagFrames = endLag,
+                    TotalDuration = startUp + active + endLag,
+                    HitboxSpawned = false,
+                    Damage = 25
+                });
             }
 
             if (input->Jump.IsDown && kcc->IsGrounded == true)
@@ -86,7 +91,7 @@ namespace Quantum
 
         // Combine input: forward * input.y + right * input.x
         FPVector3 moveDir = flatForward * inputDirection.Y + right * inputDirection.X;
-        Log.Debug(inputDirection +","+forward + "," + right);
+        //Log.Debug(inputDirection +","+forward + "," + right);
         // Normalize if needed
         /*
         if (moveDir.MagnitudeSquared > FP._1) {

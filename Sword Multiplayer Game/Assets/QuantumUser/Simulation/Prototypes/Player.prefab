@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 3082845212647966483}
   - component: {fileID: 2830190332539727287}
   - component: {fileID: 168204722950511179}
+  - component: {fileID: 6571431936292791770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -289,7 +290,7 @@ MonoBehaviour:
     CallbackFlags:
       Value: 0
   PhysicsBody:
-    IsEnabled: 0
+    IsEnabled: 1
     Config2D: 116
     Config3D: 58
     RotationFreeze: 0
@@ -492,6 +493,20 @@ MonoBehaviour:
   minDistance: 5
   maxDistance: 15
   maxTargetDistance: 10
+--- !u!114 &6571431936292791770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472594335652766015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e862bcbe8e4c9a46871283b6ed719eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    Health: 100
 --- !u!1 &9006951443963931637
 GameObject:
   m_ObjectHideFlags: 0
