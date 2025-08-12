@@ -11,6 +11,7 @@
 
 
 namespace Quantum {
+  using Addons.Animator;
   using Photon.Deterministic;
   using Quantum;
   using Quantum.Core;

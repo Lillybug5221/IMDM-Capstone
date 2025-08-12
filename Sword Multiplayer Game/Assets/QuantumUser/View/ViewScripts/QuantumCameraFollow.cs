@@ -1,7 +1,7 @@
 namespace Quantum {
   using UnityEngine;
 
-  public class QuantumCameraFollow : QuantumEntityViewComponent<CameraViewContext> {
+  public class QuantumCameraFollow : QuantumEntityViewComponent<CustomViewContext> {
     public Vector3 Offset;
     public float LerpSpeed = 4;
     private bool _isPlayerLocal;

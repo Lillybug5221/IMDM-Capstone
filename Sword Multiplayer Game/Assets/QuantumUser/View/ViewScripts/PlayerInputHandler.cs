@@ -14,7 +14,7 @@ namespace Quantum {
     [SerializeField]
     private bool jumpInput;
     [SerializeField]
-    private Vector2 actionInput;
+    private bool lightAttack;
 
     private void Awake()
     {
@@ -28,9 +28,10 @@ namespace Quantum {
         controls.Gameplay.Jump.performed += ctx => jumpInput = true;
         controls.Gameplay.Jump.canceled += ctx => jumpInput = false;
 
-        // Action direction
-        controls.Gameplay.ActionDirection.performed += ctx => actionInput = ctx.ReadValue<Vector2>();
-        controls.Gameplay.ActionDirection.canceled += ctx => actionInput = Vector2.zero;
+        // Light Attack
+        controls.Gameplay.LightAttack.performed += ctx => lightAttack = true;
+        controls.Gameplay.LightAttack.canceled += ctx => lightAttack = false;
+        
     }
 
     private void OnEnable() {
@@ -53,7 +54,7 @@ namespace Quantum {
       Quantum.Input i = new Quantum.Input();
       i.LeftStickDirection = new FPVector2(moveInput.x.ToFP(),moveInput.y.ToFP());
       i.Jump = jumpInput;
-      i.RightStickDirection = new FPVector2(actionInput.x.ToFP(),actionInput.y.ToFP());
+      i.LightAttack = lightAttack;
 
 #if DEBUG
       if (callback.IsInputSet) {

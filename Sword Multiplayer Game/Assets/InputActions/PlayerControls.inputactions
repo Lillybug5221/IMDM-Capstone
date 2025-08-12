@@ -24,13 +24,40 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ActionDirection",
-                    "type": "Value",
-                    "id": "cf1eb538-859e-4ffb-98cb-16bd1bcef9d6",
-                    "expectedControlType": "Vector2",
+                    "name": "LightAttack",
+                    "type": "Button",
+                    "id": "d4dd5c70-88d9-498c-a289-8ee6ab523709",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HeavyAttack",
+                    "type": "Button",
+                    "id": "2a8301db-e258-4e18-a1a9-be859f26b48f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Parry",
+                    "type": "Button",
+                    "id": "8d53ee27-d552-4a38-bb46-82826977ef14",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Special",
+                    "type": "Button",
+                    "id": "87fa27b9-f5d0-4287-ab33-b18f67638241",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -58,12 +85,45 @@
                 },
                 {
                     "name": "",
-                    "id": "df13c5f3-f2fa-4c30-ab46-39a606fffe26",
-                    "path": "<Gamepad>/rightStick",
+                    "id": "5fda107d-46a8-4daf-b57a-52c2cdbe3c09",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ActionDirection",
+                    "action": "LightAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5e5541e-fb7f-4911-8e83-b16595c3c85a",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4257549c-0700-4a0d-ab68-a1bb48febcb6",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Parry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "51736ca8-8d20-4af7-bb5c-09119f21f746",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Special",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

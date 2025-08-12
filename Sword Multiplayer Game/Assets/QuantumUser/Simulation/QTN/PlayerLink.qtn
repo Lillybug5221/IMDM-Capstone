@@ -33,6 +33,6 @@ component Damageable
 
 input {
     FPVector2 LeftStickDirection;
-    FPVector2 RightStickDirection;
+    button LightAttack;
     button Jump;
 }

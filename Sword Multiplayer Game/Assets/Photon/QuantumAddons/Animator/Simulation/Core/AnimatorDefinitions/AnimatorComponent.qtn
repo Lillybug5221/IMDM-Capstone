@@ -1,0 +1,75 @@
+﻿using Addons.Animator;
+
+[CodeGen(UnityWrapperFolder, "Assets/Photon/QuantumAddons/Animator/View/Generated")]
+component AnimatorComponent{
+    [HideInInspector] entity_ref Self;
+	asset_ref<AnimatorGraph> AnimatorGraph;
+    [HideInInspector] list<LayerData> Layers;
+	[HideInInspector] list<AnimatorRuntimeVariable> AnimatorVariables;
+}
+
+union AnimatorRuntimeVariable{
+	FP FPValue;
+	Int32 IntegerValue;
+	Boolean BooleanValue;
+}
+
+struct LayerData{
+	[HideInInspector] FP Time;
+	[HideInInspector] FP NormalizedTime;
+	[HideInInspector] FP LastTime;
+	[HideInInspector] FP Length;
+	[HideInInspector] Int32 CurrentStateId;
+	[HideInInspector] Boolean Freeze;
+	[HideInInspector] FP Speed;
+
+	[HideInInspector] Int32 FromStateId;
+	[HideInInspector] FP FromStateTime;
+	[HideInInspector] FP FromStateLastTime;
+	[HideInInspector] FP FromStateNormalizedTime;
+	[HideInInspector] FP FromLength;
+
+	[HideInInspector] Int32 ToStateId;
+	[HideInInspector] FP ToStateTime;
+	[HideInInspector] FP ToStateLastTime;
+	[HideInInspector] FP ToStateNormalizedTime;
+	[HideInInspector] FP ToLength;
+
+	[HideInInspector] Int32 TransitionIndex;
+	[HideInInspector] FP TransitionTime;
+	[HideInInspector] FP TransitionDuration;
+	[HideInInspector] Int32 AnimatorBlendCount;
+	
+	QBoolean IgnoreTransitions;
+	
+	// <state id, weights>
+        [HideInInspector] dictionary<int, BlendTreeWeights> BlendTreeWeights;
+}
+
+struct BlendTreeWeights
+{
+    list<FP> Values;
+}
+
+
+// Used in the signals
+[Flags]
+enum AnimatorStateType : Byte
+{
+	None,
+	FromState,
+	CurrentState,
+	ToState,
+}
+
+// Signals called when an animator state enters, leaves, or updates
+signal OnAnimatorStateEnter(entity_ref entity, AnimatorComponent* animator, AnimatorGraph graph, LayerData* layer, Addons.Animator.AnimatorState state, FP time);
+signal OnAnimatorStateUpdate(entity_ref entity, AnimatorComponent* animator, AnimatorGraph graph, LayerData* layer, Addons.Animator.AnimatorState state, FP time, AnimatorStateType stateType);
+signal OnAnimatorStateExit(entity_ref entity, AnimatorComponent* animator, AnimatorGraph graph, LayerData* layer, Addons.Animator.AnimatorState state, FP time);
+
+signal OnAnimatorRootMotion3D(entity_ref entity, AnimatorFrame deltaFrame, AnimatorFrame currentFrame);
+signal OnAnimatorRootMotion2D(entity_ref entity, AnimatorFrame deltaFrame, AnimatorFrame currentFrame);
+
+
+
+

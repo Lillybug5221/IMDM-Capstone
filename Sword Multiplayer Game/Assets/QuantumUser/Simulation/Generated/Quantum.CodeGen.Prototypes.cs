@@ -11,6 +11,7 @@
 
 
 namespace Quantum.Prototypes {
+  using Addons.Animator;
   using Photon.Deterministic;
   using Quantum;
   using Quantum.Core;
@@ -50,6 +51,12 @@ namespace Quantum.Prototypes {
   #endif //;
   
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(System.Collections.Generic.KeyValuePair<Int32, BlendTreeWeights>))]
+  public unsafe class DictionaryEntry_Int32_BlendTreeWeights : Quantum.Prototypes.DictionaryEntry {
+    public Int32 Key;
+    public Quantum.Prototypes.BlendTreeWeightsPrototype Value;
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.ActionState))]
   public unsafe partial class ActionStatePrototype : ComponentPrototype<Quantum.ActionState> {
     public Int32 StartTick;
@@ -77,6 +84,87 @@ namespace Quantum.Prototypes {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.AnimatorComponent))]
+  public unsafe class AnimatorComponentPrototype : ComponentPrototype<Quantum.AnimatorComponent> {
+    [HideInInspector()]
+    public MapEntityId Self;
+    public AssetRef<AnimatorGraph> AnimatorGraph;
+    [HideInInspector()]
+    [DynamicCollectionAttribute()]
+    public Quantum.Prototypes.LayerDataPrototype[] Layers = {};
+    [HideInInspector()]
+    [DynamicCollectionAttribute()]
+    public Quantum.Prototypes.AnimatorRuntimeVariablePrototype[] AnimatorVariables = {};
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.AnimatorComponent component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.AnimatorComponent result, in PrototypeMaterializationContext context = default) {
+        PrototypeValidator.FindMapEntity(this.Self, in context, out result.Self);
+        result.AnimatorGraph = this.AnimatorGraph;
+        if (this.Layers.Length == 0) {
+          result.Layers = default;
+        } else {
+          var list = frame.AllocateList(out result.Layers, this.Layers.Length);
+          for (int i = 0; i < this.Layers.Length; ++i) {
+            Quantum.LayerData tmp = default;
+            this.Layers[i].Materialize(frame, ref tmp, in context);
+            list.Add(tmp);
+          }
+        }
+        if (this.AnimatorVariables.Length == 0) {
+          result.AnimatorVariables = default;
+        } else {
+          var list = frame.AllocateList(out result.AnimatorVariables, this.AnimatorVariables.Length);
+          for (int i = 0; i < this.AnimatorVariables.Length; ++i) {
+            Quantum.AnimatorRuntimeVariable tmp = default;
+            this.AnimatorVariables[i].Materialize(frame, ref tmp, in context);
+            list.Add(tmp);
+          }
+        }
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.AnimatorRuntimeVariable))]
+  public unsafe partial class AnimatorRuntimeVariablePrototype : UnionPrototype {
+    public string _field_used_;
+    public FP FPValue;
+    public Int32 IntegerValue;
+    public QBoolean BooleanValue;
+    partial void MaterializeUser(Frame frame, ref Quantum.AnimatorRuntimeVariable result, in PrototypeMaterializationContext context);
+    public void Materialize(Frame frame, ref Quantum.AnimatorRuntimeVariable result, in PrototypeMaterializationContext context = default) {
+        switch (_field_used_) {
+          case "FPVALUE": *result.FPValue = this.FPValue; break;
+          case "INTEGERVALUE": *result.IntegerValue = this.IntegerValue; break;
+          case "BOOLEANVALUE": *result.BooleanValue = this.BooleanValue; break;
+          case "": case null: break;
+          default: PrototypeValidator.UnknownUnionField(_field_used_, in context); break;
+        }
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.BlendTreeWeights))]
+  public unsafe partial class BlendTreeWeightsPrototype : StructPrototype {
+    [DynamicCollectionAttribute()]
+    public FP[] Values = {};
+    partial void MaterializeUser(Frame frame, ref Quantum.BlendTreeWeights result, in PrototypeMaterializationContext context);
+    public void Materialize(Frame frame, ref Quantum.BlendTreeWeights result, in PrototypeMaterializationContext context = default) {
+        if (this.Values.Length == 0) {
+          result.Values = default;
+        } else {
+          var list = frame.AllocateList(out result.Values, this.Values.Length);
+          for (int i = 0; i < this.Values.Length; ++i) {
+            FP tmp = default;
+            tmp = this.Values[i];
+            list.Add(tmp);
+          }
+        }
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.Damageable))]
   public unsafe partial class DamageablePrototype : ComponentPrototype<Quantum.Damageable> {
     public Int32 Health;
@@ -95,12 +183,12 @@ namespace Quantum.Prototypes {
   [Quantum.Prototypes.Prototype(typeof(Quantum.Input))]
   public unsafe partial class InputPrototype : StructPrototype {
     public FPVector2 LeftStickDirection;
-    public FPVector2 RightStickDirection;
+    public Button LightAttack;
     public Button Jump;
     partial void MaterializeUser(Frame frame, ref Quantum.Input result, in PrototypeMaterializationContext context);
     public void Materialize(Frame frame, ref Quantum.Input result, in PrototypeMaterializationContext context = default) {
         result.LeftStickDirection = this.LeftStickDirection;
-        result.RightStickDirection = this.RightStickDirection;
+        result.LightAttack = this.LightAttack;
         result.Jump = this.Jump;
         MaterializeUser(frame, ref result, in context);
     }
@@ -242,6 +330,95 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref Quantum.KCCProcessorLink result, in PrototypeMaterializationContext context = default) {
         result.Processor = this.Processor;
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.LayerData))]
+  public unsafe partial class LayerDataPrototype : StructPrototype {
+    [HideInInspector()]
+    public FP Time;
+    [HideInInspector()]
+    public FP NormalizedTime;
+    [HideInInspector()]
+    public FP LastTime;
+    [HideInInspector()]
+    public FP Length;
+    [HideInInspector()]
+    public Int32 CurrentStateId;
+    [HideInInspector()]
+    public QBoolean Freeze;
+    [HideInInspector()]
+    public FP Speed;
+    [HideInInspector()]
+    public Int32 FromStateId;
+    [HideInInspector()]
+    public FP FromStateTime;
+    [HideInInspector()]
+    public FP FromStateLastTime;
+    [HideInInspector()]
+    public FP FromStateNormalizedTime;
+    [HideInInspector()]
+    public FP FromLength;
+    [HideInInspector()]
+    public Int32 ToStateId;
+    [HideInInspector()]
+    public FP ToStateTime;
+    [HideInInspector()]
+    public FP ToStateLastTime;
+    [HideInInspector()]
+    public FP ToStateNormalizedTime;
+    [HideInInspector()]
+    public FP ToLength;
+    [HideInInspector()]
+    public Int32 TransitionIndex;
+    [HideInInspector()]
+    public FP TransitionTime;
+    [HideInInspector()]
+    public FP TransitionDuration;
+    [HideInInspector()]
+    public Int32 AnimatorBlendCount;
+    public QBoolean IgnoreTransitions;
+    [HideInInspector()]
+    [DictionaryAttribute()]
+    [DynamicCollectionAttribute()]
+    public DictionaryEntry_Int32_BlendTreeWeights[] BlendTreeWeights = {};
+    partial void MaterializeUser(Frame frame, ref Quantum.LayerData result, in PrototypeMaterializationContext context);
+    public void Materialize(Frame frame, ref Quantum.LayerData result, in PrototypeMaterializationContext context = default) {
+        result.Time = this.Time;
+        result.NormalizedTime = this.NormalizedTime;
+        result.LastTime = this.LastTime;
+        result.Length = this.Length;
+        result.CurrentStateId = this.CurrentStateId;
+        result.Freeze = this.Freeze;
+        result.Speed = this.Speed;
+        result.FromStateId = this.FromStateId;
+        result.FromStateTime = this.FromStateTime;
+        result.FromStateLastTime = this.FromStateLastTime;
+        result.FromStateNormalizedTime = this.FromStateNormalizedTime;
+        result.FromLength = this.FromLength;
+        result.ToStateId = this.ToStateId;
+        result.ToStateTime = this.ToStateTime;
+        result.ToStateLastTime = this.ToStateLastTime;
+        result.ToStateNormalizedTime = this.ToStateNormalizedTime;
+        result.ToLength = this.ToLength;
+        result.TransitionIndex = this.TransitionIndex;
+        result.TransitionTime = this.TransitionTime;
+        result.TransitionDuration = this.TransitionDuration;
+        result.AnimatorBlendCount = this.AnimatorBlendCount;
+        result.IgnoreTransitions = this.IgnoreTransitions;
+        if (this.BlendTreeWeights.Length == 0) {
+          result.BlendTreeWeights = default;
+        } else {
+          var dict = frame.AllocateDictionary(out result.BlendTreeWeights, this.BlendTreeWeights.Length);
+          for (int i = 0; i < this.BlendTreeWeights.Length; ++i) {
+            Int32 tmpKey = default;
+            Quantum.BlendTreeWeights tmpValue = default;
+            tmpKey = this.BlendTreeWeights[i].Key;
+            this.BlendTreeWeights[i].Value.Materialize(frame, ref tmpValue, in context);
+            PrototypeValidator.AddToDictionary(dict, tmpKey, tmpValue, in context);
+          }
+        }
         MaterializeUser(frame, ref result, in context);
     }
   }
