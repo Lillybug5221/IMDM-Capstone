@@ -7,13 +7,20 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
 {
     public float AnimSpeedMultiplier = 1.0f;
     private Animator anim;
+    private ParticleSystem particleSys;
     
     public override void OnInitialize(){
         anim = GetComponentInChildren<Animator>();
+        particleSys = GetComponentInChildren<ParticleSystem>();
     }
     public override void OnUpdateView(){
 
         if (PredictedFrame.TryGet<KCC>(EntityRef, out var kcc)) {
+            if(PredictedFrame.TryGet<ActionState>(EntityRef, out var ActionState) && !particleSys.isPlaying){
+                particleSys.Play();
+            }else if(particleSys.isPlaying){
+                particleSys.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
             var vel = kcc.Data.KinematicVelocity;
 
             var transform = PredictedFrame.Get<Transform3D>(EntityRef);

@@ -3,8 +3,10 @@ namespace Quantum
     using Photon.Deterministic;
     using System.Runtime.Versioning;
     using System.Collections.Generic;
-
-    public unsafe class MovementSystem : SystemMainThreadFilter<MovementSystem.Filter>, ISignalOnPlayerAdded {
+    using Quantum;
+    using Quantum.Addons.Animator;
+    
+    public unsafe class MovementSystem : SystemMainThreadFilter<MovementSystem.Filter>, ISignalOnPlayerAdded , ISignalOnAnimatorRootMotion3D{
         public struct Filter
         {
             public EntityRef Entity;
@@ -58,10 +60,10 @@ namespace Quantum
             //stand still if an action is occuring
             if(frame.TryGet<ActionState>(filter.Entity, out var actionState)){
                 kcc->SetInputDirection(GetMovementDirection(new FPVector2(0,0),forwardDir));
-                AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", false);
+                //AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", false);
                 return;
             }else{
-                AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", true);
+                //AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", true);
             }
 
             //read inputs
@@ -95,6 +97,7 @@ namespace Quantum
 
                 //set anim
                 AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", false);
+                //AnimatorComponent.ResetTrigger(frame, filter.Animator, "Light_DL");
                 AnimatorComponent.SetTrigger(frame, filter.Animator, "Light_DL");
                 
             }
@@ -151,5 +154,58 @@ namespace Quantum
                 transform->Position = new FPVector3(player * 2, 2, -5);
             }
         }
+
+        public void OnAnimatorRootMotion3D(Frame frame, EntityRef entity, AnimatorFrame deltaFrame, AnimatorFrame currentFrame){
+            //Return in case there is no motion delta
+            if (deltaFrame.Position == FPVector3.Zero && deltaFrame.RotationY == FP._0) return;
+            if (frame.Unsafe.TryGetPointer<Transform3D>(entity, out var transform))
+            {
+                // Create a quaternion representing the inverse of the current frame's Y-axis rotation
+                var currentFrameRotation = FPQuaternion.CreateFromYawPitchRoll(currentFrame.RotationY, 0, 0);
+                currentFrameRotation = FPQuaternion.Inverse(currentFrameRotation);
+
+                // Rotate the delta position by the inverse current rotation to align movement
+                var newPosition = currentFrameRotation * deltaFrame.Position;
+
+                // Apply the transform's rotation to the new position to get the world displacement
+                var displacement = transform->Rotation * newPosition;
+
+                var kccSettings = frame.FindAsset<KCCSettings>(frame.Unsafe.GetPointer<KCC>(entity)->Settings);
+
+                // Compute an adjusted target hit position for raycasting
+                var targetHitPosition =(displacement.XOZ.Normalized * FP._0_33 * 2 ) + displacement;
+
+                // Perform a raycast in the direction of the intended motion to detect potential collisions with statics
+                var hits = frame.Physics3D.RaycastAll(transform->Position, targetHitPosition.XOZ, targetHitPosition.Magnitude, -1,
+                    QueryOptions.HitStatics);
+
+                if (hits.Count <= 0)
+                {
+                    // If no collision, disable the character controller temporarily
+                    /*
+                    if (frame.Unsafe.TryGetPointer<KCC>(entity, out var kcc))
+                    {
+                    //kcc->SetActive(false);
+                    }
+                    */
+
+                    // Apply the motion and rotation to the transform
+                    transform->Position += displacement;
+                    transform->Rotate(FPVector3.Up, deltaFrame.RotationY * FP.Rad2Deg);
+                }
+                else
+                {
+                    // If there is collision, enable the character controller
+                    /*
+                    if (frame.Unsafe.TryGetPointer<KCC>(entity, out var kcc))
+                    {
+                    //kcc->SetActive(true);
+                    }
+                    */
+                }
+            }
+            
+        }
     }
 }
+

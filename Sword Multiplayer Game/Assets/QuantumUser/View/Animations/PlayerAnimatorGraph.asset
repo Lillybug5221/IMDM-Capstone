@@ -42,30 +42,7 @@ MonoBehaviour:
         RawValue: 0
       Speed:
         RawValue: 65536
-      Transitions:
-      - Index: 0
-        Name: Walk/Idle to Attack_DL
-        Duration:
-          RawValue: 491
-        Offset:
-          RawValue: 0
-        ExitTime:
-          RawValue: 77065
-        HasExitTime: 0
-        CanTransitionToSelf: 0
-        Conditions:
-        - VariableName: Light_DL
-          Mode: 1
-          ThresholdFp:
-            RawValue: 0
-          ThresholdInt: 0
-        - VariableName: Actionable
-          Mode: 2
-          ThresholdFp:
-            RawValue: 0
-          ThresholdInt: 0
-        DestinationStateId: 1650403311
-        DestinationStateName: Attack_DL
+      Transitions: []
       SerialisedMotions:
       - IsAnimation: 0
         Name: Blend Tree
@@ -12136,7 +12113,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 0
+          DisableRootMotion: 1
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -13842,7 +13819,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 0
+          DisableRootMotion: 1
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -15548,7 +15525,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 0
+          DisableRootMotion: 1
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -17254,7 +17231,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 0
+          DisableRootMotion: 1
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -18960,7 +18937,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 0
+          DisableRootMotion: 1
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -20666,7 +20643,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 0
+          DisableRootMotion: 1
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -22372,7 +22349,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 0
+          DisableRootMotion: 1
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -24078,7 +24055,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 0
+          DisableRootMotion: 1
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -26834,7 +26811,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 0
+          DisableRootMotion: 1
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -26867,7 +26844,7 @@ MonoBehaviour:
           RawValue: 0
         ExitTime:
           RawValue: 77550
-        HasExitTime: 1
+        HasExitTime: 0
         CanTransitionToSelf: 0
         Conditions:
         - VariableName: Actionable
@@ -26877,6 +26854,24 @@ MonoBehaviour:
           ThresholdInt: 0
         DestinationStateId: -593675042
         DestinationStateName: Walk/Idle
+      - Index: 1
+        Name: Attack_DL to Attack_DL
+        Duration:
+          RawValue: 3276
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 77550
+        HasExitTime: 0
+        CanTransitionToSelf: 0
+        Conditions:
+        - VariableName: Light_DL
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: 1650403311
+        DestinationStateName: Attack_DL
       SerialisedMotions:
       - IsAnimation: 1
         Name: Attack_DL
@@ -28722,7 +28717,25 @@ MonoBehaviour:
         RawValue: 0
       Speed:
         RawValue: 65536
-      Transitions: []
+      Transitions:
+      - Index: 0
+        Name: Any State to Attack_DL
+        Duration:
+          RawValue: 3276
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 65536
+        HasExitTime: 0
+        CanTransitionToSelf: 1
+        Conditions:
+        - VariableName: Light_DL
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: 1650403311
+        DestinationStateName: Attack_DL
       SerialisedMotions: []
       StateAsset:
         Id:
@@ -28765,10 +28778,10 @@ MonoBehaviour:
     DefaultInt: 0
     DefaultBool: 0
   AllowFadeToTransitions: 1
-  RootMotion: 0
-  RootMotionAppliesPhysics: 0
+  RootMotion: 1
+  RootMotionAppliesPhysics: 1
   ClampTime: 1
-  AllowTransitionInterruption: 0
+  AllowTransitionInterruption: 1
   MuteGraphTransitionsOnExport: 0
   DebugMode: 1
   references:

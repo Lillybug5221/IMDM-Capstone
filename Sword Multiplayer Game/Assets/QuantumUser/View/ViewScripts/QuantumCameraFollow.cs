@@ -2,16 +2,16 @@ namespace Quantum {
   using UnityEngine;
 
   public class QuantumCameraFollow : QuantumEntityViewComponent<CustomViewContext> {
-    public Vector3 Offset;
+    public Vector3 MinOffset;
+    public Vector3 MaxOffset;
+    public float MinDistance = 5f;
+    public float MaxDistance = 15f;
     public float LerpSpeed = 4;
     private bool _isPlayerLocal;
     private static Transform opponentTransform;
     public Transform TestTarget;
 
     public float smoothTime = 0.3f;
-    public float minDistance = 5f; // Closest camera can be
-    public float maxDistance = 15f; // Farthest camera can be
-    public float maxTargetDistance = 10f; // Target distance that triggers max zoom
 
     private Vector3 velocity;
 
@@ -40,20 +40,22 @@ namespace Quantum {
             opponentTransform = TestTarget.transform;
         }
         
-
-        // 1. Midpoint between both
-        Vector3 midpoint = (transform.position + opponentTransform.position) / 2f;
-
         Vector3 opponentDirection = opponentTransform.position - transform.position;
         opponentDirection = opponentDirection.normalized;
 
-        Vector3 targetPos = transform.position + Offset - (opponentDirection * 3);
+        float PlayerDistance = Vector3.Distance(opponentTransform.position, transform.position);
+        float t = Mathf.InverseLerp(MinDistance, MaxDistance, PlayerDistance);
+        Vector3 offset = Vector3.Lerp(MinOffset, MaxOffset, t);
+        Vector3 temp = opponentDirection * offset.z;
+        Vector3 directedOffset = new Vector3(temp.x, offset.y, temp.z);
+
+        Vector3 targetPos = transform.position + directedOffset;
 
         // 5. Smooth camera movement
         ViewContext.MyCamera.transform.position = Vector3.SmoothDamp(ViewContext.MyCamera.transform.position, targetPos, ref velocity, smoothTime);
 
-        // 6. Always look at midpoint
-        ViewContext.MyCamera.transform.LookAt(midpoint);
+        // 6. always center camera on opponent
+        ViewContext.MyCamera.transform.LookAt(opponentTransform.position);
         
 
 

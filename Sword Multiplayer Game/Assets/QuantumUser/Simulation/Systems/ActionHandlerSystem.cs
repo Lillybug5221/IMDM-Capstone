@@ -11,6 +11,7 @@ namespace Quantum
             public Transform3D* Transform;
             public ActionState* ActionState;
             public PlayerLink* Link;
+            public AnimatorComponent* Animator;
         }
         public override void Update(Frame frame,ref Filter filter)
         {
@@ -19,6 +20,7 @@ namespace Quantum
             
             if(frame.Number - action->StartTick > action->TotalDuration){
                 Log.Debug("Action Over");
+                AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", true);
                 frame.Remove<ActionState>(filter.Entity);
             }else{
                 if(action->HitboxSpawned == false){
