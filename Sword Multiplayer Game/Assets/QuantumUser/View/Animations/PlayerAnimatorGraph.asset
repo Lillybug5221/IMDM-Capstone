@@ -26837,9 +26837,27 @@ MonoBehaviour:
         RawValue: 52428
       Transitions:
       - Index: 0
+        Name: Attack_DL to Attack_DL
+        Duration:
+          RawValue: 10026
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 74805
+        HasExitTime: 0
+        CanTransitionToSelf: 0
+        Conditions:
+        - VariableName: Light_DL
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: 1650403311
+        DestinationStateName: Attack_DL
+      - Index: 1
         Name: Attack_DL to Walk/Idle
         Duration:
-          RawValue: 16384
+          RawValue: 0
         Offset:
           RawValue: 0
         ExitTime:
@@ -26854,24 +26872,6 @@ MonoBehaviour:
           ThresholdInt: 0
         DestinationStateId: -593675042
         DestinationStateName: Walk/Idle
-      - Index: 1
-        Name: Attack_DL to Attack_DL
-        Duration:
-          RawValue: 3276
-        Offset:
-          RawValue: 0
-        ExitTime:
-          RawValue: 77550
-        HasExitTime: 0
-        CanTransitionToSelf: 0
-        Conditions:
-        - VariableName: Light_DL
-          Mode: 1
-          ThresholdFp:
-            RawValue: 0
-          ThresholdInt: 0
-        DestinationStateId: 1650403311
-        DestinationStateName: Attack_DL
       SerialisedMotions:
       - IsAnimation: 1
         Name: Attack_DL

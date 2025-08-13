@@ -46,14 +46,16 @@ namespace Quantum
             }
 
             FPVector3 forwardDir = opponentPosition - playerPosition;
+            forwardDir.Y = FP._0;
             forwardDir = FPVector3.Normalize(forwardDir);
+            
 
             
 
             //face player towards opponent
             FPQuaternion targetRotation = FPQuaternion.LookRotation(forwardDir, FPVector3.Up);
             FP rotationSpeed = FP._1;
-            FPQuaternion currentRotation = filter.Transform->Rotation;
+            FPQuaternion currentRotation = filter.Transform->Rotation;  
             FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
             filter.Transform->Rotation = slerpedRotation;
 
@@ -84,7 +86,7 @@ namespace Quantum
             if(input->LightAttack.IsDown){
                 int startUp = 0;
                 int active = 0;
-                int endLag = 85;
+                int endLag = 110;
                 frame.Add(filter.Entity,new ActionState{
                     StartTick = frame.Number,
                     StartUpFrames = startUp,
