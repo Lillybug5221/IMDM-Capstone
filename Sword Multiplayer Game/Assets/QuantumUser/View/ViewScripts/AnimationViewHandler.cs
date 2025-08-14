@@ -11,6 +11,8 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
     private bool DebugSwordPosition;
     [SerializeField]
     private string TestingAnimationName;
+    [SerializeField]
+    private HitboxJSONBuilder JSONBuilder;
     private Transform swordPosition;
     private Animator anim;
     private ParticleSystem particleSys;
@@ -38,9 +40,15 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
                     currFrame ++;
                     Vector3 relativePos = transform.InverseTransformPoint(swordPosition.position);
                     Quaternion relativeRot = Quaternion.Inverse(transform.rotation) * swordPosition.rotation;
+                    JSONBuilder.AddToLists(relativePos, relativeRot);
                     Debug.Log(TestingAnimationName + " playing, Frame: " +  currFrame + ":"+ (relativePos) +":" + relativeRot);
+
                 }
             }else{
+                if(currFrame != 0){
+                    JSONBuilder.Save();
+                    currFrame = 0;
+                }
                 startFrame = -1;
             }
         }

@@ -86,7 +86,7 @@ namespace Quantum
             if(input->LightAttack.IsDown){
                 int startUp = 0;
                 int active = 0;
-                int endLag = 110;
+                int endLag = 90;
                 frame.Add(filter.Entity,new ActionState{
                     StartTick = frame.Number,
                     StartUpFrames = startUp,

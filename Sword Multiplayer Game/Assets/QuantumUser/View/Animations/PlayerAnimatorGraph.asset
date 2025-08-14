@@ -26857,7 +26857,7 @@ MonoBehaviour:
       - Index: 1
         Name: Attack_DL to Walk/Idle
         Duration:
-          RawValue: 0
+          RawValue: 5728
         Offset:
           RawValue: 0
         ExitTime:
