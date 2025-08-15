@@ -15,12 +15,6 @@ namespace Quantum
             public PlayerLink* Link;
             public AnimatorComponent* Animator;
         }
-
-        
-
-        
-        
-        
         
         public override void Update(Frame frame, ref Filter filter)
         {
@@ -28,6 +22,7 @@ namespace Quantum
 
             KCC* kcc = filter.KCC;
             var input = frame.GetPlayerInput(filter.Link->Player);
+            var attackData = frame.SimulationConfig.AttackHitboxData;
             
             FPVector3 playerPosition = filter.Transform->Position;
             FPVector3 opponentPosition = new FPVector3(0,0,0);
@@ -58,42 +53,50 @@ namespace Quantum
             FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
             filter.Transform->Rotation = slerpedRotation;
 
-            //stand still if an action is occuring
-            if(frame.TryGet<ActionState>(filter.Entity, out var actionState)){
-                kcc->SetInputDirection(GetMovementDirection(new FPVector2(0,0),forwardDir));
-                //AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", false);
-                return;
-            }else{
-                //AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", true);
-            }
-
-            //read inputs
-
+            //read directional input
             var moveDirection = input->LeftStickDirection;
             if(moveDirection.Magnitude > 1)
             {
                 moveDirection = moveDirection.Normalized;
             }
 
-            //update previous direction
+            bool actionOccuring = false;
+            //stand still if an action is occuring
+            if(frame.TryGet<ActionState>(filter.Entity, out var actionState)){
+                actionOccuring = true;
+                if(!actionState.Cancelable){
+                    kcc->SetInputDirection(GetMovementDirection(new FPVector2(0,0),forwardDir));
+                    return;
+                }
+                //AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", false);
+            }else{
+                //AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", true);
+            }
+
             /*
-            previousInputDirections.TryGetValue(filter.Entity, out var prevMove);
-            FPVector2 smoothed = FPVector2.Lerp(prevMove, moveDirection, FP.FromFloat_UNSAFE(0.1f));
-            previousInputDirections[filter.Entity] = smoothed;
-            */
+            if(moveDirection.Magnitude > FP.FromFloat_UNSAFE(0.1f)){
+                Log.Debug("Action Canceled");
+                AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", true);
+                frame.Remove<ActionState>(filter.Entity);
+            }*/
 
             if(input->LightAttack.IsDown){
-                int startUp = 0;
-                int active = 120;
-                int endLag = 0;
+                int foundAttackNum = GetAttackDataFromEnum(AttackName.Light_DL, attackData);
+                int startUp = attackData[foundAttackNum].AttackVals.startupFrames;
+                int active = attackData[foundAttackNum].AttackVals.activeFrames;
+                int endLag = attackData[foundAttackNum].AttackVals.endlagFrames;
+                int cancelable = attackData[foundAttackNum].AttackVals.cancelableFrames;
                 frame.Add(filter.Entity,new ActionState{
+                    AttackIndex = foundAttackNum,
                     StartTick = frame.Number,
                     StartUpFrames = startUp,
                     ActiveFrames = active,
                     EndLagFrames = endLag,
-                    TotalDuration = startUp + active + endLag,
+                    CancelableFrames = cancelable,
+                    TotalDuration = startUp + active + endLag + cancelable,
                     HitboxSpawned = false,
-                    Damage = 25
+                    Cancelable = false,
+                    Damage = attackData[foundAttackNum].AttackVals.damage
                 });
 
                 //set anim
@@ -206,6 +209,16 @@ namespace Quantum
                 }
             }
             
+        }
+
+        public int GetAttackDataFromEnum(AttackName attackName, List<QAttackData> attackData){
+            for(int i = 0; i < attackData.Count; i++){
+                if(attackData[i].AttackVals.attackName == attackName){
+                    return i;
+                }
+            }
+            Log.Error("No attack by that name found");
+            return 0;
         }
     }
 }

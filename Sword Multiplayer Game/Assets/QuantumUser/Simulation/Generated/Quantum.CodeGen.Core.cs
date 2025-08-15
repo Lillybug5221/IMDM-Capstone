@@ -1116,31 +1116,40 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct ActionState : Quantum.IComponent {
-    public const Int32 SIZE = 28;
+    public const Int32 SIZE = 40;
     public const Int32 ALIGNMENT = 4;
-    [FieldOffset(12)]
+    [FieldOffset(4)]
+    public Int32 AttackIndex;
+    [FieldOffset(20)]
     public Int32 StartTick;
-    [FieldOffset(16)]
+    [FieldOffset(24)]
     public Int32 StartUpFrames;
     [FieldOffset(0)]
     public Int32 ActiveFrames;
-    [FieldOffset(8)]
+    [FieldOffset(16)]
     public Int32 EndLagFrames;
-    [FieldOffset(20)]
+    [FieldOffset(8)]
+    public Int32 CancelableFrames;
+    [FieldOffset(28)]
     public Int32 TotalDuration;
-    [FieldOffset(24)]
+    [FieldOffset(36)]
     public QBoolean HitboxSpawned;
-    [FieldOffset(4)]
+    [FieldOffset(32)]
+    public QBoolean Cancelable;
+    [FieldOffset(12)]
     public Int32 Damage;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 11777;
+        hash = hash * 31 + AttackIndex.GetHashCode();
         hash = hash * 31 + StartTick.GetHashCode();
         hash = hash * 31 + StartUpFrames.GetHashCode();
         hash = hash * 31 + ActiveFrames.GetHashCode();
         hash = hash * 31 + EndLagFrames.GetHashCode();
+        hash = hash * 31 + CancelableFrames.GetHashCode();
         hash = hash * 31 + TotalDuration.GetHashCode();
         hash = hash * 31 + HitboxSpawned.GetHashCode();
+        hash = hash * 31 + Cancelable.GetHashCode();
         hash = hash * 31 + Damage.GetHashCode();
         return hash;
       }
@@ -1148,11 +1157,14 @@ namespace Quantum {
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (ActionState*)ptr;
         serializer.Stream.Serialize(&p->ActiveFrames);
+        serializer.Stream.Serialize(&p->AttackIndex);
+        serializer.Stream.Serialize(&p->CancelableFrames);
         serializer.Stream.Serialize(&p->Damage);
         serializer.Stream.Serialize(&p->EndLagFrames);
         serializer.Stream.Serialize(&p->StartTick);
         serializer.Stream.Serialize(&p->StartUpFrames);
         serializer.Stream.Serialize(&p->TotalDuration);
+        QBoolean.Serialize(&p->Cancelable, serializer);
         QBoolean.Serialize(&p->HitboxSpawned, serializer);
     }
   }

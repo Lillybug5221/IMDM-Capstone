@@ -42,7 +42,25 @@ MonoBehaviour:
         RawValue: 0
       Speed:
         RawValue: 65536
-      Transitions: []
+      Transitions:
+      - Index: 0
+        Name: Walk/Idle to Light_DL
+        Duration:
+          RawValue: 16384
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 77065
+        HasExitTime: 1
+        CanTransitionToSelf: 0
+        Conditions:
+        - VariableName: Light_DL
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: -783295633
+        DestinationStateName: Light_DL
       SerialisedMotions:
       - IsAnimation: 0
         Name: Blend Tree
@@ -26844,7 +26862,7 @@ MonoBehaviour:
           RawValue: 0
         ExitTime:
           RawValue: 77550
-        HasExitTime: 0
+        HasExitTime: 1
         CanTransitionToSelf: 0
         Conditions:
         - VariableName: Actionable
@@ -26854,24 +26872,6 @@ MonoBehaviour:
           ThresholdInt: 0
         DestinationStateId: -593675042
         DestinationStateName: Walk/Idle
-      - Index: 1
-        Name: Light_DL to Light_DL
-        Duration:
-          RawValue: 9393
-        Offset:
-          RawValue: 0
-        ExitTime:
-          RawValue: 77550
-        HasExitTime: 0
-        CanTransitionToSelf: 0
-        Conditions:
-        - VariableName: Light_DL
-          Mode: 1
-          ThresholdFp:
-            RawValue: 0
-          ThresholdInt: 0
-        DestinationStateId: -783295633
-        DestinationStateName: Light_DL
       SerialisedMotions:
       - IsAnimation: 1
         Name: Light_DL
@@ -28717,25 +28717,7 @@ MonoBehaviour:
         RawValue: 0
       Speed:
         RawValue: 65536
-      Transitions:
-      - Index: 0
-        Name: Any State to Light_DL
-        Duration:
-          RawValue: 16384
-        Offset:
-          RawValue: 0
-        ExitTime:
-          RawValue: 65536
-        HasExitTime: 0
-        CanTransitionToSelf: 1
-        Conditions:
-        - VariableName: Light_DL
-          Mode: 1
-          ThresholdFp:
-            RawValue: 0
-          ThresholdInt: 0
-        DestinationStateId: -783295633
-        DestinationStateName: Light_DL
+      Transitions: []
       SerialisedMotions: []
       StateAsset:
         Id:

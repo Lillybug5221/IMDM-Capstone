@@ -59,12 +59,15 @@ namespace Quantum.Prototypes {
   [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.ActionState))]
   public unsafe partial class ActionStatePrototype : ComponentPrototype<Quantum.ActionState> {
+    public Int32 AttackIndex;
     public Int32 StartTick;
     public Int32 StartUpFrames;
     public Int32 ActiveFrames;
     public Int32 EndLagFrames;
+    public Int32 CancelableFrames;
     public Int32 TotalDuration;
     public QBoolean HitboxSpawned;
+    public QBoolean Cancelable;
     public Int32 Damage;
     partial void MaterializeUser(Frame frame, ref Quantum.ActionState result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
@@ -73,12 +76,15 @@ namespace Quantum.Prototypes {
         return f.Set(entity, component) == SetResult.ComponentAdded;
     }
     public void Materialize(Frame frame, ref Quantum.ActionState result, in PrototypeMaterializationContext context = default) {
+        result.AttackIndex = this.AttackIndex;
         result.StartTick = this.StartTick;
         result.StartUpFrames = this.StartUpFrames;
         result.ActiveFrames = this.ActiveFrames;
         result.EndLagFrames = this.EndLagFrames;
+        result.CancelableFrames = this.CancelableFrames;
         result.TotalDuration = this.TotalDuration;
         result.HitboxSpawned = this.HitboxSpawned;
+        result.Cancelable = this.Cancelable;
         result.Damage = this.Damage;
         MaterializeUser(frame, ref result, in context);
     }

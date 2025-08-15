@@ -1,4 +1,5 @@
 using UnityEngine;
+using Photon.Deterministic;
 using System;
 
 [Serializable]
@@ -33,4 +34,9 @@ public struct Attack{
     public AttackName attackName;
     public Vector2 direction;
     public AttackType attackType;
+    public int startupFrames;
+    public int activeFrames;
+    public int endlagFrames;
+    public int cancelableFrames;
+    public int damage;
 }

@@ -4,12 +4,15 @@ component PlayerLink {
 }
 
 component ActionState {
+    int AttackIndex;
     int StartTick;
     int StartUpFrames;
     int ActiveFrames;
     int EndLagFrames;
+    int CancelableFrames;
     int TotalDuration;
     bool HitboxSpawned;
+    bool Cancelable;
     int Damage;
 }
 
