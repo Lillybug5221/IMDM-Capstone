@@ -26827,8 +26827,8 @@ MonoBehaviour:
         Id:
           Value: 0
       StateBehaviours: []
-    - Name: Attack_DL
-      Id: 1650403311
+    - Name: Light_DL
+      Id: -783295633
       IsAny: 0
       IsDefault: 0
       CycleOffset:
@@ -26837,27 +26837,9 @@ MonoBehaviour:
         RawValue: 52428
       Transitions:
       - Index: 0
-        Name: Attack_DL to Attack_DL
+        Name: Light_DL to Walk/Idle
         Duration:
-          RawValue: 10026
-        Offset:
-          RawValue: 0
-        ExitTime:
-          RawValue: 74805
-        HasExitTime: 0
-        CanTransitionToSelf: 0
-        Conditions:
-        - VariableName: Light_DL
-          Mode: 1
-          ThresholdFp:
-            RawValue: 0
-          ThresholdInt: 0
-        DestinationStateId: 1650403311
-        DestinationStateName: Attack_DL
-      - Index: 1
-        Name: Attack_DL to Walk/Idle
-        Duration:
-          RawValue: 5728
+          RawValue: 5701
         Offset:
           RawValue: 0
         ExitTime:
@@ -26872,12 +26854,30 @@ MonoBehaviour:
           ThresholdInt: 0
         DestinationStateId: -593675042
         DestinationStateName: Walk/Idle
+      - Index: 1
+        Name: Light_DL to Light_DL
+        Duration:
+          RawValue: 9393
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 77550
+        HasExitTime: 0
+        CanTransitionToSelf: 0
+        Conditions:
+        - VariableName: Light_DL
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: -783295633
+        DestinationStateName: Light_DL
       SerialisedMotions:
       - IsAnimation: 1
-        Name: Attack_DL
+        Name: Light_DL
         AnimatorData:
-          ClipName: Attack_DL
-          MotionId: -1811350917
+          ClipName: Light_DL
+          MotionId: 1307693553
           Length:
             RawValue: 93934
           Index: 0
@@ -28719,9 +28719,9 @@ MonoBehaviour:
         RawValue: 65536
       Transitions:
       - Index: 0
-        Name: Any State to Attack_DL
+        Name: Any State to Light_DL
         Duration:
-          RawValue: 3276
+          RawValue: 16384
         Offset:
           RawValue: 0
         ExitTime:
@@ -28734,8 +28734,8 @@ MonoBehaviour:
           ThresholdFp:
             RawValue: 0
           ThresholdInt: 0
-        DestinationStateId: 1650403311
-        DestinationStateName: Attack_DL
+        DestinationStateId: -783295633
+        DestinationStateName: Light_DL
       SerialisedMotions: []
       StateAsset:
         Id:

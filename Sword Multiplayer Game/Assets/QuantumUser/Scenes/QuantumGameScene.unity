@@ -1968,7 +1968,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ed742fa7525f94b802b6ba4f62cadc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FileName: Attack_DL
+  FileName: Light_DL
+  attackData:
+    attackName: 5
+    direction: {x: -1, y: -1}
+    attackType: 0
+  TestingAnimationName: Light_DL
+  CreateJSON: 0
 --- !u!4 &1479069843
 Transform:
   m_ObjectHideFlags: 0

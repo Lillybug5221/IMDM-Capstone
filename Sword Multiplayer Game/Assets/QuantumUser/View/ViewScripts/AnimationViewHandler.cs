@@ -6,13 +6,6 @@ using Photon.Deterministic;
 
 public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext>
 {
-    
-    [SerializeField]
-    private bool DebugSwordPosition;
-    [SerializeField]
-    private string TestingAnimationName;
-    [SerializeField]
-    private HitboxJSONBuilder JSONBuilder;
     private Transform swordPosition;
     private Animator anim;
     private ParticleSystem particleSys;
@@ -22,15 +15,15 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
     public override void OnInitialize(){
         anim = GetComponentInChildren<Animator>();
         particleSys = GetComponentInChildren<ParticleSystem>();
-        if(DebugSwordPosition){
-            swordPosition = FindInChildrenByName(transform, "Weapon_Uchigatana");
+        if(HitboxJSONBuilder.Instance.CreateJSON){
+            swordPosition = FindInChildrenByName(transform, "Sword_Center");
         }
         
     }
     public override void OnUpdateView(){
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        if(DebugSwordPosition){
-            if(stateInfo.IsName(TestingAnimationName)){
+        if(HitboxJSONBuilder.Instance.CreateJSON){
+            if(stateInfo.IsName(HitboxJSONBuilder.Instance.TestingAnimationName)){
                 if(startFrame == -1){
                     startFrame = PredictedFrame.Number;
                     currFrame = 0;
@@ -40,13 +33,13 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
                     currFrame ++;
                     Vector3 relativePos = transform.InverseTransformPoint(swordPosition.position);
                     Quaternion relativeRot = Quaternion.Inverse(transform.rotation) * swordPosition.rotation;
-                    JSONBuilder.AddToLists(relativePos, relativeRot);
-                    Debug.Log(TestingAnimationName + " playing, Frame: " +  currFrame + ":"+ (relativePos) +":" + relativeRot);
+                    Debug.Log(HitboxJSONBuilder.Instance.TestingAnimationName + " playing, Frame: " +  currFrame + ":"+ (relativePos) +":" + relativeRot);
+                    HitboxJSONBuilder.Instance.AddToLists(relativePos, relativeRot);
 
                 }
             }else{
                 if(currFrame != 0){
-                    JSONBuilder.Save();
+                    HitboxJSONBuilder.Instance.Save();
                     currFrame = 0;
                 }
                 startFrame = -1;

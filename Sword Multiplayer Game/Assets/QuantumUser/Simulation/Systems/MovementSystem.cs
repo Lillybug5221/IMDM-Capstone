@@ -16,8 +16,7 @@ namespace Quantum
             public AnimatorComponent* Animator;
         }
 
-        //these are needed to lerp the walk animations to be smooth.
-        //private Dictionary<EntityRef, FPVector2> previousInputDirections = new();
+        
 
         
         
@@ -85,8 +84,8 @@ namespace Quantum
 
             if(input->LightAttack.IsDown){
                 int startUp = 0;
-                int active = 0;
-                int endLag = 90;
+                int active = 120;
+                int endLag = 0;
                 frame.Add(filter.Entity,new ActionState{
                     StartTick = frame.Number,
                     StartUpFrames = startUp,

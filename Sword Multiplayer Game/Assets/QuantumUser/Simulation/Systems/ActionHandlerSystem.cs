@@ -17,33 +17,39 @@ namespace Quantum
         {
             var action = filter.ActionState;
             var transform = filter.Transform;
+            var attackData = frame.SimulationConfig.AttackHitboxData;
+            var attackNumber = 0;//THIS IS A TEMPORARY MAGIC NUMBER
             
             if(frame.Number - action->StartTick > action->TotalDuration){
                 Log.Debug("Action Over");
                 AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", true);
                 frame.Remove<ActionState>(filter.Entity);
             }else{
-                if(action->HitboxSpawned == false){
-                    AssetRef<EntityPrototype> hitboxPrototype = frame.FindAsset(frame.SimulationConfig.HitboxPrototype);
-                    var hitbox = frame.Create(hitboxPrototype);
-                    FPVector3 forward = transform->Rotation * FPVector3.Forward;
-                    FPVector3 spawnPos = transform->Position + forward * FP.FromFloat_UNSAFE(1.0f);
-                    Log.Debug("hitbox spawned");
-
-                    frame.Add(hitbox, new MeleeHitbox{
-                        Owner = filter.Entity,
-                        Radius = FP.FromFloat_UNSAFE(0.5f),         // half a meter
-                        Height = 2,
-                        Center = new FPVector3(0,1,1),
-                        Rotation = FPQuaternion.Euler(90,0,0),
-                        Lifetime  = 60,   
-                        SpawnFrame = frame.Number,
-                        Damage = action->Damage,
-                        DamageApplied = false
-                    });
+                var frameNumber =  frame.Number - action->StartTick;
+                AssetRef<EntityPrototype> hitboxPrototype = frame.FindAsset(frame.SimulationConfig.HitboxPrototype);
+                var hitbox = frame.Create(hitboxPrototype);
+                FPVector3 forward = transform->Rotation * FPVector3.Forward;
+                FPVector3 spawnPos = transform->Position + forward * FP.FromFloat_UNSAFE(1.0f);
+                Log.Debug("hitbox spawned");
+                if(frameNumber >= attackData[attackNumber].Hitboxes.Count){
+                    Log.Debug("Attempted to get hitbox data outside list length, Index: " + frameNumber);
+                    return;
                 }
-
-                action ->HitboxSpawned = true;
+                if(attackNumber >= attackData.Count){
+                    Log.Debug("Attempted to get data from attack outside list bounds");
+                    return;
+                }
+                frame.Add(hitbox, new MeleeHitbox{
+                    Owner = filter.Entity,
+                    Radius = FP.FromFloat_UNSAFE(0.5f),         // half a meter
+                    Height = 2,
+                    Center = attackData[attackNumber].Hitboxes[frameNumber].Position,
+                    Rotation = attackData[attackNumber].Hitboxes[frameNumber].Rotation,
+                    Lifetime  = 1,   
+                    SpawnFrame = frame.Number,
+                    Damage = action->Damage,
+                    DamageApplied = false
+                });
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿namespace Quantum
+﻿
+namespace Quantum
 {
     public partial class SimulationConfig
     {
