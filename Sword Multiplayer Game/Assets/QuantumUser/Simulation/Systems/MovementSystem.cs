@@ -14,21 +14,23 @@ namespace Quantum
             public KCC* KCC;
             public PlayerLink* Link;
             public AnimatorComponent* Animator;
+            public CurrentAction* CurrAction;
         }
         
         public override void Update(Frame frame, ref Filter filter)
         {
-             KCC* kcc = filter.KCC;
+            
+            KCC* kcc = filter.KCC;
+            var currAction = filter.CurrAction;
             //check current action to see if movement is possible
             //read directional input
-            if(InputBufferSystem.CurrentActions[*(filter.Link)] == null){
+            if((ActionType)(currAction->ActionType) == ActionType.None){
+                Log.Debug("no current action");
                 return;
             }
-            var currentAction = InputBufferSystem.CurrentActions[*(filter.Link)];
             FPVector2 moveDirection = new FPVector2(0,0);
-            if(currentAction is MovementStruct){
-                moveDirection = ((MovementStruct)currentAction).Direction;
-                InputBufferSystem.CurrentActions[*(filter.Link)] = null;
+            if((ActionType)(currAction->ActionType) == ActionType.Movement){
+                moveDirection = currAction->Direction;
             }else{
                 //other action ocurring
                 kcc->SetInputDirection(new FPVector3(0,0,0));
@@ -98,7 +100,7 @@ namespace Quantum
                 
             }
             */
-
+        
             FPVector3 moveDir = GetMovementDirection(moveDirection, forwardDir);
             kcc->SetInputDirection(moveDir);
             

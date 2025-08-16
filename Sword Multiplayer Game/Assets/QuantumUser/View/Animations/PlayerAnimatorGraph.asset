@@ -42,25 +42,7 @@ MonoBehaviour:
         RawValue: 0
       Speed:
         RawValue: 65536
-      Transitions:
-      - Index: 0
-        Name: Walk/Idle to Light_DL
-        Duration:
-          RawValue: 0
-        Offset:
-          RawValue: 0
-        ExitTime:
-          RawValue: 77065
-        HasExitTime: 0
-        CanTransitionToSelf: 0
-        Conditions:
-        - VariableName: Light_DL
-          Mode: 1
-          ThresholdFp:
-            RawValue: 0
-          ThresholdInt: 0
-        DestinationStateId: -783295633
-        DestinationStateName: Light_DL
+      Transitions: []
       SerialisedMotions:
       - IsAnimation: 0
         Name: Blend Tree
@@ -77,8 +59,8 @@ MonoBehaviour:
           LoopTime: 0
           Mirror: 0
           DisableRootMotion: 0
-        BlendParameterIndex: 1
-        BlendParameterIndexY: 2
+        BlendParameterIndex: 0
+        BlendParameterIndexY: 1
         Positions:
         - X:
             RawValue: 0
@@ -26853,25 +26835,7 @@ MonoBehaviour:
         RawValue: 0
       Speed:
         RawValue: 52428
-      Transitions:
-      - Index: 0
-        Name: Light_DL to Walk/Idle
-        Duration:
-          RawValue: 5701
-        Offset:
-          RawValue: 0
-        ExitTime:
-          RawValue: 77550
-        HasExitTime: 1
-        CanTransitionToSelf: 0
-        Conditions:
-        - VariableName: Actionable
-          Mode: 1
-          ThresholdFp:
-            RawValue: 0
-          ThresholdInt: 0
-        DestinationStateId: -593675042
-        DestinationStateName: Walk/Idle
+      Transitions: []
       SerialisedMotions:
       - IsAnimation: 1
         Name: Light_DL
@@ -28717,43 +28681,72 @@ MonoBehaviour:
         RawValue: 0
       Speed:
         RawValue: 65536
-      Transitions: []
+      Transitions:
+      - Index: 0
+        Name: Any State to Light_DL
+        Duration:
+          RawValue: 16384
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 65536
+        HasExitTime: 0
+        CanTransitionToSelf: 1
+        Conditions:
+        - VariableName: Light_DL
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: -783295633
+        DestinationStateName: Light_DL
+      - Index: 1
+        Name: Any State to Walk/Idle
+        Duration:
+          RawValue: 16384
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 65536
+        HasExitTime: 0
+        CanTransitionToSelf: 1
+        Conditions:
+        - VariableName: Walk
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: -593675042
+        DestinationStateName: Walk/Idle
       SerialisedMotions: []
       StateAsset:
         Id:
           Value: 0
       StateBehaviours: []
   Variables:
-  - Name: Speed
+  - Name: MoveX
     Index: 0
     Type: 1
     DefaultFp:
       RawValue: 0
     DefaultInt: 0
     DefaultBool: 0
-  - Name: MoveX
+  - Name: MoveY
     Index: 1
     Type: 1
     DefaultFp:
-      RawValue: 65536
-    DefaultInt: 0
-    DefaultBool: 0
-  - Name: MoveY
-    Index: 2
-    Type: 1
-    DefaultFp:
       RawValue: 0
     DefaultInt: 0
     DefaultBool: 0
-  - Name: Actionable
-    Index: 3
-    Type: 2
-    DefaultFp:
-      RawValue: 0
-    DefaultInt: 0
-    DefaultBool: 1
   - Name: Light_DL
-    Index: 4
+    Index: 2
+    Type: 3
+    DefaultFp:
+      RawValue: 0
+    DefaultInt: 0
+    DefaultBool: 0
+  - Name: Walk
+    Index: 3
     Type: 3
     DefaultFp:
       RawValue: 0

@@ -57,35 +57,6 @@ namespace Quantum.Prototypes {
     public Quantum.Prototypes.BlendTreeWeightsPrototype Value;
   }
   [System.SerializableAttribute()]
-  [Quantum.Prototypes.Prototype(typeof(Quantum.ActionState))]
-  public unsafe partial class ActionStatePrototype : ComponentPrototype<Quantum.ActionState> {
-    public Int32 AttackIndex;
-    public Int32 StartTick;
-    public Int32 StartUpFrames;
-    public Int32 ActiveFrames;
-    public Int32 EndLagFrames;
-    public Int32 CancelableFrames;
-    public Int32 ActionPhase;
-    public Int32 Damage;
-    partial void MaterializeUser(Frame frame, ref Quantum.ActionState result, in PrototypeMaterializationContext context);
-    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
-        Quantum.ActionState component = default;
-        Materialize((Frame)f, ref component, in context);
-        return f.Set(entity, component) == SetResult.ComponentAdded;
-    }
-    public void Materialize(Frame frame, ref Quantum.ActionState result, in PrototypeMaterializationContext context = default) {
-        result.AttackIndex = this.AttackIndex;
-        result.StartTick = this.StartTick;
-        result.StartUpFrames = this.StartUpFrames;
-        result.ActiveFrames = this.ActiveFrames;
-        result.EndLagFrames = this.EndLagFrames;
-        result.CancelableFrames = this.CancelableFrames;
-        result.ActionPhase = this.ActionPhase;
-        result.Damage = this.Damage;
-        MaterializeUser(frame, ref result, in context);
-    }
-  }
-  [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.AnimatorComponent))]
   public unsafe class AnimatorComponentPrototype : ComponentPrototype<Quantum.AnimatorComponent> {
     [HideInInspector()]
@@ -167,9 +138,44 @@ namespace Quantum.Prototypes {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.CurrentAction))]
+  public unsafe partial class CurrentActionPrototype : ComponentPrototype<Quantum.CurrentAction> {
+    public Int32 ActionNumber;
+    public Byte ActionType;
+    public FPVector2 Direction;
+    public Byte AttackIndex;
+    public Int32 StartTick;
+    public UInt16 StartUpFrames;
+    public UInt16 ActiveFrames;
+    public UInt16 EndLagFrames;
+    public UInt16 CancelableFrames;
+    public Byte ActionPhase;
+    public UInt16 Damage;
+    partial void MaterializeUser(Frame frame, ref Quantum.CurrentAction result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.CurrentAction component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.CurrentAction result, in PrototypeMaterializationContext context = default) {
+        result.ActionNumber = this.ActionNumber;
+        result.ActionType = this.ActionType;
+        result.Direction = this.Direction;
+        result.AttackIndex = this.AttackIndex;
+        result.StartTick = this.StartTick;
+        result.StartUpFrames = this.StartUpFrames;
+        result.ActiveFrames = this.ActiveFrames;
+        result.EndLagFrames = this.EndLagFrames;
+        result.CancelableFrames = this.CancelableFrames;
+        result.ActionPhase = this.ActionPhase;
+        result.Damage = this.Damage;
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.Damageable))]
   public unsafe partial class DamageablePrototype : ComponentPrototype<Quantum.Damageable> {
-    public Int32 Health;
+    public UInt16 Health;
     partial void MaterializeUser(Frame frame, ref Quantum.Damageable result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
         Quantum.Damageable component = default;
@@ -186,19 +192,37 @@ namespace Quantum.Prototypes {
   public unsafe partial class InputPrototype : StructPrototype {
     public FPVector2 LeftStickDirection;
     public Button LightAttack;
-    public Button Jump;
     partial void MaterializeUser(Frame frame, ref Quantum.Input result, in PrototypeMaterializationContext context);
     public void Materialize(Frame frame, ref Quantum.Input result, in PrototypeMaterializationContext context = default) {
         result.LeftStickDirection = this.LeftStickDirection;
         result.LightAttack = this.LightAttack;
-        result.Jump = this.Jump;
         MaterializeUser(frame, ref result, in context);
     }
   }
   [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.InputBuffer))]
   public unsafe partial class InputBufferPrototype : ComponentPrototype<Quantum.InputBuffer> {
-    public Int32 framesSaved;
+    public FPVector2 LastDirection0;
+    public QBoolean LightAttack0;
+    public FPVector2 LastDirection1;
+    public QBoolean LightAttack1;
+    public FPVector2 LastDirection2;
+    public QBoolean LightAttack2;
+    public FPVector2 LastDirection3;
+    public QBoolean LightAttack3;
+    public FPVector2 LastDirection4;
+    public QBoolean LightAttack4;
+    public FPVector2 LastDirection5;
+    public QBoolean LightAttack5;
+    public FPVector2 LastDirection6;
+    public QBoolean LightAttack6;
+    public FPVector2 LastDirection7;
+    public QBoolean LightAttack7;
+    public FPVector2 LastDirection8;
+    public QBoolean LightAttack8;
+    public FPVector2 LastDirection9;
+    public QBoolean LightAttack9;
+    public Byte Count;
     partial void MaterializeUser(Frame frame, ref Quantum.InputBuffer result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
         Quantum.InputBuffer component = default;
@@ -206,7 +230,27 @@ namespace Quantum.Prototypes {
         return f.Set(entity, component) == SetResult.ComponentAdded;
     }
     public void Materialize(Frame frame, ref Quantum.InputBuffer result, in PrototypeMaterializationContext context = default) {
-        result.framesSaved = this.framesSaved;
+        result.LastDirection0 = this.LastDirection0;
+        result.LightAttack0 = this.LightAttack0;
+        result.LastDirection1 = this.LastDirection1;
+        result.LightAttack1 = this.LightAttack1;
+        result.LastDirection2 = this.LastDirection2;
+        result.LightAttack2 = this.LightAttack2;
+        result.LastDirection3 = this.LastDirection3;
+        result.LightAttack3 = this.LightAttack3;
+        result.LastDirection4 = this.LastDirection4;
+        result.LightAttack4 = this.LightAttack4;
+        result.LastDirection5 = this.LastDirection5;
+        result.LightAttack5 = this.LightAttack5;
+        result.LastDirection6 = this.LastDirection6;
+        result.LightAttack6 = this.LightAttack6;
+        result.LastDirection7 = this.LastDirection7;
+        result.LightAttack7 = this.LightAttack7;
+        result.LastDirection8 = this.LastDirection8;
+        result.LightAttack8 = this.LightAttack8;
+        result.LastDirection9 = this.LastDirection9;
+        result.LightAttack9 = this.LightAttack9;
+        result.Count = this.Count;
         MaterializeUser(frame, ref result, in context);
     }
   }
@@ -448,9 +492,9 @@ namespace Quantum.Prototypes {
     public FPVector3 Center;
     [UnitAttribute(Units.Degrees)]
     public FPVector3 Rotation;
-    public Int32 Lifetime;
+    public UInt16 Lifetime;
     public Int32 SpawnFrame;
-    public Int32 Damage;
+    public UInt16 Damage;
     public QBoolean DamageApplied;
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
         Quantum.MeleeHitbox component = default;

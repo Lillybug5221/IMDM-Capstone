@@ -24,7 +24,7 @@ namespace Quantum {
       FPVector2 temp = new FPVector2(x.ToFP(), y.ToFP());
       //Debug.Log("vals are:" + temp + ". Jump is" + jump);
       i.LeftStickDirection = temp;
-      i.Jump = jump;
+      //i.Jump = jump;
 
 #if DEBUG
       if (callback.IsInputSet) {

@@ -132,9 +132,9 @@ namespace Quantum.Prototypes.Unity {
     public FPVector3 Center;
     [UnitAttribute(Units.Degrees)]
     public FPVector3 Rotation;
-    public Int32 Lifetime;
+    public UInt16 Lifetime;
     public Int32 SpawnFrame;
-    public Int32 Damage;
+    public UInt16 Damage;
     public QBoolean DamageApplied;
     partial void ConvertUser(Quantum.QuantumEntityPrototypeConverter converter, ref Quantum.Prototypes.MeleeHitboxPrototype prototype);
     public override Quantum.Prototypes.MeleeHitboxPrototype Convert(Quantum.QuantumEntityPrototypeConverter converter) {

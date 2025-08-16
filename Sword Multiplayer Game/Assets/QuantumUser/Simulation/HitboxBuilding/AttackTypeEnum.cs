@@ -30,7 +30,8 @@ public enum AttackType{
 }
 
 [Serializable]
-public enum InputType{
+public enum ActionType{
+    None,
     Movement,
     Attack,
     Parry
@@ -47,5 +48,6 @@ public struct Attack{
     public int cancelableFrames;
     public int damage;
 }
+
 
 

@@ -76,7 +76,6 @@ namespace Quantum {
   [System.FlagsAttribute()]
   public enum InputButtons : int {
     LightAttack = 1 << 0,
-    Jump = 1 << 1,
   }
   public static unsafe partial class FlagsExtensions {
     public static Boolean IsFlagSet(this InputButtons self, InputButtons flag) {
@@ -558,20 +557,17 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Input {
-    public const Int32 SIZE = 40;
+    public const Int32 SIZE = 32;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(24)]
+    [FieldOffset(16)]
     public FPVector2 LeftStickDirection;
-    [FieldOffset(12)]
-    public Button LightAttack;
     [FieldOffset(0)]
-    public Button Jump;
+    public Button LightAttack;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 19249;
         hash = hash * 31 + LeftStickDirection.GetHashCode();
         hash = hash * 31 + LightAttack.GetHashCode();
-        hash = hash * 31 + Jump.GetHashCode();
         return hash;
       }
     }
@@ -581,20 +577,17 @@ namespace Quantum {
     public Boolean IsDown(InputButtons button) {
       switch (button) {
         case InputButtons.LightAttack: return LightAttack.IsDown;
-        case InputButtons.Jump: return Jump.IsDown;
         default: return false;
       }
     }
     public Boolean WasPressed(InputButtons button) {
       switch (button) {
         case InputButtons.LightAttack: return LightAttack.WasPressed;
-        case InputButtons.Jump: return Jump.WasPressed;
         default: return false;
       }
     }
     static partial void SerializeCodeGen(void* ptr, FrameSerializer serializer) {
         var p = (Input*)ptr;
-        Button.Serialize(&p->Jump, serializer);
         Button.Serialize(&p->LightAttack, serializer);
         FPVector2.Serialize(&p->LeftStickDirection, serializer);
     }
@@ -960,7 +953,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 856;
+    public const Int32 SIZE = 808;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     public AssetRef<Map> Map;
@@ -984,12 +977,12 @@ namespace Quantum {
     public Int32 PlayerConnectedCount;
     [FieldOffset(608)]
     [FramePrinter.FixedArrayAttribute(typeof(Input), 6)]
-    private fixed Byte _input_[240];
-    [FieldOffset(848)]
+    private fixed Byte _input_[192];
+    [FieldOffset(800)]
     public BitSet6 PlayerLastConnectionState;
     public readonly FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 40, 6); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 32, 6); }
       }
     }
     public override readonly Int32 GetHashCode() {
@@ -1115,52 +1108,6 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
-  public unsafe partial struct ActionState : Quantum.IComponent {
-    public const Int32 SIZE = 32;
-    public const Int32 ALIGNMENT = 4;
-    [FieldOffset(8)]
-    public Int32 AttackIndex;
-    [FieldOffset(24)]
-    public Int32 StartTick;
-    [FieldOffset(28)]
-    public Int32 StartUpFrames;
-    [FieldOffset(4)]
-    public Int32 ActiveFrames;
-    [FieldOffset(20)]
-    public Int32 EndLagFrames;
-    [FieldOffset(12)]
-    public Int32 CancelableFrames;
-    [FieldOffset(0)]
-    public Int32 ActionPhase;
-    [FieldOffset(16)]
-    public Int32 Damage;
-    public override readonly Int32 GetHashCode() {
-      unchecked { 
-        var hash = 11777;
-        hash = hash * 31 + AttackIndex.GetHashCode();
-        hash = hash * 31 + StartTick.GetHashCode();
-        hash = hash * 31 + StartUpFrames.GetHashCode();
-        hash = hash * 31 + ActiveFrames.GetHashCode();
-        hash = hash * 31 + EndLagFrames.GetHashCode();
-        hash = hash * 31 + CancelableFrames.GetHashCode();
-        hash = hash * 31 + ActionPhase.GetHashCode();
-        hash = hash * 31 + Damage.GetHashCode();
-        return hash;
-      }
-    }
-    public static void Serialize(void* ptr, FrameSerializer serializer) {
-        var p = (ActionState*)ptr;
-        serializer.Stream.Serialize(&p->ActionPhase);
-        serializer.Stream.Serialize(&p->ActiveFrames);
-        serializer.Stream.Serialize(&p->AttackIndex);
-        serializer.Stream.Serialize(&p->CancelableFrames);
-        serializer.Stream.Serialize(&p->Damage);
-        serializer.Stream.Serialize(&p->EndLagFrames);
-        serializer.Stream.Serialize(&p->StartTick);
-        serializer.Stream.Serialize(&p->StartUpFrames);
-    }
-  }
-  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct AnimatorComponent : Quantum.IComponent {
     public const Int32 SIZE = 24;
     public const Int32 ALIGNMENT = 8;
@@ -1202,11 +1149,71 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct CurrentAction : Quantum.IComponent {
+    public const Int32 SIZE = 40;
+    public const Int32 ALIGNMENT = 8;
+    [FieldOffset(16)]
+    public Int32 ActionNumber;
+    [FieldOffset(1)]
+    public Byte ActionType;
+    [FieldOffset(24)]
+    public FPVector2 Direction;
+    [FieldOffset(2)]
+    public Byte AttackIndex;
+    [FieldOffset(20)]
+    public Int32 StartTick;
+    [FieldOffset(12)]
+    public UInt16 StartUpFrames;
+    [FieldOffset(4)]
+    public UInt16 ActiveFrames;
+    [FieldOffset(10)]
+    public UInt16 EndLagFrames;
+    [FieldOffset(6)]
+    public UInt16 CancelableFrames;
+    [FieldOffset(0)]
+    public Byte ActionPhase;
+    [FieldOffset(8)]
+    public UInt16 Damage;
+    public override readonly Int32 GetHashCode() {
+      unchecked { 
+        var hash = 109;
+        hash = hash * 31 + ActionNumber.GetHashCode();
+        hash = hash * 31 + ActionType.GetHashCode();
+        hash = hash * 31 + Direction.GetHashCode();
+        hash = hash * 31 + AttackIndex.GetHashCode();
+        hash = hash * 31 + StartTick.GetHashCode();
+        hash = hash * 31 + StartUpFrames.GetHashCode();
+        hash = hash * 31 + ActiveFrames.GetHashCode();
+        hash = hash * 31 + EndLagFrames.GetHashCode();
+        hash = hash * 31 + CancelableFrames.GetHashCode();
+        hash = hash * 31 + ActionPhase.GetHashCode();
+        hash = hash * 31 + Damage.GetHashCode();
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (CurrentAction*)ptr;
+        serializer.Stream.Serialize(&p->ActionPhase);
+        serializer.Stream.Serialize(&p->ActionType);
+        serializer.Stream.Serialize(&p->AttackIndex);
+        serializer.Stream.Serialize(&p->ActiveFrames);
+        serializer.Stream.Serialize(&p->CancelableFrames);
+        serializer.Stream.Serialize(&p->Damage);
+        serializer.Stream.Serialize(&p->EndLagFrames);
+        serializer.Stream.Serialize(&p->StartUpFrames);
+        serializer.Stream.Serialize(&p->ActionNumber);
+        serializer.Stream.Serialize(&p->StartTick);
+        FPVector2.Serialize(&p->Direction, serializer);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Damageable : Quantum.IComponent {
     public const Int32 SIZE = 4;
-    public const Int32 ALIGNMENT = 4;
+    public const Int32 ALIGNMENT = 2;
+    [FieldOffset(2)]
+    private fixed Byte _alignment_padding_[2];
     [FieldOffset(0)]
-    public Int32 Health;
+    public UInt16 Health;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 21187;
@@ -1221,20 +1228,100 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct InputBuffer : Quantum.IComponent {
-    public const Int32 SIZE = 4;
-    public const Int32 ALIGNMENT = 4;
+    public const Int32 SIZE = 208;
+    public const Int32 ALIGNMENT = 8;
+    [FieldOffset(48)]
+    public FPVector2 LastDirection0;
+    [FieldOffset(4)]
+    public QBoolean LightAttack0;
+    [FieldOffset(64)]
+    public FPVector2 LastDirection1;
+    [FieldOffset(8)]
+    public QBoolean LightAttack1;
+    [FieldOffset(80)]
+    public FPVector2 LastDirection2;
+    [FieldOffset(12)]
+    public QBoolean LightAttack2;
+    [FieldOffset(96)]
+    public FPVector2 LastDirection3;
+    [FieldOffset(16)]
+    public QBoolean LightAttack3;
+    [FieldOffset(112)]
+    public FPVector2 LastDirection4;
+    [FieldOffset(20)]
+    public QBoolean LightAttack4;
+    [FieldOffset(128)]
+    public FPVector2 LastDirection5;
+    [FieldOffset(24)]
+    public QBoolean LightAttack5;
+    [FieldOffset(144)]
+    public FPVector2 LastDirection6;
+    [FieldOffset(28)]
+    public QBoolean LightAttack6;
+    [FieldOffset(160)]
+    public FPVector2 LastDirection7;
+    [FieldOffset(32)]
+    public QBoolean LightAttack7;
+    [FieldOffset(176)]
+    public FPVector2 LastDirection8;
+    [FieldOffset(36)]
+    public QBoolean LightAttack8;
+    [FieldOffset(192)]
+    public FPVector2 LastDirection9;
+    [FieldOffset(40)]
+    public QBoolean LightAttack9;
     [FieldOffset(0)]
-    public Int32 framesSaved;
+    public Byte Count;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 3637;
-        hash = hash * 31 + framesSaved.GetHashCode();
+        hash = hash * 31 + LastDirection0.GetHashCode();
+        hash = hash * 31 + LightAttack0.GetHashCode();
+        hash = hash * 31 + LastDirection1.GetHashCode();
+        hash = hash * 31 + LightAttack1.GetHashCode();
+        hash = hash * 31 + LastDirection2.GetHashCode();
+        hash = hash * 31 + LightAttack2.GetHashCode();
+        hash = hash * 31 + LastDirection3.GetHashCode();
+        hash = hash * 31 + LightAttack3.GetHashCode();
+        hash = hash * 31 + LastDirection4.GetHashCode();
+        hash = hash * 31 + LightAttack4.GetHashCode();
+        hash = hash * 31 + LastDirection5.GetHashCode();
+        hash = hash * 31 + LightAttack5.GetHashCode();
+        hash = hash * 31 + LastDirection6.GetHashCode();
+        hash = hash * 31 + LightAttack6.GetHashCode();
+        hash = hash * 31 + LastDirection7.GetHashCode();
+        hash = hash * 31 + LightAttack7.GetHashCode();
+        hash = hash * 31 + LastDirection8.GetHashCode();
+        hash = hash * 31 + LightAttack8.GetHashCode();
+        hash = hash * 31 + LastDirection9.GetHashCode();
+        hash = hash * 31 + LightAttack9.GetHashCode();
+        hash = hash * 31 + Count.GetHashCode();
         return hash;
       }
     }
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (InputBuffer*)ptr;
-        serializer.Stream.Serialize(&p->framesSaved);
+        serializer.Stream.Serialize(&p->Count);
+        QBoolean.Serialize(&p->LightAttack0, serializer);
+        QBoolean.Serialize(&p->LightAttack1, serializer);
+        QBoolean.Serialize(&p->LightAttack2, serializer);
+        QBoolean.Serialize(&p->LightAttack3, serializer);
+        QBoolean.Serialize(&p->LightAttack4, serializer);
+        QBoolean.Serialize(&p->LightAttack5, serializer);
+        QBoolean.Serialize(&p->LightAttack6, serializer);
+        QBoolean.Serialize(&p->LightAttack7, serializer);
+        QBoolean.Serialize(&p->LightAttack8, serializer);
+        QBoolean.Serialize(&p->LightAttack9, serializer);
+        FPVector2.Serialize(&p->LastDirection0, serializer);
+        FPVector2.Serialize(&p->LastDirection1, serializer);
+        FPVector2.Serialize(&p->LastDirection2, serializer);
+        FPVector2.Serialize(&p->LastDirection3, serializer);
+        FPVector2.Serialize(&p->LastDirection4, serializer);
+        FPVector2.Serialize(&p->LastDirection5, serializer);
+        FPVector2.Serialize(&p->LastDirection6, serializer);
+        FPVector2.Serialize(&p->LastDirection7, serializer);
+        FPVector2.Serialize(&p->LastDirection8, serializer);
+        FPVector2.Serialize(&p->LastDirection9, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -1326,13 +1413,13 @@ namespace Quantum {
     public FPVector3 Center;
     [FieldOffset(64)]
     public FPQuaternion Rotation;
+    [FieldOffset(2)]
+    public UInt16 Lifetime;
     [FieldOffset(4)]
-    public Int32 Lifetime;
-    [FieldOffset(8)]
     public Int32 SpawnFrame;
     [FieldOffset(0)]
-    public Int32 Damage;
-    [FieldOffset(12)]
+    public UInt16 Damage;
+    [FieldOffset(8)]
     public QBoolean DamageApplied;
     public override readonly Int32 GetHashCode() {
       unchecked { 
@@ -1425,14 +1512,14 @@ namespace Quantum {
       _ISignalOnAnimatorRootMotion2DSystems = BuildSignalsArray<ISignalOnAnimatorRootMotion2D>();
       _ComponentSignalsOnAdded = new ComponentReactiveCallbackInvoker[ComponentTypeId.Type.Length];
       _ComponentSignalsOnRemoved = new ComponentReactiveCallbackInvoker[ComponentTypeId.Type.Length];
-      BuildSignalsArrayOnComponentAdded<Quantum.ActionState>();
-      BuildSignalsArrayOnComponentRemoved<Quantum.ActionState>();
       BuildSignalsArrayOnComponentAdded<Quantum.AnimatorComponent>();
       BuildSignalsArrayOnComponentRemoved<Quantum.AnimatorComponent>();
       BuildSignalsArrayOnComponentAdded<CharacterController2D>();
       BuildSignalsArrayOnComponentRemoved<CharacterController2D>();
       BuildSignalsArrayOnComponentAdded<CharacterController3D>();
       BuildSignalsArrayOnComponentRemoved<CharacterController3D>();
+      BuildSignalsArrayOnComponentAdded<Quantum.CurrentAction>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.CurrentAction>();
       BuildSignalsArrayOnComponentAdded<Quantum.Damageable>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Damageable>();
       BuildSignalsArrayOnComponentAdded<Quantum.InputBuffer>();
@@ -1485,7 +1572,6 @@ namespace Quantum {
       var i = _globals->input.GetPointer(player);
       i->LeftStickDirection = input.LeftStickDirection;
       i->LightAttack = i->LightAttack.Update(this.Number, input.LightAttack);
-      i->Jump = i->Jump.Update(this.Number, input.Jump);
     }
     public Input* GetPlayerInput(PlayerRef player) {
       if ((int)player >= (int)_globals->input.Length) { throw new System.ArgumentOutOfRangeException("player"); }
@@ -1568,7 +1654,6 @@ namespace Quantum {
       SerializeInput = Quantum.Input.Serialize;
     }
     static partial void RegisterSimulationTypesGen(TypeRegistry typeRegistry) {
-      typeRegistry.Register(typeof(Quantum.ActionState), Quantum.ActionState.SIZE);
       typeRegistry.Register(typeof(Quantum.AnimatorComponent), Quantum.AnimatorComponent.SIZE);
       typeRegistry.Register(typeof(Quantum.AnimatorRuntimeVariable), Quantum.AnimatorRuntimeVariable.SIZE);
       typeRegistry.Register(typeof(Quantum.AnimatorStateType), 1);
@@ -1589,6 +1674,7 @@ namespace Quantum {
       typeRegistry.Register(typeof(ColorRGBA), ColorRGBA.SIZE);
       typeRegistry.Register(typeof(ComponentPrototypeRef), ComponentPrototypeRef.SIZE);
       typeRegistry.Register(typeof(ComponentTypeRef), ComponentTypeRef.SIZE);
+      typeRegistry.Register(typeof(Quantum.CurrentAction), Quantum.CurrentAction.SIZE);
       typeRegistry.Register(typeof(Quantum.Damageable), Quantum.Damageable.SIZE);
       typeRegistry.Register(typeof(DistanceJoint), DistanceJoint.SIZE);
       typeRegistry.Register(typeof(DistanceJoint3D), DistanceJoint3D.SIZE);
@@ -1673,8 +1759,8 @@ namespace Quantum {
     static partial void InitComponentTypeIdGen() {
       ComponentTypeId.Reset(ComponentTypeId.BuiltInComponentCount + 8)
         .AddBuiltInComponents()
-        .Add<Quantum.ActionState>(Quantum.ActionState.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.AnimatorComponent>(Quantum.AnimatorComponent.Serialize, null, Quantum.AnimatorComponent.OnRemoved, ComponentFlags.None)
+        .Add<Quantum.CurrentAction>(Quantum.CurrentAction.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.Damageable>(Quantum.Damageable.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.InputBuffer>(Quantum.InputBuffer.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.KCC>(Quantum.KCC.Serialize, null, Quantum.KCC.OnRemoved, ComponentFlags.None)

@@ -53,7 +53,7 @@ namespace Quantum {
       
       Quantum.Input i = new Quantum.Input();
       i.LeftStickDirection = new FPVector2(moveInput.x.ToFP(),moveInput.y.ToFP());
-      i.Jump = jumpInput;
+      //i.Jump = jumpInput;
       i.LightAttack = lightAttack;
 
 #if DEBUG

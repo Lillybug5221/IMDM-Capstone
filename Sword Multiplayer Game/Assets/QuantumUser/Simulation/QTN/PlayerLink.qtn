@@ -3,22 +3,6 @@ component PlayerLink {
     EntityRef Entity;
 }
 
-component ActionState {
-    int AttackIndex;
-    int StartTick;
-    int StartUpFrames;
-    int ActiveFrames;
-    int EndLagFrames;
-    int CancelableFrames;
-    int ActionPhase; 
-    //1 : Startup
-    //2 : Active
-    //3 : Endlag
-    //4 : Cancelable
-    //5 : Ended
-    int Damage;
-}
-
 component MeleeHitbox
 {
     EntityRef Owner;   // The player who spawned it
@@ -26,23 +10,73 @@ component MeleeHitbox
     FP Height;
     FPVector3 Center;
     FPQuaternion Rotation;
-    int Lifetime;       // Seconds until removal
+    ushort Lifetime;       // Seconds until removal
     int SpawnFrame;      // When it was spawned
-    int Damage;        // Damage to deal
+    ushort Damage;        // Damage to deal
     bool DamageApplied;
 }
 
+component CurrentAction{
+    int ActionNumber;
+    byte ActionType; //0 = none, 1 = walk, 2 = attack, 3 = parry
+    FPVector2 Direction;
+    byte AttackIndex; //correlates to an AttackTypeEnum.
+    int StartTick;
+    ushort StartUpFrames;
+    ushort ActiveFrames;
+    ushort EndLagFrames;
+    ushort CancelableFrames;
+    byte ActionPhase; 
+    //1 : Startup
+    //2 : Active
+    //3 : Endlag
+    //4 : Cancelable
+    //5 : Ended
+    ushort Damage;
+
+}
+
+//this is gross but I couldn't find a better way to do it
 component InputBuffer {
-    int framesSaved;
+    FPVector2 LastDirection0;
+    bool LightAttack0;
+
+    FPVector2 LastDirection1;
+    bool LightAttack1;
+
+    FPVector2 LastDirection2;
+    bool LightAttack2;
+
+    FPVector2 LastDirection3;
+    bool LightAttack3;
+
+    FPVector2 LastDirection4;
+    bool LightAttack4;
+
+    FPVector2 LastDirection5;
+    bool LightAttack5;
+
+    FPVector2 LastDirection6;
+    bool LightAttack6;
+
+    FPVector2 LastDirection7;
+    bool LightAttack7;
+
+    FPVector2 LastDirection8;
+    bool LightAttack8;
+    
+    FPVector2 LastDirection9;
+    bool LightAttack9;
+
+    byte Count;
 }
 
 component Damageable
 {
-    int Health;
+    ushort Health;
 }
 
 input {
     FPVector2 LeftStickDirection;
     button LightAttack;
-    button Jump;
 }

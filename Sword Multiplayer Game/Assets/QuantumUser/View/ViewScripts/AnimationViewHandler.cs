@@ -13,8 +13,8 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
     private int currFrame = 0;
     
     public override void OnInitialize(){
-        anim = GetComponentInChildren<Animator>();
         particleSys = GetComponentInChildren<ParticleSystem>();
+        anim = GetComponentInChildren<Animator>();
         if(HitboxJSONBuilder.Instance.CreateJSON){
             swordPosition = FindInChildrenByName(transform, "Sword_Center");
         }
@@ -46,28 +46,35 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
             }
         }
         
-        if (PredictedFrame.TryGet<KCC>(EntityRef, out var kcc)) {
-            if(PredictedFrame.TryGet<ActionState>(EntityRef, out var ActionState) && !particleSys.isPlaying){
-                particleSys.Play();
+        
+        if (PredictedFrame.TryGet<CurrentAction>(EntityRef, out var currAction)) {
+            if((ActionType)(currAction.ActionType) == ActionType.Attack && !particleSys.isPlaying){
+                if(currAction.ActionPhase == 2){
+                    particleSys.Play();
+                }
             }else if(particleSys.isPlaying){
                 particleSys.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
-            var vel = kcc.Data.KinematicVelocity;
+            
+            if (PredictedFrame.TryGet<KCC>(EntityRef, out var kcc)) {
+                var vel = kcc.Data.KinematicVelocity;
 
-            var transform = PredictedFrame.Get<Transform3D>(EntityRef);
-            var forward = transform.Forward; 
-            var up = transform.Up;          
-            var right = transform.Right;
+                var transform = PredictedFrame.Get<Transform3D>(EntityRef);
+                var forward = transform.Forward; 
+                var up = transform.Up;          
+                var right = transform.Right;
 
-            Vector3 worldVel = vel.ToUnityVector3();
+                Vector3 worldVel = vel.ToUnityVector3();
 
-            Quaternion worldRot = Quaternion.LookRotation(forward.ToUnityVector3(), up.ToUnityVector3());
+                Quaternion worldRot = Quaternion.LookRotation(forward.ToUnityVector3(), up.ToUnityVector3());
 
-            Vector3 localVel = Quaternion.Inverse(worldRot) * worldVel;
+                Vector3 localVel = Quaternion.Inverse(worldRot) * worldVel;
 
-            // Pass to animator (X = right, Y = forward)
-            anim.SetFloat("MoveX", localVel.x);
-            anim.SetFloat("MoveY", localVel.z);
+                // Pass to animator (X = right, Y = forward)
+                anim.SetFloat("MoveX", localVel.x);
+                anim.SetFloat("MoveY", localVel.z);
+            }
+
         }
     }
 

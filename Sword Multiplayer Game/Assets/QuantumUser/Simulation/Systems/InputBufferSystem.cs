@@ -14,47 +14,70 @@ namespace Quantum
             public KCC* KCC;
             public PlayerLink* Link;
             public AnimatorComponent* Animator;
+            public CurrentAction* CurrAction;
             public InputBuffer* Buffer;
-            public ActionState* ActionState;
             
         }
 
-        public static Dictionary<PlayerLink, List<InputStruct>> InputBuffers = new Dictionary<PlayerLink, List<InputStruct>>();
+        const int BUFFER_FRAMES = 10;
 
-        public static Dictionary<PlayerLink, InputStruct> CurrentActions = new Dictionary<PlayerLink, InputStruct>();
+        //public static Dictionary<PlayerLink, List<InputStruct>> InputBuffers = new Dictionary<PlayerLink, List<InputStruct>>();
+
+        //public static Dictionary<PlayerLink, InputStruct> CurrentActions = new Dictionary<PlayerLink, InputStruct>();
         
         public override void Update(Frame frame, ref Filter filter)
         {
-            /*
             var input = frame.GetPlayerInput(filter.Link->Player);
             var attackData = frame.SimulationConfig.AttackHitboxData;
+            var currAction = filter.CurrAction;
+            var buffer = filter.Buffer;
 
+            //the direction of an attack is based off the current direction, no matter what direction was held when an attack was buffered
             var moveDirection = input->LeftStickDirection;
             if(moveDirection.Magnitude > 1)
             {
                 moveDirection = moveDirection.Normalized;
             }
 
-            //add current in[ut to buffer]
-            if(input->LightAttack.IsDown){
-                //do a light attack
-                EnqueueInputBuffer(*(filter.Link), 
-                new AttackStruct{
-                    Direction = moveDirection,
-                    AttackName = AttackName.Light_DL,
-                    ActionInitiated = false
-                }, 
-                filter.Buffer->framesSaved);
-            }else{
-                //no action input, add a walk action to the buffer
-                EnqueueInputBuffer(*(filter.Link), 
-                new MovementStruct{
-                    Direction = moveDirection,
-                }, 
-                filter.Buffer->framesSaved);
+            if(currAction -> ActionPhase < 4){
+                //attack not yet cancelable
+                UpdateInputBuffer(buffer, frame, filter.Link->Player);
+                return;
             }
 
+            //read buffer and update current action
+            //trigger animations here too
+            
+            var bufferedAction = GetOldestActionInBuffer(buffer);
+            if(bufferedAction.exists){
+                // Trigger the attack this frame
+                QAttackData FoundAttack = attackData[0];//this is a magic number for now. Ill read the direcitonalinput when I implement more attacks.
+                currAction -> ActionType = (byte)ActionType.Attack;
+                currAction -> AttackIndex = (byte)(FoundAttack.AttackVals.attackName); 
+                currAction -> StartTick = frame.Number;
+                currAction -> StartUpFrames = (ushort)FoundAttack.AttackVals.startupFrames;
+                currAction -> ActiveFrames = (ushort)FoundAttack.AttackVals.activeFrames;
+                currAction -> EndLagFrames = (ushort)FoundAttack.AttackVals.endlagFrames;
+                currAction -> CancelableFrames = (ushort)FoundAttack.AttackVals.cancelableFrames;
+                currAction -> ActionPhase = (byte)1;
+                currAction -> Damage = (ushort)FoundAttack.AttackVals.damage;
+                currAction -> ActionNumber += 1;
+                AnimatorComponent.SetTrigger(frame, filter.Animator, "Light_DL");
+                //trigger attack anim
+            }else{
+                //trigger movement
+                currAction -> ActionType = (byte)ActionType.Movement;
+                currAction -> StartTick = frame.Number;
+                currAction -> ActionPhase = 4;
+                currAction -> Direction = moveDirection;
+                //trigger movement anim
+                AnimatorComponent.SetTrigger(frame, filter.Animator, "Walk");
+            }
+            
+
             //Log.Debug("Input count in buffer is: " + InputBuffers[*(filter.Link)].Count);
+            /*
+
 
             //read oldest input, skip movementstructs
             if(CurrentActions[*(filter.Link)] is ActionStruct){
@@ -92,6 +115,8 @@ namespace Quantum
             }
             */
 
+            UpdateInputBuffer(buffer, frame, filter.Link->Player);
+
         }
 
         public void OnPlayerAdded(Frame frame, PlayerRef player, bool firstTime)
@@ -105,9 +130,6 @@ namespace Quantum
                 Entity = entity
             };
             frame.Add(entity, link);
-
-            InputBuffers.Add(link, new List<InputStruct>());
-            CurrentActions.Add(link, null);
 
             /*
             var inputBuffer = new InputBuffer(){
@@ -124,26 +146,92 @@ namespace Quantum
             }
         }
 
-        void ClearInputBuffer(PlayerLink playerLink){
-            InputBuffers[playerLink].Clear();
+        //you have to change this if you wanna change how many frames the input buffer holds
+        //I know its gross but I couldn't find another way.
+        private void UpdateInputBuffer(InputBuffer* buffer, Frame frame, PlayerRef player){
+            var currInput = frame.GetPlayerInput(player);
+
+            buffer->LastDirection9 = buffer->LastDirection8;
+            buffer->LightAttack9 = buffer->LightAttack8;
+
+            buffer->LastDirection8 = buffer->LastDirection7;
+            buffer->LightAttack8 = buffer->LightAttack7;
+
+            buffer->LastDirection7 = buffer->LastDirection6;
+            buffer->LightAttack7 = buffer->LightAttack6;
+
+            buffer->LastDirection6 = buffer->LastDirection5;
+            buffer->LightAttack6 = buffer->LightAttack5;
+
+            buffer->LastDirection5 = buffer->LastDirection4;
+            buffer->LightAttack5 = buffer->LightAttack4;
+
+            buffer->LastDirection4 = buffer->LastDirection3;
+            buffer->LightAttack4 = buffer->LightAttack3;
+
+            buffer->LastDirection3 = buffer->LastDirection2;
+            buffer->LightAttack3 = buffer->LightAttack2;
+
+            buffer->LastDirection2 = buffer->LastDirection1;
+            buffer->LightAttack2 = buffer->LightAttack1;
+
+            buffer->LastDirection1 = currInput -> LeftStickDirection;
+            buffer->LightAttack1 = currInput-> LightAttack == true;
         }
 
-        void EnqueueInputBuffer(PlayerLink playerLink, InputStruct addedInput, int bufferMax){
-            var list = InputBuffers[playerLink];
-            list.Add(addedInput);
-            if(list.Count > bufferMax){
-                list.RemoveAt(0);
+        private (bool exists, Input input) GetOldestActionInBuffer(InputBuffer* buffer){
+            Quantum.Input input = new Quantum.Input();
+            for (int i = 0; i < 3; i++) { // last 3 frames in buffer
+                bool actionPressed = i switch {
+                    0 => buffer->LightAttack0 == true,
+                    1 => buffer->LightAttack1,
+                    2 => buffer->LightAttack2,
+                    3 => buffer->LightAttack3,
+                    4 => buffer->LightAttack4,
+                    5 => buffer->LightAttack5,
+                    6 => buffer->LightAttack6,
+                    7 => buffer->LightAttack7,
+                    8 => buffer->LightAttack8,
+                    9 => buffer->LightAttack9,
+                    _ => false
+                };
+
+                if (actionPressed) {
+                    input.LeftStickDirection = i switch {
+                    0 => buffer->LastDirection0,
+                    1 => buffer->LastDirection1,
+                    2 => buffer->LastDirection2,
+                    3 => buffer->LastDirection3,
+                    4 => buffer->LastDirection4,
+                    5 => buffer->LastDirection5,
+                    6 => buffer->LastDirection6,
+                    7 => buffer->LastDirection7,
+                    8 => buffer->LastDirection8,
+                    9 => buffer->LastDirection9,
+                    _ => new FPVector2(0,0)
+                    };
+                    input.LightAttack = i switch {
+                        0 => buffer->LightAttack0==true,
+                        1 => buffer->LightAttack1==true,
+                        2 => buffer->LightAttack2==true,
+                        3 => buffer->LightAttack3==true,
+                        4 => buffer->LightAttack4==true,
+                        5 => buffer->LightAttack5==true,
+                        6 => buffer->LightAttack6==true,
+                        7 => buffer->LightAttack7==true,
+                        8 => buffer->LightAttack8==true,
+                        9 => buffer->LightAttack9==true,
+                        _ => false
+                    };
+                    return(true, input);
+                }
             }
-            
-        }
 
-        InputStruct DequeueInputBuffer(PlayerLink playerLink){
-            var list = InputBuffers[playerLink];
-            var returnVal = list[0];
-            InputBuffers[playerLink].RemoveAt(0);
-            return returnVal;
-        }        
+            return (false, input);
+        }
     }
+
+    
 }
 
 

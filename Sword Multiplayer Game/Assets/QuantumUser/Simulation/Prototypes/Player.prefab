@@ -5059,7 +5059,7 @@ GameObject:
   - component: {fileID: 3649794869335545105}
   - component: {fileID: 6305088747221705020}
   - component: {fileID: 790016333672194274}
-  - component: {fileID: 6238734917431992190}
+  - component: {fileID: 6674607080262247956}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5516,8 +5516,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prototype:
-    framesSaved: 10
---- !u!114 &6238734917431992190
+    LastDirection0:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    LightAttack0:
+      Value: 0
+    LastDirection1:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    LightAttack1:
+      Value: 0
+    LastDirection2:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    LightAttack2:
+      Value: 0
+    LastDirection3:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    LightAttack3:
+      Value: 0
+    LastDirection4:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    LightAttack4:
+      Value: 0
+    LastDirection5:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    LightAttack5:
+      Value: 0
+    LastDirection6:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    LightAttack6:
+      Value: 0
+    LastDirection7:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    LightAttack7:
+      Value: 0
+    LastDirection8:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    LightAttack8:
+      Value: 0
+    LastDirection9:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+    LightAttack9:
+      Value: 0
+    Count: 0
+--- !u!114 &6674607080262247956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5526,17 +5596,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3472594335652766015}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e092703fb9793c4b95def84ce69c6fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ac9c9765dc2c15409f45ceaca83c0b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Prototype:
+    ActionInitialized:
+      Value: 0
+    ActionType: 0
+    Direction:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
     AttackIndex: 0
     StartTick: 0
     StartUpFrames: 0
     ActiveFrames: 0
     EndLagFrames: 0
     CancelableFrames: 0
-    ActionPhase: 1
+    ActionPhase: 5
     Damage: 0
 --- !u!1 &5250793970626599005
 GameObject:
