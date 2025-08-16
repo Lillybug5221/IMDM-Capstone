@@ -6,7 +6,7 @@ namespace Quantum
     using Quantum;
     using Quantum.Addons.Animator;
     
-    public unsafe class MovementSystem : SystemMainThreadFilter<MovementSystem.Filter>, ISignalOnPlayerAdded , ISignalOnAnimatorRootMotion3D{
+    public unsafe class MovementSystem : SystemMainThreadFilter<MovementSystem.Filter>, ISignalOnAnimatorRootMotion3D{
         public struct Filter
         {
             public EntityRef Entity;
@@ -18,11 +18,24 @@ namespace Quantum
         
         public override void Update(Frame frame, ref Filter filter)
         {
+             KCC* kcc = filter.KCC;
+            //check current action to see if movement is possible
+            //read directional input
+            if(InputBufferSystem.CurrentActions[*(filter.Link)] == null){
+                Log.Debug("CurrentAction is null");
+                return;
+            }
+            var currentAction = InputBufferSystem.CurrentActions[*(filter.Link)];
+            FPVector2 moveDirection = new FPVector2(0,0);
+            if(currentAction is MovementStruct){
+                moveDirection = ((MovementStruct)currentAction).Direction;
+                InputBufferSystem.CurrentActions[*(filter.Link)] = null;
+            }else{
+                //other action ocurring
+                kcc->SetInputDirection(new FPVector3(0,0,0));
+                return;
+            }
             //calculate player positions and forward direction
-
-            KCC* kcc = filter.KCC;
-            var input = frame.GetPlayerInput(filter.Link->Player);
-            var attackData = frame.SimulationConfig.AttackHitboxData;
             
             FPVector3 playerPosition = filter.Transform->Position;
             FPVector3 opponentPosition = new FPVector3(0,0,0);
@@ -53,33 +66,13 @@ namespace Quantum
             FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
             filter.Transform->Rotation = slerpedRotation;
 
-            //read directional input
-            var moveDirection = input->LeftStickDirection;
-            if(moveDirection.Magnitude > 1)
-            {
-                moveDirection = moveDirection.Normalized;
-            }
-
-            bool actionOccuring = false;
-            //stand still if an action is occuring
-            if(frame.TryGet<ActionState>(filter.Entity, out var actionState)){
-                actionOccuring = true;
-                if(!actionState.Cancelable){
-                    kcc->SetInputDirection(GetMovementDirection(new FPVector2(0,0),forwardDir));
-                    return;
-                }
-                //AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", false);
-            }else{
-                //AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", true);
-            }
-
             /*
             if(moveDirection.Magnitude > FP.FromFloat_UNSAFE(0.1f)){
                 Log.Debug("Action Canceled");
                 AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", true);
                 frame.Remove<ActionState>(filter.Entity);
             }*/
-
+            /*
             if(input->LightAttack.IsDown){
                 int foundAttackNum = GetAttackDataFromEnum(AttackName.Light_DL, attackData);
                 int startUp = attackData[foundAttackNum].AttackVals.startupFrames;
@@ -105,58 +98,34 @@ namespace Quantum
                 AnimatorComponent.SetTrigger(frame, filter.Animator, "Light_DL");
                 
             }
-
-            if (input->Jump.IsDown && kcc->IsGrounded == true)
-            {
-                kcc->Jump(FPVector3.Up * 5);
-            }
+            */
 
             FPVector3 moveDir = GetMovementDirection(moveDirection, forwardDir);
             kcc->SetInputDirection(moveDir);
             
         }
 
-    public static FPVector3 GetMovementDirection(FPVector2 inputDirection, FPVector3 forward) {
-        // Assume up is Y-up (0,1,0)
-        FPVector3 up = FPVector3.Up;
+        public static FPVector3 GetMovementDirection(FPVector2 inputDirection, FPVector3 forward) {
+            // Assume up is Y-up (0,1,0)
+            FPVector3 up = FPVector3.Up;
 
-        // Calculate right vector = cross(up, forward)
-        FPVector3 right = FPVector3.Cross(up, forward).Normalized;
+            // Calculate right vector = cross(up, forward)
+            FPVector3 right = FPVector3.Cross(up, forward).Normalized;
 
-        // Flatten forward to horizontal plane (project on plane)
-        FPVector3 flatForward = FPVector3.ProjectOnPlane(forward, up).Normalized;
+            // Flatten forward to horizontal plane (project on plane)
+            FPVector3 flatForward = FPVector3.ProjectOnPlane(forward, up).Normalized;
 
-        // Combine input: forward * input.y + right * input.x
-        FPVector3 moveDir = flatForward * inputDirection.Y + right * inputDirection.X;
-        //Log.Debug(inputDirection +","+forward + "," + right);
-        // Normalize if needed
-        /*
-        if (moveDir.MagnitudeSquared > FP._1) {
-            moveDir = moveDir.Normalized;
-        }
-        */
-
-        return moveDir;
-    }
-
-        
-
-        public void OnPlayerAdded(Frame frame, PlayerRef player, bool firstTime)
-        {
-            var runtimePlayer = frame.GetPlayerData(player);
-            var entity = frame.Create(runtimePlayer.PlayerAvatar);
-
-            var link = new PlayerLink()
-            {
-                Player = player,
-                Entity = entity
-            };
-            frame.Add(entity, link);
-
-            if(frame.Unsafe.TryGetPointer<Transform3D>(entity, out var transform))
-            {
-                transform->Position = new FPVector3(player * 2, 2, -5);
+            // Combine input: forward * input.y + right * input.x
+            FPVector3 moveDir = flatForward * inputDirection.Y + right * inputDirection.X;
+            //Log.Debug(inputDirection +","+forward + "," + right);
+            // Normalize if needed
+            /*
+            if (moveDir.MagnitudeSquared > FP._1) {
+                moveDir = moveDir.Normalized;
             }
+            */
+
+            return moveDir;
         }
 
         public void OnAnimatorRootMotion3D(Frame frame, EntityRef entity, AnimatorFrame deltaFrame, AnimatorFrame currentFrame){
@@ -209,16 +178,6 @@ namespace Quantum
                 }
             }
             
-        }
-
-        public int GetAttackDataFromEnum(AttackName attackName, List<QAttackData> attackData){
-            for(int i = 0; i < attackData.Count; i++){
-                if(attackData[i].AttackVals.attackName == attackName){
-                    return i;
-                }
-            }
-            Log.Error("No attack by that name found");
-            return 0;
         }
     }
 }

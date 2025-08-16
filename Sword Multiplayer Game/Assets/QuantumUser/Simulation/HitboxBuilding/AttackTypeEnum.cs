@@ -30,6 +30,13 @@ public enum AttackType{
 }
 
 [Serializable]
+public enum InputType{
+    Movement,
+    Attack,
+    Parry
+}
+
+[Serializable]
 public struct Attack{
     public AttackName attackName;
     public Vector2 direction;
@@ -40,3 +47,5 @@ public struct Attack{
     public int cancelableFrames;
     public int damage;
 }
+
+

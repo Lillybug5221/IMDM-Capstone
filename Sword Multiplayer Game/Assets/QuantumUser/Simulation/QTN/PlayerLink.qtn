@@ -29,6 +29,10 @@ component MeleeHitbox
     bool DamageApplied;
 }
 
+component InputBuffer {
+    int framesSaved;
+}
+
 component Damageable
 {
     int Health;

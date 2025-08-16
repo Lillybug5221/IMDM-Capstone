@@ -46,12 +46,12 @@ MonoBehaviour:
       - Index: 0
         Name: Walk/Idle to Light_DL
         Duration:
-          RawValue: 16384
+          RawValue: 0
         Offset:
           RawValue: 0
         ExitTime:
           RawValue: 77065
-        HasExitTime: 1
+        HasExitTime: 0
         CanTransitionToSelf: 0
         Conditions:
         - VariableName: Light_DL
