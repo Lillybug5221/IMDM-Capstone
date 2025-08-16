@@ -15,6 +15,7 @@ namespace Quantum
 
         public override void Update(Frame frame, ref Filter filter)
         {
+            Log.Debug("Hitbox Exists");
             var hitbox = filter.Hitbox;
             if(frame.Number - hitbox->SpawnFrame > hitbox->Lifetime){
                 frame.Destroy(filter.Entity);

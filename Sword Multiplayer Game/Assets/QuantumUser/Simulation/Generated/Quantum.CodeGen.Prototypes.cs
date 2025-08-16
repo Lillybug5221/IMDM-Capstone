@@ -65,9 +65,7 @@ namespace Quantum.Prototypes {
     public Int32 ActiveFrames;
     public Int32 EndLagFrames;
     public Int32 CancelableFrames;
-    public Int32 TotalDuration;
-    public QBoolean HitboxSpawned;
-    public QBoolean Cancelable;
+    public Int32 ActionPhase;
     public Int32 Damage;
     partial void MaterializeUser(Frame frame, ref Quantum.ActionState result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
@@ -82,9 +80,7 @@ namespace Quantum.Prototypes {
         result.ActiveFrames = this.ActiveFrames;
         result.EndLagFrames = this.EndLagFrames;
         result.CancelableFrames = this.CancelableFrames;
-        result.TotalDuration = this.TotalDuration;
-        result.HitboxSpawned = this.HitboxSpawned;
-        result.Cancelable = this.Cancelable;
+        result.ActionPhase = this.ActionPhase;
         result.Damage = this.Damage;
         MaterializeUser(frame, ref result, in context);
     }

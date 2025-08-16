@@ -10,9 +10,12 @@ component ActionState {
     int ActiveFrames;
     int EndLagFrames;
     int CancelableFrames;
-    int TotalDuration;
-    bool HitboxSpawned;
-    bool Cancelable;
+    int ActionPhase; 
+    //1 : Startup
+    //2 : Active
+    //3 : Endlag
+    //4 : Cancelable
+    //5 : Ended
     int Damage;
 }
 

@@ -22,7 +22,6 @@ namespace Quantum
             //check current action to see if movement is possible
             //read directional input
             if(InputBufferSystem.CurrentActions[*(filter.Link)] == null){
-                Log.Debug("CurrentAction is null");
                 return;
             }
             var currentAction = InputBufferSystem.CurrentActions[*(filter.Link)];

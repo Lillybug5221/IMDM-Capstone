@@ -15,6 +15,7 @@ namespace Quantum
             public PlayerLink* Link;
             public AnimatorComponent* Animator;
             public InputBuffer* Buffer;
+            public ActionState* ActionState;
             
         }
 
@@ -24,6 +25,7 @@ namespace Quantum
         
         public override void Update(Frame frame, ref Filter filter)
         {
+            /*
             var input = frame.GetPlayerInput(filter.Link->Player);
             var attackData = frame.SimulationConfig.AttackHitboxData;
 
@@ -39,7 +41,8 @@ namespace Quantum
                 EnqueueInputBuffer(*(filter.Link), 
                 new AttackStruct{
                     Direction = moveDirection,
-                    AttackName = AttackName.Light_DL
+                    AttackName = AttackName.Light_DL,
+                    ActionInitiated = false
                 }, 
                 filter.Buffer->framesSaved);
             }else{
@@ -51,11 +54,13 @@ namespace Quantum
                 filter.Buffer->framesSaved);
             }
 
-            Log.Debug("Input count in buffer is: " + InputBuffers[*(filter.Link)].Count);
+            //Log.Debug("Input count in buffer is: " + InputBuffers[*(filter.Link)].Count);
 
             //read oldest input, skip movementstructs
             if(CurrentActions[*(filter.Link)] is ActionStruct){
-                return;
+                if(filter.ActionState-> ActionPhase < 4){
+                    return;
+                }
             }
             //this is inefficient and loops the list twice, but the buffer will remain small so it should be fine.
             bool nonMovementInputInBuffer = false;
@@ -73,15 +78,19 @@ namespace Quantum
                 }
                 if(foundAction != null){
                     CurrentActions[*(filter.Link)] = foundAction;
-
                 }else{
                     Log.Error("No non-movement input found in buffer.");
                 }
             }else{
                 //gets most recent directional input, no buffer for that
-                CurrentActions[*(filter.Link)] = InputBuffers[*(filter.Link)][InputBuffers[*(filter.Link)].Count-1];
+                MovementStruct foundMovement = (MovementStruct)InputBuffers[*(filter.Link)][InputBuffers[*(filter.Link)].Count-1];
+                if(!(foundMovement.Direction == new FPVector2(0,0) && CurrentActions[*(filter.Link)] is ActionStruct)){
+                    CurrentActions[*(filter.Link)] = foundMovement;
+                }
+                
                 ClearInputBuffer(*(filter.Link));
             }
+            */
 
         }
 
@@ -133,17 +142,7 @@ namespace Quantum
             var returnVal = list[0];
             InputBuffers[playerLink].RemoveAt(0);
             return returnVal;
-        }
-
-        public int GetAttackDataFromEnum(AttackName attackName, List<QAttackData> attackData){
-            for(int i = 0; i < attackData.Count; i++){
-                if(attackData[i].AttackVals.attackName == attackName){
-                    return i;
-                }
-            }
-            Log.Error("No attack by that name found");
-            return 0;
-        }
+        }        
     }
 }
 

@@ -17,16 +17,18 @@ namespace Quantum {
     }
 
     public interface ActionStruct : InputStruct {
-        
+        bool ActionInitiated {get; set; }
     }
 
     public struct AttackStruct : ActionStruct {
         public FPVector2 Direction {get; set; }
         public AttackName AttackName {get; set; }
+        public bool ActionInitiated {get; set; }
     }
 
     public struct ParryStruct : ActionStruct {
         public FPVector2 Direction {get; set; }
+        public bool ActionInitiated {get; set; }
     }
     
 }
