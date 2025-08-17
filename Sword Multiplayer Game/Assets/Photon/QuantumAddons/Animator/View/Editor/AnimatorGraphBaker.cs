@@ -105,6 +105,7 @@
       int weightTableResolution = (int)graphAsset.WeightTableResolution;
       int variableCount = controller.parameters.Length;
 
+
       graphAsset.Variables = new AnimatorVariable[variableCount];
 
       #region Mecanim Parameters/Variables
@@ -357,28 +358,34 @@
               : unityAnimatorStateTransition.destinationState;
             if (!stateDictionary.ContainsKey(destinationState)) continue;
 
+            //if (state.motion == null)
+            //{
+            //  throw new Exception(string.Format("Baking '{0}' failed: Animation state '{1}' in controller '{2}' (layer '{3}') requires a motion.", dataAsset.name, state.name, controller.name, controller.layers[l].name));
+            //}
+            //if (destinationState.motion == null)
+            //{
+            //  throw new Exception(string.Format("Baking '{0}' failed: Animation state '{1}' in controller '{2}' (layer '{3}') requires a motion.", dataAsset.name, destinationState.name, controller.name, controller.layers[l].name));
+            //}
+
             AnimatorTransition newTransition = new AnimatorTransition();
             newTransition.Index = transitionIndex;
             newTransition.Name = string.Format("{0} to {1}", state.name, destinationState.name);
 
-            AnimationClip clip = GetStateClip(runtimeController, state.motion);
-            AnimationClip destinationClip = GetStateClip(runtimeController, destinationState.motion);
-
             FP transitionDuration = unityAnimatorStateTransition.duration.ToFP();
             FP transitionOffset = unityAnimatorStateTransition.offset.ToFP();
-            if (unityAnimatorStateTransition.hasFixedDuration == false && clip != null &&
-                destinationClip != null)
+            if (unityAnimatorStateTransition.hasFixedDuration == false && state.motion != null &&
+                destinationState.motion != null)
             {
-              transitionDuration *= clip.averageDuration.ToFP();
-              transitionOffset *= destinationClip.averageDuration.ToFP();
+              transitionDuration *= state.motion.averageDuration.ToFP();
+              transitionOffset *= destinationState.motion.averageDuration.ToFP();
             }
 
             newTransition.Duration = transitionDuration;
             newTransition.Offset = transitionOffset;
             newTransition.HasExitTime = unityAnimatorStateTransition.hasExitTime;
 
-            var exitTime = clip != null
-              ? unityAnimatorStateTransition.exitTime * clip.averageDuration
+            var exitTime = state.motion != null
+              ? unityAnimatorStateTransition.exitTime * state.motion.averageDuration
               : unityAnimatorStateTransition.exitTime;
 
             newTransition.ExitTime = FP.FromFloat_UNSAFE(exitTime);
@@ -455,9 +462,6 @@
 
           AnimatorStateTransition transition = anyStateTransitions[t];
           if (!stateDictionary.ContainsKey(transition.destinationState)) continue;
-
-          AnimationClip destinationClip = GetStateClip(runtimeController, transition.destinationState.motion);
-
           AnimatorTransition newTransition = new AnimatorTransition();
           newTransition.Index = t;
           newTransition.Name = string.Format("Any State to {0}", transition.destinationState.name);
@@ -683,22 +687,14 @@
       Quaternion offsetRotUq = Quaternion.Inverse(startRotUq);
       FPQuaternion offsetRot = FPQuaternion.Inverse(startRot);
 
-      float startPositionX = 0f;
-      float startPositionY = 0f;
-      float startPositionZ = 0f;
-      if (hasPosition) {
-          startPositionX = curveTx.Evaluate(settings.startTime);
-          startPositionY = curveTy.Evaluate(settings.startTime);
-          startPositionZ = curveTz.Evaluate(settings.startTime);
-      }
+      float startPositionX = curveTx.Evaluate(settings.startTime);
+      float startPositionY = curveTy.Evaluate(settings.startTime);
+      float startPositionZ = curveTz.Evaluate(settings.startTime);
 
-      float startRotYFloat = 0f;
-      if (hasRotation) {
-          var startCurveRot = GetCurveRotation(curveRx, curveRy, curveRz, curveRw, settings.startTime);
-          startRotYFloat = startCurveRot.eulerAngles.y * Mathf.Deg2Rad;
-          while (startRotYFloat < -Mathf.PI) startRotYFloat += Mathf.PI * 2;
-          while (startRotYFloat > Mathf.PI) startRotYFloat += -Mathf.PI * 2;
-      }
+      var startCurveRot = GetCurveRotation(curveRx, curveRy, curveRz, curveRw, settings.startTime);
+      float startRotYFloat = startCurveRot.eulerAngles.y * Mathf.Deg2Rad;
+      while (startRotYFloat < -Mathf.PI) startRotYFloat += Mathf.PI * 2;
+      while (startRotYFloat > Mathf.PI) startRotYFloat += -Mathf.PI * 2;
 
       for (int i = 0; i < frameCount; i++)
       {
