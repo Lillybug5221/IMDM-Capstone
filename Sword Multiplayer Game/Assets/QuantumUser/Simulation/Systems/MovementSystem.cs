@@ -22,6 +22,22 @@ namespace Quantum
             
             KCC* kcc = filter.KCC;
             var currAction = filter.CurrAction;
+
+            //set rotation to action saved enemy position
+            FPVector3 playerPosition = filter.Transform->Position;
+            FPVector3 opponentPosition = currAction -> EnemyPosition;
+
+            FPVector3 forwardDir = opponentPosition - playerPosition;
+            forwardDir.Y = FP._0;
+            forwardDir = FPVector3.Normalize(forwardDir);
+
+            //face player towards opponent
+            FPQuaternion targetRotation = FPQuaternion.LookRotation(forwardDir, FPVector3.Up);
+            FP rotationSpeed = FP._1;
+            FPQuaternion currentRotation = filter.Transform->Rotation;  
+            FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
+            filter.Transform->Rotation = slerpedRotation;
+
             //check current action to see if movement is possible
             //read directional input
             if((ActionType)(currAction->ActionType) == ActionType.None){
@@ -36,71 +52,9 @@ namespace Quantum
                 kcc->SetInputDirection(new FPVector3(0,0,0));
                 return;
             }
-            //calculate player positions and forward direction
             
-            FPVector3 playerPosition = filter.Transform->Position;
-            FPVector3 opponentPosition = new FPVector3(0,0,0);
-
-            foreach (var pair in frame.GetComponentIterator<PlayerLink>()) {
-                EntityRef entity = pair.Entity;
-                PlayerLink playerLink = pair.Component;
-                if(playerLink.Player != filter.Link -> Player){
-                    if(frame.Unsafe.TryGetPointer<Transform3D>(entity, out var enemyTransform))
-                    {
-                        opponentPosition = enemyTransform->Position;
-                        //Log.Debug("opponent pos is" + opponentPosition);
-                    }
-                }
-            }
-
-            FPVector3 forwardDir = opponentPosition - playerPosition;
-            forwardDir.Y = FP._0;
-            forwardDir = FPVector3.Normalize(forwardDir);
             
-
-            
-
-            //face player towards opponent
-            FPQuaternion targetRotation = FPQuaternion.LookRotation(forwardDir, FPVector3.Up);
-            FP rotationSpeed = FP._1;
-            FPQuaternion currentRotation = filter.Transform->Rotation;  
-            FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
-            filter.Transform->Rotation = slerpedRotation;
-
-            /*
-            if(moveDirection.Magnitude > FP.FromFloat_UNSAFE(0.1f)){
-                Log.Debug("Action Canceled");
-                AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", true);
-                frame.Remove<ActionState>(filter.Entity);
-            }*/
-            /*
-            if(input->LightAttack.IsDown){
-                int foundAttackNum = GetAttackDataFromEnum(AttackName.Light_DL, attackData);
-                int startUp = attackData[foundAttackNum].AttackVals.startupFrames;
-                int active = attackData[foundAttackNum].AttackVals.activeFrames;
-                int endLag = attackData[foundAttackNum].AttackVals.endlagFrames;
-                int cancelable = attackData[foundAttackNum].AttackVals.cancelableFrames;
-                frame.Add(filter.Entity,new ActionState{
-                    AttackIndex = foundAttackNum,
-                    StartTick = frame.Number,
-                    StartUpFrames = startUp,
-                    ActiveFrames = active,
-                    EndLagFrames = endLag,
-                    CancelableFrames = cancelable,
-                    TotalDuration = startUp + active + endLag + cancelable,
-                    HitboxSpawned = false,
-                    Cancelable = false,
-                    Damage = attackData[foundAttackNum].AttackVals.damage
-                });
-
-                //set anim
-                AnimatorComponent.SetBoolean(frame, filter.Animator, "Actionable", false);
-                //AnimatorComponent.ResetTrigger(frame, filter.Animator, "Light_DL");
-                AnimatorComponent.SetTrigger(frame, filter.Animator, "Light_DL");
-                
-            }
-            */
-        
+            //apply movement
             FPVector3 moveDir = GetMovementDirection(moveDirection, forwardDir);
             kcc->SetInputDirection(moveDir);
             

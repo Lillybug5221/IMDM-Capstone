@@ -43,6 +43,26 @@ namespace Quantum
                 //attack not yet cancelable
                 UpdateInputBuffer(buffer, frame, filter.Link->Player);
                 return;
+            }else if((ActionType)(currAction -> ActionType) != ActionType.Movement && currAction -> ActionPhase == 4){
+                if(input -> LightAttack == false &&
+                    input -> LeftStickDirection == new FPVector2(0,0)){
+                    UpdateInputBuffer(buffer, frame, filter.Link->Player);
+                    return;
+                }
+
+            }
+            //update enemy position
+            FPVector3 opponentPosition = new FPVector3(0,0,0);
+            foreach (var pair in frame.GetComponentIterator<PlayerLink>()) {
+                EntityRef entity = pair.Entity;
+                PlayerLink playerLink = pair.Component;
+                if(playerLink.Player != filter.Link -> Player){
+                    if(frame.Unsafe.TryGetPointer<Transform3D>(entity, out var enemyTransform))
+                    {
+                        opponentPosition = enemyTransform->Position;
+                        //Log.Debug("opponent pos is" + opponentPosition);
+                    }
+                }
             }
 
             //read buffer and update current action
@@ -54,6 +74,7 @@ namespace Quantum
                 QAttackData FoundAttack = attackData[0];//this is a magic number for now. Ill read the direcitonalinput when I implement more attacks.
                 currAction -> ActionType = (byte)ActionType.Attack;
                 currAction -> AttackIndex = (byte)(FoundAttack.AttackVals.attackName); 
+                currAction -> EnemyPosition = opponentPosition;
                 currAction -> StartTick = frame.Number;
                 currAction -> StartUpFrames = (ushort)FoundAttack.AttackVals.startupFrames;
                 currAction -> ActiveFrames = (ushort)FoundAttack.AttackVals.activeFrames;
@@ -67,6 +88,7 @@ namespace Quantum
             }else{
                 //trigger movement
                 currAction -> ActionType = (byte)ActionType.Movement;
+                currAction -> EnemyPosition = opponentPosition;
                 currAction -> StartTick = frame.Number;
                 currAction -> ActionPhase = 4;
                 currAction -> Direction = moveDirection;
@@ -74,47 +96,6 @@ namespace Quantum
                 AnimatorComponent.SetTrigger(frame, filter.Animator, "Walk");
             }
             
-
-            //Log.Debug("Input count in buffer is: " + InputBuffers[*(filter.Link)].Count);
-            /*
-
-
-            //read oldest input, skip movementstructs
-            if(CurrentActions[*(filter.Link)] is ActionStruct){
-                if(filter.ActionState-> ActionPhase < 4){
-                    return;
-                }
-            }
-            //this is inefficient and loops the list twice, but the buffer will remain small so it should be fine.
-            bool nonMovementInputInBuffer = false;
-            foreach(InputStruct bufferedInput in InputBuffers[*(filter.Link)]){
-                if(bufferedInput is ActionStruct){nonMovementInputInBuffer = true;}
-            }
-
-            if(nonMovementInputInBuffer){
-                ActionStruct foundAction = null;
-                for(int i = 0; i < InputBuffers[*(filter.Link)].Count && foundAction == null; i++){
-                    var action = DequeueInputBuffer(*(filter.Link));
-                    if(action is ActionStruct){
-                        foundAction = (ActionStruct)action;
-                    }
-                }
-                if(foundAction != null){
-                    CurrentActions[*(filter.Link)] = foundAction;
-                }else{
-                    Log.Error("No non-movement input found in buffer.");
-                }
-            }else{
-                //gets most recent directional input, no buffer for that
-                MovementStruct foundMovement = (MovementStruct)InputBuffers[*(filter.Link)][InputBuffers[*(filter.Link)].Count-1];
-                if(!(foundMovement.Direction == new FPVector2(0,0) && CurrentActions[*(filter.Link)] is ActionStruct)){
-                    CurrentActions[*(filter.Link)] = foundMovement;
-                }
-                
-                ClearInputBuffer(*(filter.Link));
-            }
-            */
-
             UpdateInputBuffer(buffer, frame, filter.Link->Player);
 
         }

@@ -22,7 +22,7 @@ namespace Quantum.Addons.Animator
     /// The frame rate at which animations will be played back
     /// </summary>
     public float FrameRate = 60;
-    
+
     /// <summary>
     /// The Unity Animator Component reference.
     /// </summary>
@@ -44,7 +44,6 @@ namespace Quantum.Addons.Animator
 
       // The Animator is disabled so it can be updated it manually.
       _animator.enabled = false;
-      
     }
 
     public void Init(Frame frame, AnimatorComponent* animator)
@@ -89,9 +88,10 @@ namespace Quantum.Addons.Animator
             else
             {
               // Make sure the animator gets updated once per layer
-              if (layerIndex == asset.Layers.Length -1)
+              if (layerIndex == asset.Layers.Length - 1)
               {
-                UpdateAnimator(layerIndex, layerData->ToStateTime.AsFloat, layerData->ToLength.AsFloat);
+                UpdateAnimator(layerIndex, layerData->ToStateTime.AsFloat, layerData->ToLength.AsFloat,
+                  (layerData->TransitionDuration - layerData->TransitionTime).AsFloat);
               }
             }
           }
@@ -106,13 +106,13 @@ namespace Quantum.Addons.Animator
           else
           {
             // Make sure the animator gets updated once per layer
-            if (layerIndex == asset.Layers.Length -1)
+            if (layerIndex == asset.Layers.Length - 1)
             {
               UpdateAnimator(layerIndex, layerData->Time.AsFloat, layerData->Length.AsFloat);
             }
           }
         }
-        
+
         UpdateParameters(frame, asset, animator);
       }
     }
@@ -150,8 +150,7 @@ namespace Quantum.Addons.Animator
     /// <summary>
     /// Updates the animator to the given time.
     /// </summary>
-    /// <param name="time"></param>
-    void UpdateAnimator(int layerIndex, float time, float length)
+    void UpdateAnimator(int layerIndex, float time, float length, float? transitionDifference = null)
     {
       float delta = 0;
       if (!UtilizeFrameRate)
@@ -165,13 +164,15 @@ namespace Quantum.Addons.Animator
         delta = inFrame - _previousAnimationTime[layerIndex];
         _previousAnimationTime[layerIndex] = inFrame;
       }
-      
+
       // Preventing negative value due to flicker on BlendTree states
-      if (delta < 0)
+      if (delta < 0 && transitionDifference.HasValue)
       {
-        delta = length - Math.Abs(delta);
+        _animator.CrossFadeInFixedTime(_previousAnimationState[layerIndex], transitionDifference.Value, layerIndex,
+          time % length);
+        delta = 0f;
       }
-      
+
       _animator.Update(delta);
     }
   }

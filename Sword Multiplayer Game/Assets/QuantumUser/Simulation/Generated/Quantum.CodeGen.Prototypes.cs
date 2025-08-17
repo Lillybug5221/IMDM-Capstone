@@ -143,6 +143,7 @@ namespace Quantum.Prototypes {
     public Int32 ActionNumber;
     public Byte ActionType;
     public FPVector2 Direction;
+    public FPVector3 EnemyPosition;
     public Byte AttackIndex;
     public Int32 StartTick;
     public UInt16 StartUpFrames;
@@ -161,6 +162,7 @@ namespace Quantum.Prototypes {
         result.ActionNumber = this.ActionNumber;
         result.ActionType = this.ActionType;
         result.Direction = this.Direction;
+        result.EnemyPosition = this.EnemyPosition;
         result.AttackIndex = this.AttackIndex;
         result.StartTick = this.StartTick;
         result.StartUpFrames = this.StartUpFrames;

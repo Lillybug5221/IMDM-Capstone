@@ -1,3 +1,11 @@
+Aug 11, 2025
+Quantum Animator 3.0.7 Alpha
+
+Fixed:
+ - OverrideController transitions baker.
+ - AnimatorMecanim: fixed same state transition and negative delta issue.
+ - AnimatorGraphBaker: fixed to prevent NullReferenceException when baking animations without root position and/or rotation curves.
+
 Jul 04, 2025
 Quantum Animator 3.0.6 Alpha
 

@@ -20,6 +20,7 @@ component CurrentAction{
     int ActionNumber;
     byte ActionType; //0 = none, 1 = walk, 2 = attack, 3 = parry
     FPVector2 Direction;
+    FPVector3 EnemyPosition;
     byte AttackIndex; //correlates to an AttackTypeEnum.
     int StartTick;
     ushort StartUpFrames;

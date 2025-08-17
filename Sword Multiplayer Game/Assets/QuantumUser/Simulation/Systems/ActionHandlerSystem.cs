@@ -29,14 +29,11 @@ namespace Quantum
                 int AttackDataIndex = GetAttackDataFromEnum((AttackName)currAction->AttackIndex, attacksData);
                 QAttackData AttackData = attacksData[AttackDataIndex];
                 int frameNumber = frame.Number - currAction -> StartTick;
-                Log.Debug("Phase is " + currAction -> ActionPhase);
                 
                 if(currAction -> ActionPhase == 1){
                     currAction -> StartUpFrames--;
-                    Log.Debug("After" + currAction -> StartUpFrames);
                     if(currAction -> StartUpFrames <= 0){
-                        Log.Debug("Phase Changing");
-                           currAction -> ActionPhase++;
+                        currAction -> ActionPhase++;
                     }
                 }else if(currAction -> ActionPhase == 2){
                     // activate hitboxes

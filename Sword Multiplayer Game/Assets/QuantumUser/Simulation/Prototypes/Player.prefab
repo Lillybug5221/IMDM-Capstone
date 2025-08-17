@@ -49,7 +49,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -5600,13 +5600,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prototype:
-    ActionInitialized:
-      Value: 0
+    ActionNumber: 0
     ActionType: 0
     Direction:
       X:
         RawValue: 0
       Y:
+        RawValue: 0
+    EnemyPosition:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+      Z:
         RawValue: 0
     AttackIndex: 0
     StartTick: 0

@@ -1150,7 +1150,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct CurrentAction : Quantum.IComponent {
-    public const Int32 SIZE = 40;
+    public const Int32 SIZE = 64;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(16)]
     public Int32 ActionNumber;
@@ -1158,6 +1158,8 @@ namespace Quantum {
     public Byte ActionType;
     [FieldOffset(24)]
     public FPVector2 Direction;
+    [FieldOffset(40)]
+    public FPVector3 EnemyPosition;
     [FieldOffset(2)]
     public Byte AttackIndex;
     [FieldOffset(20)]
@@ -1180,6 +1182,7 @@ namespace Quantum {
         hash = hash * 31 + ActionNumber.GetHashCode();
         hash = hash * 31 + ActionType.GetHashCode();
         hash = hash * 31 + Direction.GetHashCode();
+        hash = hash * 31 + EnemyPosition.GetHashCode();
         hash = hash * 31 + AttackIndex.GetHashCode();
         hash = hash * 31 + StartTick.GetHashCode();
         hash = hash * 31 + StartUpFrames.GetHashCode();
@@ -1204,6 +1207,7 @@ namespace Quantum {
         serializer.Stream.Serialize(&p->ActionNumber);
         serializer.Stream.Serialize(&p->StartTick);
         FPVector2.Serialize(&p->Direction, serializer);
+        FPVector3.Serialize(&p->EnemyPosition, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
