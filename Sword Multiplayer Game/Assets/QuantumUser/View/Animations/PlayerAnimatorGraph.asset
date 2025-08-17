@@ -28756,7 +28756,7 @@ MonoBehaviour:
   RootMotion: 1
   RootMotionAppliesPhysics: 1
   ClampTime: 1
-  AllowTransitionInterruption: 1
+  AllowTransitionInterruption: 0
   MuteGraphTransitionsOnExport: 0
   DebugMode: 1
   references:
