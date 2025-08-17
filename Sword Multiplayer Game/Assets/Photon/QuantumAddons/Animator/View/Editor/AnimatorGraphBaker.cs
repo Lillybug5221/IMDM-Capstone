@@ -464,9 +464,8 @@
           newTransition.Duration = FP.FromFloat_UNSAFE(transition.duration);
           newTransition.HasExitTime = transition.hasExitTime;
           newTransition.ExitTime = FP._1;
-          Log.Debug(destinationClip.averageDuration + ":buh");
           newTransition.Offset =
-            FP.FromFloat_UNSAFE(transition.offset * destinationClip.averageDuration);
+            FP.FromFloat_UNSAFE(transition.offset * transition.destinationState.motion.averageDuration);
           newTransition.DestinationStateId = stateDictionary[transition.destinationState].Id;
           newTransition.DestinationStateName = stateDictionary[transition.destinationState].Name;
           newTransition.CanTransitionToSelf = transition.canTransitionToSelf;
