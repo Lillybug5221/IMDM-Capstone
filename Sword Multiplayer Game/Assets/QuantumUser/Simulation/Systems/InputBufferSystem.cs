@@ -93,7 +93,7 @@ namespace Quantum
                 currAction -> ActionPhase = 4;
                 currAction -> Direction = moveDirection;
                 //trigger movement anim
-                AnimatorComponent.SetTrigger(frame, filter.Animator, "Walk");
+                //AnimatorComponent.SetTrigger(frame, filter.Animator, "Walk");
             }
             
             UpdateInputBuffer(buffer, frame, filter.Link->Player);
