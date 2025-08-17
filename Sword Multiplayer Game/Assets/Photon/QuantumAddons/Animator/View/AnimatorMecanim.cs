@@ -23,6 +23,8 @@ namespace Quantum.Addons.Animator
     /// </summary>
     public float FrameRate = 60;
 
+    public List<string> BlendTreeNames = new List<string>();
+
     /// <summary>
     /// The Unity Animator Component reference.
     /// </summary>
@@ -108,6 +110,7 @@ namespace Quantum.Addons.Animator
             // Make sure the animator gets updated once per layer
             if (layerIndex == asset.Layers.Length - 1)
             {
+              Debug.Log("State id is" + layerData->ToStateId);
               UpdateAnimator(layerIndex, layerData->Time.AsFloat, layerData->Length.AsFloat);
             }
           }
@@ -166,14 +169,36 @@ namespace Quantum.Addons.Animator
       }
 
       // Preventing negative value due to flicker on BlendTree states
-      if (delta < 0 && transitionDifference.HasValue)
+
+      //this section should run with action animations, but not blend trees
+      //if (delta < 0 && transitionDifference.HasValue)
+      if(delta < 0 && IsBlendTree(_animator, layerIndex))
       {
+        Debug.Log("this section ran");
+        delta = length - Math.Abs(delta);
+        /*
         _animator.CrossFadeInFixedTime(_previousAnimationState[layerIndex], transitionDifference.Value, layerIndex,
           time % length);
         delta = 0f;
+        */
       }
 
       _animator.Update(delta);
     }
+
+    public bool IsBlendTree(Animator animator, int layerIndex)
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(layerIndex);
+        foreach(string blendTreeName in BlendTreeNames){
+          if(stateInfo.IsName(blendTreeName)){
+            return true;
+          }
+        }
+        
+        return false;
+    }
+
   }
+
+  
 }

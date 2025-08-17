@@ -48,11 +48,9 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
         
         
         if (PredictedFrame.TryGet<CurrentAction>(EntityRef, out var currAction)) {
-            Log.Debug("got here" + particleSys);
             if((ActionType)(currAction.ActionType) == ActionType.Attack && !particleSys.isPlaying){
                 if(currAction.ActionPhase == 2){
                     particleSys.Play();
-                    Log.Debug("playing particles");
                 }
             }else if(((ActionType)(currAction.ActionType) != ActionType.Attack && particleSys.isPlaying) ||
                      ((ActionType)(currAction.ActionType) == ActionType.Attack && currAction.ActionPhase != 2)){

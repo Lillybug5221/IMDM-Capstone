@@ -28700,6 +28700,24 @@ MonoBehaviour:
           ThresholdInt: 0
         DestinationStateId: -783295633
         DestinationStateName: Light_DL
+      - Index: 1
+        Name: Any State to Walk/Idle
+        Duration:
+          RawValue: 16384
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 65536
+        HasExitTime: 0
+        CanTransitionToSelf: 0
+        Conditions:
+        - VariableName: Walk
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: -593675042
+        DestinationStateName: Walk/Idle
       SerialisedMotions: []
       StateAsset:
         Id:
