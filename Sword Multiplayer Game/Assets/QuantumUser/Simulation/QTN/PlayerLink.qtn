@@ -34,40 +34,100 @@ component CurrentAction{
     //4 : Cancelable
     //5 : Ended
     ushort Damage;
+}
 
+input {
+    FPVector2 LeftStickDirection;
+    button Jump;
+    button Dodge;
+    button LightAttack;
+    button HeavyAttack;
+    button Parry;
+    button Special;
 }
 
 //this is gross but I couldn't find a better way to do it
 component InputBuffer {
     FPVector2 LastDirection0;
+    bool Jump0;
+    bool Dodge0;
     bool LightAttack0;
+    bool HeavyAttack0;
+    bool Parry0;
+    bool Special0;
 
     FPVector2 LastDirection1;
+    bool Jump1;
+    bool Dodge1;
     bool LightAttack1;
+    bool HeavyAttack1;
+    bool Parry1;
+    bool Special1;
 
     FPVector2 LastDirection2;
+    bool Jump2;
+    bool Dodge2;
     bool LightAttack2;
+    bool HeavyAttack2;
+    bool Parry2;
+    bool Special2;
 
     FPVector2 LastDirection3;
+    bool Jump3;
+    bool Dodge3;
     bool LightAttack3;
+    bool HeavyAttack3;
+    bool Parry3;
+    bool Special3;
 
     FPVector2 LastDirection4;
+    bool Jump4;
+    bool Dodge4;
     bool LightAttack4;
+    bool HeavyAttack4;
+    bool Parry4;
+    bool Special4;
 
     FPVector2 LastDirection5;
+    bool Jump5;
+    bool Dodge5;
     bool LightAttack5;
+    bool HeavyAttack5;
+    bool Parry5;
+    bool Special5;
 
     FPVector2 LastDirection6;
+    bool Jump6;
+    bool Dodge6;
     bool LightAttack6;
+    bool HeavyAttack6;
+    bool Parry6;
+    bool Special6;
 
     FPVector2 LastDirection7;
+    bool Jump7;
+    bool Dodge7;
     bool LightAttack7;
+    bool HeavyAttack7;
+    bool Parry7;
+    bool Special7;
 
     FPVector2 LastDirection8;
+    bool Jump8;
+    bool Dodge8;
     bool LightAttack8;
-    
+    bool HeavyAttack8;
+    bool Parry8;
+    bool Special8;
+
     FPVector2 LastDirection9;
+    bool Jump9;
+    bool Dodge9;
     bool LightAttack9;
+    bool HeavyAttack9;
+    bool Parry9;
+    bool Special9;
+    
 
     byte Count;
 }
@@ -77,7 +137,3 @@ component Damageable
     ushort Health;
 }
 
-input {
-    FPVector2 LeftStickDirection;
-    button LightAttack;
-}

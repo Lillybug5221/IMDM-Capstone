@@ -110,7 +110,6 @@ namespace Quantum.Addons.Animator
             // Make sure the animator gets updated once per layer
             if (layerIndex == asset.Layers.Length - 1)
             {
-              Debug.Log("State id is" + layerData->ToStateId);
               UpdateAnimator(layerIndex, layerData->Time.AsFloat, layerData->Length.AsFloat);
             }
           }
@@ -174,7 +173,6 @@ namespace Quantum.Addons.Animator
       //if (delta < 0 && transitionDifference.HasValue)
       if(delta < 0 && IsBlendTree(_animator, layerIndex))
       {
-        Debug.Log("this section ran");
         delta = length - Math.Abs(delta);
         /*
         _animator.CrossFadeInFixedTime(_previousAnimationState[layerIndex], transitionDifference.Value, layerIndex,

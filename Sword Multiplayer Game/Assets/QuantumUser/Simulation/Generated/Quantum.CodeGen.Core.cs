@@ -75,7 +75,12 @@ namespace Quantum {
   }
   [System.FlagsAttribute()]
   public enum InputButtons : int {
-    LightAttack = 1 << 0,
+    Jump = 1 << 0,
+    Dodge = 1 << 1,
+    LightAttack = 1 << 2,
+    HeavyAttack = 1 << 3,
+    Parry = 1 << 4,
+    Special = 1 << 5,
   }
   public static unsafe partial class FlagsExtensions {
     public static Boolean IsFlagSet(this InputButtons self, InputButtons flag) {
@@ -557,17 +562,32 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Input {
-    public const Int32 SIZE = 32;
+    public const Int32 SIZE = 88;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(16)]
+    [FieldOffset(72)]
     public FPVector2 LeftStickDirection;
+    [FieldOffset(24)]
+    public Button Jump;
     [FieldOffset(0)]
+    public Button Dodge;
+    [FieldOffset(36)]
     public Button LightAttack;
+    [FieldOffset(12)]
+    public Button HeavyAttack;
+    [FieldOffset(48)]
+    public Button Parry;
+    [FieldOffset(60)]
+    public Button Special;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 19249;
         hash = hash * 31 + LeftStickDirection.GetHashCode();
+        hash = hash * 31 + Jump.GetHashCode();
+        hash = hash * 31 + Dodge.GetHashCode();
         hash = hash * 31 + LightAttack.GetHashCode();
+        hash = hash * 31 + HeavyAttack.GetHashCode();
+        hash = hash * 31 + Parry.GetHashCode();
+        hash = hash * 31 + Special.GetHashCode();
         return hash;
       }
     }
@@ -576,19 +596,34 @@ namespace Quantum {
     }
     public Boolean IsDown(InputButtons button) {
       switch (button) {
+        case InputButtons.Jump: return Jump.IsDown;
+        case InputButtons.Dodge: return Dodge.IsDown;
         case InputButtons.LightAttack: return LightAttack.IsDown;
+        case InputButtons.HeavyAttack: return HeavyAttack.IsDown;
+        case InputButtons.Parry: return Parry.IsDown;
+        case InputButtons.Special: return Special.IsDown;
         default: return false;
       }
     }
     public Boolean WasPressed(InputButtons button) {
       switch (button) {
+        case InputButtons.Jump: return Jump.WasPressed;
+        case InputButtons.Dodge: return Dodge.WasPressed;
         case InputButtons.LightAttack: return LightAttack.WasPressed;
+        case InputButtons.HeavyAttack: return HeavyAttack.WasPressed;
+        case InputButtons.Parry: return Parry.WasPressed;
+        case InputButtons.Special: return Special.WasPressed;
         default: return false;
       }
     }
     static partial void SerializeCodeGen(void* ptr, FrameSerializer serializer) {
         var p = (Input*)ptr;
+        Button.Serialize(&p->Dodge, serializer);
+        Button.Serialize(&p->HeavyAttack, serializer);
+        Button.Serialize(&p->Jump, serializer);
         Button.Serialize(&p->LightAttack, serializer);
+        Button.Serialize(&p->Parry, serializer);
+        Button.Serialize(&p->Special, serializer);
         FPVector2.Serialize(&p->LeftStickDirection, serializer);
     }
   }
@@ -953,7 +988,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 808;
+    public const Int32 SIZE = 1144;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     public AssetRef<Map> Map;
@@ -977,12 +1012,12 @@ namespace Quantum {
     public Int32 PlayerConnectedCount;
     [FieldOffset(608)]
     [FramePrinter.FixedArrayAttribute(typeof(Input), 6)]
-    private fixed Byte _input_[192];
-    [FieldOffset(800)]
+    private fixed Byte _input_[528];
+    [FieldOffset(1136)]
     public BitSet6 PlayerLastConnectionState;
     public readonly FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 32, 6); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 88, 6); }
       }
     }
     public override readonly Int32 GetHashCode() {
@@ -1232,73 +1267,223 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct InputBuffer : Quantum.IComponent {
-    public const Int32 SIZE = 208;
+    public const Int32 SIZE = 408;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(48)]
+    [FieldOffset(248)]
     public FPVector2 LastDirection0;
+    [FieldOffset(84)]
+    public QBoolean Jump0;
     [FieldOffset(4)]
+    public QBoolean Dodge0;
+    [FieldOffset(124)]
     public QBoolean LightAttack0;
-    [FieldOffset(64)]
+    [FieldOffset(44)]
+    public QBoolean HeavyAttack0;
+    [FieldOffset(164)]
+    public QBoolean Parry0;
+    [FieldOffset(204)]
+    public QBoolean Special0;
+    [FieldOffset(264)]
     public FPVector2 LastDirection1;
+    [FieldOffset(88)]
+    public QBoolean Jump1;
     [FieldOffset(8)]
-    public QBoolean LightAttack1;
-    [FieldOffset(80)]
-    public FPVector2 LastDirection2;
-    [FieldOffset(12)]
-    public QBoolean LightAttack2;
-    [FieldOffset(96)]
-    public FPVector2 LastDirection3;
-    [FieldOffset(16)]
-    public QBoolean LightAttack3;
-    [FieldOffset(112)]
-    public FPVector2 LastDirection4;
-    [FieldOffset(20)]
-    public QBoolean LightAttack4;
+    public QBoolean Dodge1;
     [FieldOffset(128)]
-    public FPVector2 LastDirection5;
-    [FieldOffset(24)]
-    public QBoolean LightAttack5;
-    [FieldOffset(144)]
-    public FPVector2 LastDirection6;
-    [FieldOffset(28)]
-    public QBoolean LightAttack6;
-    [FieldOffset(160)]
-    public FPVector2 LastDirection7;
-    [FieldOffset(32)]
-    public QBoolean LightAttack7;
+    public QBoolean LightAttack1;
+    [FieldOffset(48)]
+    public QBoolean HeavyAttack1;
+    [FieldOffset(168)]
+    public QBoolean Parry1;
+    [FieldOffset(208)]
+    public QBoolean Special1;
+    [FieldOffset(280)]
+    public FPVector2 LastDirection2;
+    [FieldOffset(92)]
+    public QBoolean Jump2;
+    [FieldOffset(12)]
+    public QBoolean Dodge2;
+    [FieldOffset(132)]
+    public QBoolean LightAttack2;
+    [FieldOffset(52)]
+    public QBoolean HeavyAttack2;
+    [FieldOffset(172)]
+    public QBoolean Parry2;
+    [FieldOffset(212)]
+    public QBoolean Special2;
+    [FieldOffset(296)]
+    public FPVector2 LastDirection3;
+    [FieldOffset(96)]
+    public QBoolean Jump3;
+    [FieldOffset(16)]
+    public QBoolean Dodge3;
+    [FieldOffset(136)]
+    public QBoolean LightAttack3;
+    [FieldOffset(56)]
+    public QBoolean HeavyAttack3;
     [FieldOffset(176)]
-    public FPVector2 LastDirection8;
-    [FieldOffset(36)]
-    public QBoolean LightAttack8;
+    public QBoolean Parry3;
+    [FieldOffset(216)]
+    public QBoolean Special3;
+    [FieldOffset(312)]
+    public FPVector2 LastDirection4;
+    [FieldOffset(100)]
+    public QBoolean Jump4;
+    [FieldOffset(20)]
+    public QBoolean Dodge4;
+    [FieldOffset(140)]
+    public QBoolean LightAttack4;
+    [FieldOffset(60)]
+    public QBoolean HeavyAttack4;
+    [FieldOffset(180)]
+    public QBoolean Parry4;
+    [FieldOffset(220)]
+    public QBoolean Special4;
+    [FieldOffset(328)]
+    public FPVector2 LastDirection5;
+    [FieldOffset(104)]
+    public QBoolean Jump5;
+    [FieldOffset(24)]
+    public QBoolean Dodge5;
+    [FieldOffset(144)]
+    public QBoolean LightAttack5;
+    [FieldOffset(64)]
+    public QBoolean HeavyAttack5;
+    [FieldOffset(184)]
+    public QBoolean Parry5;
+    [FieldOffset(224)]
+    public QBoolean Special5;
+    [FieldOffset(344)]
+    public FPVector2 LastDirection6;
+    [FieldOffset(108)]
+    public QBoolean Jump6;
+    [FieldOffset(28)]
+    public QBoolean Dodge6;
+    [FieldOffset(148)]
+    public QBoolean LightAttack6;
+    [FieldOffset(68)]
+    public QBoolean HeavyAttack6;
+    [FieldOffset(188)]
+    public QBoolean Parry6;
+    [FieldOffset(228)]
+    public QBoolean Special6;
+    [FieldOffset(360)]
+    public FPVector2 LastDirection7;
+    [FieldOffset(112)]
+    public QBoolean Jump7;
+    [FieldOffset(32)]
+    public QBoolean Dodge7;
+    [FieldOffset(152)]
+    public QBoolean LightAttack7;
+    [FieldOffset(72)]
+    public QBoolean HeavyAttack7;
     [FieldOffset(192)]
+    public QBoolean Parry7;
+    [FieldOffset(232)]
+    public QBoolean Special7;
+    [FieldOffset(376)]
+    public FPVector2 LastDirection8;
+    [FieldOffset(116)]
+    public QBoolean Jump8;
+    [FieldOffset(36)]
+    public QBoolean Dodge8;
+    [FieldOffset(156)]
+    public QBoolean LightAttack8;
+    [FieldOffset(76)]
+    public QBoolean HeavyAttack8;
+    [FieldOffset(196)]
+    public QBoolean Parry8;
+    [FieldOffset(236)]
+    public QBoolean Special8;
+    [FieldOffset(392)]
     public FPVector2 LastDirection9;
+    [FieldOffset(120)]
+    public QBoolean Jump9;
     [FieldOffset(40)]
+    public QBoolean Dodge9;
+    [FieldOffset(160)]
     public QBoolean LightAttack9;
+    [FieldOffset(80)]
+    public QBoolean HeavyAttack9;
+    [FieldOffset(200)]
+    public QBoolean Parry9;
+    [FieldOffset(240)]
+    public QBoolean Special9;
     [FieldOffset(0)]
     public Byte Count;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 3637;
         hash = hash * 31 + LastDirection0.GetHashCode();
+        hash = hash * 31 + Jump0.GetHashCode();
+        hash = hash * 31 + Dodge0.GetHashCode();
         hash = hash * 31 + LightAttack0.GetHashCode();
+        hash = hash * 31 + HeavyAttack0.GetHashCode();
+        hash = hash * 31 + Parry0.GetHashCode();
+        hash = hash * 31 + Special0.GetHashCode();
         hash = hash * 31 + LastDirection1.GetHashCode();
+        hash = hash * 31 + Jump1.GetHashCode();
+        hash = hash * 31 + Dodge1.GetHashCode();
         hash = hash * 31 + LightAttack1.GetHashCode();
+        hash = hash * 31 + HeavyAttack1.GetHashCode();
+        hash = hash * 31 + Parry1.GetHashCode();
+        hash = hash * 31 + Special1.GetHashCode();
         hash = hash * 31 + LastDirection2.GetHashCode();
+        hash = hash * 31 + Jump2.GetHashCode();
+        hash = hash * 31 + Dodge2.GetHashCode();
         hash = hash * 31 + LightAttack2.GetHashCode();
+        hash = hash * 31 + HeavyAttack2.GetHashCode();
+        hash = hash * 31 + Parry2.GetHashCode();
+        hash = hash * 31 + Special2.GetHashCode();
         hash = hash * 31 + LastDirection3.GetHashCode();
+        hash = hash * 31 + Jump3.GetHashCode();
+        hash = hash * 31 + Dodge3.GetHashCode();
         hash = hash * 31 + LightAttack3.GetHashCode();
+        hash = hash * 31 + HeavyAttack3.GetHashCode();
+        hash = hash * 31 + Parry3.GetHashCode();
+        hash = hash * 31 + Special3.GetHashCode();
         hash = hash * 31 + LastDirection4.GetHashCode();
+        hash = hash * 31 + Jump4.GetHashCode();
+        hash = hash * 31 + Dodge4.GetHashCode();
         hash = hash * 31 + LightAttack4.GetHashCode();
+        hash = hash * 31 + HeavyAttack4.GetHashCode();
+        hash = hash * 31 + Parry4.GetHashCode();
+        hash = hash * 31 + Special4.GetHashCode();
         hash = hash * 31 + LastDirection5.GetHashCode();
+        hash = hash * 31 + Jump5.GetHashCode();
+        hash = hash * 31 + Dodge5.GetHashCode();
         hash = hash * 31 + LightAttack5.GetHashCode();
+        hash = hash * 31 + HeavyAttack5.GetHashCode();
+        hash = hash * 31 + Parry5.GetHashCode();
+        hash = hash * 31 + Special5.GetHashCode();
         hash = hash * 31 + LastDirection6.GetHashCode();
+        hash = hash * 31 + Jump6.GetHashCode();
+        hash = hash * 31 + Dodge6.GetHashCode();
         hash = hash * 31 + LightAttack6.GetHashCode();
+        hash = hash * 31 + HeavyAttack6.GetHashCode();
+        hash = hash * 31 + Parry6.GetHashCode();
+        hash = hash * 31 + Special6.GetHashCode();
         hash = hash * 31 + LastDirection7.GetHashCode();
+        hash = hash * 31 + Jump7.GetHashCode();
+        hash = hash * 31 + Dodge7.GetHashCode();
         hash = hash * 31 + LightAttack7.GetHashCode();
+        hash = hash * 31 + HeavyAttack7.GetHashCode();
+        hash = hash * 31 + Parry7.GetHashCode();
+        hash = hash * 31 + Special7.GetHashCode();
         hash = hash * 31 + LastDirection8.GetHashCode();
+        hash = hash * 31 + Jump8.GetHashCode();
+        hash = hash * 31 + Dodge8.GetHashCode();
         hash = hash * 31 + LightAttack8.GetHashCode();
+        hash = hash * 31 + HeavyAttack8.GetHashCode();
+        hash = hash * 31 + Parry8.GetHashCode();
+        hash = hash * 31 + Special8.GetHashCode();
         hash = hash * 31 + LastDirection9.GetHashCode();
+        hash = hash * 31 + Jump9.GetHashCode();
+        hash = hash * 31 + Dodge9.GetHashCode();
         hash = hash * 31 + LightAttack9.GetHashCode();
+        hash = hash * 31 + HeavyAttack9.GetHashCode();
+        hash = hash * 31 + Parry9.GetHashCode();
+        hash = hash * 31 + Special9.GetHashCode();
         hash = hash * 31 + Count.GetHashCode();
         return hash;
       }
@@ -1306,6 +1491,36 @@ namespace Quantum {
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (InputBuffer*)ptr;
         serializer.Stream.Serialize(&p->Count);
+        QBoolean.Serialize(&p->Dodge0, serializer);
+        QBoolean.Serialize(&p->Dodge1, serializer);
+        QBoolean.Serialize(&p->Dodge2, serializer);
+        QBoolean.Serialize(&p->Dodge3, serializer);
+        QBoolean.Serialize(&p->Dodge4, serializer);
+        QBoolean.Serialize(&p->Dodge5, serializer);
+        QBoolean.Serialize(&p->Dodge6, serializer);
+        QBoolean.Serialize(&p->Dodge7, serializer);
+        QBoolean.Serialize(&p->Dodge8, serializer);
+        QBoolean.Serialize(&p->Dodge9, serializer);
+        QBoolean.Serialize(&p->HeavyAttack0, serializer);
+        QBoolean.Serialize(&p->HeavyAttack1, serializer);
+        QBoolean.Serialize(&p->HeavyAttack2, serializer);
+        QBoolean.Serialize(&p->HeavyAttack3, serializer);
+        QBoolean.Serialize(&p->HeavyAttack4, serializer);
+        QBoolean.Serialize(&p->HeavyAttack5, serializer);
+        QBoolean.Serialize(&p->HeavyAttack6, serializer);
+        QBoolean.Serialize(&p->HeavyAttack7, serializer);
+        QBoolean.Serialize(&p->HeavyAttack8, serializer);
+        QBoolean.Serialize(&p->HeavyAttack9, serializer);
+        QBoolean.Serialize(&p->Jump0, serializer);
+        QBoolean.Serialize(&p->Jump1, serializer);
+        QBoolean.Serialize(&p->Jump2, serializer);
+        QBoolean.Serialize(&p->Jump3, serializer);
+        QBoolean.Serialize(&p->Jump4, serializer);
+        QBoolean.Serialize(&p->Jump5, serializer);
+        QBoolean.Serialize(&p->Jump6, serializer);
+        QBoolean.Serialize(&p->Jump7, serializer);
+        QBoolean.Serialize(&p->Jump8, serializer);
+        QBoolean.Serialize(&p->Jump9, serializer);
         QBoolean.Serialize(&p->LightAttack0, serializer);
         QBoolean.Serialize(&p->LightAttack1, serializer);
         QBoolean.Serialize(&p->LightAttack2, serializer);
@@ -1316,6 +1531,26 @@ namespace Quantum {
         QBoolean.Serialize(&p->LightAttack7, serializer);
         QBoolean.Serialize(&p->LightAttack8, serializer);
         QBoolean.Serialize(&p->LightAttack9, serializer);
+        QBoolean.Serialize(&p->Parry0, serializer);
+        QBoolean.Serialize(&p->Parry1, serializer);
+        QBoolean.Serialize(&p->Parry2, serializer);
+        QBoolean.Serialize(&p->Parry3, serializer);
+        QBoolean.Serialize(&p->Parry4, serializer);
+        QBoolean.Serialize(&p->Parry5, serializer);
+        QBoolean.Serialize(&p->Parry6, serializer);
+        QBoolean.Serialize(&p->Parry7, serializer);
+        QBoolean.Serialize(&p->Parry8, serializer);
+        QBoolean.Serialize(&p->Parry9, serializer);
+        QBoolean.Serialize(&p->Special0, serializer);
+        QBoolean.Serialize(&p->Special1, serializer);
+        QBoolean.Serialize(&p->Special2, serializer);
+        QBoolean.Serialize(&p->Special3, serializer);
+        QBoolean.Serialize(&p->Special4, serializer);
+        QBoolean.Serialize(&p->Special5, serializer);
+        QBoolean.Serialize(&p->Special6, serializer);
+        QBoolean.Serialize(&p->Special7, serializer);
+        QBoolean.Serialize(&p->Special8, serializer);
+        QBoolean.Serialize(&p->Special9, serializer);
         FPVector2.Serialize(&p->LastDirection0, serializer);
         FPVector2.Serialize(&p->LastDirection1, serializer);
         FPVector2.Serialize(&p->LastDirection2, serializer);
@@ -1575,7 +1810,12 @@ namespace Quantum {
       if ((int)player >= (int)_globals->input.Length) { throw new System.ArgumentOutOfRangeException("player"); }
       var i = _globals->input.GetPointer(player);
       i->LeftStickDirection = input.LeftStickDirection;
+      i->Jump = i->Jump.Update(this.Number, input.Jump);
+      i->Dodge = i->Dodge.Update(this.Number, input.Dodge);
       i->LightAttack = i->LightAttack.Update(this.Number, input.LightAttack);
+      i->HeavyAttack = i->HeavyAttack.Update(this.Number, input.HeavyAttack);
+      i->Parry = i->Parry.Update(this.Number, input.Parry);
+      i->Special = i->Special.Update(this.Number, input.Special);
     }
     public Input* GetPlayerInput(PlayerRef player) {
       if ((int)player >= (int)_globals->input.Length) { throw new System.ArgumentOutOfRangeException("player"); }

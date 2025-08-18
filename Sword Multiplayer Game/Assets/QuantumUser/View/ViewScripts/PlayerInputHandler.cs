@@ -12,9 +12,17 @@ namespace Quantum {
     [SerializeField]
     private Vector2 moveInput;
     [SerializeField]
-    private bool jumpInput;
+    private bool jump;
+    [SerializeField]
+    private bool dodge;
     [SerializeField]
     private bool lightAttack;
+    [SerializeField]
+    private bool heavyAttack;
+    [SerializeField]
+    private bool parry;
+    [SerializeField]
+    private bool special;
 
     private void Awake()
     {
@@ -25,12 +33,27 @@ namespace Quantum {
         controls.Gameplay.Movement.canceled += ctx => moveInput = Vector2.zero;
 
         // Jump
-        controls.Gameplay.Jump.performed += ctx => jumpInput = true;
-        controls.Gameplay.Jump.canceled += ctx => jumpInput = false;
+        controls.Gameplay.Jump.started += ctx => jump = true;
+        controls.Gameplay.Jump.canceled += ctx => jump = false;
+
+        // Dodge
+        controls.Gameplay.Dodge.started += ctx => dodge = true;
+        controls.Gameplay.Dodge.canceled += ctx => dodge = false;
 
         // Light Attack
-        controls.Gameplay.LightAttack.performed += ctx => lightAttack = true;
+        controls.Gameplay.LightAttack.started += ctx => lightAttack = true;
         controls.Gameplay.LightAttack.canceled += ctx => lightAttack = false;
+
+        //heavy
+        controls.Gameplay.HeavyAttack.started += ctx => heavyAttack = true;
+        controls.Gameplay.HeavyAttack.canceled += ctx => heavyAttack = false;
+
+        ////parry
+        controls.Gameplay.Parry.started += ctx => parry = true;
+        controls.Gameplay.Parry.canceled += ctx => parry = false;
+
+        controls.Gameplay.Special.started += ctx => special = true;
+        controls.Gameplay.Special.canceled += ctx => special = false;
         
     }
 
@@ -53,8 +76,19 @@ namespace Quantum {
       
       Quantum.Input i = new Quantum.Input();
       i.LeftStickDirection = new FPVector2(moveInput.x.ToFP(),moveInput.y.ToFP());
-      //i.Jump = jumpInput;
+      i.Jump = jump;
+      i.Dodge = dodge;
       i.LightAttack = lightAttack;
+      i.HeavyAttack = heavyAttack;
+      i.Parry = parry;
+      i.Special = special;
+
+      if(jump){jump = false;}
+      if(dodge){dodge = false;}
+      if(lightAttack){lightAttack = false;}
+      if(heavyAttack){heavyAttack = false;}
+      if(parry){parry = false;}
+      if(special){special = false;}
 
 #if DEBUG
       if (callback.IsInputSet) {

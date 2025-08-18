@@ -8,12 +8,12 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
 {
     private Transform swordPosition;
     private Animator anim;
-    private ParticleSystem particleSys;
+    [SerializeField]
+    private ParticleSystem attackParticleSys;
     private int startFrame = -1;
     private int currFrame = 0;
     
     public override void OnInitialize(){
-        particleSys = GetComponentInChildren<ParticleSystem>();
         anim = GetComponentInChildren<Animator>();
         if(HitboxJSONBuilder.Instance.CreateJSON){
             swordPosition = FindInChildrenByName(transform, "Sword_Center");
@@ -48,13 +48,13 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
         
         
         if (PredictedFrame.TryGet<CurrentAction>(EntityRef, out var currAction)) {
-            if((ActionType)(currAction.ActionType) == ActionType.Attack && !particleSys.isPlaying){
+            if((ActionType)(currAction.ActionType) == ActionType.Attack && !attackParticleSys.isPlaying){
                 if(currAction.ActionPhase == 2){
-                    particleSys.Play();
+                    attackParticleSys.Play();
                 }
-            }else if(((ActionType)(currAction.ActionType) != ActionType.Attack && particleSys.isPlaying) ||
+            }else if(((ActionType)(currAction.ActionType) != ActionType.Attack && attackParticleSys.isPlaying) ||
                      ((ActionType)(currAction.ActionType) == ActionType.Attack && currAction.ActionPhase != 2)){
-                particleSys.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                attackParticleSys.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
             
             if (PredictedFrame.TryGet<KCC>(EntityRef, out var kcc)) {
