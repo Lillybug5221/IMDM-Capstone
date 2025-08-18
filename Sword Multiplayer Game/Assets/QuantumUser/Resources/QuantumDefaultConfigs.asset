@@ -2435,7 +2435,7 @@ MonoBehaviour:
       startupFrames: 10
       activeFrames: 15
       endlagFrames: 20
-      cancelableFrames: 75
+      cancelableFrames: 60
       damage: 25
 --- !u!114 &6784878198909911470
 MonoBehaviour:

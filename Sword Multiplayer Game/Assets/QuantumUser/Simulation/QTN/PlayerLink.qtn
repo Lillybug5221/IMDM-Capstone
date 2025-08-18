@@ -16,6 +16,11 @@ component MeleeHitbox
     bool DamageApplied;
 }
 
+component ParryComponent{
+    bool HeavyParry;
+    FPVector2 Direction;
+}
+
 component CurrentAction{
     int ActionNumber;
     byte ActionType; //0 = none, 1 = walk, 2 = attack, 3 = parry

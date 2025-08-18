@@ -30,6 +30,10 @@ MonoBehaviour:
   - {fileID: 1827226128182048838, guid: 522c8e26d1667f242948d280bd64407f, type: 3}
   - {fileID: 1827226128182048838, guid: 99bf8eb7a9bd04945b9d65a30233dab4, type: 3}
   - {fileID: 7400000, guid: 2f52d684b79528d4e89a9ae72a4938a2, type: 2}
+  - {fileID: 7400000, guid: ab518486f267d8241926c7b7258e86c9, type: 2}
+  - {fileID: 7400000, guid: a954d8f803c3e5f4bafb02e832cdb383, type: 2}
+  - {fileID: 7400000, guid: de3ce8ef962ce594b98f093582f7fdf3, type: 2}
+  - {fileID: 7400000, guid: fefaa6d2c57e8c342a49a99daa77e3ae, type: 2}
   Layers:
   - Id: 0
     Name: Base Layer
@@ -28673,6 +28677,5744 @@ MonoBehaviour:
         Id:
           Value: 0
       StateBehaviours: []
+    - Name: Block_In_Anim
+      Id: -339578218
+      IsAny: 0
+      IsDefault: 0
+      CycleOffset:
+        RawValue: 0
+      Speed:
+        RawValue: 196608
+      Transitions:
+      - Index: 0
+        Name: Block_In_Anim to Block_Hold_Anim
+        Duration:
+          RawValue: 16384
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 5461
+        HasExitTime: 1
+        CanTransitionToSelf: 0
+        Conditions: []
+        DestinationStateId: -1320182125
+        DestinationStateName: Block_Hold_Anim
+      SerialisedMotions:
+      - IsAnimation: 1
+        Name: Block_In_Anim
+        AnimatorData:
+          ClipName: Block_In_Anim
+          MotionId: 887713525
+          Length:
+            RawValue: 21845
+          Index: 0
+          FrameRate: 60
+          FrameCount: 20
+          Frames:
+          - Id: 0
+            Time:
+              RawValue: 0
+            Position:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 0
+          - Id: 1
+            Time:
+              RawValue: 1149
+            Position:
+              X:
+                RawValue: 620
+              Y:
+                RawValue: -1369
+              Z:
+                RawValue: -2134
+            Rotation:
+              X:
+                RawValue: -45
+              Y:
+                RawValue: -755
+              Z:
+                RawValue: -1484
+              W:
+                RawValue: 65513
+            RotationY:
+              RawValue: -1534
+          - Id: 2
+            Time:
+              RawValue: 2299
+            Position:
+              X:
+                RawValue: 910
+              Y:
+                RawValue: -3061
+              Z:
+                RawValue: -4744
+            Rotation:
+              X:
+                RawValue: -228
+              Y:
+                RawValue: -1698
+              Z:
+                RawValue: -3021
+              W:
+                RawValue: 65442
+            RotationY:
+              RawValue: -3516
+          - Id: 3
+            Time:
+              RawValue: 3449
+            Position:
+              X:
+                RawValue: 729
+              Y:
+                RawValue: -4107
+              Z:
+                RawValue: -6059
+            Rotation:
+              X:
+                RawValue: -519
+              Y:
+                RawValue: -2641
+              Z:
+                RawValue: -4285
+              W:
+                RawValue: 65340
+            RotationY:
+              RawValue: -5531
+          - Id: 4
+            Time:
+              RawValue: 4599
+            Position:
+              X:
+                RawValue: 492
+              Y:
+                RawValue: -4946
+              Z:
+                RawValue: -7109
+            Rotation:
+              X:
+                RawValue: -779
+              Y:
+                RawValue: -3384
+              Z:
+                RawValue: -5022
+              W:
+                RawValue: 65249
+            RotationY:
+              RawValue: -7119
+          - Id: 5
+            Time:
+              RawValue: 5748
+            Position:
+              X:
+                RawValue: 270
+              Y:
+                RawValue: -5454
+              Z:
+                RawValue: -7705
+            Rotation:
+              X:
+                RawValue: -824
+              Y:
+                RawValue: -3746
+              Z:
+                RawValue: -5118
+              W:
+                RawValue: 65222
+            RotationY:
+              RawValue: -7865
+          - Id: 6
+            Time:
+              RawValue: 6898
+            Position:
+              X:
+                RawValue: 112
+              Y:
+                RawValue: -5677
+              Z:
+                RawValue: -8062
+            Rotation:
+              X:
+                RawValue: -565
+              Y:
+                RawValue: -3571
+              Z:
+                RawValue: -4986
+              W:
+                RawValue: 65244
+            RotationY:
+              RawValue: -7436
+          - Id: 7
+            Time:
+              RawValue: 8048
+            Position:
+              X:
+                RawValue: -49
+              Y:
+                RawValue: -5741
+              Z:
+                RawValue: -8378
+            Rotation:
+              X:
+                RawValue: -86
+              Y:
+                RawValue: -2928
+              Z:
+                RawValue: -4970
+              W:
+                RawValue: 65280
+            RotationY:
+              RawValue: -5984
+          - Id: 8
+            Time:
+              RawValue: 9198
+            Position:
+              X:
+                RawValue: -204
+              Y:
+                RawValue: -5694
+              Z:
+                RawValue: -8640
+            Rotation:
+              X:
+                RawValue: 501
+              Y:
+                RawValue: -1985
+              Z:
+                RawValue: -5019
+              W:
+                RawValue: 65310
+            RotationY:
+              RawValue: -3882
+          - Id: 9
+            Time:
+              RawValue: 10347
+            Position:
+              X:
+                RawValue: -355
+              Y:
+                RawValue: -5584
+              Z:
+                RawValue: -8845
+            Rotation:
+              X:
+                RawValue: 1079
+              Y:
+                RawValue: -924
+              Z:
+                RawValue: -5095
+              W:
+                RawValue: 65320
+            RotationY:
+              RawValue: -1526
+          - Id: 10
+            Time:
+              RawValue: 11497
+            Position:
+              X:
+                RawValue: -501
+              Y:
+                RawValue: -5449
+              Z:
+                RawValue: -8986
+            Rotation:
+              X:
+                RawValue: 1537
+              Y:
+                RawValue: 52
+              Z:
+                RawValue: -5154
+              W:
+                RawValue: 65314
+            RotationY:
+              RawValue: 626
+          - Id: 11
+            Time:
+              RawValue: 12647
+            Position:
+              X:
+                RawValue: -639
+              Y:
+                RawValue: -5323
+              Z:
+                RawValue: -9049
+            Rotation:
+              X:
+                RawValue: 1770
+              Y:
+                RawValue: 696
+              Z:
+                RawValue: -5151
+              W:
+                RawValue: 65305
+            RotationY:
+              RawValue: 2033
+          - Id: 12
+            Time:
+              RawValue: 13797
+            Position:
+              X:
+                RawValue: -777
+              Y:
+                RawValue: -5217
+              Z:
+                RawValue: -9037
+            Rotation:
+              X:
+                RawValue: 1702
+              Y:
+                RawValue: 833
+              Z:
+                RawValue: -5073
+              W:
+                RawValue: 65312
+            RotationY:
+              RawValue: 2294
+          - Id: 13
+            Time:
+              RawValue: 14946
+            Position:
+              X:
+                RawValue: -931
+              Y:
+                RawValue: -5107
+              Z:
+                RawValue: -8972
+            Rotation:
+              X:
+                RawValue: 1366
+              Y:
+                RawValue: 536
+              Z:
+                RawValue: -4953
+              W:
+                RawValue: 65330
+            RotationY:
+              RawValue: 1569
+          - Id: 14
+            Time:
+              RawValue: 16096
+            Position:
+              X:
+                RawValue: -1095
+              Y:
+                RawValue: -4978
+              Z:
+                RawValue: -8865
+            Rotation:
+              X:
+                RawValue: 849
+              Y:
+                RawValue: -37
+              Z:
+                RawValue: -4821
+              W:
+                RawValue: 65351
+            RotationY:
+              RawValue: 219
+          - Id: 15
+            Time:
+              RawValue: 17246
+            Position:
+              X:
+                RawValue: -1252
+              Y:
+                RawValue: -4829
+              Z:
+                RawValue: -8716
+            Rotation:
+              X:
+                RawValue: 241
+              Y:
+                RawValue: -745
+              Z:
+                RawValue: -4692
+              W:
+                RawValue: 65361
+            RotationY:
+              RawValue: -1427
+          - Id: 16
+            Time:
+              RawValue: 18396
+            Position:
+              X:
+                RawValue: -1387
+              Y:
+                RawValue: -4655
+              Z:
+                RawValue: -8525
+            Rotation:
+              X:
+                RawValue: -376
+              Y:
+                RawValue: -1443
+              Z:
+                RawValue: -4587
+              W:
+                RawValue: 65356
+            RotationY:
+              RawValue: -3052
+          - Id: 17
+            Time:
+              RawValue: 19545
+            Position:
+              X:
+                RawValue: -1484
+              Y:
+                RawValue: -4444
+              Z:
+                RawValue: -8288
+            Rotation:
+              X:
+                RawValue: -911
+              Y:
+                RawValue: -1999
+              Z:
+                RawValue: -4515
+              W:
+                RawValue: 65342
+            RotationY:
+              RawValue: -4355
+          - Id: 18
+            Time:
+              RawValue: 20695
+            Position:
+              X:
+                RawValue: -1531
+              Y:
+                RawValue: -4187
+              Z:
+                RawValue: -7995
+            Rotation:
+              X:
+                RawValue: -1282
+              Y:
+                RawValue: -2285
+              Z:
+                RawValue: -4492
+              W:
+                RawValue: 65328
+            RotationY:
+              RawValue: -5051
+          - Id: 19
+            Time:
+              RawValue: 21845
+            Position:
+              X:
+                RawValue: -1516
+              Y:
+                RawValue: -3868
+              Z:
+                RawValue: -7637
+            Rotation:
+              X:
+                RawValue: -1406
+              Y:
+                RawValue: -2174
+              Z:
+                RawValue: -4516
+              W:
+                RawValue: 65327
+            RotationY:
+              RawValue: -4869
+          Events: []
+          LoopTime: 0
+          Mirror: 0
+          DisableRootMotion: 1
+        BlendParameterIndex: 0
+        BlendParameterIndexY: 0
+        Positions: []
+        TimesScale: []
+        Resolution: 0
+        WeightTable:
+          Data: []
+        TimeScaleTable:
+          Data: []
+        ChildCount: 0
+        IndexOfFirstChild: 1
+      StateAsset:
+        Id:
+          Value: 0
+      StateBehaviours: []
+    - Name: Block_Out_Anim
+      Id: 1895397159
+      IsAny: 0
+      IsDefault: 0
+      CycleOffset:
+        RawValue: 0
+      Speed:
+        RawValue: 65536
+      Transitions: []
+      SerialisedMotions:
+      - IsAnimation: 1
+        Name: Block_Out_Anim
+        AnimatorData:
+          ClipName: Block_Out_Anim
+          MotionId: -854118052
+          Length:
+            RawValue: 21845
+          Index: 0
+          FrameRate: 60
+          FrameCount: 20
+          Frames:
+          - Id: 0
+            Time:
+              RawValue: 0
+            Position:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 0
+          - Id: 1
+            Time:
+              RawValue: 1149
+            Position:
+              X:
+                RawValue: 53
+              Y:
+                RawValue: 553
+              Z:
+                RawValue: 797
+            Rotation:
+              X:
+                RawValue: 111
+              Y:
+                RawValue: 469
+              Z:
+                RawValue: 82
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 974
+          - Id: 2
+            Time:
+              RawValue: 2299
+            Position:
+              X:
+                RawValue: 169
+              Y:
+                RawValue: 1232
+              Z:
+                RawValue: 1792
+            Rotation:
+              X:
+                RawValue: 393
+              Y:
+                RawValue: 1146
+              Z:
+                RawValue: 384
+              W:
+                RawValue: 65522
+            RotationY:
+              RawValue: 2411
+          - Id: 3
+            Time:
+              RawValue: 3449
+            Position:
+              X:
+                RawValue: 289
+              Y:
+                RawValue: 1982
+              Z:
+                RawValue: 2911
+            Rotation:
+              X:
+                RawValue: 760
+              Y:
+                RawValue: 1989
+              Z:
+                RawValue: 871
+              W:
+                RawValue: 65494
+            RotationY:
+              RawValue: 4211
+          - Id: 4
+            Time:
+              RawValue: 4599
+            Position:
+              X:
+                RawValue: 375
+              Y:
+                RawValue: 2748
+              Z:
+                RawValue: 4088
+            Rotation:
+              X:
+                RawValue: 1136
+              Y:
+                RawValue: 2941
+              Z:
+                RawValue: 1489
+              W:
+                RawValue: 65442
+            RotationY:
+              RawValue: 6257
+          - Id: 5
+            Time:
+              RawValue: 5748
+            Position:
+              X:
+                RawValue: 408
+              Y:
+                RawValue: 3467
+              Z:
+                RawValue: 5247
+            Rotation:
+              X:
+                RawValue: 1459
+              Y:
+                RawValue: 3940
+              Z:
+                RawValue: 2164
+              W:
+                RawValue: 65363
+            RotationY:
+              RawValue: 8403
+          - Id: 6
+            Time:
+              RawValue: 6898
+            Position:
+              X:
+                RawValue: 390
+              Y:
+                RawValue: 4073
+              Z:
+                RawValue: 6299
+            Rotation:
+              X:
+                RawValue: 1698
+              Y:
+                RawValue: 4914
+              Z:
+                RawValue: 2806
+              W:
+                RawValue: 65269
+            RotationY:
+              RawValue: 10476
+          - Id: 7
+            Time:
+              RawValue: 8048
+            Position:
+              X:
+                RawValue: 321
+              Y:
+                RawValue: 4489
+              Z:
+                RawValue: 7131
+            Rotation:
+              X:
+                RawValue: 1834
+              Y:
+                RawValue: 5769
+              Z:
+                RawValue: 3306
+              W:
+                RawValue: 65171
+            RotationY:
+              RawValue: 12276
+          - Id: 8
+            Time:
+              RawValue: 9198
+            Position:
+              X:
+                RawValue: 294
+              Y:
+                RawValue: 4690
+              Z:
+                RawValue: 7610
+            Rotation:
+              X:
+                RawValue: 1875
+              Y:
+                RawValue: 6470
+              Z:
+                RawValue: 3553
+              W:
+                RawValue: 65090
+            RotationY:
+              RawValue: 13719
+          - Id: 9
+            Time:
+              RawValue: 10347
+            Position:
+              X:
+                RawValue: 384
+              Y:
+                RawValue: 4769
+              Z:
+                RawValue: 7772
+            Rotation:
+              X:
+                RawValue: 1858
+              Y:
+                RawValue: 7109
+              Z:
+                RawValue: 3517
+              W:
+                RawValue: 65027
+            RotationY:
+              RawValue: 15007
+          - Id: 10
+            Time:
+              RawValue: 11497
+            Position:
+              X:
+                RawValue: 450
+              Y:
+                RawValue: 4777
+              Z:
+                RawValue: 7786
+            Rotation:
+              X:
+                RawValue: 1810
+              Y:
+                RawValue: 7704
+              Z:
+                RawValue: 3275
+              W:
+                RawValue: 64973
+            RotationY:
+              RawValue: 16195
+          - Id: 11
+            Time:
+              RawValue: 12647
+            Position:
+              X:
+                RawValue: 509
+              Y:
+                RawValue: 4720
+              Z:
+                RawValue: 7692
+            Rotation:
+              X:
+                RawValue: 1733
+              Y:
+                RawValue: 8192
+              Z:
+                RawValue: 2927
+              W:
+                RawValue: 64931
+            RotationY:
+              RawValue: 17151
+          - Id: 12
+            Time:
+              RawValue: 13797
+            Position:
+              X:
+                RawValue: 569
+              Y:
+                RawValue: 4613
+              Z:
+                RawValue: 7540
+            Rotation:
+              X:
+                RawValue: 1638
+              Y:
+                RawValue: 8515
+              Z:
+                RawValue: 2573
+              W:
+                RawValue: 64909
+            RotationY:
+              RawValue: 17767
+          - Id: 13
+            Time:
+              RawValue: 14946
+            Position:
+              X:
+                RawValue: 639
+              Y:
+                RawValue: 4475
+              Z:
+                RawValue: 7381
+            Rotation:
+              X:
+                RawValue: 1533
+              Y:
+                RawValue: 8621
+              Z:
+                RawValue: 2304
+              W:
+                RawValue: 64906
+            RotationY:
+              RawValue: 17941
+          - Id: 14
+            Time:
+              RawValue: 16096
+            Position:
+              X:
+                RawValue: 735
+              Y:
+                RawValue: 4329
+              Z:
+                RawValue: 7268
+            Rotation:
+              X:
+                RawValue: 1436
+              Y:
+                RawValue: 8471
+              Z:
+                RawValue: 2216
+              W:
+                RawValue: 64933
+            RotationY:
+              RawValue: 17602
+          - Id: 15
+            Time:
+              RawValue: 17246
+            Position:
+              X:
+                RawValue: 862
+              Y:
+                RawValue: 4200
+              Z:
+                RawValue: 7234
+            Rotation:
+              X:
+                RawValue: 1355
+              Y:
+                RawValue: 7867
+              Z:
+                RawValue: 2392
+              W:
+                RawValue: 65004
+            RotationY:
+              RawValue: 16348
+          - Id: 16
+            Time:
+              RawValue: 18396
+            Position:
+              X:
+                RawValue: 1012
+              Y:
+                RawValue: 4096
+              Z:
+                RawValue: 7270
+            Rotation:
+              X:
+                RawValue: 1297
+              Y:
+                RawValue: 6708
+              Z:
+                RawValue: 2803
+              W:
+                RawValue: 65118
+            RotationY:
+              RawValue: 13979
+          - Id: 17
+            Time:
+              RawValue: 19545
+            Position:
+              X:
+                RawValue: 1177
+              Y:
+                RawValue: 4009
+              Z:
+                RawValue: 7361
+            Rotation:
+              X:
+                RawValue: 1285
+              Y:
+                RawValue: 5202
+              Z:
+                RawValue: 3360
+              W:
+                RawValue: 65229
+            RotationY:
+              RawValue: 10931
+          - Id: 18
+            Time:
+              RawValue: 20695
+            Position:
+              X:
+                RawValue: 1349
+              Y:
+                RawValue: 3933
+              Z:
+                RawValue: 7491
+            Rotation:
+              X:
+                RawValue: 1325
+              Y:
+                RawValue: 3610
+              Z:
+                RawValue: 3962
+              W:
+                RawValue: 65302
+            RotationY:
+              RawValue: 7731
+          - Id: 19
+            Time:
+              RawValue: 21845
+            Position:
+              X:
+                RawValue: 1515
+              Y:
+                RawValue: 3868
+              Z:
+                RawValue: 7636
+            Rotation:
+              X:
+                RawValue: 1406
+              Y:
+                RawValue: 2174
+              Z:
+                RawValue: 4516
+              W:
+                RawValue: 65327
+            RotationY:
+              RawValue: 4869
+          Events: []
+          LoopTime: 0
+          Mirror: 0
+          DisableRootMotion: 1
+        BlendParameterIndex: 0
+        BlendParameterIndexY: 0
+        Positions: []
+        TimesScale: []
+        Resolution: 0
+        WeightTable:
+          Data: []
+        TimeScaleTable:
+          Data: []
+        ChildCount: 0
+        IndexOfFirstChild: 1
+      StateAsset:
+        Id:
+          Value: 0
+      StateBehaviours: []
+    - Name: Block_Hold_Anim
+      Id: -1320182125
+      IsAny: 0
+      IsDefault: 0
+      CycleOffset:
+        RawValue: 0
+      Speed:
+        RawValue: 65536
+      Transitions: []
+      SerialisedMotions:
+      - IsAnimation: 1
+        Name: Block_Hold_Anim
+        AnimatorData:
+          ClipName: Block_Hold_Anim
+          MotionId: -2047836439
+          Length:
+            RawValue: 218453
+          Index: 0
+          FrameRate: 60
+          FrameCount: 200
+          Frames:
+          - Id: 0
+            Time:
+              RawValue: 0
+            Position:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 0
+          - Id: 1
+            Time:
+              RawValue: 1097
+            Position:
+              X:
+                RawValue: -2
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -3
+              Y:
+                RawValue: 1
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 3
+          - Id: 2
+            Time:
+              RawValue: 2195
+            Position:
+              X:
+                RawValue: -4
+              Y:
+                RawValue: 1
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -6
+              Y:
+                RawValue: 4
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 7
+          - Id: 3
+            Time:
+              RawValue: 3293
+            Position:
+              X:
+                RawValue: -6
+              Y:
+                RawValue: 2
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -10
+              Y:
+                RawValue: 6
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 11
+          - Id: 4
+            Time:
+              RawValue: 4391
+            Position:
+              X:
+                RawValue: -8
+              Y:
+                RawValue: 3
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -13
+              Y:
+                RawValue: 9
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 15
+          - Id: 5
+            Time:
+              RawValue: 5488
+            Position:
+              X:
+                RawValue: -10
+              Y:
+                RawValue: 4
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -15
+              Y:
+                RawValue: 11
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 19
+          - Id: 6
+            Time:
+              RawValue: 6586
+            Position:
+              X:
+                RawValue: -11
+              Y:
+                RawValue: 5
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -15
+              Y:
+                RawValue: 12
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 21
+          - Id: 7
+            Time:
+              RawValue: 7684
+            Position:
+              X:
+                RawValue: -12
+              Y:
+                RawValue: 7
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -16
+              Y:
+                RawValue: 12
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 22
+          - Id: 8
+            Time:
+              RawValue: 8782
+            Position:
+              X:
+                RawValue: -15
+              Y:
+                RawValue: 7
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -17
+              Y:
+                RawValue: 13
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 23
+          - Id: 9
+            Time:
+              RawValue: 9879
+            Position:
+              X:
+                RawValue: -17
+              Y:
+                RawValue: 8
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -17
+              Y:
+                RawValue: 14
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 23
+          - Id: 10
+            Time:
+              RawValue: 10977
+            Position:
+              X:
+                RawValue: -19
+              Y:
+                RawValue: 9
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -16
+              Y:
+                RawValue: 14
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 23
+          - Id: 11
+            Time:
+              RawValue: 12075
+            Position:
+              X:
+                RawValue: -21
+              Y:
+                RawValue: 10
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -15
+              Y:
+                RawValue: 15
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 25
+          - Id: 12
+            Time:
+              RawValue: 13173
+            Position:
+              X:
+                RawValue: -23
+              Y:
+                RawValue: 11
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -15
+              Y:
+                RawValue: 15
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 27
+          - Id: 13
+            Time:
+              RawValue: 14270
+            Position:
+              X:
+                RawValue: -24
+              Y:
+                RawValue: 12
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -11
+              Y:
+                RawValue: 15
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 29
+          - Id: 14
+            Time:
+              RawValue: 15368
+            Position:
+              X:
+                RawValue: -25
+              Y:
+                RawValue: 13
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -6
+              Y:
+                RawValue: 14
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 29
+          - Id: 15
+            Time:
+              RawValue: 16466
+            Position:
+              X:
+                RawValue: -26
+              Y:
+                RawValue: 14
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: -3
+              Y:
+                RawValue: 15
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 30
+          - Id: 16
+            Time:
+              RawValue: 17564
+            Position:
+              X:
+                RawValue: -28
+              Y:
+                RawValue: 15
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 15
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 32
+          - Id: 17
+            Time:
+              RawValue: 18661
+            Position:
+              X:
+                RawValue: -30
+              Y:
+                RawValue: 15
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 4
+              Y:
+                RawValue: 15
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 31
+          - Id: 18
+            Time:
+              RawValue: 19759
+            Position:
+              X:
+                RawValue: -32
+              Y:
+                RawValue: 15
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 8
+              Y:
+                RawValue: 14
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 29
+          - Id: 19
+            Time:
+              RawValue: 20857
+            Position:
+              X:
+                RawValue: -34
+              Y:
+                RawValue: 16
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 12
+              Y:
+                RawValue: 12
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 27
+          - Id: 20
+            Time:
+              RawValue: 21955
+            Position:
+              X:
+                RawValue: -35
+              Y:
+                RawValue: 16
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 18
+              Y:
+                RawValue: 11
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 27
+          - Id: 21
+            Time:
+              RawValue: 23052
+            Position:
+              X:
+                RawValue: -37
+              Y:
+                RawValue: 16
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 23
+              Y:
+                RawValue: 12
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 27
+          - Id: 22
+            Time:
+              RawValue: 24150
+            Position:
+              X:
+                RawValue: -38
+              Y:
+                RawValue: 17
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 29
+              Y:
+                RawValue: 11
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 27
+          - Id: 23
+            Time:
+              RawValue: 25248
+            Position:
+              X:
+                RawValue: -39
+              Y:
+                RawValue: 17
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 36
+              Y:
+                RawValue: 9
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 26
+          - Id: 24
+            Time:
+              RawValue: 26346
+            Position:
+              X:
+                RawValue: -40
+              Y:
+                RawValue: 17
+              Z:
+                RawValue: -1
+            Rotation:
+              X:
+                RawValue: 44
+              Y:
+                RawValue: 9
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 24
+          - Id: 25
+            Time:
+              RawValue: 27443
+            Position:
+              X:
+                RawValue: -41
+              Y:
+                RawValue: 18
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 51
+              Y:
+                RawValue: 8
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 24
+          - Id: 26
+            Time:
+              RawValue: 28541
+            Position:
+              X:
+                RawValue: -43
+              Y:
+                RawValue: 17
+              Z:
+                RawValue: -1
+            Rotation:
+              X:
+                RawValue: 57
+              Y:
+                RawValue: 6
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 22
+          - Id: 27
+            Time:
+              RawValue: 29639
+            Position:
+              X:
+                RawValue: -46
+              Y:
+                RawValue: 17
+              Z:
+                RawValue: -1
+            Rotation:
+              X:
+                RawValue: 63
+              Y:
+                RawValue: 5
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 22
+          - Id: 28
+            Time:
+              RawValue: 30737
+            Position:
+              X:
+                RawValue: -48
+              Y:
+                RawValue: 16
+              Z:
+                RawValue: -1
+            Rotation:
+              X:
+                RawValue: 68
+              Y:
+                RawValue: 5
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 22
+          - Id: 29
+            Time:
+              RawValue: 31834
+            Position:
+              X:
+                RawValue: -50
+              Y:
+                RawValue: 15
+              Z:
+                RawValue: -1
+            Rotation:
+              X:
+                RawValue: 77
+              Y:
+                RawValue: 4
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 21
+          - Id: 30
+            Time:
+              RawValue: 32932
+            Position:
+              X:
+                RawValue: -51
+              Y:
+                RawValue: 14
+              Z:
+                RawValue: -1
+            Rotation:
+              X:
+                RawValue: 85
+              Y:
+                RawValue: 2
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 21
+          - Id: 31
+            Time:
+              RawValue: 34030
+            Position:
+              X:
+                RawValue: -53
+              Y:
+                RawValue: 13
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 93
+              Y:
+                RawValue: 2
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 21
+          - Id: 32
+            Time:
+              RawValue: 35128
+            Position:
+              X:
+                RawValue: -54
+              Y:
+                RawValue: 12
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 101
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 18
+          - Id: 33
+            Time:
+              RawValue: 36225
+            Position:
+              X:
+                RawValue: -57
+              Y:
+                RawValue: 11
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 108
+              Y:
+                RawValue: -2
+              Z:
+                RawValue: 2
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 16
+          - Id: 34
+            Time:
+              RawValue: 37323
+            Position:
+              X:
+                RawValue: -58
+              Y:
+                RawValue: 10
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 115
+              Y:
+                RawValue: -3
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 14
+          - Id: 35
+            Time:
+              RawValue: 38421
+            Position:
+              X:
+                RawValue: -60
+              Y:
+                RawValue: 9
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 123
+              Y:
+                RawValue: -5
+              Z:
+                RawValue: 3
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 13
+          - Id: 36
+            Time:
+              RawValue: 39519
+            Position:
+              X:
+                RawValue: -62
+              Y:
+                RawValue: 7
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 131
+              Y:
+                RawValue: -6
+              Z:
+                RawValue: 5
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 13
+          - Id: 37
+            Time:
+              RawValue: 40616
+            Position:
+              X:
+                RawValue: -64
+              Y:
+                RawValue: 6
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 138
+              Y:
+                RawValue: -4
+              Z:
+                RawValue: 6
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 14
+          - Id: 38
+            Time:
+              RawValue: 41714
+            Position:
+              X:
+                RawValue: -66
+              Y:
+                RawValue: 4
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 147
+              Y:
+                RawValue: -7
+              Z:
+                RawValue: 7
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 13
+          - Id: 39
+            Time:
+              RawValue: 42812
+            Position:
+              X:
+                RawValue: -67
+              Y:
+                RawValue: 2
+              Z:
+                RawValue: 1
+            Rotation:
+              X:
+                RawValue: 157
+              Y:
+                RawValue: -7
+              Z:
+                RawValue: 8
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 11
+          - Id: 40
+            Time:
+              RawValue: 43910
+            Position:
+              X:
+                RawValue: -69
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 1
+            Rotation:
+              X:
+                RawValue: 165
+              Y:
+                RawValue: -9
+              Z:
+                RawValue: 8
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 11
+          - Id: 41
+            Time:
+              RawValue: 45007
+            Position:
+              X:
+                RawValue: -71
+              Y:
+                RawValue: -1
+              Z:
+                RawValue: 1
+            Rotation:
+              X:
+                RawValue: 173
+              Y:
+                RawValue: -9
+              Z:
+                RawValue: 8
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 11
+          - Id: 42
+            Time:
+              RawValue: 46105
+            Position:
+              X:
+                RawValue: -73
+              Y:
+                RawValue: -4
+              Z:
+                RawValue: 1
+            Rotation:
+              X:
+                RawValue: 181
+              Y:
+                RawValue: -11
+              Z:
+                RawValue: 9
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 10
+          - Id: 43
+            Time:
+              RawValue: 47203
+            Position:
+              X:
+                RawValue: -75
+              Y:
+                RawValue: -7
+              Z:
+                RawValue: 2
+            Rotation:
+              X:
+                RawValue: 188
+              Y:
+                RawValue: -11
+              Z:
+                RawValue: 11
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 10
+          - Id: 44
+            Time:
+              RawValue: 48301
+            Position:
+              X:
+                RawValue: -78
+              Y:
+                RawValue: -10
+              Z:
+                RawValue: 3
+            Rotation:
+              X:
+                RawValue: 197
+              Y:
+                RawValue: -14
+              Z:
+                RawValue: 12
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 9
+          - Id: 45
+            Time:
+              RawValue: 49398
+            Position:
+              X:
+                RawValue: -80
+              Y:
+                RawValue: -13
+              Z:
+                RawValue: 3
+            Rotation:
+              X:
+                RawValue: 205
+              Y:
+                RawValue: -13
+              Z:
+                RawValue: 14
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 8
+          - Id: 46
+            Time:
+              RawValue: 50496
+            Position:
+              X:
+                RawValue: -82
+              Y:
+                RawValue: -16
+              Z:
+                RawValue: 4
+            Rotation:
+              X:
+                RawValue: 213
+              Y:
+                RawValue: -15
+              Z:
+                RawValue: 15
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 7
+          - Id: 47
+            Time:
+              RawValue: 51594
+            Position:
+              X:
+                RawValue: -84
+              Y:
+                RawValue: -19
+              Z:
+                RawValue: 4
+            Rotation:
+              X:
+                RawValue: 221
+              Y:
+                RawValue: -17
+              Z:
+                RawValue: 16
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 5
+          - Id: 48
+            Time:
+              RawValue: 52692
+            Position:
+              X:
+                RawValue: -86
+              Y:
+                RawValue: -23
+              Z:
+                RawValue: 5
+            Rotation:
+              X:
+                RawValue: 230
+              Y:
+                RawValue: -18
+              Z:
+                RawValue: 18
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 4
+          - Id: 49
+            Time:
+              RawValue: 53790
+            Position:
+              X:
+                RawValue: -87
+              Y:
+                RawValue: -26
+              Z:
+                RawValue: 5
+            Rotation:
+              X:
+                RawValue: 240
+              Y:
+                RawValue: -19
+              Z:
+                RawValue: 20
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 2
+          - Id: 50
+            Time:
+              RawValue: 54887
+            Position:
+              X:
+                RawValue: -88
+              Y:
+                RawValue: -30
+              Z:
+                RawValue: 6
+            Rotation:
+              X:
+                RawValue: 251
+              Y:
+                RawValue: -21
+              Z:
+                RawValue: 22
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 1
+          - Id: 51
+            Time:
+              RawValue: 55985
+            Position:
+              X:
+                RawValue: -89
+              Y:
+                RawValue: -34
+              Z:
+                RawValue: 6
+            Rotation:
+              X:
+                RawValue: 262
+              Y:
+                RawValue: -22
+              Z:
+                RawValue: 22
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: 0
+          - Id: 52
+            Time:
+              RawValue: 57083
+            Position:
+              X:
+                RawValue: -91
+              Y:
+                RawValue: -37
+              Z:
+                RawValue: 7
+            Rotation:
+              X:
+                RawValue: 273
+              Y:
+                RawValue: -26
+              Z:
+                RawValue: 23
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -1
+          - Id: 53
+            Time:
+              RawValue: 58181
+            Position:
+              X:
+                RawValue: -92
+              Y:
+                RawValue: -41
+              Z:
+                RawValue: 7
+            Rotation:
+              X:
+                RawValue: 283
+              Y:
+                RawValue: -27
+              Z:
+                RawValue: 24
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -3
+          - Id: 54
+            Time:
+              RawValue: 59278
+            Position:
+              X:
+                RawValue: -93
+              Y:
+                RawValue: -45
+              Z:
+                RawValue: 7
+            Rotation:
+              X:
+                RawValue: 295
+              Y:
+                RawValue: -29
+              Z:
+                RawValue: 26
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -6
+          - Id: 55
+            Time:
+              RawValue: 60376
+            Position:
+              X:
+                RawValue: -94
+              Y:
+                RawValue: -49
+              Z:
+                RawValue: 8
+            Rotation:
+              X:
+                RawValue: 306
+              Y:
+                RawValue: -31
+              Z:
+                RawValue: 27
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -8
+          - Id: 56
+            Time:
+              RawValue: 61474
+            Position:
+              X:
+                RawValue: -94
+              Y:
+                RawValue: -54
+              Z:
+                RawValue: 8
+            Rotation:
+              X:
+                RawValue: 317
+              Y:
+                RawValue: -35
+              Z:
+                RawValue: 27
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -12
+          - Id: 57
+            Time:
+              RawValue: 62572
+            Position:
+              X:
+                RawValue: -95
+              Y:
+                RawValue: -58
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 329
+              Y:
+                RawValue: -37
+              Z:
+                RawValue: 29
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -17
+          - Id: 58
+            Time:
+              RawValue: 63669
+            Position:
+              X:
+                RawValue: -96
+              Y:
+                RawValue: -62
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 342
+              Y:
+                RawValue: -40
+              Z:
+                RawValue: 32
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -22
+          - Id: 59
+            Time:
+              RawValue: 64767
+            Position:
+              X:
+                RawValue: -96
+              Y:
+                RawValue: -66
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 353
+              Y:
+                RawValue: -45
+              Z:
+                RawValue: 32
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -27
+          - Id: 60
+            Time:
+              RawValue: 65865
+            Position:
+              X:
+                RawValue: -95
+              Y:
+                RawValue: -70
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 367
+              Y:
+                RawValue: -48
+              Z:
+                RawValue: 33
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -30
+          - Id: 61
+            Time:
+              RawValue: 66963
+            Position:
+              X:
+                RawValue: -95
+              Y:
+                RawValue: -74
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 379
+              Y:
+                RawValue: -53
+              Z:
+                RawValue: 34
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -37
+          - Id: 62
+            Time:
+              RawValue: 68060
+            Position:
+              X:
+                RawValue: -95
+              Y:
+                RawValue: -78
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 390
+              Y:
+                RawValue: -56
+              Z:
+                RawValue: 35
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -43
+          - Id: 63
+            Time:
+              RawValue: 69158
+            Position:
+              X:
+                RawValue: -94
+              Y:
+                RawValue: -82
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 404
+              Y:
+                RawValue: -59
+              Z:
+                RawValue: 35
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -47
+          - Id: 64
+            Time:
+              RawValue: 70256
+            Position:
+              X:
+                RawValue: -94
+              Y:
+                RawValue: -86
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 416
+              Y:
+                RawValue: -62
+              Z:
+                RawValue: 38
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -51
+          - Id: 65
+            Time:
+              RawValue: 71354
+            Position:
+              X:
+                RawValue: -93
+              Y:
+                RawValue: -91
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 428
+              Y:
+                RawValue: -65
+              Z:
+                RawValue: 39
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -56
+          - Id: 66
+            Time:
+              RawValue: 72451
+            Position:
+              X:
+                RawValue: -92
+              Y:
+                RawValue: -95
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 441
+              Y:
+                RawValue: -70
+              Z:
+                RawValue: 40
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -62
+          - Id: 67
+            Time:
+              RawValue: 73549
+            Position:
+              X:
+                RawValue: -92
+              Y:
+                RawValue: -100
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 455
+              Y:
+                RawValue: -75
+              Z:
+                RawValue: 41
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -69
+          - Id: 68
+            Time:
+              RawValue: 74647
+            Position:
+              X:
+                RawValue: -91
+              Y:
+                RawValue: -104
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 467
+              Y:
+                RawValue: -80
+              Z:
+                RawValue: 40
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -78
+          - Id: 69
+            Time:
+              RawValue: 75745
+            Position:
+              X:
+                RawValue: -90
+              Y:
+                RawValue: -108
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 478
+              Y:
+                RawValue: -85
+              Z:
+                RawValue: 41
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -85
+          - Id: 70
+            Time:
+              RawValue: 76842
+            Position:
+              X:
+                RawValue: -88
+              Y:
+                RawValue: -112
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 494
+              Y:
+                RawValue: -87
+              Z:
+                RawValue: 43
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -88
+          - Id: 71
+            Time:
+              RawValue: 77940
+            Position:
+              X:
+                RawValue: -86
+              Y:
+                RawValue: -116
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 507
+              Y:
+                RawValue: -91
+              Z:
+                RawValue: 44
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -92
+          - Id: 72
+            Time:
+              RawValue: 79038
+            Position:
+              X:
+                RawValue: -84
+              Y:
+                RawValue: -120
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 519
+              Y:
+                RawValue: -96
+              Z:
+                RawValue: 44
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -100
+          - Id: 73
+            Time:
+              RawValue: 80136
+            Position:
+              X:
+                RawValue: -82
+              Y:
+                RawValue: -124
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 533
+              Y:
+                RawValue: -100
+              Z:
+                RawValue: 45
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -108
+          - Id: 74
+            Time:
+              RawValue: 81233
+            Position:
+              X:
+                RawValue: -80
+              Y:
+                RawValue: -128
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 544
+              Y:
+                RawValue: -105
+              Z:
+                RawValue: 45
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -115
+          - Id: 75
+            Time:
+              RawValue: 82331
+            Position:
+              X:
+                RawValue: -79
+              Y:
+                RawValue: -132
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 556
+              Y:
+                RawValue: -110
+              Z:
+                RawValue: 47
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -123
+          - Id: 76
+            Time:
+              RawValue: 83429
+            Position:
+              X:
+                RawValue: -77
+              Y:
+                RawValue: -136
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 570
+              Y:
+                RawValue: -115
+              Z:
+                RawValue: 47
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -132
+          - Id: 77
+            Time:
+              RawValue: 84527
+            Position:
+              X:
+                RawValue: -73
+              Y:
+                RawValue: -139
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 583
+              Y:
+                RawValue: -120
+              Z:
+                RawValue: 48
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -138
+          - Id: 78
+            Time:
+              RawValue: 85624
+            Position:
+              X:
+                RawValue: -70
+              Y:
+                RawValue: -142
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 596
+              Y:
+                RawValue: -123
+              Z:
+                RawValue: 47
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -144
+          - Id: 79
+            Time:
+              RawValue: 86722
+            Position:
+              X:
+                RawValue: -67
+              Y:
+                RawValue: -146
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 608
+              Y:
+                RawValue: -128
+              Z:
+                RawValue: 48
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -150
+          - Id: 80
+            Time:
+              RawValue: 87820
+            Position:
+              X:
+                RawValue: -64
+              Y:
+                RawValue: -149
+              Z:
+                RawValue: 14
+            Rotation:
+              X:
+                RawValue: 619
+              Y:
+                RawValue: -133
+              Z:
+                RawValue: 49
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -157
+          - Id: 81
+            Time:
+              RawValue: 88918
+            Position:
+              X:
+                RawValue: -62
+              Y:
+                RawValue: -152
+              Z:
+                RawValue: 14
+            Rotation:
+              X:
+                RawValue: 629
+              Y:
+                RawValue: -136
+              Z:
+                RawValue: 50
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -166
+          - Id: 82
+            Time:
+              RawValue: 90015
+            Position:
+              X:
+                RawValue: -59
+              Y:
+                RawValue: -156
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 640
+              Y:
+                RawValue: -142
+              Z:
+                RawValue: 50
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -174
+          - Id: 83
+            Time:
+              RawValue: 91113
+            Position:
+              X:
+                RawValue: -55
+              Y:
+                RawValue: -159
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 654
+              Y:
+                RawValue: -147
+              Z:
+                RawValue: 49
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -181
+          - Id: 84
+            Time:
+              RawValue: 92211
+            Position:
+              X:
+                RawValue: -52
+              Y:
+                RawValue: -161
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 665
+              Y:
+                RawValue: -152
+              Z:
+                RawValue: 48
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -189
+          - Id: 85
+            Time:
+              RawValue: 93309
+            Position:
+              X:
+                RawValue: -47
+              Y:
+                RawValue: -163
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 676
+              Y:
+                RawValue: -156
+              Z:
+                RawValue: 48
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -196
+          - Id: 86
+            Time:
+              RawValue: 94406
+            Position:
+              X:
+                RawValue: -43
+              Y:
+                RawValue: -165
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 686
+              Y:
+                RawValue: -161
+              Z:
+                RawValue: 47
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -203
+          - Id: 87
+            Time:
+              RawValue: 95504
+            Position:
+              X:
+                RawValue: -39
+              Y:
+                RawValue: -167
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 697
+              Y:
+                RawValue: -166
+              Z:
+                RawValue: 47
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -211
+          - Id: 88
+            Time:
+              RawValue: 96602
+            Position:
+              X:
+                RawValue: -35
+              Y:
+                RawValue: -169
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 706
+              Y:
+                RawValue: -171
+              Z:
+                RawValue: 46
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -221
+          - Id: 89
+            Time:
+              RawValue: 97700
+            Position:
+              X:
+                RawValue: -31
+              Y:
+                RawValue: -172
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 716
+              Y:
+                RawValue: -177
+              Z:
+                RawValue: 47
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -231
+          - Id: 90
+            Time:
+              RawValue: 98797
+            Position:
+              X:
+                RawValue: -28
+              Y:
+                RawValue: -174
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 725
+              Y:
+                RawValue: -182
+              Z:
+                RawValue: 46
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -239
+          - Id: 91
+            Time:
+              RawValue: 99895
+            Position:
+              X:
+                RawValue: -24
+              Y:
+                RawValue: -176
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 733
+              Y:
+                RawValue: -187
+              Z:
+                RawValue: 46
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -246
+          - Id: 92
+            Time:
+              RawValue: 100993
+            Position:
+              X:
+                RawValue: -20
+              Y:
+                RawValue: -178
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 742
+              Y:
+                RawValue: -189
+              Z:
+                RawValue: 46
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -253
+          - Id: 93
+            Time:
+              RawValue: 102091
+            Position:
+              X:
+                RawValue: -15
+              Y:
+                RawValue: -179
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 751
+              Y:
+                RawValue: -195
+              Z:
+                RawValue: 46
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -261
+          - Id: 94
+            Time:
+              RawValue: 103189
+            Position:
+              X:
+                RawValue: -10
+              Y:
+                RawValue: -180
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 757
+              Y:
+                RawValue: -200
+              Z:
+                RawValue: 44
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -270
+          - Id: 95
+            Time:
+              RawValue: 104286
+            Position:
+              X:
+                RawValue: -6
+              Y:
+                RawValue: -181
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 765
+              Y:
+                RawValue: -204
+              Z:
+                RawValue: 43
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -277
+          - Id: 96
+            Time:
+              RawValue: 105384
+            Position:
+              X:
+                RawValue: -1
+              Y:
+                RawValue: -182
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 772
+              Y:
+                RawValue: -208
+              Z:
+                RawValue: 43
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -284
+          - Id: 97
+            Time:
+              RawValue: 106482
+            Position:
+              X:
+                RawValue: 2
+              Y:
+                RawValue: -183
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 779
+              Y:
+                RawValue: -211
+              Z:
+                RawValue: 42
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -290
+          - Id: 98
+            Time:
+              RawValue: 107580
+            Position:
+              X:
+                RawValue: 6
+              Y:
+                RawValue: -184
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 786
+              Y:
+                RawValue: -215
+              Z:
+                RawValue: 42
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -296
+          - Id: 99
+            Time:
+              RawValue: 108677
+            Position:
+              X:
+                RawValue: 10
+              Y:
+                RawValue: -185
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 792
+              Y:
+                RawValue: -221
+              Z:
+                RawValue: 42
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -306
+          - Id: 100
+            Time:
+              RawValue: 109775
+            Position:
+              X:
+                RawValue: 14
+              Y:
+                RawValue: -186
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 797
+              Y:
+                RawValue: -225
+              Z:
+                RawValue: 40
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -313
+          - Id: 101
+            Time:
+              RawValue: 110873
+            Position:
+              X:
+                RawValue: 17
+              Y:
+                RawValue: -187
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 802
+              Y:
+                RawValue: -226
+              Z:
+                RawValue: 41
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -317
+          - Id: 102
+            Time:
+              RawValue: 111971
+            Position:
+              X:
+                RawValue: 22
+              Y:
+                RawValue: -187
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 806
+              Y:
+                RawValue: -231
+              Z:
+                RawValue: 40
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -323
+          - Id: 103
+            Time:
+              RawValue: 113068
+            Position:
+              X:
+                RawValue: 26
+              Y:
+                RawValue: -187
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 809
+              Y:
+                RawValue: -233
+              Z:
+                RawValue: 39
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -328
+          - Id: 104
+            Time:
+              RawValue: 114166
+            Position:
+              X:
+                RawValue: 30
+              Y:
+                RawValue: -187
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 812
+              Y:
+                RawValue: -237
+              Z:
+                RawValue: 37
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -334
+          - Id: 105
+            Time:
+              RawValue: 115264
+            Position:
+              X:
+                RawValue: 34
+              Y:
+                RawValue: -187
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 815
+              Y:
+                RawValue: -239
+              Z:
+                RawValue: 36
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -339
+          - Id: 106
+            Time:
+              RawValue: 116362
+            Position:
+              X:
+                RawValue: 38
+              Y:
+                RawValue: -187
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 818
+              Y:
+                RawValue: -240
+              Z:
+                RawValue: 37
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -342
+          - Id: 107
+            Time:
+              RawValue: 117459
+            Position:
+              X:
+                RawValue: 42
+              Y:
+                RawValue: -187
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 821
+              Y:
+                RawValue: -241
+              Z:
+                RawValue: 36
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -345
+          - Id: 108
+            Time:
+              RawValue: 118557
+            Position:
+              X:
+                RawValue: 45
+              Y:
+                RawValue: -186
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 822
+              Y:
+                RawValue: -243
+              Z:
+                RawValue: 36
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -350
+          - Id: 109
+            Time:
+              RawValue: 119655
+            Position:
+              X:
+                RawValue: 48
+              Y:
+                RawValue: -186
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 824
+              Y:
+                RawValue: -246
+              Z:
+                RawValue: 34
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -355
+          - Id: 110
+            Time:
+              RawValue: 120753
+            Position:
+              X:
+                RawValue: 51
+              Y:
+                RawValue: -186
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 823
+              Y:
+                RawValue: -251
+              Z:
+                RawValue: 33
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -359
+          - Id: 111
+            Time:
+              RawValue: 121850
+            Position:
+              X:
+                RawValue: 54
+              Y:
+                RawValue: -185
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 821
+              Y:
+                RawValue: -251
+              Z:
+                RawValue: 32
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -361
+          - Id: 112
+            Time:
+              RawValue: 122948
+            Position:
+              X:
+                RawValue: 57
+              Y:
+                RawValue: -185
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 821
+              Y:
+                RawValue: -252
+              Z:
+                RawValue: 32
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -364
+          - Id: 113
+            Time:
+              RawValue: 124046
+            Position:
+              X:
+                RawValue: 60
+              Y:
+                RawValue: -183
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 818
+              Y:
+                RawValue: -252
+              Z:
+                RawValue: 31
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -365
+          - Id: 114
+            Time:
+              RawValue: 125144
+            Position:
+              X:
+                RawValue: 63
+              Y:
+                RawValue: -182
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 815
+              Y:
+                RawValue: -251
+              Z:
+                RawValue: 30
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -366
+          - Id: 115
+            Time:
+              RawValue: 126241
+            Position:
+              X:
+                RawValue: 66
+              Y:
+                RawValue: -181
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 813
+              Y:
+                RawValue: -252
+              Z:
+                RawValue: 28
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -367
+          - Id: 116
+            Time:
+              RawValue: 127339
+            Position:
+              X:
+                RawValue: 69
+              Y:
+                RawValue: -179
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 810
+              Y:
+                RawValue: -252
+              Z:
+                RawValue: 27
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -368
+          - Id: 117
+            Time:
+              RawValue: 128437
+            Position:
+              X:
+                RawValue: 71
+              Y:
+                RawValue: -178
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 806
+              Y:
+                RawValue: -252
+              Z:
+                RawValue: 27
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -368
+          - Id: 118
+            Time:
+              RawValue: 129535
+            Position:
+              X:
+                RawValue: 74
+              Y:
+                RawValue: -176
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 802
+              Y:
+                RawValue: -252
+              Z:
+                RawValue: 27
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -367
+          - Id: 119
+            Time:
+              RawValue: 130632
+            Position:
+              X:
+                RawValue: 76
+              Y:
+                RawValue: -175
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 799
+              Y:
+                RawValue: -251
+              Z:
+                RawValue: 26
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -367
+          - Id: 120
+            Time:
+              RawValue: 131730
+            Position:
+              X:
+                RawValue: 78
+              Y:
+                RawValue: -173
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 793
+              Y:
+                RawValue: -252
+              Z:
+                RawValue: 24
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -370
+          - Id: 121
+            Time:
+              RawValue: 132828
+            Position:
+              X:
+                RawValue: 80
+              Y:
+                RawValue: -172
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 787
+              Y:
+                RawValue: -252
+              Z:
+                RawValue: 24
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -371
+          - Id: 122
+            Time:
+              RawValue: 133926
+            Position:
+              X:
+                RawValue: 82
+              Y:
+                RawValue: -170
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 782
+              Y:
+                RawValue: -251
+              Z:
+                RawValue: 23
+              W:
+                RawValue: 65529
+            RotationY:
+              RawValue: -369
+          - Id: 123
+            Time:
+              RawValue: 135023
+            Position:
+              X:
+                RawValue: 83
+              Y:
+                RawValue: -169
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 776
+              Y:
+                RawValue: -248
+              Z:
+                RawValue: 23
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -367
+          - Id: 124
+            Time:
+              RawValue: 136121
+            Position:
+              X:
+                RawValue: 85
+              Y:
+                RawValue: -167
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 769
+              Y:
+                RawValue: -248
+              Z:
+                RawValue: 23
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -367
+          - Id: 125
+            Time:
+              RawValue: 137219
+            Position:
+              X:
+                RawValue: 86
+              Y:
+                RawValue: -166
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 762
+              Y:
+                RawValue: -247
+              Z:
+                RawValue: 21
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -366
+          - Id: 126
+            Time:
+              RawValue: 138317
+            Position:
+              X:
+                RawValue: 87
+              Y:
+                RawValue: -164
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 754
+              Y:
+                RawValue: -247
+              Z:
+                RawValue: 21
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -365
+          - Id: 127
+            Time:
+              RawValue: 139414
+            Position:
+              X:
+                RawValue: 89
+              Y:
+                RawValue: -162
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 746
+              Y:
+                RawValue: -243
+              Z:
+                RawValue: 21
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -363
+          - Id: 128
+            Time:
+              RawValue: 140512
+            Position:
+              X:
+                RawValue: 90
+              Y:
+                RawValue: -160
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 738
+              Y:
+                RawValue: -242
+              Z:
+                RawValue: 19
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -361
+          - Id: 129
+            Time:
+              RawValue: 141610
+            Position:
+              X:
+                RawValue: 92
+              Y:
+                RawValue: -158
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 732
+              Y:
+                RawValue: -240
+              Z:
+                RawValue: 20
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -358
+          - Id: 130
+            Time:
+              RawValue: 142708
+            Position:
+              X:
+                RawValue: 94
+              Y:
+                RawValue: -156
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 723
+              Y:
+                RawValue: -240
+              Z:
+                RawValue: 19
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -357
+          - Id: 131
+            Time:
+              RawValue: 143805
+            Position:
+              X:
+                RawValue: 95
+              Y:
+                RawValue: -153
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 716
+              Y:
+                RawValue: -238
+              Z:
+                RawValue: 18
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -355
+          - Id: 132
+            Time:
+              RawValue: 144903
+            Position:
+              X:
+                RawValue: 96
+              Y:
+                RawValue: -151
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 707
+              Y:
+                RawValue: -235
+              Z:
+                RawValue: 17
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -352
+          - Id: 133
+            Time:
+              RawValue: 146001
+            Position:
+              X:
+                RawValue: 97
+              Y:
+                RawValue: -149
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 697
+              Y:
+                RawValue: -234
+              Z:
+                RawValue: 17
+              W:
+                RawValue: 65530
+            RotationY:
+              RawValue: -349
+          - Id: 134
+            Time:
+              RawValue: 147099
+            Position:
+              X:
+                RawValue: 98
+              Y:
+                RawValue: -147
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 688
+              Y:
+                RawValue: -230
+              Z:
+                RawValue: 16
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -346
+          - Id: 135
+            Time:
+              RawValue: 148196
+            Position:
+              X:
+                RawValue: 98
+              Y:
+                RawValue: -144
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 679
+              Y:
+                RawValue: -228
+              Z:
+                RawValue: 15
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -343
+          - Id: 136
+            Time:
+              RawValue: 149294
+            Position:
+              X:
+                RawValue: 99
+              Y:
+                RawValue: -142
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 670
+              Y:
+                RawValue: -226
+              Z:
+                RawValue: 13
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -340
+          - Id: 137
+            Time:
+              RawValue: 150392
+            Position:
+              X:
+                RawValue: 99
+              Y:
+                RawValue: -140
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 660
+              Y:
+                RawValue: -224
+              Z:
+                RawValue: 13
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -337
+          - Id: 138
+            Time:
+              RawValue: 151490
+            Position:
+              X:
+                RawValue: 100
+              Y:
+                RawValue: -137
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 649
+              Y:
+                RawValue: -221
+              Z:
+                RawValue: 13
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -334
+          - Id: 139
+            Time:
+              RawValue: 152588
+            Position:
+              X:
+                RawValue: 100
+              Y:
+                RawValue: -135
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 637
+              Y:
+                RawValue: -218
+              Z:
+                RawValue: 12
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -330
+          - Id: 140
+            Time:
+              RawValue: 153685
+            Position:
+              X:
+                RawValue: 100
+              Y:
+                RawValue: -132
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 626
+              Y:
+                RawValue: -215
+              Z:
+                RawValue: 12
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -326
+          - Id: 141
+            Time:
+              RawValue: 154783
+            Position:
+              X:
+                RawValue: 100
+              Y:
+                RawValue: -130
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 615
+              Y:
+                RawValue: -212
+              Z:
+                RawValue: 11
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -321
+          - Id: 142
+            Time:
+              RawValue: 155881
+            Position:
+              X:
+                RawValue: 100
+              Y:
+                RawValue: -127
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 604
+              Y:
+                RawValue: -209
+              Z:
+                RawValue: 10
+              W:
+                RawValue: 65531
+            RotationY:
+              RawValue: -317
+          - Id: 143
+            Time:
+              RawValue: 156979
+            Position:
+              X:
+                RawValue: 100
+              Y:
+                RawValue: -125
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 592
+              Y:
+                RawValue: -205
+              Z:
+                RawValue: 9
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -313
+          - Id: 144
+            Time:
+              RawValue: 158076
+            Position:
+              X:
+                RawValue: 100
+              Y:
+                RawValue: -122
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 582
+              Y:
+                RawValue: -203
+              Z:
+                RawValue: 9
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -308
+          - Id: 145
+            Time:
+              RawValue: 159174
+            Position:
+              X:
+                RawValue: 100
+              Y:
+                RawValue: -119
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 570
+              Y:
+                RawValue: -199
+              Z:
+                RawValue: 8
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -303
+          - Id: 146
+            Time:
+              RawValue: 160272
+            Position:
+              X:
+                RawValue: 100
+              Y:
+                RawValue: -117
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 559
+              Y:
+                RawValue: -196
+              Z:
+                RawValue: 8
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -299
+          - Id: 147
+            Time:
+              RawValue: 161370
+            Position:
+              X:
+                RawValue: 99
+              Y:
+                RawValue: -114
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 548
+              Y:
+                RawValue: -193
+              Z:
+                RawValue: 7
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -294
+          - Id: 148
+            Time:
+              RawValue: 162467
+            Position:
+              X:
+                RawValue: 99
+              Y:
+                RawValue: -111
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 535
+              Y:
+                RawValue: -189
+              Z:
+                RawValue: 6
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -289
+          - Id: 149
+            Time:
+              RawValue: 163565
+            Position:
+              X:
+                RawValue: 98
+              Y:
+                RawValue: -109
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 522
+              Y:
+                RawValue: -186
+              Z:
+                RawValue: 6
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -284
+          - Id: 150
+            Time:
+              RawValue: 164663
+            Position:
+              X:
+                RawValue: 98
+              Y:
+                RawValue: -106
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 510
+              Y:
+                RawValue: -183
+              Z:
+                RawValue: 5
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -279
+          - Id: 151
+            Time:
+              RawValue: 165761
+            Position:
+              X:
+                RawValue: 97
+              Y:
+                RawValue: -103
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 497
+              Y:
+                RawValue: -178
+              Z:
+                RawValue: 6
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -273
+          - Id: 152
+            Time:
+              RawValue: 166858
+            Position:
+              X:
+                RawValue: 96
+              Y:
+                RawValue: -100
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 486
+              Y:
+                RawValue: -175
+              Z:
+                RawValue: 5
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -267
+          - Id: 153
+            Time:
+              RawValue: 167956
+            Position:
+              X:
+                RawValue: 95
+              Y:
+                RawValue: -97
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 472
+              Y:
+                RawValue: -171
+              Z:
+                RawValue: 4
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -262
+          - Id: 154
+            Time:
+              RawValue: 169054
+            Position:
+              X:
+                RawValue: 94
+              Y:
+                RawValue: -94
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 461
+              Y:
+                RawValue: -167
+              Z:
+                RawValue: 5
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -256
+          - Id: 155
+            Time:
+              RawValue: 170152
+            Position:
+              X:
+                RawValue: 93
+              Y:
+                RawValue: -92
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 448
+              Y:
+                RawValue: -164
+              Z:
+                RawValue: 4
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -251
+          - Id: 156
+            Time:
+              RawValue: 171249
+            Position:
+              X:
+                RawValue: 92
+              Y:
+                RawValue: -89
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 434
+              Y:
+                RawValue: -159
+              Z:
+                RawValue: 3
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -246
+          - Id: 157
+            Time:
+              RawValue: 172347
+            Position:
+              X:
+                RawValue: 91
+              Y:
+                RawValue: -86
+              Z:
+                RawValue: 13
+            Rotation:
+              X:
+                RawValue: 422
+              Y:
+                RawValue: -155
+              Z:
+                RawValue: 4
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -240
+          - Id: 158
+            Time:
+              RawValue: 173445
+            Position:
+              X:
+                RawValue: 90
+              Y:
+                RawValue: -83
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 410
+              Y:
+                RawValue: -152
+              Z:
+                RawValue: 3
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -234
+          - Id: 159
+            Time:
+              RawValue: 174543
+            Position:
+              X:
+                RawValue: 89
+              Y:
+                RawValue: -80
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 397
+              Y:
+                RawValue: -146
+              Z:
+                RawValue: 2
+              W:
+                RawValue: 65532
+            RotationY:
+              RawValue: -228
+          - Id: 160
+            Time:
+              RawValue: 175640
+            Position:
+              X:
+                RawValue: 87
+              Y:
+                RawValue: -77
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 384
+              Y:
+                RawValue: -144
+              Z:
+                RawValue: 3
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -222
+          - Id: 161
+            Time:
+              RawValue: 176738
+            Position:
+              X:
+                RawValue: 86
+              Y:
+                RawValue: -74
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 373
+              Y:
+                RawValue: -139
+              Z:
+                RawValue: 3
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -217
+          - Id: 162
+            Time:
+              RawValue: 177836
+            Position:
+              X:
+                RawValue: 85
+              Y:
+                RawValue: -71
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 359
+              Y:
+                RawValue: -135
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -209
+          - Id: 163
+            Time:
+              RawValue: 178934
+            Position:
+              X:
+                RawValue: 83
+              Y:
+                RawValue: -68
+              Z:
+                RawValue: 12
+            Rotation:
+              X:
+                RawValue: 346
+              Y:
+                RawValue: -130
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -201
+          - Id: 164
+            Time:
+              RawValue: 180031
+            Position:
+              X:
+                RawValue: 81
+              Y:
+                RawValue: -66
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 334
+              Y:
+                RawValue: -125
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -195
+          - Id: 165
+            Time:
+              RawValue: 181129
+            Position:
+              X:
+                RawValue: 79
+              Y:
+                RawValue: -63
+              Z:
+                RawValue: 11
+            Rotation:
+              X:
+                RawValue: 322
+              Y:
+                RawValue: -122
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -190
+          - Id: 166
+            Time:
+              RawValue: 182227
+            Position:
+              X:
+                RawValue: 77
+              Y:
+                RawValue: -61
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 309
+              Y:
+                RawValue: -119
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -184
+          - Id: 167
+            Time:
+              RawValue: 183325
+            Position:
+              X:
+                RawValue: 74
+              Y:
+                RawValue: -58
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 297
+              Y:
+                RawValue: -113
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -178
+          - Id: 168
+            Time:
+              RawValue: 184422
+            Position:
+              X:
+                RawValue: 72
+              Y:
+                RawValue: -56
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 286
+              Y:
+                RawValue: -110
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -171
+          - Id: 169
+            Time:
+              RawValue: 185520
+            Position:
+              X:
+                RawValue: 70
+              Y:
+                RawValue: -53
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 273
+              Y:
+                RawValue: -104
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -163
+          - Id: 170
+            Time:
+              RawValue: 186618
+            Position:
+              X:
+                RawValue: 68
+              Y:
+                RawValue: -51
+              Z:
+                RawValue: 10
+            Rotation:
+              X:
+                RawValue: 261
+              Y:
+                RawValue: -99
+              Z:
+                RawValue: 1
+              W:
+                RawValue: 65533
+            RotationY:
+              RawValue: -155
+          - Id: 171
+            Time:
+              RawValue: 187716
+            Position:
+              X:
+                RawValue: 66
+              Y:
+                RawValue: -48
+              Z:
+                RawValue: 9
+            Rotation:
+              X:
+                RawValue: 249
+              Y:
+                RawValue: -96
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -150
+          - Id: 172
+            Time:
+              RawValue: 188813
+            Position:
+              X:
+                RawValue: 64
+              Y:
+                RawValue: -46
+              Z:
+                RawValue: 8
+            Rotation:
+              X:
+                RawValue: 238
+              Y:
+                RawValue: -94
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: -145
+          - Id: 173
+            Time:
+              RawValue: 189911
+            Position:
+              X:
+                RawValue: 61
+              Y:
+                RawValue: -43
+              Z:
+                RawValue: 8
+            Rotation:
+              X:
+                RawValue: 227
+              Y:
+                RawValue: -88
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -140
+          - Id: 174
+            Time:
+              RawValue: 191009
+            Position:
+              X:
+                RawValue: 59
+              Y:
+                RawValue: -41
+              Z:
+                RawValue: 7
+            Rotation:
+              X:
+                RawValue: 215
+              Y:
+                RawValue: -86
+              Z:
+                RawValue: -2
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -134
+          - Id: 175
+            Time:
+              RawValue: 192107
+            Position:
+              X:
+                RawValue: 57
+              Y:
+                RawValue: -38
+              Z:
+                RawValue: 7
+            Rotation:
+              X:
+                RawValue: 204
+              Y:
+                RawValue: -80
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -126
+          - Id: 176
+            Time:
+              RawValue: 193204
+            Position:
+              X:
+                RawValue: 55
+              Y:
+                RawValue: -36
+              Z:
+                RawValue: 7
+            Rotation:
+              X:
+                RawValue: 192
+              Y:
+                RawValue: -74
+              Z:
+                RawValue: -2
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -118
+          - Id: 177
+            Time:
+              RawValue: 194302
+            Position:
+              X:
+                RawValue: 53
+              Y:
+                RawValue: -33
+              Z:
+                RawValue: 6
+            Rotation:
+              X:
+                RawValue: 180
+              Y:
+                RawValue: -71
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -112
+          - Id: 178
+            Time:
+              RawValue: 195400
+            Position:
+              X:
+                RawValue: 50
+              Y:
+                RawValue: -31
+              Z:
+                RawValue: 6
+            Rotation:
+              X:
+                RawValue: 170
+              Y:
+                RawValue: -67
+              Z:
+                RawValue: -2
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -106
+          - Id: 179
+            Time:
+              RawValue: 196498
+            Position:
+              X:
+                RawValue: 47
+              Y:
+                RawValue: -30
+              Z:
+                RawValue: 5
+            Rotation:
+              X:
+                RawValue: 158
+              Y:
+                RawValue: -64
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -101
+          - Id: 180
+            Time:
+              RawValue: 197595
+            Position:
+              X:
+                RawValue: 44
+              Y:
+                RawValue: -28
+              Z:
+                RawValue: 5
+            Rotation:
+              X:
+                RawValue: 149
+              Y:
+                RawValue: -59
+              Z:
+                RawValue: -2
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -93
+          - Id: 181
+            Time:
+              RawValue: 198693
+            Position:
+              X:
+                RawValue: 41
+              Y:
+                RawValue: -26
+              Z:
+                RawValue: 4
+            Rotation:
+              X:
+                RawValue: 138
+              Y:
+                RawValue: -55
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -87
+          - Id: 182
+            Time:
+              RawValue: 199791
+            Position:
+              X:
+                RawValue: 38
+              Y:
+                RawValue: -24
+              Z:
+                RawValue: 4
+            Rotation:
+              X:
+                RawValue: 127
+              Y:
+                RawValue: -50
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: -81
+          - Id: 183
+            Time:
+              RawValue: 200889
+            Position:
+              X:
+                RawValue: 36
+              Y:
+                RawValue: -22
+              Z:
+                RawValue: 4
+            Rotation:
+              X:
+                RawValue: 117
+              Y:
+                RawValue: -46
+              Z:
+                RawValue: -2
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -75
+          - Id: 184
+            Time:
+              RawValue: 201987
+            Position:
+              X:
+                RawValue: 33
+              Y:
+                RawValue: -20
+              Z:
+                RawValue: 3
+            Rotation:
+              X:
+                RawValue: 107
+              Y:
+                RawValue: -44
+              Z:
+                RawValue: -4
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -70
+          - Id: 185
+            Time:
+              RawValue: 203084
+            Position:
+              X:
+                RawValue: 31
+              Y:
+                RawValue: -18
+              Z:
+                RawValue: 3
+            Rotation:
+              X:
+                RawValue: 98
+              Y:
+                RawValue: -41
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -64
+          - Id: 186
+            Time:
+              RawValue: 204182
+            Position:
+              X:
+                RawValue: 29
+              Y:
+                RawValue: -16
+              Z:
+                RawValue: 3
+            Rotation:
+              X:
+                RawValue: 90
+              Y:
+                RawValue: -36
+              Z:
+                RawValue: -2
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -59
+          - Id: 187
+            Time:
+              RawValue: 205280
+            Position:
+              X:
+                RawValue: 27
+              Y:
+                RawValue: -14
+              Z:
+                RawValue: 2
+            Rotation:
+              X:
+                RawValue: 81
+              Y:
+                RawValue: -33
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -54
+          - Id: 188
+            Time:
+              RawValue: 206378
+            Position:
+              X:
+                RawValue: 24
+              Y:
+                RawValue: -12
+              Z:
+                RawValue: 1
+            Rotation:
+              X:
+                RawValue: 71
+              Y:
+                RawValue: -31
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -50
+          - Id: 189
+            Time:
+              RawValue: 207475
+            Position:
+              X:
+                RawValue: 22
+              Y:
+                RawValue: -11
+              Z:
+                RawValue: 1
+            Rotation:
+              X:
+                RawValue: 62
+              Y:
+                RawValue: -27
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -44
+          - Id: 190
+            Time:
+              RawValue: 208573
+            Position:
+              X:
+                RawValue: 19
+              Y:
+                RawValue: -10
+              Z:
+                RawValue: 1
+            Rotation:
+              X:
+                RawValue: 56
+              Y:
+                RawValue: -24
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -39
+          - Id: 191
+            Time:
+              RawValue: 209671
+            Position:
+              X:
+                RawValue: 17
+              Y:
+                RawValue: -9
+              Z:
+                RawValue: 1
+            Rotation:
+              X:
+                RawValue: 50
+              Y:
+                RawValue: -20
+              Z:
+                RawValue: -2
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -33
+          - Id: 192
+            Time:
+              RawValue: 210769
+            Position:
+              X:
+                RawValue: 14
+              Y:
+                RawValue: -7
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 42
+              Y:
+                RawValue: -17
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -29
+          - Id: 193
+            Time:
+              RawValue: 211866
+            Position:
+              X:
+                RawValue: 12
+              Y:
+                RawValue: -6
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 33
+              Y:
+                RawValue: -16
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -25
+          - Id: 194
+            Time:
+              RawValue: 212964
+            Position:
+              X:
+                RawValue: 9
+              Y:
+                RawValue: -5
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 27
+              Y:
+                RawValue: -14
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -22
+          - Id: 195
+            Time:
+              RawValue: 214062
+            Position:
+              X:
+                RawValue: 8
+              Y:
+                RawValue: -3
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 22
+              Y:
+                RawValue: -11
+              Z:
+                RawValue: -3
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: -18
+          - Id: 196
+            Time:
+              RawValue: 215160
+            Position:
+              X:
+                RawValue: 6
+              Y:
+                RawValue: -2
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 16
+              Y:
+                RawValue: -8
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -12
+          - Id: 197
+            Time:
+              RawValue: 216257
+            Position:
+              X:
+                RawValue: 4
+              Y:
+                RawValue: -1
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 10
+              Y:
+                RawValue: -4
+              Z:
+                RawValue: -1
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -7
+          - Id: 198
+            Time:
+              RawValue: 217355
+            Position:
+              X:
+                RawValue: 2
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 5
+              Y:
+                RawValue: -2
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65535
+            RotationY:
+              RawValue: -3
+          - Id: 199
+            Time:
+              RawValue: 218453
+            Position:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 0
+          Events: []
+          LoopTime: 1
+          Mirror: 0
+          DisableRootMotion: 1
+        BlendParameterIndex: 0
+        BlendParameterIndexY: 0
+        Positions: []
+        TimesScale: []
+        Resolution: 0
+        WeightTable:
+          Data: []
+        TimeScaleTable:
+          Data: []
+        ChildCount: 0
+        IndexOfFirstChild: 1
+      StateAsset:
+        Id:
+          Value: 0
+      StateBehaviours: []
+    - Name: Block_Hit_Anim
+      Id: -633173884
+      IsAny: 0
+      IsDefault: 0
+      CycleOffset:
+        RawValue: 0
+      Speed:
+        RawValue: 65536
+      Transitions: []
+      SerialisedMotions:
+      - IsAnimation: 1
+        Name: Block_Hit_Anim
+        AnimatorData:
+          ClipName: Block_Hit_Anim
+          MotionId: 1202001463
+          Length:
+            RawValue: 27306
+          Index: 0
+          FrameRate: 60
+          FrameCount: 25
+          Frames:
+          - Id: 0
+            Time:
+              RawValue: 0
+            Position:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 0
+          - Id: 1
+            Time:
+              RawValue: 1137
+            Position:
+              X:
+                RawValue: 144
+              Y:
+                RawValue: -548
+              Z:
+                RawValue: -11
+            Rotation:
+              X:
+                RawValue: 142
+              Y:
+                RawValue: 139
+              Z:
+                RawValue: -161
+              W:
+                RawValue: 65534
+            RotationY:
+              RawValue: 307
+          - Id: 2
+            Time:
+              RawValue: 2275
+            Position:
+              X:
+                RawValue: 107
+              Y:
+                RawValue: -970
+              Z:
+                RawValue: -623
+            Rotation:
+              X:
+                RawValue: 332
+              Y:
+                RawValue: 713
+              Z:
+                RawValue: -486
+              W:
+                RawValue: 65527
+            RotationY:
+              RawValue: 1507
+          - Id: 3
+            Time:
+              RawValue: 3413
+            Position:
+              X:
+                RawValue: -491
+              Y:
+                RawValue: -1143
+              Z:
+                RawValue: -3065
+            Rotation:
+              X:
+                RawValue: 702
+              Y:
+                RawValue: 2475
+              Z:
+                RawValue: -1307
+              W:
+                RawValue: 65471
+            RotationY:
+              RawValue: 5157
+          - Id: 4
+            Time:
+              RawValue: 4551
+            Position:
+              X:
+                RawValue: -1057
+              Y:
+                RawValue: -1067
+              Z:
+                RawValue: -5128
+            Rotation:
+              X:
+                RawValue: 784
+              Y:
+                RawValue: 4486
+              Z:
+                RawValue: -2014
+              W:
+                RawValue: 65346
+            RotationY:
+              RawValue: 9272
+          - Id: 5
+            Time:
+              RawValue: 5688
+            Position:
+              X:
+                RawValue: -1246
+              Y:
+                RawValue: -750
+              Z:
+                RawValue: -5847
+            Rotation:
+              X:
+                RawValue: 411
+              Y:
+                RawValue: 6376
+              Z:
+                RawValue: -2369
+              W:
+                RawValue: 65179
+            RotationY:
+              RawValue: 13065
+          - Id: 6
+            Time:
+              RawValue: 6826
+            Position:
+              X:
+                RawValue: -1433
+              Y:
+                RawValue: -373
+              Z:
+                RawValue: -6384
+            Rotation:
+              X:
+                RawValue: -209
+              Y:
+                RawValue: 8406
+              Z:
+                RawValue: -2706
+              W:
+                RawValue: 64937
+            RotationY:
+              RawValue: 17096
+          - Id: 7
+            Time:
+              RawValue: 7964
+            Position:
+              X:
+                RawValue: -1603
+              Y:
+                RawValue: 3
+              Z:
+                RawValue: -6708
+            Rotation:
+              X:
+                RawValue: -1002
+              Y:
+                RawValue: 10198
+              Z:
+                RawValue: -2993
+              W:
+                RawValue: 64660
+            RotationY:
+              RawValue: 20609
+          - Id: 8
+            Time:
+              RawValue: 9102
+            Position:
+              X:
+                RawValue: -1722
+              Y:
+                RawValue: 327
+              Z:
+                RawValue: -6851
+            Rotation:
+              X:
+                RawValue: -1742
+              Y:
+                RawValue: 11400
+              Z:
+                RawValue: -3195
+              W:
+                RawValue: 64434
+            RotationY:
+              RawValue: 22934
+          - Id: 9
+            Time:
+              RawValue: 10240
+            Position:
+              X:
+                RawValue: -1737
+              Y:
+                RawValue: 586
+              Z:
+                RawValue: -6855
+            Rotation:
+              X:
+                RawValue: -2195
+              Y:
+                RawValue: 11779
+              Z:
+                RawValue: -3287
+              W:
+                RawValue: 64347
+            RotationY:
+              RawValue: 23635
+          - Id: 10
+            Time:
+              RawValue: 11377
+            Position:
+              X:
+                RawValue: -1645
+              Y:
+                RawValue: 831
+              Z:
+                RawValue: -6745
+            Rotation:
+              X:
+                RawValue: -2405
+              Y:
+                RawValue: 11493
+              Z:
+                RawValue: -3307
+              W:
+                RawValue: 64390
+            RotationY:
+              RawValue: 23020
+          - Id: 11
+            Time:
+              RawValue: 12515
+            Position:
+              X:
+                RawValue: -1481
+              Y:
+                RawValue: 1081
+              Z:
+                RawValue: -6540
+            Rotation:
+              X:
+                RawValue: -2502
+              Y:
+                RawValue: 10813
+              Z:
+                RawValue: -3292
+              W:
+                RawValue: 64504
+            RotationY:
+              RawValue: 21621
+          - Id: 12
+            Time:
+              RawValue: 13653
+            Position:
+              X:
+                RawValue: -1272
+              Y:
+                RawValue: 1309
+              Z:
+                RawValue: -6260
+            Rotation:
+              X:
+                RawValue: -2505
+              Y:
+                RawValue: 9860
+              Z:
+                RawValue: -3252
+              W:
+                RawValue: 64659
+            RotationY:
+              RawValue: 19684
+          - Id: 13
+            Time:
+              RawValue: 14791
+            Position:
+              X:
+                RawValue: -1045
+              Y:
+                RawValue: 1493
+              Z:
+                RawValue: -5924
+            Rotation:
+              X:
+                RawValue: -2442
+              Y:
+                RawValue: 8769
+              Z:
+                RawValue: -3195
+              W:
+                RawValue: 64821
+            RotationY:
+              RawValue: 17481
+          - Id: 14
+            Time:
+              RawValue: 15928
+            Position:
+              X:
+                RawValue: -828
+              Y:
+                RawValue: 1617
+              Z:
+                RawValue: -5544
+            Rotation:
+              X:
+                RawValue: -2333
+              Y:
+                RawValue: 7678
+              Z:
+                RawValue: -3112
+              W:
+                RawValue: 64967
+            RotationY:
+              RawValue: 15282
+          - Id: 15
+            Time:
+              RawValue: 17066
+            Position:
+              X:
+                RawValue: -647
+              Y:
+                RawValue: 1665
+              Z:
+                RawValue: -5131
+            Rotation:
+              X:
+                RawValue: -2197
+              Y:
+                RawValue: 6734
+              Z:
+                RawValue: -2981
+              W:
+                RawValue: 65084
+            RotationY:
+              RawValue: 13387
+          - Id: 16
+            Time:
+              RawValue: 18204
+            Position:
+              X:
+                RawValue: -510
+              Y:
+                RawValue: 1633
+              Z:
+                RawValue: -4681
+            Rotation:
+              X:
+                RawValue: -2026
+              Y:
+                RawValue: 5972
+              Z:
+                RawValue: -2785
+              W:
+                RawValue: 65171
+            RotationY:
+              RawValue: 11855
+          - Id: 17
+            Time:
+              RawValue: 19342
+            Position:
+              X:
+                RawValue: -398
+              Y:
+                RawValue: 1538
+              Z:
+                RawValue: -4180
+            Rotation:
+              X:
+                RawValue: -1814
+              Y:
+                RawValue: 5262
+              Z:
+                RawValue: -2527
+              W:
+                RawValue: 65249
+            RotationY:
+              RawValue: 10438
+          - Id: 18
+            Time:
+              RawValue: 20480
+            Position:
+              X:
+                RawValue: -301
+              Y:
+                RawValue: 1390
+              Z:
+                RawValue: -3632
+            Rotation:
+              X:
+                RawValue: -1565
+              Y:
+                RawValue: 4556
+              Z:
+                RawValue: -2218
+              W:
+                RawValue: 65319
+            RotationY:
+              RawValue: 9029
+          - Id: 19
+            Time:
+              RawValue: 21617
+            Position:
+              X:
+                RawValue: -221
+              Y:
+                RawValue: 1200
+              Z:
+                RawValue: -3050
+            Rotation:
+              X:
+                RawValue: -1295
+              Y:
+                RawValue: 3845
+              Z:
+                RawValue: -1873
+              W:
+                RawValue: 65382
+            RotationY:
+              RawValue: 7616
+          - Id: 20
+            Time:
+              RawValue: 22755
+            Position:
+              X:
+                RawValue: -157
+              Y:
+                RawValue: 977
+              Z:
+                RawValue: -2444
+            Rotation:
+              X:
+                RawValue: -1013
+              Y:
+                RawValue: 3120
+              Z:
+                RawValue: -1500
+              W:
+                RawValue: 65436
+            RotationY:
+              RawValue: 6180
+          - Id: 21
+            Time:
+              RawValue: 23893
+            Position:
+              X:
+                RawValue: -105
+              Y:
+                RawValue: 733
+              Z:
+                RawValue: -1825
+            Rotation:
+              X:
+                RawValue: -731
+              Y:
+                RawValue: 2373
+              Z:
+                RawValue: -1116
+              W:
+                RawValue: 65479
+            RotationY:
+              RawValue: 4705
+          - Id: 22
+            Time:
+              RawValue: 25031
+            Position:
+              X:
+                RawValue: -64
+              Y:
+                RawValue: 479
+              Z:
+                RawValue: -1204
+            Rotation:
+              X:
+                RawValue: -461
+              Y:
+                RawValue: 1605
+              Z:
+                RawValue: -729
+              W:
+                RawValue: 65509
+            RotationY:
+              RawValue: 3182
+          - Id: 23
+            Time:
+              RawValue: 26168
+            Position:
+              X:
+                RawValue: -30
+              Y:
+                RawValue: 230
+              Z:
+                RawValue: -592
+            Rotation:
+              X:
+                RawValue: -214
+              Y:
+                RawValue: 812
+              Z:
+                RawValue: -356
+              W:
+                RawValue: 65528
+            RotationY:
+              RawValue: 1612
+          - Id: 24
+            Time:
+              RawValue: 27306
+            Position:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+            Rotation:
+              X:
+                RawValue: 0
+              Y:
+                RawValue: 0
+              Z:
+                RawValue: 0
+              W:
+                RawValue: 65536
+            RotationY:
+              RawValue: 0
+          Events: []
+          LoopTime: 0
+          Mirror: 0
+          DisableRootMotion: 0
+        BlendParameterIndex: 0
+        BlendParameterIndexY: 0
+        Positions: []
+        TimesScale: []
+        Resolution: 0
+        WeightTable:
+          Data: []
+        TimeScaleTable:
+          Data: []
+        ChildCount: 0
+        IndexOfFirstChild: 1
+      StateAsset:
+        Id:
+          Value: 0
+      StateBehaviours: []
     - Name: Any State
       Id: -467182431
       IsAny: 1
@@ -28718,6 +34460,60 @@ MonoBehaviour:
           ThresholdInt: 0
         DestinationStateId: -593675042
         DestinationStateName: Walk/Idle
+      - Index: 2
+        Name: Any State to Block_In_Anim
+        Duration:
+          RawValue: 16384
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 65536
+        HasExitTime: 0
+        CanTransitionToSelf: 0
+        Conditions:
+        - VariableName: Parry_Activate
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: -339578218
+        DestinationStateName: Block_In_Anim
+      - Index: 3
+        Name: Any State to Block_Out_Anim
+        Duration:
+          RawValue: 16384
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 65536
+        HasExitTime: 0
+        CanTransitionToSelf: 0
+        Conditions:
+        - VariableName: Parry_Endlag
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: 1895397159
+        DestinationStateName: Block_Out_Anim
+      - Index: 4
+        Name: Any State to Block_Hit_Anim
+        Duration:
+          RawValue: 16384
+        Offset:
+          RawValue: 0
+        ExitTime:
+          RawValue: 65536
+        HasExitTime: 0
+        CanTransitionToSelf: 0
+        Conditions:
+        - VariableName: Parry_Deflect
+          Mode: 1
+          ThresholdFp:
+            RawValue: 0
+          ThresholdInt: 0
+        DestinationStateId: -633173884
+        DestinationStateName: Block_Hit_Anim
       SerialisedMotions: []
       StateAsset:
         Id:
@@ -28747,6 +34543,27 @@ MonoBehaviour:
     DefaultBool: 0
   - Name: Walk
     Index: 3
+    Type: 3
+    DefaultFp:
+      RawValue: 0
+    DefaultInt: 0
+    DefaultBool: 0
+  - Name: Parry_Activate
+    Index: 4
+    Type: 3
+    DefaultFp:
+      RawValue: 0
+    DefaultInt: 0
+    DefaultBool: 0
+  - Name: Parry_Endlag
+    Index: 5
+    Type: 3
+    DefaultFp:
+      RawValue: 0
+    DefaultInt: 0
+    DefaultBool: 0
+  - Name: Parry_Deflect
+    Index: 6
     Type: 3
     DefaultFp:
       RawValue: 0

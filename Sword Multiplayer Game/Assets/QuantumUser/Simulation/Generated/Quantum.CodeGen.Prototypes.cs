@@ -626,6 +626,23 @@ namespace Quantum.Prototypes {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.ParryComponent))]
+  public unsafe partial class ParryComponentPrototype : ComponentPrototype<Quantum.ParryComponent> {
+    public QBoolean HeavyParry;
+    public FPVector2 Direction;
+    partial void MaterializeUser(Frame frame, ref Quantum.ParryComponent result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.ParryComponent component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.ParryComponent result, in PrototypeMaterializationContext context = default) {
+        result.HeavyParry = this.HeavyParry;
+        result.Direction = this.Direction;
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.PlayerLink))]
   public unsafe class PlayerLinkPrototype : ComponentPrototype<Quantum.PlayerLink> {
     public PlayerRef Player;

@@ -25,22 +25,21 @@ namespace Quantum
             if(currentActionType == ActionType.None || currentActionType == ActionType.Movement){
                 return;
             }
-            if(currentActionType == ActionType.Attack){
-                int AttackDataIndex = GetAttackDataFromEnum((AttackName)currAction->AttackIndex, attacksData);
-                QAttackData AttackData = attacksData[AttackDataIndex];
-                int frameNumber = frame.Number - currAction -> StartTick;
-                
-                if(currAction -> ActionPhase == 1){
-                    currAction -> StartUpFrames--;
-                    if(currAction -> StartUpFrames <= 0){
-                        currAction -> ActionPhase++;
-                    }
-                }else if(currAction -> ActionPhase == 2){
-                    // activate hitboxes
+            int frameNumber = frame.Number - currAction -> StartTick;
+            Log.Debug("current action phase is " + currAction ->ActionPhase);
+            if(currAction -> ActionPhase == 1){
+                currAction -> StartUpFrames--;
+                if(currAction -> StartUpFrames <= 0){
+                    currAction -> ActionPhase++;
+                }
+            }else if(currAction -> ActionPhase == 2){
+                if(currentActionType == ActionType.Attack){
+                     // activate hitboxes
+                    int AttackDataIndex = GetAttackDataFromEnum((AttackName)currAction->AttackIndex, attacksData);
+                    QAttackData AttackData = attacksData[AttackDataIndex];
                     
                     AssetRef<EntityPrototype> hitboxPrototype = frame.FindAsset(frame.SimulationConfig.HitboxPrototype);
                     var hitbox = frame.Create(hitboxPrototype);
-
                     frame.Add(hitbox, new MeleeHitbox{
                         Owner = filter.Entity,
                         Radius = FP.FromFloat_UNSAFE(0.1f),         // half a meter
@@ -52,25 +51,44 @@ namespace Quantum
                         Damage = currAction->Damage,
                         DamageApplied = false
                     });
+                }else if(currentActionType == ActionType.Parry){
+                    Log.Debug("Parrying");
+                    var parry = new ParryComponent()
+                    {
+                        HeavyParry = false,
+                        Direction = new FPVector2(0,0)
+                    };
+                    frame.Add(filter.Entity, parry);
+                    
+                }
 
-                    currAction -> ActiveFrames--;
-                    if(currAction -> ActiveFrames <= 0){
-                        currAction -> ActionPhase++;
-                    }
-                }else if(currAction -> ActionPhase == 3){
-                    currAction -> EndLagFrames--;
-                    if(currAction -> EndLagFrames <= 0){
-                        currAction -> ActionPhase++;
-                        Log.Debug("Action Cancelable");
-                    }
-                }else if(currAction -> ActionPhase == 4){
-                    currAction -> CancelableFrames--;
-                    if(currAction -> CancelableFrames <= 0){
-                        Log.Debug("Action Over");
+                currAction -> ActiveFrames--;
+                if(currAction -> ActiveFrames <= 0){
+                    currAction -> ActionPhase++;
+
+                    //if parrying, start end animation
+                    if(currentActionType == ActionType.Parry){
+                        AnimatorComponent.SetTrigger(frame, filter.Animator, "Parry_Endlag");
+                        if (frame.TryGet<ParryComponent>(filter.Entity, out var parryComponent))
+                        {
+                            frame.Remove<ParryComponent>(filter.Entity);
+                        }else{
+                            Log.Error("Parry Component Unexpectedly Disappeared");
+                        }
                     }
                 }
-            }else if(currentActionType == ActionType.Parry){
-                Log.Debug("Parrying");
+            }else if(currAction -> ActionPhase == 3){
+                currAction -> EndLagFrames--;
+                if(currAction -> EndLagFrames <= 0){
+                    currAction -> ActionPhase++;
+                    Log.Debug("Action Cancelable");
+                }
+            }else if(currAction -> ActionPhase == 4){
+                currAction -> CancelableFrames--;
+                if(currAction -> CancelableFrames <= 0){
+                    Log.Debug("Action Over");
+                    currAction -> ActionPhase++;
+                }
             }
                 
         }

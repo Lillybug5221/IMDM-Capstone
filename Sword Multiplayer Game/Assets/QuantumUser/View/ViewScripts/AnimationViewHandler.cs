@@ -10,6 +10,9 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
     private Animator anim;
     [SerializeField]
     private ParticleSystem attackParticleSys;
+    [SerializeField]
+    private GameObject ParryIndicator;
+    
     private int startFrame = -1;
     private int currFrame = 0;
     
@@ -46,6 +49,14 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
             }
         }
         
+        //parry indicator
+        if(ParryIndicator != null) {
+            if(PredictedFrame.TryGet<ParryComponent>(EntityRef, out var currParry)){
+                ParryIndicator.SetActive(true);
+            }else{
+                ParryIndicator.SetActive(false);
+            }
+        }
         
         if (PredictedFrame.TryGet<CurrentAction>(EntityRef, out var currAction)) {
             if((ActionType)(currAction.ActionType) == ActionType.Attack && !attackParticleSys.isPlaying){
@@ -56,6 +67,8 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
                      ((ActionType)(currAction.ActionType) == ActionType.Attack && currAction.ActionPhase != 2)){
                 attackParticleSys.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
+
+
             
             if (PredictedFrame.TryGet<KCC>(EntityRef, out var kcc)) {
                 var vel = kcc.Data.KinematicVelocity;

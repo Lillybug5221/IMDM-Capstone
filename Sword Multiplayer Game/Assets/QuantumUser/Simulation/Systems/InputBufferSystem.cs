@@ -41,6 +41,10 @@ namespace Quantum
                 return;
             }else if((ActionType)(currAction -> ActionType) != ActionType.Movement && currAction -> ActionPhase == 4){
                 if(input -> LightAttack == false &&
+                    input -> HeavyAttack == false &&
+                    input -> Parry == false &&
+                    input -> Special == false &&
+                    input -> Dodge == false &&
                     input -> LeftStickDirection == new FPVector2(0,0)){
                     UpdateInputBuffer(buffer, frame, filter.Link->Player);
                     return;
@@ -67,20 +71,36 @@ namespace Quantum
             var bufferedAction = GetOldestActionInBuffer(buffer);
             if(bufferedAction.exists){
                 // Trigger the attack this frame
-                QAttackData FoundAttack = attackData[0];//this is a magic number for now. Ill read the direcitonalinput when I implement more attacks.
-                currAction -> ActionType = (byte)ActionType.Attack;
-                currAction -> AttackIndex = (byte)(FoundAttack.AttackVals.attackName); 
-                currAction -> EnemyPosition = opponentPosition;
-                currAction -> StartTick = frame.Number;
-                currAction -> StartUpFrames = (ushort)FoundAttack.AttackVals.startupFrames;
-                currAction -> ActiveFrames = (ushort)FoundAttack.AttackVals.activeFrames;
-                currAction -> EndLagFrames = (ushort)FoundAttack.AttackVals.endlagFrames;
-                currAction -> CancelableFrames = (ushort)FoundAttack.AttackVals.cancelableFrames;
-                currAction -> ActionPhase = (byte)1;
-                currAction -> Damage = (ushort)FoundAttack.AttackVals.damage;
-                currAction -> ActionNumber += 1;
-                AnimatorComponent.SetTrigger(frame, filter.Animator, "Light_DL");
-                //trigger attack anim
+                if(bufferedAction.input.LightAttack || bufferedAction.input.HeavyAttack){
+                    QAttackData FoundAttack = attackData[0];//this is a magic number for now. Ill read the direcitonalinput when I implement more attacks.
+                    currAction -> ActionType = (byte)ActionType.Attack;
+                    currAction -> AttackIndex = (byte)(FoundAttack.AttackVals.attackName); 
+                    currAction -> EnemyPosition = opponentPosition;
+                    currAction -> StartTick = frame.Number;
+                    currAction -> StartUpFrames = (ushort)FoundAttack.AttackVals.startupFrames;
+                    currAction -> ActiveFrames = (ushort)FoundAttack.AttackVals.activeFrames;
+                    currAction -> EndLagFrames = (ushort)FoundAttack.AttackVals.endlagFrames;
+                    currAction -> CancelableFrames = (ushort)FoundAttack.AttackVals.cancelableFrames;
+                    currAction -> ActionPhase = (byte)1;
+                    currAction -> Damage = (ushort)FoundAttack.AttackVals.damage;
+                    currAction -> ActionNumber += 1;
+                    //trigger attack anim
+                    AnimatorComponent.SetTrigger(frame, filter.Animator, "Light_DL");
+                }if(bufferedAction.input.Parry){
+                    currAction -> ActionType = (byte)ActionType.Parry;
+                    currAction -> AttackIndex = (byte)(0); 
+                    currAction -> EnemyPosition = opponentPosition;
+                    currAction -> StartTick = frame.Number;
+                    currAction -> StartUpFrames = (ushort)0;
+                    currAction -> ActiveFrames = (ushort)12;
+                    currAction -> EndLagFrames = (ushort)12;
+                    currAction -> CancelableFrames = (ushort)30;
+                    currAction -> ActionPhase = (byte)2;// we start in phase 2 because there is no startup
+                    currAction -> Damage = (ushort)0;
+                    currAction -> ActionNumber += 1;
+                    AnimatorComponent.SetTrigger(frame, filter.Animator, "Parry_Activate");
+                }
+                
             }else{
                 //trigger movement
                 currAction -> ActionType = (byte)ActionType.Movement;

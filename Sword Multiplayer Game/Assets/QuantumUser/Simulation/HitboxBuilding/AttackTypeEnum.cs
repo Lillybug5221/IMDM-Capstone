@@ -33,8 +33,11 @@ public enum AttackType{
 public enum ActionType{
     None,
     Movement,
+    Jump,
+    Dodge,
     Attack,
-    Parry
+    Parry,
+    Stun
 }
 
 [Serializable]
