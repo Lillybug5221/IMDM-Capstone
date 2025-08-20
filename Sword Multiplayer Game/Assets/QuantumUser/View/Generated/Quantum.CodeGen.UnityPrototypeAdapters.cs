@@ -129,6 +129,7 @@ namespace Quantum.Prototypes.Unity {
     public Quantum.QuantumEntityPrototype Owner;
     public FP Radius;
     public FP Height;
+    public FPVector2 HitDirection;
     public FPVector3 Center;
     [UnitAttribute(Units.Degrees)]
     public FPVector3 Rotation;
@@ -142,6 +143,7 @@ namespace Quantum.Prototypes.Unity {
       converter.Convert(this.Owner, out result.Owner);
       converter.Convert(this.Radius, out result.Radius);
       converter.Convert(this.Height, out result.Height);
+      converter.Convert(this.HitDirection, out result.HitDirection);
       converter.Convert(this.Center, out result.Center);
       converter.Convert(this.Rotation, out result.Rotation);
       converter.Convert(this.Lifetime, out result.Lifetime);

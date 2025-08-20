@@ -8,6 +8,7 @@ component MeleeHitbox
     EntityRef Owner;   // The player who spawned it
     FP Radius;         // How big the hitbox is
     FP Height;
+    FPVector2 HitDirection;
     FPVector3 Center;
     FPQuaternion Rotation;
     ushort Lifetime;       // Seconds until removal
@@ -39,6 +40,7 @@ component CurrentAction{
     //4 : Cancelable
     //5 : Ended
     ushort Damage;
+    bool DamageApplied;
 }
 
 input {

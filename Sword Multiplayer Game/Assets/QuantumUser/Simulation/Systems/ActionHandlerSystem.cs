@@ -26,7 +26,7 @@ namespace Quantum
                 return;
             }
             int frameNumber = frame.Number - currAction -> StartTick;
-            Log.Debug("current action phase is " + currAction ->ActionPhase);
+            //Log.Debug("current action phase is " + currAction ->ActionPhase);
             if(currAction -> ActionPhase == 1){
                 currAction -> StartUpFrames--;
                 if(currAction -> StartUpFrames <= 0){
@@ -44,6 +44,7 @@ namespace Quantum
                         Owner = filter.Entity,
                         Radius = FP.FromFloat_UNSAFE(0.1f),         // half a meter
                         Height = FP.FromFloat_UNSAFE(1.5f),
+                        HitDirection = currAction->Direction,
                         Center = AttackData.Hitboxes[frameNumber].Position,
                         Rotation = AttackData.Hitboxes[frameNumber].Rotation,
                         Lifetime  = 1,   

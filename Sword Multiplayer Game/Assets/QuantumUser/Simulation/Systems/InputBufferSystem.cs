@@ -84,6 +84,7 @@ namespace Quantum
                     currAction -> ActionPhase = (byte)1;
                     currAction -> Damage = (ushort)FoundAttack.AttackVals.damage;
                     currAction -> ActionNumber += 1;
+                    currAction -> DamageApplied = false;
                     //trigger attack anim
                     AnimatorComponent.SetTrigger(frame, filter.Animator, "Light_DL");
                 }if(bufferedAction.input.Parry){

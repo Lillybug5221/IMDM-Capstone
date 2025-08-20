@@ -152,6 +152,7 @@ namespace Quantum.Prototypes {
     public UInt16 CancelableFrames;
     public Byte ActionPhase;
     public UInt16 Damage;
+    public QBoolean DamageApplied;
     partial void MaterializeUser(Frame frame, ref Quantum.CurrentAction result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
         Quantum.CurrentAction component = default;
@@ -171,6 +172,7 @@ namespace Quantum.Prototypes {
         result.CancelableFrames = this.CancelableFrames;
         result.ActionPhase = this.ActionPhase;
         result.Damage = this.Damage;
+        result.DamageApplied = this.DamageApplied;
         MaterializeUser(frame, ref result, in context);
     }
   }
@@ -601,6 +603,7 @@ namespace Quantum.Prototypes {
     public MapEntityId Owner;
     public FP Radius;
     public FP Height;
+    public FPVector2 HitDirection;
     public FPVector3 Center;
     [UnitAttribute(Units.Degrees)]
     public FPVector3 Rotation;
@@ -617,6 +620,7 @@ namespace Quantum.Prototypes {
         PrototypeValidator.FindMapEntity(this.Owner, in context, out result.Owner);
         result.Radius = this.Radius;
         result.Height = this.Height;
+        result.HitDirection = this.HitDirection;
         result.Center = this.Center;
         result.Rotation = FPQuaternion.Euler(this.Rotation);
         result.Lifetime = this.Lifetime;

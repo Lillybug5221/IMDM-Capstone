@@ -10646,6 +10646,8 @@ MonoBehaviour:
     CancelableFrames: 0
     ActionPhase: 5
     Damage: 0
+    DamageApplied:
+      Value: 0
 --- !u!1 &3729670431120426559
 GameObject:
   m_ObjectHideFlags: 0
