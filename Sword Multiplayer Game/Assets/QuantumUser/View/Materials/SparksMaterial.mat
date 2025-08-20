@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: 210, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _EMISSION
   m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -75,7 +76,7 @@ Material:
     - _DistortionStrength: 1
     - _DistortionStrengthScaled: 0
     - _DstBlend: 0
-    - _EmissionEnabled: 0
+    - _EmissionEnabled: 1
     - _FlipbookMode: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -95,7 +96,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 1, g: 0.6130038, b: 0.21226418, a: 1}
+    - _Color: {r: 1024, g: 1024, b: 1024, a: 1}
     - _EmissionColor: {r: 1, g: 0.05035599, b: 0.033018887, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -10426,7 +10426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackParticleSys: {fileID: 178993481366915765}
-  ParryIndicator: {fileID: 4987999466320910953}
+  ParryIndicator: {fileID: 0}
 --- !u!114 &790016333672194274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15563,7 +15563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &169757377281804751
 Transform:
   m_ObjectHideFlags: 0
