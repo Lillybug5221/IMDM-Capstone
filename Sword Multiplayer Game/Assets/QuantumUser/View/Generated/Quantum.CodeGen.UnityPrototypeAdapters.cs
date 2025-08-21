@@ -73,6 +73,21 @@ namespace Quantum.Prototypes.Unity {
     }
   }
   [System.SerializableAttribute()]
+  public unsafe partial class HitstopPrototype : Quantum.QuantumUnityPrototypeAdapter<Quantum.Prototypes.HitstopPrototype> {
+    public Int32 FramesLeft;
+    public Quantum.QuantumEntityPrototype Source;
+    public Byte Flags;
+    partial void ConvertUser(Quantum.QuantumEntityPrototypeConverter converter, ref Quantum.Prototypes.HitstopPrototype prototype);
+    public override Quantum.Prototypes.HitstopPrototype Convert(Quantum.QuantumEntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.HitstopPrototype();
+      converter.Convert(this.FramesLeft, out result.FramesLeft);
+      converter.Convert(this.Source, out result.Source);
+      converter.Convert(this.Flags, out result.Flags);
+      ConvertUser(converter, ref result);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   public unsafe partial class KCCPrototype : Quantum.QuantumUnityPrototypeAdapter<Quantum.Prototypes.KCCPrototype> {
     public AssetRef<KCCSettings> Settings;
     partial void ConvertUser(Quantum.QuantumEntityPrototypeConverter converter, ref Quantum.Prototypes.KCCPrototype prototype);

@@ -15,10 +15,14 @@ namespace Quantum
         }
         public override void Update(Frame frame,ref Filter filter)
         {
-            
             var currAction = filter.CurrAction;
             var transform = filter.Transform;
             var attacksData = frame.SimulationConfig.AttackHitboxData;
+
+            if(HitstopTickSystem.GlobalHitstopActive(frame)){
+                currAction -> StartTick += 1;
+				return; //skip this frame
+			}
             
             //Log.Debug("Start Tick is" + CurrentAction->StartTick);
             ActionType currentActionType = (ActionType)(currAction->ActionType);
@@ -47,7 +51,7 @@ namespace Quantum
                         HitDirection = currAction->Direction,
                         Center = AttackData.Hitboxes[frameNumber].Position,
                         Rotation = AttackData.Hitboxes[frameNumber].Rotation,
-                        Lifetime  = 1,   
+                        Lifetime  = 0,   
                         SpawnFrame = frame.Number,
                         Damage = currAction->Damage,
                         DamageApplied = false
@@ -82,12 +86,12 @@ namespace Quantum
                 currAction -> EndLagFrames--;
                 if(currAction -> EndLagFrames <= 0){
                     currAction -> ActionPhase++;
-                    Log.Debug("Action Cancelable");
+                    //Log.Debug("Action Cancelable");
                 }
             }else if(currAction -> ActionPhase == 4){
                 currAction -> CancelableFrames--;
                 if(currAction -> CancelableFrames <= 0){
-                    Log.Debug("Action Over");
+                    //Log.Debug("Action Over");
                     currAction -> ActionPhase++;
                 }
             }

@@ -6,5 +6,6 @@ namespace Quantum
         public AssetRef<EntityPrototype> HitboxPrototype;
 
         public AssetRef<EntityPrototype> ParryEffectPrototype;
+        
     }
 }

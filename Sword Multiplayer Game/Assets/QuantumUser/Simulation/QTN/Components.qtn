@@ -1,3 +1,6 @@
+#define PLAYER_COUNT 2
+#pragma max_players 2
+
 component PlayerLink {
     PlayerRef Player;
     EntityRef Entity;
@@ -143,4 +146,19 @@ component Damageable
 {
     ushort Health;
 }
+
+component Hitstop {
+    int FramesLeft;
+    EntityRef Source;
+    byte Flags;
+}
+
+component GlobalHitstop{
+    int FramesLeft;
+    int DelayLeft;
+}
+
+component GlobalTag{ }
+
+component HitstopStarted{ }
 

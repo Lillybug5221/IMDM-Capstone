@@ -15,11 +15,13 @@ namespace Quantum
 
         public override void Update(Frame frame, ref Filter filter)
         {
-            Log.Debug("Hitbox Exists");
+            if(HitstopTickSystem.GlobalHitstopActive(frame)){
+				return;
+			}
+
             var hitbox = filter.Hitbox;
             if(frame.Number - hitbox->SpawnFrame > hitbox->Lifetime){
                 frame.Destroy(filter.Entity);
-                Log.Debug("hitbox over");
                 return;
             }else{
                 //get player transform

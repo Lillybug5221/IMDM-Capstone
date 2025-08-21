@@ -97,6 +97,12 @@ MonoBehaviour:
       Value: 2495027714997430607
   Entries:
   - SystemType:
+      AssemblyQualifiedName: Quantum.BootstrapSystem, Quantum.Simulation, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    SystemName: 
+    StartDisabled: 0
+    Children: []
+  - SystemType:
       AssemblyQualifiedName: Quantum.Core.CullingSystem2D, Quantum.Simulation, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     SystemName: 
@@ -135,6 +141,12 @@ MonoBehaviour:
   - SystemType:
       AssemblyQualifiedName: Quantum.Core.PlayerConnectedSystem, Quantum.Simulation,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    SystemName: 
+    StartDisabled: 0
+    Children: []
+  - SystemType:
+      AssemblyQualifiedName: Quantum.HitstopTickSystem, Quantum.Simulation, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
     SystemName: 
     StartDisabled: 0
     Children: []
@@ -2437,8 +2449,8 @@ MonoBehaviour:
       attackType: 0
       startupFrames: 10
       activeFrames: 15
-      endlagFrames: 20
-      cancelableFrames: 60
+      endlagFrames: 30
+      cancelableFrames: 50
       damage: 25
 --- !u!114 &6784878198909911470
 MonoBehaviour:

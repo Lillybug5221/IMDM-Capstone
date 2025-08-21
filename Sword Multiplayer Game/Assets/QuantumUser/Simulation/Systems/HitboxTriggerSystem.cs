@@ -1,10 +1,14 @@
 namespace Quantum
 {
     using Photon.Deterministic;
+    using Quantum;
 
     public unsafe class HitboxTriggerSystem : SystemSignalsOnly, ISignalOnTriggerEnter3D
     {
         public void OnTriggerEnter3D(Frame frame, TriggerInfo3D info){
+            if(HitstopTickSystem.GlobalHitstopActive(frame)){
+				return; //skip this frame
+			}
             if(frame.Unsafe.TryGetPointer<MeleeHitbox>(info.Entity, out var hitbox)){
                 if(hitbox->DamageApplied == false && info.Other != hitbox->Owner && frame.Unsafe.TryGetPointer<Damageable>(info.Other, out var damageable) && frame.Unsafe.TryGetPointer<CurrentAction>(hitbox->Owner, out var hitterAction)){
                     //return if damage already dealt by this action.
@@ -29,6 +33,7 @@ namespace Quantum
                             currAction -> Damage = (ushort)0;
                             currAction -> ActionNumber += 1;
                             AnimatorComponent.SetTrigger(frame, parryAnimator, "Parry_Deflect");
+                            AddGlobalHitstop(frame, 3, 3);
                         }
                     }else{
                         if(frame.Unsafe.TryGetPointer<CurrentAction>(info.Other, out var currAction) && frame.Unsafe.TryGetPointer<AnimatorComponent>(info.Other, out var hitAnimator)){
@@ -47,7 +52,7 @@ namespace Quantum
                             AnimatorComponent.SetFixedPoint(frame, hitAnimator, "HitDirX", hitterAction->Direction.X);
                             AnimatorComponent.SetFixedPoint(frame, hitAnimator, "HitDirY", hitterAction->Direction.Y);
                             AnimatorComponent.SetTrigger(frame, hitAnimator, "Hit_Stagger");
-
+                            AddGlobalHitstop(frame, 3, 3);
                         }else{
                             Log.Debug("couldn't animate the hit");
                         }
@@ -62,6 +67,18 @@ namespace Quantum
                     
                 }
             }
+        }
+
+        public void AddGlobalHitstop(Frame f, int frames, int delayFrames){
+            var globalEntity = Globals.Get(f);
+            var ghs = f.Get<GlobalHitstop>(globalEntity);
+
+            if (frames > ghs.FramesLeft) {
+                ghs.FramesLeft = frames;
+                ghs.DelayLeft = delayFrames;
+            }
+
+            f.Set(globalEntity, ghs);
         }
     }
 }

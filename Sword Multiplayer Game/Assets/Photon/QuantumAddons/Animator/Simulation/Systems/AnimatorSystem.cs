@@ -26,6 +26,9 @@
 
     public override void Update(Frame f, ref Filter filter)
     {
+      if(HitstopTickSystem.GlobalHitstopActive(f)){
+				return; //skip this frame
+			}
       var animatorComponent = filter.AnimatorComponent;
       var layers = f.ResolveList<LayerData>(animatorComponent->Layers);
       var graph = f.FindAsset(animatorComponent->AnimatorGraph);

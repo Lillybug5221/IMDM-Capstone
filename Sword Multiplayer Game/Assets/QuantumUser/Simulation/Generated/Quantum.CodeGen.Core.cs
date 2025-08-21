@@ -167,6 +167,77 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct BitSet2 {
+    public const Int32 SIZE = 8;
+    public const Int32 ALIGNMENT = 8;
+    [FieldOffset(0)]
+    public fixed UInt64 Bits[1];
+    public const Int32 BitsSize = 2;
+    public readonly Int32 Length {
+      get {
+        return 2;
+      }
+    }
+    public static void Print(void* ptr, FramePrinter printer) {
+      var p = (BitSet2*)ptr;
+      printer.ScopeBegin();
+      UnmanagedUtils.PrintBytesBits((byte*)&p->Bits, 2, 64, printer);
+      printer.ScopeEnd();
+    }
+    public static BitSet2 FromArray(UInt64[] values) {
+      Assert.Always(1 == values.Length, "Invalid array size", values.Length);
+      BitSet2 result = default;
+      for (int i = 0; i < 1; ++i) {
+        result.Bits[i] = values[i];
+      }
+      return result;
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Set(Int32 bit) {
+      Assert.Check(bit >= 0 && bit < 2);
+      fixed (UInt64* p = Bits) (p[bit/64]) |= (1UL<<(bit%64));
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Clear(Int32 bit) {
+      Assert.Check(bit >= 0 && bit < 2);
+      fixed (UInt64* p = Bits) (p[bit/64]) &= ~(1UL<<(bit%64));
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void ClearAll() {
+      fixed (UInt64* p = Bits) Native.Utils.Clear(p, 8);
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public readonly Boolean IsSet(Int32 bit) {
+      fixed (UInt64* p = Bits) return ((p[bit/64])&(1UL<<(bit%64))) != 0UL;
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public readonly Int32 GetSetCount() {
+      fixed (UInt64* p = Bits) {
+        int result = 0;
+        result += Maths.CountSetBits(p[0] & 0x3UL);
+        return result;
+      }
+    }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public readonly Boolean IsAnySet() {
+      fixed (UInt64* p = Bits) {
+        if ((p[0] & 0x3UL) != 0) return true;
+        return false;
+      }
+    }
+    public override readonly Int32 GetHashCode() {
+      unchecked { 
+        var hash = 13619;
+        fixed (UInt64* p = Bits) hash = hash * 31 + HashCodeUtils.GetArrayHashCode(p, 1);
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (BitSet2*)ptr;
+        serializer.Stream.SerializeBuffer(&p->Bits[0], 1);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct BitSet2048 {
     public const Int32 SIZE = 256;
     public const Int32 ALIGNMENT = 8;
@@ -469,77 +540,6 @@ namespace Quantum {
     }
   }
   [StructLayout(LayoutKind.Explicit)]
-  public unsafe partial struct BitSet6 {
-    public const Int32 SIZE = 8;
-    public const Int32 ALIGNMENT = 8;
-    [FieldOffset(0)]
-    public fixed UInt64 Bits[1];
-    public const Int32 BitsSize = 6;
-    public readonly Int32 Length {
-      get {
-        return 6;
-      }
-    }
-    public static void Print(void* ptr, FramePrinter printer) {
-      var p = (BitSet6*)ptr;
-      printer.ScopeBegin();
-      UnmanagedUtils.PrintBytesBits((byte*)&p->Bits, 6, 64, printer);
-      printer.ScopeEnd();
-    }
-    public static BitSet6 FromArray(UInt64[] values) {
-      Assert.Always(1 == values.Length, "Invalid array size", values.Length);
-      BitSet6 result = default;
-      for (int i = 0; i < 1; ++i) {
-        result.Bits[i] = values[i];
-      }
-      return result;
-    }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void Set(Int32 bit) {
-      Assert.Check(bit >= 0 && bit < 6);
-      fixed (UInt64* p = Bits) (p[bit/64]) |= (1UL<<(bit%64));
-    }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void Clear(Int32 bit) {
-      Assert.Check(bit >= 0 && bit < 6);
-      fixed (UInt64* p = Bits) (p[bit/64]) &= ~(1UL<<(bit%64));
-    }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public void ClearAll() {
-      fixed (UInt64* p = Bits) Native.Utils.Clear(p, 8);
-    }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public readonly Boolean IsSet(Int32 bit) {
-      fixed (UInt64* p = Bits) return ((p[bit/64])&(1UL<<(bit%64))) != 0UL;
-    }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public readonly Int32 GetSetCount() {
-      fixed (UInt64* p = Bits) {
-        int result = 0;
-        result += Maths.CountSetBits(p[0] & 0x3FUL);
-        return result;
-      }
-    }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public readonly Boolean IsAnySet() {
-      fixed (UInt64* p = Bits) {
-        if ((p[0] & 0x3FUL) != 0) return true;
-        return false;
-      }
-    }
-    public override readonly Int32 GetHashCode() {
-      unchecked { 
-        var hash = 13669;
-        fixed (UInt64* p = Bits) hash = hash * 31 + HashCodeUtils.GetArrayHashCode(p, 1);
-        return hash;
-      }
-    }
-    public static void Serialize(void* ptr, FrameSerializer serializer) {
-        var p = (BitSet6*)ptr;
-        serializer.Stream.SerializeBuffer(&p->Bits[0], 1);
-    }
-  }
-  [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct BlendTreeWeights {
     public const Int32 SIZE = 4;
     public const Int32 ALIGNMENT = 4;
@@ -592,7 +592,7 @@ namespace Quantum {
       }
     }
     static partial void GetMaxCountCodeGen(ref int maxCount) {
-      maxCount = 6;
+      maxCount = 2;
     }
     public Boolean IsDown(InputButtons button) {
       switch (button) {
@@ -988,7 +988,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 1144;
+    public const Int32 SIZE = 792;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     public AssetRef<Map> Map;
@@ -1011,13 +1011,13 @@ namespace Quantum {
     [FieldOffset(600)]
     public Int32 PlayerConnectedCount;
     [FieldOffset(608)]
-    [FramePrinter.FixedArrayAttribute(typeof(Input), 6)]
-    private fixed Byte _input_[528];
-    [FieldOffset(1136)]
-    public BitSet6 PlayerLastConnectionState;
+    [FramePrinter.FixedArrayAttribute(typeof(Input), 2)]
+    private fixed Byte _input_[176];
+    [FieldOffset(784)]
+    public BitSet2 PlayerLastConnectionState;
     public readonly FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 88, 6); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 88, 2); }
       }
     }
     public override readonly Int32 GetHashCode() {
@@ -1051,7 +1051,7 @@ namespace Quantum {
         PhysicsSceneSettings.Serialize(&p->PhysicsSettings, serializer);
         serializer.Stream.Serialize(&p->PlayerConnectedCount);
         FixedArray.Serialize(p->input, serializer, Statics.SerializeInput);
-        Quantum.BitSet6.Serialize(&p->PlayerLastConnectionState, serializer);
+        Quantum.BitSet2.Serialize(&p->PlayerLastConnectionState, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -1267,6 +1267,86 @@ namespace Quantum {
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (Damageable*)ptr;
         serializer.Stream.Serialize(&p->Health);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct GlobalHitstop : Quantum.IComponent {
+    public const Int32 SIZE = 8;
+    public const Int32 ALIGNMENT = 4;
+    [FieldOffset(4)]
+    public Int32 FramesLeft;
+    [FieldOffset(0)]
+    public Int32 DelayLeft;
+    public override readonly Int32 GetHashCode() {
+      unchecked { 
+        var hash = 18133;
+        hash = hash * 31 + FramesLeft.GetHashCode();
+        hash = hash * 31 + DelayLeft.GetHashCode();
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (GlobalHitstop*)ptr;
+        serializer.Stream.Serialize(&p->DelayLeft);
+        serializer.Stream.Serialize(&p->FramesLeft);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct GlobalTag : Quantum.IComponent {
+    public const Int32 SIZE = 4;
+    public const Int32 ALIGNMENT = 4;
+    [FieldOffset(0)]
+    private fixed Byte _alignment_padding_[4];
+    public override readonly Int32 GetHashCode() {
+      unchecked { 
+        var hash = 6791;
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (GlobalTag*)ptr;
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct Hitstop : Quantum.IComponent {
+    public const Int32 SIZE = 16;
+    public const Int32 ALIGNMENT = 8;
+    [FieldOffset(4)]
+    public Int32 FramesLeft;
+    [FieldOffset(8)]
+    public EntityRef Source;
+    [FieldOffset(0)]
+    public Byte Flags;
+    public override readonly Int32 GetHashCode() {
+      unchecked { 
+        var hash = 7993;
+        hash = hash * 31 + FramesLeft.GetHashCode();
+        hash = hash * 31 + Source.GetHashCode();
+        hash = hash * 31 + Flags.GetHashCode();
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (Hitstop*)ptr;
+        serializer.Stream.Serialize(&p->Flags);
+        serializer.Stream.Serialize(&p->FramesLeft);
+        EntityRef.Serialize(&p->Source, serializer);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct HitstopStarted : Quantum.IComponent {
+    public const Int32 SIZE = 4;
+    public const Int32 ALIGNMENT = 4;
+    [FieldOffset(0)]
+    private fixed Byte _alignment_padding_[4];
+    public override readonly Int32 GetHashCode() {
+      unchecked { 
+        var hash = 15859;
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (HitstopStarted*)ptr;
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -1756,6 +1836,7 @@ namespace Quantum {
     void OnAnimatorRootMotion2D(Frame f, EntityRef entity, AnimatorFrame deltaFrame, AnimatorFrame currentFrame);
   }
   public static unsafe partial class Constants {
+    public const Int32 PLAYER_COUNT = 2;
   }
   public unsafe partial class Frame {
     private ISignalOnAnimatorStateEnter[] _ISignalOnAnimatorStateEnterSystems;
@@ -1791,6 +1872,14 @@ namespace Quantum {
       BuildSignalsArrayOnComponentRemoved<Quantum.CurrentAction>();
       BuildSignalsArrayOnComponentAdded<Quantum.Damageable>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Damageable>();
+      BuildSignalsArrayOnComponentAdded<Quantum.GlobalHitstop>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.GlobalHitstop>();
+      BuildSignalsArrayOnComponentAdded<Quantum.GlobalTag>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.GlobalTag>();
+      BuildSignalsArrayOnComponentAdded<Quantum.Hitstop>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.Hitstop>();
+      BuildSignalsArrayOnComponentAdded<Quantum.HitstopStarted>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.HitstopStarted>();
       BuildSignalsArrayOnComponentAdded<Quantum.InputBuffer>();
       BuildSignalsArrayOnComponentRemoved<Quantum.InputBuffer>();
       BuildSignalsArrayOnComponentAdded<Quantum.KCC>();
@@ -1937,11 +2026,11 @@ namespace Quantum {
       typeRegistry.Register(typeof(AssetRef), AssetRef.SIZE);
       typeRegistry.Register(typeof(Quantum.BitSet1024), Quantum.BitSet1024.SIZE);
       typeRegistry.Register(typeof(Quantum.BitSet128), Quantum.BitSet128.SIZE);
+      typeRegistry.Register(typeof(Quantum.BitSet2), Quantum.BitSet2.SIZE);
       typeRegistry.Register(typeof(Quantum.BitSet2048), Quantum.BitSet2048.SIZE);
       typeRegistry.Register(typeof(Quantum.BitSet256), Quantum.BitSet256.SIZE);
       typeRegistry.Register(typeof(Quantum.BitSet4096), Quantum.BitSet4096.SIZE);
       typeRegistry.Register(typeof(Quantum.BitSet512), Quantum.BitSet512.SIZE);
-      typeRegistry.Register(typeof(Quantum.BitSet6), Quantum.BitSet6.SIZE);
       typeRegistry.Register(typeof(Quantum.BlendTreeWeights), Quantum.BlendTreeWeights.SIZE);
       typeRegistry.Register(typeof(Button), Button.SIZE);
       typeRegistry.Register(typeof(CallbackFlags), 4);
@@ -1970,10 +2059,14 @@ namespace Quantum {
       typeRegistry.Register(typeof(FPVector3), FPVector3.SIZE);
       typeRegistry.Register(typeof(FrameMetaData), FrameMetaData.SIZE);
       typeRegistry.Register(typeof(FrameTimer), FrameTimer.SIZE);
+      typeRegistry.Register(typeof(Quantum.GlobalHitstop), Quantum.GlobalHitstop.SIZE);
+      typeRegistry.Register(typeof(Quantum.GlobalTag), Quantum.GlobalTag.SIZE);
       typeRegistry.Register(typeof(HingeJoint), HingeJoint.SIZE);
       typeRegistry.Register(typeof(HingeJoint3D), HingeJoint3D.SIZE);
       typeRegistry.Register(typeof(Hit), Hit.SIZE);
       typeRegistry.Register(typeof(Hit3D), Hit3D.SIZE);
+      typeRegistry.Register(typeof(Quantum.Hitstop), Quantum.Hitstop.SIZE);
+      typeRegistry.Register(typeof(Quantum.HitstopStarted), Quantum.HitstopStarted.SIZE);
       typeRegistry.Register(typeof(Quantum.Input), Quantum.Input.SIZE);
       typeRegistry.Register(typeof(Quantum.InputBuffer), Quantum.InputBuffer.SIZE);
       typeRegistry.Register(typeof(Quantum.InputButtons), 4);
@@ -2034,11 +2127,15 @@ namespace Quantum {
       typeRegistry.Register(typeof(Quantum._globals_), Quantum._globals_.SIZE);
     }
     static partial void InitComponentTypeIdGen() {
-      ComponentTypeId.Reset(ComponentTypeId.BuiltInComponentCount + 9)
+      ComponentTypeId.Reset(ComponentTypeId.BuiltInComponentCount + 13)
         .AddBuiltInComponents()
         .Add<Quantum.AnimatorComponent>(Quantum.AnimatorComponent.Serialize, null, Quantum.AnimatorComponent.OnRemoved, ComponentFlags.None)
         .Add<Quantum.CurrentAction>(Quantum.CurrentAction.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.Damageable>(Quantum.Damageable.Serialize, null, null, ComponentFlags.None)
+        .Add<Quantum.GlobalHitstop>(Quantum.GlobalHitstop.Serialize, null, null, ComponentFlags.None)
+        .Add<Quantum.GlobalTag>(Quantum.GlobalTag.Serialize, null, null, ComponentFlags.None)
+        .Add<Quantum.Hitstop>(Quantum.Hitstop.Serialize, null, null, ComponentFlags.None)
+        .Add<Quantum.HitstopStarted>(Quantum.HitstopStarted.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.InputBuffer>(Quantum.InputBuffer.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.KCC>(Quantum.KCC.Serialize, null, Quantum.KCC.OnRemoved, ComponentFlags.None)
         .Add<Quantum.KCCProcessorLink>(Quantum.KCCProcessorLink.Serialize, null, null, ComponentFlags.None)

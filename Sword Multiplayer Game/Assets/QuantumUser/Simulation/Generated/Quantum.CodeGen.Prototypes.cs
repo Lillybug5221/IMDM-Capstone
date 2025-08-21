@@ -192,6 +192,70 @@ namespace Quantum.Prototypes {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.GlobalHitstop))]
+  public unsafe partial class GlobalHitstopPrototype : ComponentPrototype<Quantum.GlobalHitstop> {
+    public Int32 FramesLeft;
+    public Int32 DelayLeft;
+    partial void MaterializeUser(Frame frame, ref Quantum.GlobalHitstop result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.GlobalHitstop component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.GlobalHitstop result, in PrototypeMaterializationContext context = default) {
+        result.FramesLeft = this.FramesLeft;
+        result.DelayLeft = this.DelayLeft;
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.GlobalTag))]
+  public unsafe partial class GlobalTagPrototype : ComponentPrototype<Quantum.GlobalTag> {
+    [HideInInspector()]
+    public Int32 _empty_prototype_dummy_field_;
+    partial void MaterializeUser(Frame frame, ref Quantum.GlobalTag result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.GlobalTag component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.GlobalTag result, in PrototypeMaterializationContext context = default) {
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.Hitstop))]
+  public unsafe class HitstopPrototype : ComponentPrototype<Quantum.Hitstop> {
+    public Int32 FramesLeft;
+    public MapEntityId Source;
+    public Byte Flags;
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.Hitstop component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.Hitstop result, in PrototypeMaterializationContext context = default) {
+        result.FramesLeft = this.FramesLeft;
+        PrototypeValidator.FindMapEntity(this.Source, in context, out result.Source);
+        result.Flags = this.Flags;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.HitstopStarted))]
+  public unsafe partial class HitstopStartedPrototype : ComponentPrototype<Quantum.HitstopStarted> {
+    [HideInInspector()]
+    public Int32 _empty_prototype_dummy_field_;
+    partial void MaterializeUser(Frame frame, ref Quantum.HitstopStarted result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.HitstopStarted component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.HitstopStarted result, in PrototypeMaterializationContext context = default) {
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.Input))]
   public unsafe partial class InputPrototype : StructPrototype {
     public FPVector2 LeftStickDirection;

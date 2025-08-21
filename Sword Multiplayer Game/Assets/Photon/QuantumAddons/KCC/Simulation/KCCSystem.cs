@@ -7,6 +7,9 @@ namespace Quantum
 	{
 		public override void Update(Frame frame, ref Filter filter)
 		{
+			if(HitstopTickSystem.GlobalHitstopActive(frame)){
+				return; //skip kcc this frame
+			}
 			KCCContext context = KCCContext.Get(frame, filter.Entity, filter.KCC);
 			filter.KCC->Update(context);
 			KCCContext.Return(context);

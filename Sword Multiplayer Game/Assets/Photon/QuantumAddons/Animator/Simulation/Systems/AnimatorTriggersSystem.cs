@@ -7,6 +7,9 @@
   {
     public override void Update(Frame f)
     {
+      if(HitstopTickSystem.GlobalHitstopActive(f)){
+				return; //skip this frame
+			}
       var filter = f.Filter<AnimatorComponent>();
       while (filter.NextUnsafe(out _, out var animator))
       {

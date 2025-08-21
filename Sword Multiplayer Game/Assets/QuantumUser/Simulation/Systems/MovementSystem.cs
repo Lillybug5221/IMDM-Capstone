@@ -38,6 +38,12 @@ namespace Quantum
             FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
             filter.Transform->Rotation = slerpedRotation;
 
+            //return if hitstop
+            if(HitstopTickSystem.GlobalHitstopActive(frame)){
+                kcc->SetInputDirection(new FPVector3(0,0,0));
+                return;
+            }
+
             //check current action to see if movement is possible
             //read directional input
             if((ActionType)(currAction->ActionType) == ActionType.None){

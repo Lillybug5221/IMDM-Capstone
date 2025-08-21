@@ -35,6 +35,12 @@ namespace Quantum
                 moveDirection = moveDirection.Normalized;
             }
 
+            //return if hitstop
+            if(HitstopTickSystem.GlobalHitstopActive(frame)){
+                UpdateInputBuffer(buffer, frame, filter.Link->Player);
+                return;
+            }
+
             if(currAction -> ActionPhase < 4){
                 //attack not yet cancelable
                 UpdateInputBuffer(buffer, frame, filter.Link->Player);

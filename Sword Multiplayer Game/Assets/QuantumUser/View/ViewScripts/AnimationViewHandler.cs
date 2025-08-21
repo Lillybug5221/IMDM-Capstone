@@ -48,6 +48,14 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
                 startFrame = -1;
             }
         }
+
+        //handle hitpause
+        if(HitstopTickSystem.GlobalHitstopActive(PredictedFrame)){
+            if(attackParticleSys.isPlaying){attackParticleSys.Pause();}
+            return;
+        }else{
+            if(attackParticleSys.isPaused){attackParticleSys.Play();}
+        }
         
         //parry indicator
         if(ParryIndicator != null) {
