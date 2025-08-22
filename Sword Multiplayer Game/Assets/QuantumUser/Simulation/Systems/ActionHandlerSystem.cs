@@ -12,6 +12,7 @@ namespace Quantum
             public PlayerLink* Link;
             public AnimatorComponent* Animator;
             public CurrentAction* CurrAction;
+            public KCC* KCC;
         }
         public override void Update(Frame frame,ref Filter filter)
         {
@@ -83,6 +84,43 @@ namespace Quantum
                     }
                 }
             }else if(currAction -> ActionPhase == 3){
+                if(currentActionType == ActionType.Dodge){
+                    Log.Debug("git here" + currAction->Direction);
+                    //directly transform the position along the inputed direction. check for collisions before applying each frame.
+                    //for each frame, grab the action completeness precent and pass that through an animation curve to get the completed distance precentage and set the player position between a 
+                    //roll start positon and end position at that lerp value. always draw a line between the start position and the target position, if there is a collision with something, stop there.
+                    
+                    /*
+                    FP maxDashDistance = 10;
+                    Log.Debug((maxDashDistance * new FPVector3(currAction->Direction.X, 0, currAction->Direction.Y)) / (currAction->EndLagFrames + frameNumber));
+                    FPVector3 dashDir = new FPVector3(currAction->Direction.X * maxDashDistance, 0, currAction->Direction.Y * maxDashDistance);
+                    FP perFrame = maxDashDistance / (currAction->EndLagFrames + frameNumber);
+                    FP temp = (FP)5/(FP)60;
+                    filter.KCC->SetKinematicVelocity(new FPVector3(temp,FP._0,FP._0));
+                    */
+                    /*
+                    FP minDodgeDistance = 3;
+                    FP maxDodgeDistance = 6;
+                    FPVector3 MovementVector = new FPVector3(currAction->Direction.X, 0 currAction.Direction.Y);
+                    FP directionalMagnitude = currAction -> Direction.Magnitude;
+                    FP clamped = FPMath.Clamp(directionalMagnitude, FP.FromFloat_UNSAFE(0.3f), 1);
+                    FP totalDistance = FPMath.Lerp(minDodgeDistance, maxDodgeDistance, clamped);
+                    FP distanceThisFrame = totalDistance * (1/60);
+                    if(MovementVector)
+                    filter.KCC->AddExternalImpulse(new FPVector3(currAction->Direction.X, 0, currAction->Direction.Y) / totalTime);
+                    //filter.KCC->AddExternalImpulse(new FPVector3(5,0,5));
+
+                    */
+                    /*
+                    FP t = frameNumber/(currAction -> EndLagFrames + frameNumber);
+                    // easing function ease-out cubic
+                    FP eased = t * t * (FP._3 - FP._2 * t);
+                    FP traveled = totalDistance * eased;
+                    FP previousEased = 
+                    */
+
+                }
+
                 currAction -> EndLagFrames--;
                 if(currAction -> EndLagFrames <= 0){
                     currAction -> ActionPhase++;
