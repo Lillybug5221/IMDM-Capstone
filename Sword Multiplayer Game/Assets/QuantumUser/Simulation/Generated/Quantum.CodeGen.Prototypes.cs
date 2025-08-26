@@ -143,6 +143,7 @@ namespace Quantum.Prototypes {
     public Int32 ActionNumber;
     public Byte ActionType;
     public FPVector2 Direction;
+    public FPVector3 PlayerPosition;
     public FPVector3 EnemyPosition;
     public Byte AttackIndex;
     public Int32 StartTick;
@@ -152,6 +153,8 @@ namespace Quantum.Prototypes {
     public UInt16 CancelableFrames;
     public Byte ActionPhase;
     public UInt16 Damage;
+    public FPVector3 DashEndPos;
+    public FP PrecentageOfDodgeCompletable;
     public QBoolean DamageApplied;
     partial void MaterializeUser(Frame frame, ref Quantum.CurrentAction result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
@@ -163,6 +166,7 @@ namespace Quantum.Prototypes {
         result.ActionNumber = this.ActionNumber;
         result.ActionType = this.ActionType;
         result.Direction = this.Direction;
+        result.PlayerPosition = this.PlayerPosition;
         result.EnemyPosition = this.EnemyPosition;
         result.AttackIndex = this.AttackIndex;
         result.StartTick = this.StartTick;
@@ -172,6 +176,8 @@ namespace Quantum.Prototypes {
         result.CancelableFrames = this.CancelableFrames;
         result.ActionPhase = this.ActionPhase;
         result.Damage = this.Damage;
+        result.DashEndPos = this.DashEndPos;
+        result.PrecentageOfDodgeCompletable = this.PrecentageOfDodgeCompletable;
         result.DamageApplied = this.DamageApplied;
         MaterializeUser(frame, ref result, in context);
     }

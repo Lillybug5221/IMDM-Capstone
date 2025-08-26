@@ -1185,15 +1185,17 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct CurrentAction : Quantum.IComponent {
-    public const Int32 SIZE = 72;
+    public const Int32 SIZE = 128;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(16)]
     public Int32 ActionNumber;
     [FieldOffset(1)]
     public Byte ActionType;
-    [FieldOffset(32)]
+    [FieldOffset(40)]
     public FPVector2 Direction;
-    [FieldOffset(48)]
+    [FieldOffset(104)]
+    public FPVector3 PlayerPosition;
+    [FieldOffset(80)]
     public FPVector3 EnemyPosition;
     [FieldOffset(2)]
     public Byte AttackIndex;
@@ -1211,6 +1213,10 @@ namespace Quantum {
     public Byte ActionPhase;
     [FieldOffset(8)]
     public UInt16 Damage;
+    [FieldOffset(56)]
+    public FPVector3 DashEndPos;
+    [FieldOffset(32)]
+    public FP PrecentageOfDodgeCompletable;
     [FieldOffset(24)]
     public QBoolean DamageApplied;
     public override readonly Int32 GetHashCode() {
@@ -1219,6 +1225,7 @@ namespace Quantum {
         hash = hash * 31 + ActionNumber.GetHashCode();
         hash = hash * 31 + ActionType.GetHashCode();
         hash = hash * 31 + Direction.GetHashCode();
+        hash = hash * 31 + PlayerPosition.GetHashCode();
         hash = hash * 31 + EnemyPosition.GetHashCode();
         hash = hash * 31 + AttackIndex.GetHashCode();
         hash = hash * 31 + StartTick.GetHashCode();
@@ -1228,6 +1235,8 @@ namespace Quantum {
         hash = hash * 31 + CancelableFrames.GetHashCode();
         hash = hash * 31 + ActionPhase.GetHashCode();
         hash = hash * 31 + Damage.GetHashCode();
+        hash = hash * 31 + DashEndPos.GetHashCode();
+        hash = hash * 31 + PrecentageOfDodgeCompletable.GetHashCode();
         hash = hash * 31 + DamageApplied.GetHashCode();
         return hash;
       }
@@ -1245,8 +1254,11 @@ namespace Quantum {
         serializer.Stream.Serialize(&p->ActionNumber);
         serializer.Stream.Serialize(&p->StartTick);
         QBoolean.Serialize(&p->DamageApplied, serializer);
+        FP.Serialize(&p->PrecentageOfDodgeCompletable, serializer);
         FPVector2.Serialize(&p->Direction, serializer);
+        FPVector3.Serialize(&p->DashEndPos, serializer);
         FPVector3.Serialize(&p->EnemyPosition, serializer);
+        FPVector3.Serialize(&p->PlayerPosition, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]

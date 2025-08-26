@@ -115,7 +115,7 @@ MonoBehaviour:
       X:
         RawValue: 32768
       Y:
-        RawValue: 97649
+        RawValue: 271974
       Z:
         RawValue: 783240
     SmoothSphereMeshCollisions: 0
@@ -128,6 +128,50 @@ MonoBehaviour:
           Value: 0
       IsTrigger: 0
       ColliderIndex: 1
+      MutableMode: 0
+  - Rotation:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 12785
+      Z:
+        RawValue: 0
+      W:
+        RawValue: 64276
+    Position:
+      X:
+        RawValue: 104857
+      Y:
+        RawValue: 0
+      Z:
+        RawValue: -142868
+    PhysicsMaterial:
+      Id:
+        Value: 0
+    ShapeType: 2
+    SphereRadius:
+      RawValue: 0
+    CapsuleRadius:
+      RawValue: 0
+    CapsuleHeight:
+      RawValue: 0
+    BoxExtents:
+      X:
+        RawValue: 32768
+      Y:
+        RawValue: 271974
+      Z:
+        RawValue: 131467
+    SmoothSphereMeshCollisions: 0
+    StaticData:
+      Name: BoxStaticCollider (6)
+      Tag: Untagged
+      Layer: 0
+      Asset:
+        Id:
+          Value: 0
+      IsTrigger: 0
+      ColliderIndex: 2
       MutableMode: 0
   - Rotation:
       X:
@@ -159,7 +203,7 @@ MonoBehaviour:
       X:
         RawValue: 32768
       Y:
-        RawValue: 97649
+        RawValue: 271974
       Z:
         RawValue: 774796
     SmoothSphereMeshCollisions: 0
@@ -171,7 +215,7 @@ MonoBehaviour:
         Id:
           Value: 0
       IsTrigger: 0
-      ColliderIndex: 2
+      ColliderIndex: 3
       MutableMode: 0
   - Rotation:
       X:
@@ -203,7 +247,7 @@ MonoBehaviour:
       X:
         RawValue: 32768
       Y:
-        RawValue: 97649
+        RawValue: 271974
       Z:
         RawValue: 781675
     SmoothSphereMeshCollisions: 0
@@ -215,7 +259,7 @@ MonoBehaviour:
         Id:
           Value: 0
       IsTrigger: 0
-      ColliderIndex: 3
+      ColliderIndex: 4
       MutableMode: 0
   - Rotation:
       X:
@@ -247,7 +291,7 @@ MonoBehaviour:
       X:
         RawValue: 32768
       Y:
-        RawValue: 97649
+        RawValue: 271974
       Z:
         RawValue: 785201
     SmoothSphereMeshCollisions: 0
@@ -259,7 +303,7 @@ MonoBehaviour:
         Id:
           Value: 0
       IsTrigger: 0
-      ColliderIndex: 4
+      ColliderIndex: 5
       MutableMode: 0
   MapEntities:
   - Components:

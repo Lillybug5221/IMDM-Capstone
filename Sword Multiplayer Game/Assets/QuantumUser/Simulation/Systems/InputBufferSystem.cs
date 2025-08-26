@@ -26,6 +26,7 @@ namespace Quantum
             var input = frame.GetPlayerInput(filter.Link->Player);
             var attackData = frame.SimulationConfig.AttackHitboxData;
             var currAction = filter.CurrAction;
+            var transform = filter.Transform;
             var buffer = filter.Buffer;
 
             //the direction of an attack is based off the current direction, no matter what direction was held when an attack was buffered
@@ -107,23 +108,23 @@ namespace Quantum
                     currAction -> ActionNumber += 1;
                     AnimatorComponent.SetTrigger(frame, filter.Animator, "Parry_Activate");
                 }if(bufferedAction.input.Dodge){
+                    FPVector2 DodgeDir = input->LeftStickDirection.Normalized;
+                    if(DodgeDir == new FPVector2(0,0)){
+                        DodgeDir = new FPVector2(0,1);
+                    }
                     currAction -> ActionType = (byte)ActionType.Dodge;
                     currAction -> AttackIndex = (byte)(0); 
-                    currAction -> Direction = input-> LeftStickDirection;
+                    currAction -> Direction = DodgeDir;
+                    currAction -> PlayerPosition = transform -> Position;
                     currAction -> EnemyPosition = opponentPosition;
                     currAction -> StartTick = frame.Number;
                     currAction -> StartUpFrames = (ushort)0;
                     currAction -> ActiveFrames = (ushort)0;
-                    currAction -> EndLagFrames = (ushort)60;
+                    currAction -> EndLagFrames = (ushort)30;
                     currAction -> CancelableFrames = (ushort)30;
                     currAction -> ActionPhase = (byte)3;// we start in phase 2 because there is no startup
                     currAction -> Damage = (ushort)0;
                     currAction -> ActionNumber += 1;
-
-                    FPVector2 DodgeDir = input->LeftStickDirection;
-                    if(DodgeDir == new FPVector2(0,0)){
-                        DodgeDir = new FPVector2(0,1);
-                    }
                     AnimatorComponent.SetFixedPoint(frame, filter.Animator, "MoveX", DodgeDir.X);
                     AnimatorComponent.SetFixedPoint(frame, filter.Animator, "MoveY", DodgeDir.Y);
                     AnimatorComponent.SetTrigger(frame, filter.Animator, "Dodge");

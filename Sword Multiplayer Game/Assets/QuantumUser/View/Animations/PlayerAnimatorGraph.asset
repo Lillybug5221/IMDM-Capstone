@@ -45790,23 +45790,10 @@ MonoBehaviour:
         RawValue: 0
       Speed:
         RawValue: 65536
-      Transitions:
-      - Index: 0
-        Name: Dodge to Walk/Idle
-        Duration:
-          RawValue: 16384
-        Offset:
-          RawValue: 0
-        ExitTime:
-          RawValue: 49152
-        HasExitTime: 1
-        CanTransitionToSelf: 0
-        Conditions: []
-        DestinationStateId: -593675042
-        DestinationStateName: Walk/Idle
+      Transitions: []
       SerialisedMotions:
       - IsAnimation: 0
-        Name: Blend Tree
+        Name: Dodge
         AnimatorData:
           ClipName: 
           MotionId: 0
@@ -56309,7 +56296,7 @@ MonoBehaviour:
         ExitTime:
           RawValue: 65536
         HasExitTime: 0
-        CanTransitionToSelf: 0
+        CanTransitionToSelf: 1
         Conditions:
         - VariableName: Dodge
           Mode: 1

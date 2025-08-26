@@ -10394,6 +10394,7 @@ MonoBehaviour:
   FrameRate: 60
   BlendTreeNames:
   - Base Layer.Walk/Idle
+  - Base Layer.Dodge
 --- !u!114 &9122167632180689986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10631,6 +10632,13 @@ MonoBehaviour:
         RawValue: 0
       Y:
         RawValue: 0
+    PlayerPosition:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+      Z:
+        RawValue: 0
     EnemyPosition:
       X:
         RawValue: 0
@@ -10646,6 +10654,15 @@ MonoBehaviour:
     CancelableFrames: 0
     ActionPhase: 5
     Damage: 0
+    DashEndPos:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+      Z:
+        RawValue: 0
+    PrecentageOfDodgeCompletable:
+      RawValue: 0
     DamageApplied:
       Value: 0
 --- !u!1 &3729670431120426559

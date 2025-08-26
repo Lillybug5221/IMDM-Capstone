@@ -29,7 +29,8 @@ component CurrentAction{
     int ActionNumber;
     byte ActionType; //0 = none, 1 = walk, 2 = attack, 3 = parry
     FPVector2 Direction;
-    FPVector3 EnemyPosition;
+    FPVector3 PlayerPosition; //player position at beginning of action
+    FPVector3 EnemyPosition; //enemy position at baginning of action
     byte AttackIndex; //correlates to an AttackTypeEnum.
     int StartTick;
     ushort StartUpFrames;
@@ -43,6 +44,8 @@ component CurrentAction{
     //4 : Cancelable
     //5 : Ended
     ushort Damage;
+    FPVector3 DashEndPos;
+    FP PrecentageOfDodgeCompletable;
     bool DamageApplied;
 }
 

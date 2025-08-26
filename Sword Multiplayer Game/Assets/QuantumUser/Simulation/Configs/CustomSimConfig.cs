@@ -1,4 +1,5 @@
-﻿
+﻿using Quantum;
+using Photon.Deterministic;
 namespace Quantum
 {
     public partial class SimulationConfig
@@ -6,6 +7,10 @@ namespace Quantum
         public AssetRef<EntityPrototype> HitboxPrototype;
 
         public AssetRef<EntityPrototype> ParryEffectPrototype;
+
+        public SimCurve DashSimCurve;
+
+        public FP DashDistance; 
         
     }
 }
