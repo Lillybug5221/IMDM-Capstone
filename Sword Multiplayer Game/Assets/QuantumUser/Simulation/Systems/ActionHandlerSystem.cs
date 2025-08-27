@@ -4,6 +4,7 @@ namespace Quantum
     using System.Runtime.Versioning;
     using System.Collections.Generic;
     using Quantum.Physics3D;
+    using Quantum.Addons.Animator;
 
     public unsafe class ActionHandlerSystem : SystemMainThreadFilter<ActionHandlerSystem.Filter>
     {
@@ -34,7 +35,43 @@ namespace Quantum
                 return;
             }
             int frameNumber = frame.Number - currAction -> StartTick;
-            //Log.Debug("current action phase is " + currAction ->ActionPhase);
+
+
+            //handle root motion
+            #region root motion
+            //handle root motion
+            var currentMotion = GetCurrentMotionHelper(frame, filter.Animator);
+            var currentAnimFrame = GetCurrentFrameHelper(currentMotion, 0);
+            int currentFrame = frame.Number;
+            FP deltaTime = frame.DeltaTime;
+            int elapsedFrames = currentFrame - currAction->StartTick;
+            FP animationTime = elapsedFrames * deltaTime;
+            FPVector3 prevFramePos = GetCurrentFrameHelper(currentMotion, animationTime - deltaTime);
+            FPVector3 currFramePos = GetCurrentFrameHelper(currentMotion, animationTime);
+            FPVector3 deltaFrame = currFramePos - prevFramePos;
+
+            bool transitioning = filter.Animator->IsInTransition(frame, 0);
+            if(deltaFrame != new FPVector3(0,0,0) && !transitioning){
+                //Log.Debug("root motioning" + deltaFrame);
+                
+                FPVector3 dirToTarget = (new FPVector3((FP)currAction -> EnemyPosition.X, (FP)currAction->PlayerPosition.Y, (FP)currAction->EnemyPosition.Z) - currAction -> PlayerPosition).Normalized;
+                FPQuaternion lookRot = FPQuaternion.LookRotation(dirToTarget, FPVector3.Up);
+                FPVector3 rotatedVector = lookRot * deltaFrame;
+
+                FPVector3 nextPosition = transform ->Position + rotatedVector;
+                FPVector3 collisionTestDir = nextPosition - transform -> Position;
+                var shapeCastHits = frame.Physics3D.ShapeCastAll(transform->Position, transform->Rotation, collider->Shape, collisionTestDir);
+                var rayCastHits = frame.Physics3D.RaycastAll(transform->Position, collisionTestDir.Normalized, FP.FromFloat_UNSAFE(0.2f)); //using a magic number for the inner raycast currently
+                if (shapeCastHits.Count <= 0 && rayCastHits.Count <= 0){
+                    transform -> Position = nextPosition; // safe
+                } else {
+                    // hit a wall before nextPos, place at hit.Point instead
+                    //playerTransform.Position = hit.Point;
+                }
+            }
+            #endregion
+
+
             if(currAction -> ActionPhase == 1){
                 currAction -> StartUpFrames--;
                 if(currAction -> StartUpFrames <= 0){
@@ -61,7 +98,6 @@ namespace Quantum
                         DamageApplied = false
                     });
                 }else if(currentActionType == ActionType.Parry){
-                    Log.Debug("Parrying");
                     var parry = new ParryComponent()
                     {
                         HeavyParry = false,
@@ -88,12 +124,11 @@ namespace Quantum
                 }
             }else if(currAction -> ActionPhase == 3){
                 if(currentActionType == ActionType.Dodge){
-                    
                     //directly transform the position along the inputed direction. check for collisions before applying each frame.
                     //for each frame, grab the action completeness precent and pass that through an animation curve to get the completed distance precentage and set the player position between a 
                     //roll start positon and end position at that lerp value. always draw a line between the start position and the target position, if there is a collision with something, stop there.
                                         
-                    //zSetup endpos on startup
+                    //Setup endpos on startup
                     if(frameNumber == 0){
 
                         FPVector2 dashDirection2D = (currAction -> Direction).Normalized;
@@ -124,9 +159,7 @@ namespace Quantum
                     
                     FP t = (FP)frameNumber/(FP)(currAction -> EndLagFrames + frameNumber);
                     SimCurve dashCurve = frame.SimulationConfig.DashSimCurve;
-                    Log.Debug("Pre t " + t);
                     t = dashCurve.Evaluate(t);
-                    Log.Debug("Post t " + t);
                     if(t <= currAction -> PrecentageOfDodgeCompletable){
                         FPVector3 nextPosition = FPVector3.Lerp(currAction ->PlayerPosition, currAction -> DashEndPos, t);
                         FPVector3 collisionTestDir = nextPosition - transform -> Position;
@@ -167,5 +200,64 @@ namespace Quantum
             Log.Error("No attack by that name found");
             return 0;
         }
+        private AnimatorMotion GetCurrentMotionHelper(Frame f, AnimatorComponent* animator)
+        {
+            // Get the current state using the current state ID
+            AnimatorState currentState = animator->GetCurrentState(f, 0);
+            if (currentState == null)
+                Log.Error("Current state not found.");
+            else{
+                Log.Debug(currentState);
+            }
+            
+            var currentMotion = currentState.Motion;
+
+            // Handle blend tree logic
+            /*if (currentMotion is AnimatorBlendTree blendTree)
+            {
+                // Get weights for the blend tree
+                var weights = AnimatorComponent.GetStateWeights(f, animator, currentState.Id);
+
+                // Find the motion with the highest weight
+                var activeMotionIndex = 0;
+                var maxWeight = FP._0;
+                for (var i = 0; i < blendTree.MotionCount; i++)
+                {
+                    if (weights[i] > maxWeight)
+                    {
+                        maxWeight = weights[i];
+                        activeMotionIndex = i;
+                    }
+                }
+
+                // Return the active motion
+                return blendTree.Motions[activeMotionIndex];
+                
+            }*/
+
+            // For simple motions, return directly
+            return currentMotion;
+        }
+        private FPVector3 GetCurrentFrameHelper(AnimatorMotion motion, FP animatorTime)
+        {
+            //root mototion not yet handled for blend trees
+            if (motion is AnimatorClip clip)
+            {
+                // Retrieve the animator data for the clip
+                var data = clip.Data;
+                if(data.DisableRootMotion){
+                    Log.Debug("Root Motion Disabled");
+                    return new FPVector3(0,0,0);
+                }else{
+                    Log.Debug("Root Motion Enabled");
+                    // Get the frame at the current time
+                    return data.GetFrameAtTime(animatorTime).Position;
+                }
+            }
+            return new FPVector3(0,0,0);
+        }
+
     }
+
+    
 }

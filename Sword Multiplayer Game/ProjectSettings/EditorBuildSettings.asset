@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Photon/QuantumMenu/QuantumSampleMenu.unity
     guid: f23d3edd333e1dc449a4688e04123759
   - enabled: 1
-    path: Assets/QuantumUser/Scenes/QuantumGameScene.unity
+    path: Assets/QuantumUser/Scenes/MainGame.unity
     guid: 50173d9e41988f0469fd1a632f5b4b81
   - enabled: 0
     path: Assets/Photon/QuantumAsteroids/Scenes/AsteroidsGameplay.unity

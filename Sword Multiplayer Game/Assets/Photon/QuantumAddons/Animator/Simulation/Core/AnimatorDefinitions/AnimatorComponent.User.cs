@@ -563,5 +563,15 @@
     }
 
     #endregion
+
+    public bool IsInTransition(Frame f, int layerIndex = 0) {
+        var layers = f.ResolveList(Layers);
+        LayerData* layerData = layers.GetPointer(layerIndex);
+
+        return layerData->ToStateId != 0 && 
+              layerData->TransitionTime < layerData->TransitionDuration;
+    }
   }
+
+  
 }

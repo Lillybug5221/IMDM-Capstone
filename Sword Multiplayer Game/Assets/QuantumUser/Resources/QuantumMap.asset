@@ -19,8 +19,8 @@ MonoBehaviour:
   UserAsset:
     Id:
       Value: 0
-  Scene: QuantumGameScene
-  ScenePath: Assets/QuantumUser/Scenes/QuantumGameScene.unity
+  Scene: MainGame
+  ScenePath: Assets/QuantumUser/Scenes/MainGame.unity
   SceneGuid: 50173d9e41988f0469fd1a632f5b4b81
   WorldSize: 256
   BucketsCount: 16
@@ -115,7 +115,7 @@ MonoBehaviour:
       X:
         RawValue: 32768
       Y:
-        RawValue: 271974
+        RawValue: 155976
       Z:
         RawValue: 783240
     SmoothSphereMeshCollisions: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
       X:
         RawValue: 32768
       Y:
-        RawValue: 271974
+        RawValue: 155976
       Z:
         RawValue: 131467
     SmoothSphereMeshCollisions: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
       X:
         RawValue: 32768
       Y:
-        RawValue: 271974
+        RawValue: 155976
       Z:
         RawValue: 774796
     SmoothSphereMeshCollisions: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
       X:
         RawValue: 32768
       Y:
-        RawValue: 271974
+        RawValue: 155976
       Z:
         RawValue: 781675
     SmoothSphereMeshCollisions: 0
@@ -291,7 +291,7 @@ MonoBehaviour:
       X:
         RawValue: 32768
       Y:
-        RawValue: 271974
+        RawValue: 155976
       Z:
         RawValue: 785201
     SmoothSphereMeshCollisions: 0

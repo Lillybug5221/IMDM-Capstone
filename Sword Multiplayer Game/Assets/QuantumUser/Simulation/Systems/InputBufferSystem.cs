@@ -79,35 +79,30 @@ namespace Quantum
             if(bufferedAction.exists){
                 // Trigger the attack this frame
                 if(bufferedAction.input.LightAttack || bufferedAction.input.HeavyAttack){
+                    DefaultCurrAction(frame, currAction, transform -> Position, opponentPosition);
                     QAttackData FoundAttack = attackData[0];//this is a magic number for now. Ill read the direcitonalinput when I implement more attacks.
                     currAction -> ActionType = (byte)ActionType.Attack;
                     currAction -> AttackIndex = (byte)(FoundAttack.AttackVals.attackName); 
-                    currAction -> EnemyPosition = opponentPosition;
-                    currAction -> StartTick = frame.Number;
                     currAction -> StartUpFrames = (ushort)FoundAttack.AttackVals.startupFrames;
                     currAction -> ActiveFrames = (ushort)FoundAttack.AttackVals.activeFrames;
                     currAction -> EndLagFrames = (ushort)FoundAttack.AttackVals.endlagFrames;
                     currAction -> CancelableFrames = (ushort)FoundAttack.AttackVals.cancelableFrames;
                     currAction -> ActionPhase = (byte)1;
                     currAction -> Damage = (ushort)FoundAttack.AttackVals.damage;
-                    currAction -> ActionNumber += 1;
-                    currAction -> DamageApplied = false;
                     //trigger attack anim
-                    AnimatorComponent.SetTrigger(frame, filter.Animator, "Light_DL");
+                    AnimatorComponent.SetTrigger(frame, filter.Animator, "Light_L");
                 }if(bufferedAction.input.Parry){
+                    DefaultCurrAction(frame, currAction, transform -> Position, opponentPosition);
                     currAction -> ActionType = (byte)ActionType.Parry;
                     currAction -> AttackIndex = (byte)(0); 
-                    currAction -> EnemyPosition = opponentPosition;
-                    currAction -> StartTick = frame.Number;
                     currAction -> StartUpFrames = (ushort)0;
                     currAction -> ActiveFrames = (ushort)12;
                     currAction -> EndLagFrames = (ushort)12;
                     currAction -> CancelableFrames = (ushort)30;
                     currAction -> ActionPhase = (byte)2;// we start in phase 2 because there is no startup
-                    currAction -> Damage = (ushort)0;
-                    currAction -> ActionNumber += 1;
                     AnimatorComponent.SetTrigger(frame, filter.Animator, "Parry_Activate");
                 }if(bufferedAction.input.Dodge){
+                    DefaultCurrAction(frame, currAction, transform -> Position, opponentPosition);
                     FPVector2 DodgeDir = input->LeftStickDirection.Normalized;
                     if(DodgeDir == new FPVector2(0,0)){
                         DodgeDir = new FPVector2(0,1);
@@ -115,16 +110,11 @@ namespace Quantum
                     currAction -> ActionType = (byte)ActionType.Dodge;
                     currAction -> AttackIndex = (byte)(0); 
                     currAction -> Direction = DodgeDir;
-                    currAction -> PlayerPosition = transform -> Position;
-                    currAction -> EnemyPosition = opponentPosition;
-                    currAction -> StartTick = frame.Number;
                     currAction -> StartUpFrames = (ushort)0;
                     currAction -> ActiveFrames = (ushort)0;
                     currAction -> EndLagFrames = (ushort)30;
                     currAction -> CancelableFrames = (ushort)30;
                     currAction -> ActionPhase = (byte)3;// we start in phase 2 because there is no startup
-                    currAction -> Damage = (ushort)0;
-                    currAction -> ActionNumber += 1;
                     AnimatorComponent.SetFixedPoint(frame, filter.Animator, "MoveX", DodgeDir.X);
                     AnimatorComponent.SetFixedPoint(frame, filter.Animator, "MoveY", DodgeDir.Y);
                     AnimatorComponent.SetTrigger(frame, filter.Animator, "Dodge");
@@ -132,6 +122,7 @@ namespace Quantum
                 
             }else{
                 //trigger movement
+                DefaultCurrAction(frame, currAction, transform -> Position, opponentPosition);
                 currAction -> ActionType = (byte)ActionType.Movement;
                 currAction -> EnemyPosition = opponentPosition;
                 currAction -> StartTick = frame.Number;
@@ -143,6 +134,20 @@ namespace Quantum
             
             UpdateInputBuffer(buffer, frame, filter.Link->Player);
 
+        }
+
+        private void DefaultCurrAction(Frame frame, CurrentAction* currAction, FPVector3 playerPosition, FPVector3 opponentPosition){
+            currAction -> EnemyPosition = opponentPosition;
+            currAction -> PlayerPosition = playerPosition;
+            currAction -> StartTick = frame.Number;
+            currAction -> StartUpFrames = (ushort)0;
+            currAction -> ActiveFrames = (ushort)0;
+            currAction -> EndLagFrames = (ushort)0;
+            currAction -> CancelableFrames = (ushort)0;
+            currAction -> ActionPhase = (byte)1;
+            currAction -> Damage = (ushort)0;
+            currAction -> ActionNumber += 1;
+            currAction -> DamageApplied = false;
         }
 
         public void OnPlayerAdded(Frame frame, PlayerRef player, bool firstTime)

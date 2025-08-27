@@ -5,8 +5,9 @@ namespace Quantum
     using System.Collections.Generic;
     using Quantum;
     using Quantum.Addons.Animator;
+    using Quantum.Physics3D;
     
-    public unsafe class MovementSystem : SystemMainThreadFilter<MovementSystem.Filter>, ISignalOnAnimatorRootMotion3D{
+    public unsafe class MovementSystem : SystemMainThreadFilter<MovementSystem.Filter>{//, ISignalOnAnimatorRootMotion3D{
         public struct Filter
         {
             public EntityRef Entity;
@@ -15,12 +16,15 @@ namespace Quantum
             public PlayerLink* Link;
             public AnimatorComponent* Animator;
             public CurrentAction* CurrAction;
+            public PhysicsCollider3D* Collider;
         }
         
         public override void Update(Frame frame, ref Filter filter)
         {
             
             KCC* kcc = filter.KCC;
+            var collider = filter.Collider;
+            Transform3D* transform = filter.Transform;
             var currAction = filter.CurrAction;
 
             //set rotation to action saved enemy position
@@ -37,13 +41,14 @@ namespace Quantum
             FPQuaternion currentRotation = filter.Transform->Rotation;  
             FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
             filter.Transform->Rotation = slerpedRotation;
-
+            #region hitstop
             //return if hitstop
             if(HitstopTickSystem.GlobalHitstopActive(frame)){
                 kcc->SetInputDirection(new FPVector3(0,0,0));
                 return;
             }
-
+            #endregion
+            #region movement
             //check current action to see if movement is possible
             //read directional input
             if((ActionType)(currAction->ActionType) == ActionType.None){
@@ -65,7 +70,8 @@ namespace Quantum
             kcc->SetInputDirection(moveDir);
             
         }
-
+        #endregion
+        #region helper functons
         public static FPVector3 GetMovementDirection(FPVector2 inputDirection, FPVector3 forward) {
             // Assume up is Y-up (0,1,0)
             FPVector3 up = FPVector3.Up;
@@ -88,12 +94,13 @@ namespace Quantum
 
             return moveDir;
         }
-
-        public void OnAnimatorRootMotion3D(Frame frame, EntityRef entity, AnimatorFrame deltaFrame, AnimatorFrame currentFrame){
+        
+        /*public void OnAnimatorRootMotion3D(Frame frame, EntityRef entity, AnimatorFrame deltaFrame, AnimatorFrame currentFrame){
             //Return in case there is no motion delta
             if (deltaFrame.Position == FPVector3.Zero && deltaFrame.RotationY == FP._0) return;
             if (frame.Unsafe.TryGetPointer<Transform3D>(entity, out var transform))
             {
+                Log.Debug("root motion change = " +deltaFrame.Position);
                 // Create a quaternion representing the inverse of the current frame's Y-axis rotation
                 var currentFrameRotation = FPQuaternion.CreateFromYawPitchRoll(currentFrame.RotationY, 0, 0);
                 currentFrameRotation = FPQuaternion.Inverse(currentFrameRotation);
@@ -116,12 +123,7 @@ namespace Quantum
                 if (hits.Count <= 0)
                 {
                     // If no collision, disable the character controller temporarily
-                    /*
-                    if (frame.Unsafe.TryGetPointer<KCC>(entity, out var kcc))
-                    {
-                    //kcc->SetActive(false);
-                    }
-                    */
+                    
 
                     // Apply the motion and rotation to the transform
                     transform->Position += displacement;
@@ -129,17 +131,15 @@ namespace Quantum
                 }
                 else
                 {
+                    Log.Debug("collision in root motion");
                     // If there is collision, enable the character controller
-                    /*
-                    if (frame.Unsafe.TryGetPointer<KCC>(entity, out var kcc))
-                    {
-                    //kcc->SetActive(true);
-                    }
-                    */
+                    
                 }
             }
             
-        }
+        }*/
+        #endregion
     }
 }
+
 
