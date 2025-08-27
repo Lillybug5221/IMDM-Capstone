@@ -24,6 +24,7 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
         
     }
     public override void OnUpdateView(){
+        //hitbox builder
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         if(HitboxJSONBuilder.Instance.CreateJSON){
             if(stateInfo.IsName(HitboxJSONBuilder.Instance.TestingAnimationName)){
@@ -37,7 +38,7 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
                     Vector3 relativePos = transform.InverseTransformPoint(swordPosition.position);
                     Quaternion relativeRot = Quaternion.Inverse(transform.rotation) * swordPosition.rotation;
                     Debug.Log(HitboxJSONBuilder.Instance.TestingAnimationName + " playing, Frame: " +  currFrame + ":"+ (relativePos) +":" + relativeRot);
-                    HitboxJSONBuilder.Instance.AddToLists(relativePos, relativeRot);
+                    HitboxJSONBuilder.Instance.AddToLists(relativePos, relativeRot.eulerAngles, currFrame);
 
                 }
             }else{

@@ -31,8 +31,9 @@ namespace Quantum.Editor {
             newAttackData.Hitboxes = new List<QHitboxData>();
             for (int i = 0; i < wrapper.positions.Count; i++) {
                 var temp = new QHitboxData();
+                temp.frameNum = (ushort)wrapper.frames[i];
                 temp.Position = new FPVector3(FP.FromFloat_UNSAFE(wrapper.positions[i].x), FP.FromFloat_UNSAFE(wrapper.positions[i].y), FP.FromFloat_UNSAFE(wrapper.positions[i].z));
-                temp.Rotation = new FPQuaternion(FP.FromFloat_UNSAFE(wrapper.rotations[i].x), FP.FromFloat_UNSAFE(wrapper.rotations[i].y), FP.FromFloat_UNSAFE(wrapper.rotations[i].z), FP.FromFloat_UNSAFE(wrapper.rotations[i].w));
+                temp.RotationEuler = new FPVector3(FP.FromFloat_UNSAFE(wrapper.rotations[i].x), FP.FromFloat_UNSAFE(wrapper.rotations[i].y), FP.FromFloat_UNSAFE(wrapper.rotations[i].z));
                 newAttackData.Hitboxes.Add(temp);
             }
             config.AttackHitboxData.Add(newAttackData);

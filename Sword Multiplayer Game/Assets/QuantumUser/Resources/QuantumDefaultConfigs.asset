@@ -447,3408 +447,1678 @@ MonoBehaviour:
   HitboxesRemain: 1
   AttackHitboxData:
   - Hitboxes:
-    - Position:
-        X:
-          RawValue: 14127
-        Y:
-          RawValue: 76740
-        Z:
-          RawValue: 35456
-      Rotation:
-        X:
-          RawValue: 24779
-        Y:
-          RawValue: 25193
-        Z:
-          RawValue: 39956
-        W:
-          RawValue: 38075
-    - Position:
-        X:
-          RawValue: 11382
-        Y:
-          RawValue: 90156
-        Z:
-          RawValue: 33050
-      Rotation:
-        X:
-          RawValue: 18317
-        Y:
-          RawValue: 29882
-        Z:
-          RawValue: 37263
-        W:
-          RawValue: 40962
-    - Position:
-        X:
-          RawValue: 6559
-        Y:
-          RawValue: 103226
-        Z:
-          RawValue: 26750
-      Rotation:
-        X:
-          RawValue: 10277
-        Y:
-          RawValue: 33371
-        Z:
-          RawValue: 34306
-        W:
-          RawValue: 43574
-    - Position:
-        X:
-          RawValue: 289
-        Y:
-          RawValue: 113251
-        Z:
-          RawValue: 16604
-      Rotation:
-        X:
-          RawValue: 2138
-        Y:
-          RawValue: 36538
-        Z:
-          RawValue: 31739
-        W:
-          RawValue: 44135
-    - Position:
-        X:
-          RawValue: -8721
-        Y:
-          RawValue: 119073
-        Z:
-          RawValue: 5350
-      Rotation:
-        X:
-          RawValue: -6245
-        Y:
-          RawValue: 38479
-        Z:
-          RawValue: 30398
-        W:
-          RawValue: 43025
-    - Position:
-        X:
-          RawValue: -19189
-        Y:
-          RawValue: 120264
-        Z:
-          RawValue: -4657
-      Rotation:
-        X:
-          RawValue: -14223
-        Y:
-          RawValue: 38948
-        Z:
-          RawValue: 30273
-        W:
-          RawValue: 40733
-    - Position:
-        X:
-          RawValue: -26237
-        Y:
-          RawValue: 118948
-        Z:
-          RawValue: -14326
-      Rotation:
-        X:
-          RawValue: -21749
-        Y:
-          RawValue: 36587
-        Z:
-          RawValue: 29494
-        W:
-          RawValue: 40166
-    - Position:
-        X:
-          RawValue: -24614
-        Y:
-          RawValue: 118740
-        Z:
-          RawValue: -23900
-      Rotation:
-        X:
-          RawValue: -28403
-        Y:
-          RawValue: 30847
-        Z:
-          RawValue: 27162
-        W:
-          RawValue: 42412
-    - Position:
-        X:
-          RawValue: -7606
-        Y:
-          RawValue: 122102
-        Z:
-          RawValue: -27659
-      Rotation:
-        X:
-          RawValue: -33458
-        Y:
-          RawValue: 20307
-        Z:
-          RawValue: 21125
-        W:
-          RawValue: 48133
-    - Position:
-        X:
-          RawValue: 24553
-        Y:
-          RawValue: 120359
-        Z:
-          RawValue: -24751
-      Rotation:
-        X:
-          RawValue: -38288
-        Y:
-          RawValue: 8234
-        Z:
-          RawValue: 3163
-        W:
-          RawValue: 52451
-    - Position:
-        X:
-          RawValue: 40877
-        Y:
-          RawValue: 113763
-        Z:
-          RawValue: -8536
-      Rotation:
-        X:
-          RawValue: -37356
-        Y:
-          RawValue: 2134
-        Z:
-          RawValue: -9195
-        W:
-          RawValue: 53012
-    - Position:
-        X:
-          RawValue: 53915
-        Y:
-          RawValue: 104814
-        Z:
-          RawValue: 26524
-      Rotation:
-        X:
-          RawValue: -20671
-        Y:
-          RawValue: 1345
-        Z:
-          RawValue: -22852
-        W:
-          RawValue: 57823
-    - Position:
-        X:
-          RawValue: 36135
-        Y:
-          RawValue: 94713
-        Z:
-          RawValue: 59169
-      Rotation:
-        X:
-          RawValue: -1869
-        Y:
-          RawValue: -10766
-        Z:
-          RawValue: -28102
-        W:
-          RawValue: 58187
-    - Position:
-        X:
-          RawValue: 10564
-        Y:
-          RawValue: 66780
-        Z:
-          RawValue: 76741
-      Rotation:
-        X:
-          RawValue: 22013
-        Y:
-          RawValue: -14245
-        Z:
-          RawValue: -29117
-        W:
-          RawValue: 52531
-    - Position:
-        X:
-          RawValue: -23692
-        Y:
-          RawValue: 51284
-        Z:
-          RawValue: 66931
-      Rotation:
-        X:
-          RawValue: 38188
-        Y:
-          RawValue: -22736
-        Z:
-          RawValue: -23745
-        W:
-          RawValue: 41902
-    - Position:
-        X:
-          RawValue: -44110
-        Y:
-          RawValue: 39887
-        Z:
-          RawValue: 39423
-      Rotation:
-        X:
-          RawValue: 50170
-        Y:
-          RawValue: -26976
-        Z:
-          RawValue: -15495
-        W:
-          RawValue: 28462
-    - Position:
-        X:
-          RawValue: -49750
-        Y:
-          RawValue: 38962
-        Z:
-          RawValue: 10176
-      Rotation:
-        X:
-          RawValue: 55919
-        Y:
-          RawValue: -29710
-        Z:
-          RawValue: -7752
-        W:
-          RawValue: 15004
-    - Position:
-        X:
-          RawValue: -48933
-        Y:
-          RawValue: 35670
-        Z:
-          RawValue: -3692
-      Rotation:
-        X:
-          RawValue: 58433
-        Y:
-          RawValue: -28730
-        Z:
-          RawValue: -3818
-        W:
-          RawValue: 6362
-    - Position:
-        X:
-          RawValue: -52336
-        Y:
-          RawValue: 35972
-        Z:
-          RawValue: -5688
-      Rotation:
-        X:
-          RawValue: 58127
-        Y:
-          RawValue: -29771
-        Z:
-          RawValue: -4886
-        W:
-          RawValue: 2446
-    - Position:
-        X:
-          RawValue: -52562
-        Y:
-          RawValue: 35221
-        Z:
-          RawValue: -7629
-      Rotation:
-        X:
-          RawValue: 58262
-        Y:
-          RawValue: -29339
-        Z:
-          RawValue: -6287
-        W:
-          RawValue: 431
-    - Position:
-        X:
-          RawValue: -53034
-        Y:
-          RawValue: 35004
-        Z:
-          RawValue: -8620
-      Rotation:
-        X:
-          RawValue: 58374
-        Y:
-          RawValue: -28783
-        Z:
-          RawValue: -7623
-        W:
-          RawValue: -898
-    - Position:
-        X:
-          RawValue: -53511
-        Y:
-          RawValue: 35095
-        Z:
-          RawValue: -8937
-      Rotation:
-        X:
-          RawValue: 58486
-        Y:
-          RawValue: -28198
-        Z:
-          RawValue: -8737
-        W:
-          RawValue: -1658
-    - Position:
-        X:
-          RawValue: -53783
-        Y:
-          RawValue: 35205
-        Z:
-          RawValue: -8151
-      Rotation:
-        X:
-          RawValue: 58544
-        Y:
-          RawValue: -27755
-        Z:
-          RawValue: -9736
-        W:
-          RawValue: -1516
-    - Position:
-        X:
-          RawValue: -53982
-        Y:
-          RawValue: 35263
-        Z:
-          RawValue: -7651
-      Rotation:
-        X:
-          RawValue: 58592
-        Y:
-          RawValue: -27572
-        Z:
-          RawValue: -9976
-        W:
-          RawValue: -1469
-    - Position:
-        X:
-          RawValue: -54170
-        Y:
-          RawValue: 35247
-        Z:
-          RawValue: -7465
-      Rotation:
-        X:
-          RawValue: 58644
-        Y:
-          RawValue: -27582
-        Z:
-          RawValue: -9614
-        W:
-          RawValue: -1577
-    - Position:
-        X:
-          RawValue: -54367
-        Y:
-          RawValue: 35263
-        Z:
-          RawValue: -7390
-      Rotation:
-        X:
-          RawValue: 58702
-        Y:
-          RawValue: -27577
-        Z:
-          RawValue: -9247
-        W:
-          RawValue: -1710
-    - Position:
-        X:
-          RawValue: -54553
-        Y:
-          RawValue: 35254
-        Z:
-          RawValue: -7415
-      Rotation:
-        X:
-          RawValue: 58771
-        Y:
-          RawValue: -27568
-        Z:
-          RawValue: -8797
-        W:
-          RawValue: -1863
-    - Position:
-        X:
-          RawValue: -54761
-        Y:
-          RawValue: 35283
-        Z:
-          RawValue: -7484
-      Rotation:
-        X:
-          RawValue: 58829
-        Y:
-          RawValue: -27588
-        Z:
-          RawValue: -8296
-        W:
-          RawValue: -2025
-    - Position:
-        X:
-          RawValue: -54938
-        Y:
-          RawValue: 35283
-        Z:
-          RawValue: -7608
-      Rotation:
-        X:
-          RawValue: 58893
-        Y:
-          RawValue: -27603
-        Z:
-          RawValue: -7735
-        W:
-          RawValue: -2186
-    - Position:
-        X:
-          RawValue: -55118
-        Y:
-          RawValue: 35322
-        Z:
-          RawValue: -7707
-      Rotation:
-        X:
-          RawValue: 58940
-        Y:
-          RawValue: -27643
-        Z:
-          RawValue: -7171
-        W:
-          RawValue: -2330
-    - Position:
-        X:
-          RawValue: -55247
-        Y:
-          RawValue: 35341
-        Z:
-          RawValue: -7812
-      Rotation:
-        X:
-          RawValue: 58986
-        Y:
-          RawValue: -27680
-        Z:
-          RawValue: -6581
-        W:
-          RawValue: -2452
-    - Position:
-        X:
-          RawValue: -55333
-        Y:
-          RawValue: 35366
-        Z:
-          RawValue: -7842
-      Rotation:
-        X:
-          RawValue: 59016
-        Y:
-          RawValue: -27735
-        Z:
-          RawValue: -6025
-        W:
-          RawValue: -2532
-    - Position:
-        X:
-          RawValue: -55350
-        Y:
-          RawValue: 35361
-        Z:
-          RawValue: -7802
-      Rotation:
-        X:
-          RawValue: 59041
-        Y:
-          RawValue: -27791
-        Z:
-          RawValue: -5493
-        W:
-          RawValue: -2565
-    - Position:
-        X:
-          RawValue: -55307
-        Y:
-          RawValue: 35337
-        Z:
-          RawValue: -7656
-      Rotation:
-        X:
-          RawValue: 59053
-        Y:
-          RawValue: -27858
-        Z:
-          RawValue: -5009
-        W:
-          RawValue: -2540
-    - Position:
-        X:
-          RawValue: -55234
-        Y:
-          RawValue: 35317
-        Z:
-          RawValue: -7334
-      Rotation:
-        X:
-          RawValue: 59053
-        Y:
-          RawValue: -27936
-        Z:
-          RawValue: -4606
-        W:
-          RawValue: -2443
-    - Position:
-        X:
-          RawValue: -55133
-        Y:
-          RawValue: 35294
-        Z:
-          RawValue: -6835
-      Rotation:
-        X:
-          RawValue: 59044
-        Y:
-          RawValue: -28022
-        Z:
-          RawValue: -4287
-        W:
-          RawValue: -2265
-    - Position:
-        X:
-          RawValue: -55025
-        Y:
-          RawValue: 35289
-        Z:
-          RawValue: -6113
-      Rotation:
-        X:
-          RawValue: 59022
-        Y:
-          RawValue: -28119
-        Z:
-          RawValue: -4079
-        W:
-          RawValue: -1995
-    - Position:
-        X:
-          RawValue: -54935
-        Y:
-          RawValue: 35308
-        Z:
-          RawValue: -5117
-      Rotation:
-        X:
-          RawValue: 58986
-        Y:
-          RawValue: -28230
-        Z:
-          RawValue: -4006
-        W:
-          RawValue: -1608
-    - Position:
-        X:
-          RawValue: -54859
-        Y:
-          RawValue: 35350
-        Z:
-          RawValue: -3862
-      Rotation:
-        X:
-          RawValue: 58936
-        Y:
-          RawValue: -28346
-        Z:
-          RawValue: -4080
-        W:
-          RawValue: -1118
-    - Position:
-        X:
-          RawValue: -54809
-        Y:
-          RawValue: 35418
-        Z:
-          RawValue: -2350
-      Rotation:
-        X:
-          RawValue: 58869
-        Y:
-          RawValue: -28463
-        Z:
-          RawValue: -4352
-        W:
-          RawValue: -546
-    - Position:
-        X:
-          RawValue: -54762
-        Y:
-          RawValue: 35511
-        Z:
-          RawValue: -704
-      Rotation:
-        X:
-          RawValue: 58788
-        Y:
-          RawValue: -28546
-        Z:
-          RawValue: -4897
-        W:
-          RawValue: -18
-    - Position:
-        X:
-          RawValue: -54700
-        Y:
-          RawValue: 35609
-        Z:
-          RawValue: 1135
-      Rotation:
-        X:
-          RawValue: 58684
-        Y:
-          RawValue: -28624
-        Z:
-          RawValue: -5607
-        W:
-          RawValue: 562
-    - Position:
-        X:
-          RawValue: -54630
-        Y:
-          RawValue: 35739
-        Z:
-          RawValue: 3169
-      Rotation:
-        X:
-          RawValue: 58546
-        Y:
-          RawValue: -28700
-        Z:
-          RawValue: -6495
-        W:
-          RawValue: 1171
-    - Position:
-        X:
-          RawValue: -54432
-        Y:
-          RawValue: 35790
-        Z:
-          RawValue: 5179
-      Rotation:
-        X:
-          RawValue: 58410
-        Y:
-          RawValue: -28704
-        Z:
-          RawValue: -7496
-        W:
-          RawValue: 1730
-    - Position:
-        X:
-          RawValue: -54233
-        Y:
-          RawValue: 35895
-        Z:
-          RawValue: 7452
-      Rotation:
-        X:
-          RawValue: 58217
-        Y:
-          RawValue: -28736
-        Z:
-          RawValue: -8614
-        W:
-          RawValue: 2377
-    - Position:
-        X:
-          RawValue: -54014
-        Y:
-          RawValue: 36044
-        Z:
-          RawValue: 9928
-      Rotation:
-        X:
-          RawValue: 57967
-        Y:
-          RawValue: -28798
-        Z:
-          RawValue: -9786
-        W:
-          RawValue: 3110
-    - Position:
-        X:
-          RawValue: -53649
-        Y:
-          RawValue: 36107
-        Z:
-          RawValue: 12397
-      Rotation:
-        X:
-          RawValue: 57707
-        Y:
-          RawValue: -28804
-        Z:
-          RawValue: -10973
-        W:
-          RawValue: 3840
-    - Position:
-        X:
-          RawValue: -53212
-        Y:
-          RawValue: 36172
-        Z:
-          RawValue: 15001
-      Rotation:
-        X:
-          RawValue: 57403
-        Y:
-          RawValue: -28821
-        Z:
-          RawValue: -12146
-        W:
-          RawValue: 4649
-    - Position:
-        X:
-          RawValue: -52678
-        Y:
-          RawValue: 36243
-        Z:
-          RawValue: 17677
-      Rotation:
-        X:
-          RawValue: 57064
-        Y:
-          RawValue: -28845
-        Z:
-          RawValue: -13265
-        W:
-          RawValue: 5529
-    - Position:
-        X:
-          RawValue: -52038
-        Y:
-          RawValue: 36331
-        Z:
-          RawValue: 20410
-      Rotation:
-        X:
-          RawValue: 56695
-        Y:
-          RawValue: -28878
-        Z:
-          RawValue: -14299
-        W:
-          RawValue: 6492
-    - Position:
-        X:
-          RawValue: -51307
-        Y:
-          RawValue: 36504
-        Z:
-          RawValue: 23218
-      Rotation:
-        X:
-          RawValue: 56287
-        Y:
-          RawValue: -28949
-        Z:
-          RawValue: -15211
-        W:
-          RawValue: 7565
-    - Position:
-        X:
-          RawValue: -50399
-        Y:
-          RawValue: 36592
-        Z:
-          RawValue: 25859
-      Rotation:
-        X:
-          RawValue: 55915
-        Y:
-          RawValue: -28960
-        Z:
-          RawValue: -15966
-        W:
-          RawValue: 8645
-    - Position:
-        X:
-          RawValue: -49478
-        Y:
-          RawValue: 36933
-        Z:
-          RawValue: 28725
-      Rotation:
-        X:
-          RawValue: 55462
-        Y:
-          RawValue: -29099
-        Z:
-          RawValue: -16532
-        W:
-          RawValue: 9939
-    - Position:
-        X:
-          RawValue: -48461
-        Y:
-          RawValue: 37356
-        Z:
-          RawValue: 31555
-      Rotation:
-        X:
-          RawValue: 55007
-        Y:
-          RawValue: -29261
-        Z:
-          RawValue: -16867
-        W:
-          RawValue: 11331
-    - Position:
-        X:
-          RawValue: -47346
-        Y:
-          RawValue: 37834
-        Z:
-          RawValue: 34298
-      Rotation:
-        X:
-          RawValue: 54568
-        Y:
-          RawValue: -29429
-        Z:
-          RawValue: -16946
-        W:
-          RawValue: 12803
-    - Position:
-        X:
-          RawValue: -46188
-        Y:
-          RawValue: 38495
-        Z:
-          RawValue: 37030
-      Rotation:
-        X:
-          RawValue: 54109
-        Y:
-          RawValue: -29655
-        Z:
-          RawValue: -16730
-        W:
-          RawValue: 14415
-    - Position:
-        X:
-          RawValue: -45003
-        Y:
-          RawValue: 39295
-        Z:
-          RawValue: 39671
-      Rotation:
-        X:
-          RawValue: 53650
-        Y:
-          RawValue: -29903
-        Z:
-          RawValue: -16204
-        W:
-          RawValue: 16117
-    - Position:
-        X:
-          RawValue: -43782
-        Y:
-          RawValue: 40296
-        Z:
-          RawValue: 42275
-      Rotation:
-        X:
-          RawValue: 53143
-        Y:
-          RawValue: -30236
-        Z:
-          RawValue: -15225
-        W:
-          RawValue: 18019
-    - Position:
-        X:
-          RawValue: -42497
-        Y:
-          RawValue: 41606
-        Z:
-          RawValue: 44874
-      Rotation:
-        X:
-          RawValue: 52519
-        Y:
-          RawValue: -30681
-        Z:
-          RawValue: -13529
-        W:
-          RawValue: 20305
-    - Position:
-        X:
-          RawValue: -41177
-        Y:
-          RawValue: 43242
-        Z:
-          RawValue: 47342
-      Rotation:
-        X:
-          RawValue: 51642
-        Y:
-          RawValue: -31268
-        Z:
-          RawValue: -11054
-        W:
-          RawValue: 22981
-    - Position:
-        X:
-          RawValue: -39838
-        Y:
-          RawValue: 45227
-        Z:
-          RawValue: 49486
-      Rotation:
-        X:
-          RawValue: 50414
-        Y:
-          RawValue: -31851
-        Z:
-          RawValue: -7761
-        W:
-          RawValue: 26050
-    - Position:
-        X:
-          RawValue: -38564
-        Y:
-          RawValue: 47307
-        Z:
-          RawValue: 50982
-      Rotation:
-        X:
-          RawValue: 48816
-        Y:
-          RawValue: -32330
-        Z:
-          RawValue: -3794
-        W:
-          RawValue: 29194
-    - Position:
-        X:
-          RawValue: -37271
-        Y:
-          RawValue: 49456
-        Z:
-          RawValue: 51829
-      Rotation:
-        X:
-          RawValue: 46730
-        Y:
-          RawValue: -32582
-        Z:
-          RawValue: 549
-        W:
-          RawValue: 32393
-    - Position:
-        X:
-          RawValue: -36028
-        Y:
-          RawValue: 51245
-        Z:
-          RawValue: 51776
-      Rotation:
-        X:
-          RawValue: 44268
-        Y:
-          RawValue: -32507
-        Z:
-          RawValue: 5390
-        W:
-          RawValue: 35347
-    - Position:
-        X:
-          RawValue: -34690
-        Y:
-          RawValue: 52744
-        Z:
-          RawValue: 51078
-      Rotation:
-        X:
-          RawValue: 41344
-        Y:
-          RawValue: -32092
-        Z:
-          RawValue: 10255
-        W:
-          RawValue: 38084
-    - Position:
-        X:
-          RawValue: -33293
-        Y:
-          RawValue: 53605
-        Z:
-          RawValue: 49798
-      Rotation:
-        X:
-          RawValue: 38184
-        Y:
-          RawValue: -31230
-        Z:
-          RawValue: 15194
-        W:
-          RawValue: 40381
-    - Position:
-        X:
-          RawValue: -31739
-        Y:
-          RawValue: 54079
-        Z:
-          RawValue: 48160
-      Rotation:
-        X:
-          RawValue: 34750
-        Y:
-          RawValue: -30127
-        Z:
-          RawValue: 19816
-        W:
-          RawValue: 42273
-    - Position:
-        X:
-          RawValue: -30120
-        Y:
-          RawValue: 54059
-        Z:
-          RawValue: 46591
-      Rotation:
-        X:
-          RawValue: 31415
-        Y:
-          RawValue: -28688
-        Z:
-          RawValue: 24021
-        W:
-          RawValue: 43680
-    - Position:
-        X:
-          RawValue: -28344
-        Y:
-          RawValue: 54039
-        Z:
-          RawValue: 45140
-      Rotation:
-        X:
-          RawValue: 27962
-        Y:
-          RawValue: -27039
-        Z:
-          RawValue: 27886
-        W:
-          RawValue: 44768
-    - Position:
-        X:
-          RawValue: -26352
-        Y:
-          RawValue: 54233
-        Z:
-          RawValue: 43837
-      Rotation:
-        X:
-          RawValue: 24298
-        Y:
-          RawValue: -25109
-        Z:
-          RawValue: 31654
-        W:
-          RawValue: 45519
-    - Position:
-        X:
-          RawValue: -23988
-        Y:
-          RawValue: 54449
-        Z:
-          RawValue: 42681
-      Rotation:
-        X:
-          RawValue: 20281
-        Y:
-          RawValue: -22816
-        Z:
-          RawValue: 35445
-        W:
-          RawValue: 45898
-    - Position:
-        X:
-          RawValue: -21252
-        Y:
-          RawValue: 54523
-        Z:
-          RawValue: 41754
-      Rotation:
-        X:
-          RawValue: 16115
-        Y:
-          RawValue: -20192
-        Z:
-          RawValue: 39126
-        W:
-          RawValue: 45789
-    - Position:
-        X:
-          RawValue: -18283
-        Y:
-          RawValue: 54410
-        Z:
-          RawValue: 41364
-      Rotation:
-        X:
-          RawValue: 12078
-        Y:
-          RawValue: -17244
-        Z:
-          RawValue: 42429
-        W:
-          RawValue: 45292
-    - Position:
-        X:
-          RawValue: -15317
-        Y:
-          RawValue: 54110
-        Z:
-          RawValue: 41446
-      Rotation:
-        X:
-          RawValue: 8623
-        Y:
-          RawValue: -14177
-        Z:
-          RawValue: 45207
-        W:
-          RawValue: 44450
-    - Position:
-        X:
-          RawValue: -12557
-        Y:
-          RawValue: 53813
-        Z:
-          RawValue: 41976
-      Rotation:
-        X:
-          RawValue: 5887
-        Y:
-          RawValue: -11008
-        Z:
-          RawValue: 47435
-        W:
-          RawValue: 43462
-    - Position:
-        X:
-          RawValue: -10340
-        Y:
-          RawValue: 53566
-        Z:
-          RawValue: 42663
-      Rotation:
-        X:
-          RawValue: 4343
-        Y:
-          RawValue: -7988
-        Z:
-          RawValue: 49006
-        W:
-          RawValue: 42551
-    - Position:
-        X:
-          RawValue: -8613
-        Y:
-          RawValue: 53344
-        Z:
-          RawValue: 43333
-      Rotation:
-        X:
-          RawValue: 3922
-        Y:
-          RawValue: -5094
-        Z:
-          RawValue: 50088
-        W:
-          RawValue: 41770
-    - Position:
-        X:
-          RawValue: -7315
-        Y:
-          RawValue: 53246
-        Z:
-          RawValue: 43867
-      Rotation:
-        X:
-          RawValue: 4487
-        Y:
-          RawValue: -2237
-        Z:
-          RawValue: 50754
-        W:
-          RawValue: 41156
-    - Position:
-        X:
-          RawValue: -5918
-        Y:
-          RawValue: 53264
-        Z:
-          RawValue: 44391
-      Rotation:
-        X:
-          RawValue: 5646
-        Y:
-          RawValue: 659
-        Z:
-          RawValue: 51219
-        W:
-          RawValue: 40487
-    - Position:
-        X:
-          RawValue: -4338
-        Y:
-          RawValue: 53453
-        Z:
-          RawValue: 44843
-      Rotation:
-        X:
-          RawValue: 7300
-        Y:
-          RawValue: 3586
-        Z:
-          RawValue: 51441
-        W:
-          RawValue: 39781
-    - Position:
-        X:
-          RawValue: -2486
-        Y:
-          RawValue: 53806
-        Z:
-          RawValue: 45200
-      Rotation:
-        X:
-          RawValue: 9391
-        Y:
-          RawValue: 6498
-        Z:
-          RawValue: 51383
-        W:
-          RawValue: 39041
-    - Position:
-        X:
-          RawValue: -264
-        Y:
-          RawValue: 54288
-        Z:
-          RawValue: 45361
-      Rotation:
-        X:
-          RawValue: 11740
-        Y:
-          RawValue: 9318
-        Z:
-          RawValue: 51074
-        W:
-          RawValue: 38232
-    - Position:
-        X:
-          RawValue: 2304
-        Y:
-          RawValue: 54945
-        Z:
-          RawValue: 45314
-      Rotation:
-        X:
-          RawValue: 14255
-        Y:
-          RawValue: 12075
-        Z:
-          RawValue: 50477
-        W:
-          RawValue: 37389
-    - Position:
-        X:
-          RawValue: 5218
-        Y:
-          RawValue: 55672
-        Z:
-          RawValue: 44974
-      Rotation:
-        X:
-          RawValue: 16843
-        Y:
-          RawValue: 14669
-        Z:
-          RawValue: 49653
-        W:
-          RawValue: 36478
-    - Position:
-        X:
-          RawValue: 8366
-        Y:
-          RawValue: 56558
-        Z:
-          RawValue: 44367
-      Rotation:
-        X:
-          RawValue: 19305
-        Y:
-          RawValue: 17130
-        Z:
-          RawValue: 48646
-        W:
-          RawValue: 35529
-    - Position:
-        X:
-          RawValue: 11647
-        Y:
-          RawValue: 57532
-        Z:
-          RawValue: 43492
-      Rotation:
-        X:
-          RawValue: 21615
-        Y:
-          RawValue: 19407
-        Z:
-          RawValue: 47494
-        W:
-          RawValue: 34574
-    - Position:
-        X:
-          RawValue: 14921
-        Y:
-          RawValue: 58655
-        Z:
-          RawValue: 42421
-      Rotation:
-        X:
-          RawValue: 23623
-        Y:
-          RawValue: 21514
-        Z:
-          RawValue: 46286
-        W:
-          RawValue: 33639
-    - Position:
-        X:
-          RawValue: 17963
-        Y:
-          RawValue: 59920
-        Z:
-          RawValue: 41282
-      Rotation:
-        X:
-          RawValue: 25214
-        Y:
-          RawValue: 23436
-        Z:
-          RawValue: 45121
-        W:
-          RawValue: 32771
-    - Position:
-        X:
-          RawValue: 20701
-        Y:
-          RawValue: 61371
-        Z:
-          RawValue: 40161
-      Rotation:
-        X:
-          RawValue: 26357
-        Y:
-          RawValue: 25189
-        Z:
-          RawValue: 44062
-        W:
-          RawValue: 32003
-    - Position:
-        X:
-          RawValue: 22967
-        Y:
-          RawValue: 63105
-        Z:
-          RawValue: 39135
-      Rotation:
-        X:
-          RawValue: 27095
-        Y:
-          RawValue: 26812
-        Z:
-          RawValue: 43071
-        W:
-          RawValue: 31412
-    - Position:
-        X:
-          RawValue: 24836
-        Y:
-          RawValue: 65092
-        Z:
-          RawValue: 38142
-      Rotation:
-        X:
-          RawValue: 27577
-        Y:
-          RawValue: 28320
-        Z:
-          RawValue: 42095
-        W:
-          RawValue: 30989
-    - Position:
-        X:
-          RawValue: 26339
-        Y:
-          RawValue: 67338
-        Z:
-          RawValue: 37170
-      Rotation:
-        X:
-          RawValue: 27883
-        Y:
-          RawValue: 29746
-        Z:
-          RawValue: 41079
-        W:
-          RawValue: 30742
-    - Position:
-        X:
-          RawValue: 27516
-        Y:
-          RawValue: 69696
-        Z:
-          RawValue: 36216
-      Rotation:
-        X:
-          RawValue: 28045
-        Y:
-          RawValue: 31052
-        Z:
-          RawValue: 40076
-        W:
-          RawValue: 30627
-    - Position:
-        X:
-          RawValue: 28431
-        Y:
-          RawValue: 72130
-        Z:
-          RawValue: 35311
-      Rotation:
-        X:
-          RawValue: 28077
-        Y:
-          RawValue: 32254
-        Z:
-          RawValue: 39096
-        W:
-          RawValue: 30623
-    - Position:
-        X:
-          RawValue: 29102
-        Y:
-          RawValue: 74567
-        Z:
-          RawValue: 34448
-      Rotation:
-        X:
-          RawValue: 27997
-        Y:
-          RawValue: 33339
-        Z:
-          RawValue: 38160
-        W:
-          RawValue: 30713
-    - Position:
-        X:
-          RawValue: 29632
-        Y:
-          RawValue: 76909
-        Z:
-          RawValue: 33635
-      Rotation:
-        X:
-          RawValue: 27855
-        Y:
-          RawValue: 34301
-        Z:
-          RawValue: 37290
-        W:
-          RawValue: 30851
-    - Position:
-        X:
-          RawValue: 30019
-        Y:
-          RawValue: 79123
-        Z:
-          RawValue: 32889
-      Rotation:
-        X:
-          RawValue: 27652
-        Y:
-          RawValue: 35146
-        Z:
-          RawValue: 36502
-        W:
-          RawValue: 31025
-    - Position:
-        X:
-          RawValue: 30253
-        Y:
-          RawValue: 81083
-        Z:
-          RawValue: 32200
-      Rotation:
-        X:
-          RawValue: 27440
-        Y:
-          RawValue: 35854
-        Z:
-          RawValue: 35815
-        W:
-          RawValue: 31204
-    - Position:
-        X:
-          RawValue: 30395
-        Y:
-          RawValue: 82729
-        Z:
-          RawValue: 31594
-      Rotation:
-        X:
-          RawValue: 27224
-        Y:
-          RawValue: 36438
-        Z:
-          RawValue: 35254
-        W:
-          RawValue: 31355
-    - Position:
-        X:
-          RawValue: 30507
-        Y:
-          RawValue: 83997
-        Z:
-          RawValue: 31083
-      Rotation:
-        X:
-          RawValue: 27053
-        Y:
-          RawValue: 36882
-        Z:
-          RawValue: 34828
-        W:
-          RawValue: 31460
-    - Position:
-        X:
-          RawValue: 30680
-        Y:
-          RawValue: 84794
-        Z:
-          RawValue: 30698
-      Rotation:
-        X:
-          RawValue: 26950
-        Y:
-          RawValue: 37184
-        Z:
-          RawValue: 34571
-        W:
-          RawValue: 31476
-    - Position:
-        X:
-          RawValue: 30867
-        Y:
-          RawValue: 85195
-        Z:
-          RawValue: 30420
-      Rotation:
-        X:
-          RawValue: 26900
-        Y:
-          RawValue: 37376
-        Z:
-          RawValue: 34455
-        W:
-          RawValue: 31418
-    - Position:
-        X:
-          RawValue: 31068
-        Y:
-          RawValue: 85247
-        Z:
-          RawValue: 30229
-      Rotation:
-        X:
-          RawValue: 26897
-        Y:
-          RawValue: 37478
-        Z:
-          RawValue: 34454
-        W:
-          RawValue: 31300
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 85223
-        Z:
-          RawValue: 30072
-      Rotation:
-        X:
-          RawValue: 26874
-        Y:
-          RawValue: 37547
-        Z:
-          RawValue: 34517
-        W:
-          RawValue: 31169
-    - Position:
-        X:
-          RawValue: 31288
-        Y:
-          RawValue: 85096
-        Z:
-          RawValue: 29951
-      Rotation:
-        X:
-          RawValue: 26846
-        Y:
-          RawValue: 37575
-        Z:
-          RawValue: 34636
-        W:
-          RawValue: 31026
-    - Position:
-        X:
-          RawValue: 31319
-        Y:
-          RawValue: 84874
-        Z:
-          RawValue: 29871
-      Rotation:
-        X:
-          RawValue: 26810
-        Y:
-          RawValue: 37562
-        Z:
-          RawValue: 34818
-        W:
-          RawValue: 30868
-    - Position:
-        X:
-          RawValue: 31307
-        Y:
-          RawValue: 84560
-        Z:
-          RawValue: 29824
-      Rotation:
-        X:
-          RawValue: 26773
-        Y:
-          RawValue: 37511
-        Z:
-          RawValue: 35045
-        W:
-          RawValue: 30705
-    - Position:
-        X:
-          RawValue: 31250
-        Y:
-          RawValue: 84164
-        Z:
-          RawValue: 29814
-      Rotation:
-        X:
-          RawValue: 26731
-        Y:
-          RawValue: 37422
-        Z:
-          RawValue: 35322
-        W:
-          RawValue: 30532
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29820
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29820
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29820
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29821
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29821
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29821
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29821
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29821
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29821
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29821
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29821
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29821
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 31202
-        Y:
-          RawValue: 83905
-        Z:
-          RawValue: 29821
-      Rotation:
-        X:
-          RawValue: 26707
-        Y:
-          RawValue: 37355
-        Z:
-          RawValue: 35497
-        W:
-          RawValue: 30432
-    - Position:
-        X:
-          RawValue: 28625
-        Y:
-          RawValue: 77989
-        Z:
-          RawValue: 32125
-      Rotation:
-        X:
-          RawValue: 28196
-        Y:
-          RawValue: 33184
-        Z:
-          RawValue: 37050
-        W:
-          RawValue: 32032
-    - Position:
-        X:
-          RawValue: 24883
-        Y:
-          RawValue: 72932
-        Z:
-          RawValue: 33921
-      Rotation:
-        X:
-          RawValue: 29026
-        Y:
-          RawValue: 28945
-        Z:
-          RawValue: 38856
-        W:
-          RawValue: 33238
-    - Position:
-        X:
-          RawValue: 20440
-        Y:
-          RawValue: 68567
-        Z:
-          RawValue: 34932
-      Rotation:
-        X:
-          RawValue: 29447
-        Y:
-          RawValue: 24643
-        Z:
-          RawValue: 40559
-        W:
-          RawValue: 34284
-    - Position:
-        X:
-          RawValue: 15650
-        Y:
-          RawValue: 64881
-        Z:
-          RawValue: 35015
-      Rotation:
-        X:
-          RawValue: 29658
-        Y:
-          RawValue: 20337
-        Z:
-          RawValue: 41933
-        W:
-          RawValue: 35260
-    AttackVals:
-      attackName: 5
-      direction: {x: -1, y: -1}
-      attackType: 0
-      startupFrames: 10
-      activeFrames: 15
-      endlagFrames: 30
-      cancelableFrames: 50
-      damage: 25
-  - Hitboxes:
-    - Position:
+    - frameNum: 1
+      Position:
         X:
           RawValue: -36440
         Y:
           RawValue: 67135
         Z:
           RawValue: 89556
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 13368
+          RawValue: 19377472
         Y:
-          RawValue: -38028
+          RawValue: 19934202
         Z:
-          RawValue: -51630
-        W:
-          RawValue: 2093
-    - Position:
+          RawValue: 14515815
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 2
+      Position:
         X:
           RawValue: -55542
         Y:
           RawValue: 61824
         Z:
           RawValue: 66495
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 25452
+          RawValue: 20741112
         Y:
-          RawValue: -33173
+          RawValue: 18668064
         Z:
-          RawValue: -49971
-        W:
-          RawValue: 7035
-    - Position:
+          RawValue: 15084396
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 3
+      Position:
         X:
           RawValue: -60729
         Y:
           RawValue: 63128
         Z:
           RawValue: 42416
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 34521
+          RawValue: 21677500
         Y:
-          RawValue: -32875
+          RawValue: 17444068
         Z:
-          RawValue: -43574
-        W:
-          RawValue: 11122
-    - Position:
+          RawValue: 15714836
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 4
+      Position:
         X:
           RawValue: -58663
         Y:
-          RawValue: 67169
+          RawValue: 67168
         Z:
           RawValue: 24661
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 40033
+          RawValue: 22058936
         Y:
-          RawValue: -35734
+          RawValue: 16265531
         Z:
-          RawValue: -36024
-        W:
-          RawValue: 10845
-    - Position:
+          RawValue: 16222786
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 5
+      Position:
         X:
           RawValue: -56638
         Y:
           RawValue: 69617
         Z:
           RawValue: 12269
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 43718
+          RawValue: 22096182
         Y:
-          RawValue: -39314
+          RawValue: 14979868
         Z:
-          RawValue: -28246
-        W:
-          RawValue: 6335
-    - Position:
+          RawValue: 16614196
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 6
+      Position:
         X:
           RawValue: -55816
         Y:
           RawValue: 71468
         Z:
           RawValue: 907
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 45733
+          RawValue: 22206984
         Y:
-          RawValue: -42769
+          RawValue: 13611984
         Z:
-          RawValue: -19312
-        W:
-          RawValue: 1119
-    - Position:
+          RawValue: 17097854
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 7
+      Position:
         X:
           RawValue: -54022
         Y:
           RawValue: 76516
         Z:
           RawValue: -11141
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 45375
+          RawValue: 22549058
         Y:
-          RawValue: -46081
+          RawValue: 12437733
         Z:
-          RawValue: -10300
-        W:
-          RawValue: -2527
-    - Position:
+          RawValue: 17662788
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 8
+      Position:
         X:
           RawValue: -47337
         Y:
           RawValue: 82061
         Z:
           RawValue: -21230
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 42512
+          RawValue: 22887106
         Y:
-          RawValue: -49466
+          RawValue: 11600365
         Z:
-          RawValue: -3565
-        W:
-          RawValue: -5290
-    - Position:
+          RawValue: 18279944
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 9
+      Position:
         X:
           RawValue: -36289
         Y:
           RawValue: 85149
         Z:
           RawValue: -29232
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 40294
+          RawValue: 23200416
         Y:
-          RawValue: -49134
+          RawValue: 9978841
         Z:
-          RawValue: 7191
-        W:
-          RawValue: -14331
-    - Position:
+          RawValue: 18531630
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 10
+      Position:
         X:
           RawValue: -14769
         Y:
           RawValue: 85342
         Z:
           RawValue: -37300
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 35044
+          RawValue: 23573958
         Y:
-          RawValue: -45264
+          RawValue: 7977916
         Z:
-          RawValue: 19381
-        W:
-          RawValue: -25344
-    - Position:
+          RawValue: 18655928
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 11
+      Position:
         X:
           RawValue: 13305
         Y:
           RawValue: 82686
         Z:
           RawValue: -35191
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 27933
+          RawValue: 261404
         Y:
-          RawValue: -38201
+          RawValue: 6059823
         Z:
-          RawValue: 29242
-        W:
-          RawValue: -34643
-    - Position:
+          RawValue: 18601064
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 12
+      Position:
         X:
           RawValue: 37557
         Y:
           RawValue: 78628
         Z:
           RawValue: -24493
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 22236
+          RawValue: 341417
         Y:
-          RawValue: -31370
+          RawValue: 4703695
         Z:
-          RawValue: 34686
-        W:
-          RawValue: -40165
-    - Position:
+          RawValue: 18490528
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 13
+      Position:
         X:
           RawValue: 50956
         Y:
           RawValue: 78069
         Z:
           RawValue: -15649
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 21784
+          RawValue: 238621
         Y:
-          RawValue: -29433
+          RawValue: 4449427
         Z:
-          RawValue: 35251
-        W:
-          RawValue: -41368
-    - Position:
+          RawValue: 18453690
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 14
+      Position:
         X:
           RawValue: 54979
         Y:
           RawValue: 65357
         Z:
           RawValue: 35174
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 3051
+          RawValue: 347530
         Y:
-          RawValue: -7056
+          RawValue: 812938
         Z:
-          RawValue: 47407
-        W:
-          RawValue: -44591
-    - Position:
+          RawValue: 17502742
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 15
+      Position:
         X:
           RawValue: -3525
         Y:
-          RawValue: 56066
+          RawValue: 56065
         Z:
           RawValue: 73094
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -28049
+          RawValue: 564830
         Y:
-          RawValue: 18614
+          RawValue: 19564636
         Z:
-          RawValue: 40882
-        W:
-          RawValue: -38603
-    - Position:
+          RawValue: 17143250
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 16
+      Position:
         X:
           RawValue: -55862
         Y:
           RawValue: 58947
         Z:
           RawValue: 41976
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -43236
+          RawValue: 23128934
         Y:
-          RawValue: 38725
+          RawValue: 15402584
         Z:
-          RawValue: 25452
-        W:
-          RawValue: -16674
-    - Position:
+          RawValue: 17039926
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 17
+      Position:
         X:
           RawValue: -59606
         Y:
           RawValue: 69618
         Z:
           RawValue: 5926
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -42709
+          RawValue: 22451608
         Y:
-          RawValue: 48265
+          RawValue: 12565542
         Z:
-          RawValue: 11753
-        W:
-          RawValue: 1766
-    - Position:
+          RawValue: 18034586
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 18
+      Position:
         X:
           RawValue: -49426
         Y:
           RawValue: 74101
         Z:
           RawValue: -10645
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -40170
+          RawValue: 22116674
         Y:
-          RawValue: 49722
+          RawValue: 10993981
         Z:
-          RawValue: 5875
-        W:
-          RawValue: 13208
-    - Position:
+          RawValue: 18650188
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 19
+      Position:
         X:
           RawValue: -45271
         Y:
           RawValue: 76627
         Z:
           RawValue: -16856
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -39462
+          RawValue: 22058350
         Y:
-          RawValue: 48920
+          RawValue: 10236589
         Z:
-          RawValue: 2623
-        W:
-          RawValue: 18373
-    - Position:
+          RawValue: 18823096
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 20
+      Position:
         X:
           RawValue: -40828
         Y:
           RawValue: 78353
         Z:
           RawValue: -20774
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -39252
+          RawValue: 21983030
         Y:
-          RawValue: 47452
+          RawValue: 9658539
         Z:
-          RawValue: 272
-        W:
-          RawValue: 22414
-    - Position:
+          RawValue: 18880632
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 21
+      Position:
         X:
           RawValue: -36869
         Y:
           RawValue: 79856
         Z:
           RawValue: -23932
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -39455
+          RawValue: 21884360
         Y:
-          RawValue: 45730
+          RawValue: 9245056
         Z:
-          RawValue: -1279
-        W:
-          RawValue: 25402
-    - Position:
+          RawValue: 18860092
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 22
+      Position:
         X:
           RawValue: -33667
         Y:
           RawValue: 81715
         Z:
           RawValue: -27062
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -39952
+          RawValue: 21772544
         Y:
-          RawValue: 44059
+          RawValue: 8979485
         Z:
-          RawValue: -2165
-        W:
-          RawValue: 27438
-    - Position:
+          RawValue: 18790434
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 23
+      Position:
         X:
           RawValue: -31501
         Y:
           RawValue: 83356
         Z:
           RawValue: -29197
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -40573
+          RawValue: 21677318
         Y:
-          RawValue: 42776
+          RawValue: 8857042
         Z:
-          RawValue: -2522
-        W:
-          RawValue: 28505
-    - Position:
+          RawValue: 18698244
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 24
+      Position:
         X:
           RawValue: -31091
         Y:
           RawValue: 83989
         Z:
           RawValue: -29812
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -41127
+          RawValue: 21627038
         Y:
-          RawValue: 42139
+          RawValue: 8860701
         Z:
-          RawValue: -2494
-        W:
-          RawValue: 28661
-    - Position:
+          RawValue: 18611944
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 25
+      Position:
         X:
           RawValue: -31951
         Y:
           RawValue: 83804
         Z:
           RawValue: -29435
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -41612
+          RawValue: 21610990
         Y:
-          RawValue: 41949
+          RawValue: 8940081
         Z:
-          RawValue: -2248
-        W:
-          RawValue: 28259
-    - Position:
+          RawValue: 18533200
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 26
+      Position:
         X:
           RawValue: -33075
         Y:
           RawValue: 83326
         Z:
           RawValue: -28798
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -42160
+          RawValue: 21598780
         Y:
-          RawValue: 41826
+          RawValue: 9054314
         Z:
-          RawValue: -1867
-        W:
-          RawValue: 27649
-    - Position:
+          RawValue: 18442906
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 27
+      Position:
         X:
           RawValue: -34399
         Y:
           RawValue: 82610
         Z:
           RawValue: -27932
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -42756
+          RawValue: 21591958
         Y:
-          RawValue: 41763
+          RawValue: 9200000
         Z:
-          RawValue: -1363
-        W:
-          RawValue: 26847
-    - Position:
+          RawValue: 18342438
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 28
+      Position:
         X:
           RawValue: -35882
         Y:
           RawValue: 81701
         Z:
           RawValue: -26868
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -43383
+          RawValue: 21592200
         Y:
-          RawValue: 41750
+          RawValue: 9373284
         Z:
-          RawValue: -751
-        W:
-          RawValue: 25867
-    - Position:
+          RawValue: 18234060
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 29
+      Position:
         X:
           RawValue: -37478
         Y:
           RawValue: 80614
         Z:
           RawValue: -25638
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -44024
+          RawValue: 21601050
         Y:
-          RawValue: 41780
+          RawValue: 9570717
         Z:
-          RawValue: -44
-        W:
-          RawValue: 24721
-    - Position:
+          RawValue: 18119874
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 30
+      Position:
         X:
           RawValue: -39047
         Y:
           RawValue: 79416
         Z:
           RawValue: -24337
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -44662
+          RawValue: 21619900
         Y:
-          RawValue: 41844
+          RawValue: 9787713
         Z:
-          RawValue: 740
-        W:
-          RawValue: 23424
-    - Position:
+          RawValue: 18002736
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 31
+      Position:
         X:
           RawValue: -40657
         Y:
           RawValue: 78143
         Z:
           RawValue: -22903
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -45279
+          RawValue: 21649696
         Y:
-          RawValue: 41934
+          RawValue: 10020070
         Z:
-          RawValue: 1588
-        W:
-          RawValue: 21992
-    - Position:
+          RawValue: 17885354
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 32
+      Position:
         X:
           RawValue: -42251
         Y:
-          RawValue: 76831
+          RawValue: 76830
         Z:
           RawValue: -21292
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -45863
+          RawValue: 21690968
         Y:
-          RawValue: 42042
+          RawValue: 10263771
         Z:
-          RawValue: 2484
-        W:
-          RawValue: 20439
-    - Position:
+          RawValue: 17770488
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 33
+      Position:
         X:
           RawValue: -43790
         Y:
           RawValue: 75499
         Z:
           RawValue: -19481
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -46397
+          RawValue: 21743620
         Y:
-          RawValue: 42163
+          RawValue: 10514175
         Z:
-          RawValue: 3411
-        W:
-          RawValue: 18784
-    - Position:
+          RawValue: 17661244
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 34
+      Position:
         X:
           RawValue: -45272
         Y:
           RawValue: 74139
         Z:
           RawValue: -17455
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -46870
+          RawValue: 21807328
         Y:
-          RawValue: 42292
+          RawValue: 10768023
         Z:
-          RawValue: 4359
-        W:
-          RawValue: 17042
-    - Position:
+          RawValue: 17560250
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 35
+      Position:
         X:
           RawValue: -46711
         Y:
           RawValue: 72750
         Z:
           RawValue: -15095
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -47271
+          RawValue: 21881086
         Y:
-          RawValue: 42427
+          RawValue: 11021141
         Z:
-          RawValue: 5310
-        W:
-          RawValue: 15234
-    - Position:
+          RawValue: 17470052
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 36
+      Position:
         X:
           RawValue: -48106
         Y:
           RawValue: 71398
         Z:
           RawValue: -12426
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -47593
+          RawValue: 21963688
         Y:
-          RawValue: 42564
+          RawValue: 11270422
         Z:
-          RawValue: 6249
-        W:
-          RawValue: 13380
-    - Position:
+          RawValue: 17392368
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 37
+      Position:
         X:
           RawValue: -49429
         Y:
           RawValue: 70165
         Z:
           RawValue: -9669
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -47830
+          RawValue: 22053436
         Y:
-          RawValue: 42703
+          RawValue: 11512529
         Z:
-          RawValue: 7160
-        W:
-          RawValue: 11504
-    - Position:
+          RawValue: 17328914
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 38
+      Position:
         X:
           RawValue: -50663
         Y:
           RawValue: 69117
         Z:
           RawValue: -7035
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -47979
+          RawValue: 22148684
         Y:
-          RawValue: 42846
+          RawValue: 11745322
         Z:
-          RawValue: 8029
-        W:
-          RawValue: 9624
-    - Position:
+          RawValue: 17280666
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 39
+      Position:
         X:
           RawValue: -51794
         Y:
           RawValue: 68318
         Z:
           RawValue: -4746
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -48039
+          RawValue: 22247340
         Y:
-          RawValue: 42996
+          RawValue: 11966180
         Z:
-          RawValue: 8841
-        W:
-          RawValue: 7765
-    - Position:
+          RawValue: 17248416
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 40
+      Position:
         X:
           RawValue: -52808
         Y:
-          RawValue: 67795
+          RawValue: 67796
         Z:
           RawValue: -3065
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -48026
+          RawValue: 22346790
         Y:
-          RawValue: 43140
+          RawValue: 12172057
         Z:
-          RawValue: 9578
-        W:
-          RawValue: 5964
-    - Position:
+          RawValue: 17229748
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 41
+      Position:
         X:
           RawValue: -54620
         Y:
           RawValue: 68570
         Z:
           RawValue: -58
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -47054
+          RawValue: 22472314
         Y:
-          RawValue: 44271
+          RawValue: 12394088
         Z:
-          RawValue: 10364
-        W:
-          RawValue: 3667
-    - Position:
+          RawValue: 17375984
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 42
+      Position:
         X:
           RawValue: -58304
         Y:
           RawValue: 70940
         Z:
           RawValue: 5412
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -44933
+          RawValue: 22665562
         Y:
-          RawValue: 46421
+          RawValue: 12667994
         Z:
-          RawValue: 10995
-        W:
-          RawValue: 324
-    - Position:
+          RawValue: 17708428
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 43
+      Position:
         X:
           RawValue: -61368
         Y:
           RawValue: 73349
         Z:
           RawValue: 10510
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -42865
+          RawValue: 22953954
         Y:
-          RawValue: 48145
+          RawValue: 13003921
         Z:
-          RawValue: 11113
-        W:
-          RawValue: -3998
-    - Position:
+          RawValue: 18026058
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 44
+      Position:
         X:
           RawValue: -63718
         Y:
           RawValue: 75368
         Z:
           RawValue: 16787
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -40510
+          RawValue: 23267652
         Y:
-          RawValue: 49549
+          RawValue: 13393756
         Z:
-          RawValue: 10978
-        W:
-          RawValue: -8841
-    - Position:
+          RawValue: 18375680
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 45
+      Position:
         X:
           RawValue: -64928
         Y:
           RawValue: 76780
         Z:
           RawValue: 23738
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -38142
+          RawValue: 65071
         Y:
-          RawValue: 50289
+          RawValue: 13841794
         Z:
-          RawValue: 10182
-        W:
-          RawValue: -14400
-    - Position:
+          RawValue: 18738000
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 46
+      Position:
         X:
           RawValue: -64571
         Y:
           RawValue: 76905
         Z:
           RawValue: 31299
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -36088
+          RawValue: 528754
         Y:
-          RawValue: 49941
+          RawValue: 14361676
         Z:
-          RawValue: 8793
-        W:
-          RawValue: -20520
-    - Position:
+          RawValue: 19081964
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 47
+      Position:
         X:
           RawValue: -62417
         Y:
           RawValue: 75461
         Z:
           RawValue: 39378
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -34551
+          RawValue: 1045247
         Y:
-          RawValue: 48220
+          RawValue: 14966927
         Z:
-          RawValue: 7069
-        W:
-          RawValue: -26944
-    - Position:
+          RawValue: 19395710
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 48
+      Position:
         X:
           RawValue: -58633
         Y:
           RawValue: 73020
         Z:
           RawValue: 47368
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -33456
+          RawValue: 1620797
         Y:
-          RawValue: 45226
+          RawValue: 15634442
         Z:
-          RawValue: 4753
-        W:
-          RawValue: -33280
-    - Position:
+          RawValue: 19728470
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 49
+      Position:
         X:
           RawValue: -53504
         Y:
           RawValue: 69997
         Z:
           RawValue: 54685
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -32829
+          RawValue: 2277315
         Y:
-          RawValue: 41058
+          RawValue: 16355466
         Z:
-          RawValue: 1456
-        W:
-          RawValue: -39106
-    - Position:
+          RawValue: 20134746
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 50
+      Position:
         X:
           RawValue: -46983
         Y:
           RawValue: 66272
         Z:
           RawValue: 61127
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -32807
+          RawValue: 2988487
         Y:
-          RawValue: 35722
+          RawValue: 17180936
         Z:
-          RawValue: -2541
-        W:
-          RawValue: -44000
-    - Position:
+          RawValue: 20651954
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 51
+      Position:
         X:
           RawValue: -39440
         Y:
           RawValue: 62036
         Z:
           RawValue: 66381
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -33390
+          RawValue: 3707815
         Y:
-          RawValue: 29396
+          RawValue: 18231052
         Z:
-          RawValue: -6869
-        W:
-          RawValue: -47630
-    - Position:
+          RawValue: 21391700
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 52
+      Position:
         X:
           RawValue: -30579
         Y:
           RawValue: 57551
         Z:
           RawValue: 70284
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -34441
+          RawValue: 4341807
         Y:
-          RawValue: 22401
+          RawValue: 19797724
         Z:
-          RawValue: -11135
-        W:
-          RawValue: -49829
-    - Position:
+          RawValue: 22642124
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 53
+      Position:
         X:
           RawValue: -20674
         Y:
           RawValue: 53464
         Z:
           RawValue: 72565
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -35697
+          RawValue: 4680751
         Y:
-          RawValue: 15157
+          RawValue: 22291124
         Z:
-          RawValue: -14997
-        W:
-          RawValue: -50655
-    - Position:
+          RawValue: 1221231
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 54
+      Position:
         X:
           RawValue: -10299
         Y:
           RawValue: 50432
         Z:
           RawValue: 73103
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -36828
+          RawValue: 4515320
         Y:
-          RawValue: 8062
+          RawValue: 1316316
         Z:
-          RawValue: -18244
-        W:
-          RawValue: -50405
-    - Position:
+          RawValue: 3515906
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 55
+      Position:
         X:
           RawValue: -322
         Y:
           RawValue: 48998
         Z:
           RawValue: 72033
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -37483
+          RawValue: 4035933
         Y:
-          RawValue: 1509
+          RawValue: 2856494
         Z:
-          RawValue: -20792
-        W:
-          RawValue: -49551
-    - Position:
+          RawValue: 4740265
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 56
+      Position:
         X:
           RawValue: 8937
         Y:
           RawValue: 48817
         Z:
           RawValue: 70319
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -37537
+          RawValue: 3452428
         Y:
-          RawValue: -4680
+          RawValue: 3710005
         Z:
-          RawValue: -22930
-        W:
-          RawValue: -48354
-    - Position:
+          RawValue: 5282309
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 57
+      Position:
         X:
           RawValue: 17646
         Y:
           RawValue: 49931
         Z:
           RawValue: 67153
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -37076
+          RawValue: 2813964
         Y:
-          RawValue: -10640
+          RawValue: 4272504
         Z:
-          RawValue: -25100
-        W:
-          RawValue: -46659
-    - Position:
+          RawValue: 5556729
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 58
+      Position:
         X:
           RawValue: 25098
         Y:
           RawValue: 52236
         Z:
           RawValue: 62676
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -36140
+          RawValue: 2159671
         Y:
-          RawValue: -16079
+          RawValue: 4661614
         Z:
-          RawValue: -27379
-        W:
-          RawValue: -44503
-    - Position:
+          RawValue: 5707146
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 59
+      Position:
         X:
           RawValue: 30686
         Y:
           RawValue: 55411
         Z:
           RawValue: 57246
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -34838
+          RawValue: 1521176
         Y:
-          RawValue: -20721
+          RawValue: 4927851
         Z:
-          RawValue: -29783
-        W:
-          RawValue: -42009
-    - Position:
+          RawValue: 5809364
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 60
+      Position:
         X:
           RawValue: 34091
         Y:
           RawValue: 59018
         Z:
           RawValue: 51304
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -33320
+          RawValue: 925005
         Y:
-          RawValue: -24394
+          RawValue: 5095007
         Z:
-          RawValue: -32273
-        W:
-          RawValue: -39344
-    - Position:
+          RawValue: 5906111
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 61
+      Position:
         X:
           RawValue: 35335
         Y:
           RawValue: 62616
         Z:
           RawValue: 45332
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -31752
+          RawValue: 394991
         Y:
-          RawValue: -27037
+          RawValue: 5176022
         Z:
-          RawValue: -34764
-        W:
-          RawValue: -36703
-    - Position:
+          RawValue: 6020129
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 62
+      Position:
         X:
           RawValue: 34702
         Y:
           RawValue: 65858
         Z:
           RawValue: 39772
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -30281
+          RawValue: 23543882
         Y:
-          RawValue: -28699
+          RawValue: 5182426
         Z:
-          RawValue: -37142
-        W:
-          RawValue: -34275
-    - Position:
+          RawValue: 6159059
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 63
+      Position:
         X:
           RawValue: 32632
         Y:
           RawValue: 68573
         Z:
           RawValue: 34884
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -28998
+          RawValue: 23194724
         Y:
-          RawValue: -29533
+          RawValue: 5129187
         Z:
-          RawValue: -39309
-        W:
-          RawValue: -32195
-    - Position:
+          RawValue: 6318842
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 64
+      Position:
         X:
           RawValue: 29637
         Y:
           RawValue: 70699
         Z:
           RawValue: 30815
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -27951
+          RawValue: 22939468
         Y:
-          RawValue: -29743
+          RawValue: 5035773
         Z:
-          RawValue: -41193
-        W:
-          RawValue: -30530
-    - Position:
+          RawValue: 6487713
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 65
+      Position:
         X:
           RawValue: 26199
         Y:
           RawValue: 72269
         Z:
           RawValue: 27619
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -27112
+          RawValue: 22764400
         Y:
-          RawValue: -29539
+          RawValue: 4919880
         Z:
-          RawValue: -42781
-        W:
-          RawValue: -29274
-    - Position:
+          RawValue: 6652169
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 66
+      Position:
         X:
           RawValue: 22743
         Y:
           RawValue: 73307
         Z:
           RawValue: 25264
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -26443
+          RawValue: 22649422
         Y:
-          RawValue: -29102
+          RawValue: 4797110
         Z:
-          RawValue: -44104
-        W:
-          RawValue: -28346
-    - Position:
+          RawValue: 6804153
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 67
+      Position:
         X:
           RawValue: 19656
         Y:
           RawValue: 73827
         Z:
           RawValue: 23676
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -25886
+          RawValue: 22571526
         Y:
-          RawValue: -28558
+          RawValue: 4675339
         Z:
-          RawValue: -45238
-        W:
-          RawValue: -27618
-    - Position:
-        X:
-          RawValue: 17304
-        Y:
-          RawValue: 74128
-        Z:
-          RawValue: 22937
-      Rotation:
-        X:
-          RawValue: -25190
-        Y:
-          RawValue: -28235
-        Z:
-          RawValue: -46149
-        W:
-          RawValue: -27080
-    - Position:
+          RawValue: 6944884
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 68
+      Position:
         X:
           RawValue: 17304
         Y:
           RawValue: 74128
         Z:
           RawValue: 22937
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -25190
+          RawValue: 22491532
         Y:
-          RawValue: -28235
+          RawValue: 4563076
         Z:
-          RawValue: -46149
-        W:
-          RawValue: -27080
-    - Position:
+          RawValue: 7042622
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 69
+      Position:
+        X:
+          RawValue: 17304
+        Y:
+          RawValue: 74128
+        Z:
+          RawValue: 22937
+      RotationEuler:
+        X:
+          RawValue: 22491532
+        Y:
+          RawValue: 4563076
+        Z:
+          RawValue: 7042622
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 70
+      Position:
         X:
           RawValue: 15939
         Y:
           RawValue: 74167
         Z:
           RawValue: 23735
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 24263
+          RawValue: 22451188
         Y:
-          RawValue: 28084
+          RawValue: 4451536
         Z:
-          RawValue: 46555
-        W:
-          RawValue: 27388
-    - Position:
+          RawValue: 7030695
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 71
+      Position:
         X:
           RawValue: 15134
         Y:
           RawValue: 74105
         Z:
           RawValue: 25023
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 23361
+          RawValue: 22422232
         Y:
-          RawValue: 28075
+          RawValue: 4361270
         Z:
-          RawValue: 46701
-        W:
-          RawValue: 27927
-    - Position:
+          RawValue: 6977274
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 72
+      Position:
         X:
           RawValue: 14739
         Y:
           RawValue: 74076
         Z:
           RawValue: 26625
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 22557
+          RawValue: 22401502
         Y:
-          RawValue: 28253
+          RawValue: 4304117
         Z:
-          RawValue: 46567
-        W:
-          RawValue: 28623
-    - Position:
+          RawValue: 6884792
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 73
+      Position:
         X:
           RawValue: 14547
         Y:
           RawValue: 74020
         Z:
           RawValue: 28393
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 21982
+          RawValue: 22411438
         Y:
-          RawValue: 28395
+          RawValue: 4270161
         Z:
-          RawValue: 46223
-        W:
-          RawValue: 29474
-    - Position:
+          RawValue: 6774869
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 74
+      Position:
         X:
-          RawValue: 14410
+          RawValue: 14409
         Y:
           RawValue: 73871
         Z:
           RawValue: 30156
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 21718
+          RawValue: 22464750
         Y:
-          RawValue: 28347
+          RawValue: 4249114
         Z:
-          RawValue: 45746
-        W:
-          RawValue: 30445
-    - Position:
+          RawValue: 6666879
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 75
+      Position:
         X:
           RawValue: 14225
         Y:
           RawValue: 73541
         Z:
           RawValue: 31760
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 21813
+          RawValue: 22568570
         Y:
-          RawValue: 27979
+          RawValue: 4230173
         Z:
-          RawValue: 45223
-        W:
-          RawValue: 31481
-    - Position:
+          RawValue: 6580186
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 76
+      Position:
         X:
           RawValue: 13943
         Y:
           RawValue: 72935
         Z:
           RawValue: 33060
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 22294
+          RawValue: 22724046
         Y:
-          RawValue: 27205
+          RawValue: 4206291
         Z:
-          RawValue: 44737
-        W:
-          RawValue: 32501
-    - Position:
+          RawValue: 6531827
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 77
+      Position:
         X:
           RawValue: 13663
         Y:
           RawValue: 72056
         Z:
           RawValue: 34076
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 23156
+          RawValue: 22922650
         Y:
-          RawValue: 26103
+          RawValue: 4187552
         Z:
-          RawValue: 44266
-        W:
-          RawValue: 33433
-    - Position:
+          RawValue: 6519837
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 78
+      Position:
         X:
           RawValue: 13460
         Y:
           RawValue: 70960
         Z:
           RawValue: 34894
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 24281
+          RawValue: 23142488
         Y:
-          RawValue: 24847
+          RawValue: 4182829
         Z:
-          RawValue: 43783
-        W:
-          RawValue: 34219
-    - Position:
+          RawValue: 6533673
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 79
+      Position:
         X:
           RawValue: 13305
         Y:
           RawValue: 69726
         Z:
           RawValue: 35481
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 25523
+          RawValue: 23364292
         Y:
-          RawValue: 23529
+          RawValue: 4188865
         Z:
-          RawValue: 43328
-        W:
-          RawValue: 34822
-    - Position:
+          RawValue: 6569730
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 80
+      Position:
         X:
           RawValue: 13187
         Y:
           RawValue: 68464
         Z:
           RawValue: 35831
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 26752
+          RawValue: 23571832
         Y:
-          RawValue: 22242
+          RawValue: 4202722
         Z:
-          RawValue: 42927
-        W:
-          RawValue: 35239
-    - Position:
+          RawValue: 6621238
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 81
+      Position:
         X:
           RawValue: 13115
         Y:
           RawValue: 67277
         Z:
           RawValue: 35963
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 27875
+          RawValue: 161280
         Y:
-          RawValue: 21069
+          RawValue: 4221484
         Z:
-          RawValue: 42589
-        W:
-          RawValue: 35499
-    - Position:
+          RawValue: 6679829
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 82
+      Position:
         X:
           RawValue: 13104
         Y:
           RawValue: 66258
         Z:
           RawValue: 35921
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 28823
+          RawValue: 311485
         Y:
-          RawValue: 20074
+          RawValue: 4241844
         Z:
-          RawValue: 42316
-        W:
-          RawValue: 35644
-    - Position:
+          RawValue: 6736775
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 83
+      Position:
         X:
           RawValue: 13172
         Y:
           RawValue: 65472
         Z:
           RawValue: 35754
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: 29559
+          RawValue: 426687
         Y:
-          RawValue: 19295
+          RawValue: 4260486
         Z:
-          RawValue: 42104
-        W:
-          RawValue: 35722
-    - Position:
+          RawValue: 6784732
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 84
+      Position:
         X:
           RawValue: 13327
         Y:
           RawValue: 64946
         Z:
           RawValue: 35507
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -30071
+          RawValue: 507339
         Y:
-          RawValue: -18747
+          RawValue: 4274559
         Z:
-          RawValue: -41947
-        W:
-          RawValue: -35771
-    - Position:
+          RawValue: 6818740
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 85
+      Position:
         X:
           RawValue: 13659
         Y:
           RawValue: 64893
         Z:
           RawValue: 35173
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -30172
+          RawValue: 530250
         Y:
-          RawValue: -18594
+          RawValue: 4273862
         Z:
-          RawValue: -41890
-        W:
-          RawValue: -35833
-    - Position:
+          RawValue: 6821875
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 86
+      Position:
         X:
           RawValue: 13997
         Y:
           RawValue: 64869
         Z:
           RawValue: 34831
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -30261
+          RawValue: 552096
         Y:
-          RawValue: -18450
+          RawValue: 4272483
         Z:
-          RawValue: -41831
-        W:
-          RawValue: -35900
-    - Position:
+          RawValue: 6823549
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 87
+      Position:
         X:
           RawValue: 14331
         Y:
           RawValue: 64851
         Z:
           RawValue: 34487
-      Rotation:
+      RotationEuler:
         X:
-          RawValue: -30357
+          RawValue: 575588
         Y:
-          RawValue: -18296
+          RawValue: 4271137
         Z:
-          RawValue: -41767
-        W:
-          RawValue: -35973
+          RawValue: 6825224
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
+    - frameNum: 14
+      Position:
+        X:
+          RawValue: 41872
+        Y:
+          RawValue: 65357
+        Z:
+          RawValue: 45875
+      RotationEuler:
+        X:
+          RawValue: 347530
+        Y:
+          RawValue: 3762058
+        Z:
+          RawValue: 18813462
+      Height:
+        RawValue: 0
+      Radius:
+        RawValue: 0
     AttackVals:
       attackName: 6
       direction: {x: -1, y: 0}

@@ -52,7 +52,7 @@ namespace Quantum
 
             bool transitioning = filter.Animator->IsInTransition(frame, 0);
             if(deltaFrame != new FPVector3(0,0,0) && !transitioning){
-                //Log.Debug("root motioning" + deltaFrame);
+                Log.Debug("root motioning" + deltaFrame);
                 
                 FPVector3 dirToTarget = (new FPVector3((FP)currAction -> EnemyPosition.X, (FP)currAction->PlayerPosition.Y, (FP)currAction->EnemyPosition.Z) - currAction -> PlayerPosition).Normalized;
                 FPQuaternion lookRot = FPQuaternion.LookRotation(dirToTarget, FPVector3.Up);
@@ -86,19 +86,35 @@ namespace Quantum
                     QAttackData AttackData = attacksData[AttackDataIndex];
                     
                     AssetRef<EntityPrototype> hitboxPrototype = frame.FindAsset(frame.SimulationConfig.HitboxPrototype);
-                    var hitbox = frame.Create(hitboxPrototype);
-                    frame.Add(hitbox, new MeleeHitbox{
-                        Owner = filter.Entity,
-                        Radius = FP.FromFloat_UNSAFE(0.1f),         // half a meter
-                        Height = FP.FromFloat_UNSAFE(1.5f),
-                        HitDirection = currAction->Direction,
-                        Center = AttackData.Hitboxes[frameNumber].Position,
-                        Rotation = AttackData.Hitboxes[frameNumber].Rotation,
-                        Lifetime  = 0,   
-                        SpawnFrame = frame.Number,
-                        Damage = currAction->Damage,
-                        DamageApplied = false
-                    });
+                    
+                    //get a list of hitboxes that corrospond to this frame
+                    List<QHitboxData> hitboxesToSpawn = new List<QHitboxData>();
+                    for(int i = 0; i < AttackData.Hitboxes.Count; i++){
+                        if(AttackData.Hitboxes[i].frameNum == (ushort)frameNumber){
+                            hitboxesToSpawn.Add(AttackData.Hitboxes[i]);
+                        }
+                    }
+                    Log.Debug(hitboxesToSpawn.Count + " hitboxes this frame");
+                    foreach(QHitboxData hitboxData in hitboxesToSpawn){
+                        var hitbox = frame.Create(hitboxPrototype);
+                        frame.Add(hitbox, new MeleeHitbox{
+                            Owner = filter.Entity,
+                            Radius = FP.FromFloat_UNSAFE(0.1f),         // half a meter
+                            Height = FP.FromFloat_UNSAFE(1.5f),
+                            HitDirection = currAction->Direction,
+                            Center = hitboxData.Position,
+                            Rotation = FPQuaternion.Euler(hitboxData.RotationEuler),
+                            Lifetime  = 0,   
+                            SpawnFrame = frame.Number,
+                            Damage = currAction->Damage,
+                            DamageApplied = false
+                        });
+                        
+                    }
+                        
+                        
+
+                    
                 }else if(currentActionType == ActionType.Parry){
                     var parry = new ParryComponent()
                     {
@@ -253,10 +269,8 @@ namespace Quantum
                 // Retrieve the animator data for the clip
                 var data = clip.Data;
                 if(data.DisableRootMotion){
-                    Log.Debug("Root Motion Disabled");
                     return new FPVector3(0,0,0);
                 }else{
-                    Log.Debug("Root Motion Enabled");
                     // Get the frame at the current time
                     return data.GetFrameAtTime(animatorTime).Position;
                 }

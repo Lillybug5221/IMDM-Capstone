@@ -7,7 +7,8 @@ using System.IO;
 public class TransformData {
     public Attack attackData;
     public List<Vector3> positions = new List<Vector3>();
-    public List<Quaternion> rotations = new List<Quaternion>();
+    public List<Vector3> rotations = new List<Vector3>();
+    public List<int> frames = new List<int>();
 }
 
 
@@ -16,7 +17,6 @@ public class HitboxJSONBuilder : MonoBehaviour
     public static HitboxJSONBuilder Instance;
 
     public string FileName;
-    public Attack attackData = new Attack();
     [SerializeField]
     public string TestingAnimationName;
     public bool CreateJSON;
@@ -28,13 +28,13 @@ public class HitboxJSONBuilder : MonoBehaviour
 
     public void Start(){
         data = new TransformData();
-        data.attackData = attackData;
         Instance = this;
     }
 
-    public void AddToLists(Vector3 pos, Quaternion rot){
+    public void AddToLists(Vector3 pos, Vector3 rotEuler, int frame){
         data.positions.Add(pos);
-        data.rotations.Add(rot);
+        data.rotations.Add(rotEuler);
+        data.frames.Add(frame);
     }
 
     public void Save() {

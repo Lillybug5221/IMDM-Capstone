@@ -2930,15 +2930,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FileName: Light_L
-  attackData:
-    attackName: 6
-    direction: {x: -1, y: 0}
-    attackType: 0
-    startupFrames: 0
-    activeFrames: 0
-    endlagFrames: 0
-    cancelableFrames: 0
-    damage: 5
   TestingAnimationName: Light_L
   CreateJSON: 0
 --- !u!4 &1479069843
