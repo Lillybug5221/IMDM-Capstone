@@ -11,6 +11,8 @@ namespace Quantum
         public SimCurve DashSimCurve;
 
         public FP DashDistance; 
+
+        public bool HitboxesRemain;
         
     }
 }

@@ -71,12 +71,14 @@ namespace Quantum
             }
             #endregion
 
-
+            #region Start Up
             if(currAction -> ActionPhase == 1){
                 currAction -> StartUpFrames--;
                 if(currAction -> StartUpFrames <= 0){
                     currAction -> ActionPhase++;
                 }
+            #endregion
+            #region Active
             }else if(currAction -> ActionPhase == 2){
                 if(currentActionType == ActionType.Attack){
                      // activate hitboxes
@@ -122,6 +124,8 @@ namespace Quantum
                         }
                     }
                 }
+            #endregion
+            #region EndLag
             }else if(currAction -> ActionPhase == 3){
                 if(currentActionType == ActionType.Dodge){
                     //directly transform the position along the inputed direction. check for collisions before applying each frame.
@@ -181,6 +185,8 @@ namespace Quantum
                     currAction -> ActionPhase++;
                     //Log.Debug("Action Cancelable");
                 }
+            #endregion
+            #region Cancelable
             }else if(currAction -> ActionPhase == 4){
                 currAction -> CancelableFrames--;
                 if(currAction -> CancelableFrames <= 0){
@@ -188,6 +194,7 @@ namespace Quantum
                     currAction -> ActionPhase++;
                 }
             }
+            #endregion
                 
         }
 

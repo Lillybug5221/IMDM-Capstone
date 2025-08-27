@@ -21,7 +21,9 @@ namespace Quantum
 
             var hitbox = filter.Hitbox;
             if(frame.Number - hitbox->SpawnFrame > hitbox->Lifetime){
-                frame.Destroy(filter.Entity);
+                if(!frame.SimulationConfig.HitboxesRemain){
+                    frame.Destroy(filter.Entity);
+                }
                 return;
             }else{
                 //get player transform

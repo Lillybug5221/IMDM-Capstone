@@ -80,7 +80,7 @@ namespace Quantum
                 // Trigger the attack this frame
                 if(bufferedAction.input.LightAttack || bufferedAction.input.HeavyAttack){
                     DefaultCurrAction(frame, currAction, transform -> Position, opponentPosition);
-                    QAttackData FoundAttack = attackData[0];//this is a magic number for now. Ill read the direcitonalinput when I implement more attacks.
+                    QAttackData FoundAttack = attackData[1];//this is a magic number for now. Ill read the direcitonalinput when I implement more attacks.
                     currAction -> ActionType = (byte)ActionType.Attack;
                     currAction -> AttackIndex = (byte)(FoundAttack.AttackVals.attackName); 
                     currAction -> StartUpFrames = (ushort)FoundAttack.AttackVals.startupFrames;

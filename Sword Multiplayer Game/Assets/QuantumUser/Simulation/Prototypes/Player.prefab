@@ -10129,14 +10129,14 @@ MonoBehaviour:
       SphereRadius:
         RawValue: 32768
       CapsuleRadius:
-        RawValue: 32768
+        RawValue: 19661
       CapsuleHeight:
-        RawValue: 131072
+        RawValue: 117965
       PositionOffset:
         X:
           RawValue: 0
         Y:
-          RawValue: 65536
+          RawValue: 58982
         Z:
           RawValue: 0
       BoxExtents:
