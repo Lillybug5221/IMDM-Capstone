@@ -2931,7 +2931,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FileName: Light_L
   TestingAnimationName: Light_L
-  CreateJSON: 0
+  CreateJSON: 1
+  Radius:
+    RawValue: 6554
+  Length:
+    RawValue: -65536
 --- !u!4 &1479069843
 Transform:
   m_ObjectHideFlags: 0

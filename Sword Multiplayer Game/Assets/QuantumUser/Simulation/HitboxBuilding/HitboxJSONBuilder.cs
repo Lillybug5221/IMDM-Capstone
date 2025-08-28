@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using Photon.Deterministic;
 
 [System.Serializable]
 public class TransformData {
     public Attack attackData;
-    public List<Vector3> positions = new List<Vector3>();
-    public List<Vector3> rotations = new List<Vector3>();
+    public List<Vector3> basePositions = new List<Vector3>();
+    public List<Vector3> endPositions = new List<Vector3>();
+    public List<FP> radii = new List<FP>();
+    public List<FP> lengths = new List<FP>();
     public List<int> frames = new List<int>();
 }
 
@@ -20,6 +23,8 @@ public class HitboxJSONBuilder : MonoBehaviour
     [SerializeField]
     public string TestingAnimationName;
     public bool CreateJSON;
+    public FP Radius;
+    public FP Length;
     
     
     
@@ -31,9 +36,11 @@ public class HitboxJSONBuilder : MonoBehaviour
         Instance = this;
     }
 
-    public void AddToLists(Vector3 pos, Vector3 rotEuler, int frame){
-        data.positions.Add(pos);
-        data.rotations.Add(rotEuler);
+    public void AddToLists(Vector3 basePos, Vector3 endPos, int frame){
+        data.basePositions.Add(basePos);
+        data.endPositions.Add(endPos);
+        data.radii.Add(Radius);
+        data.lengths.Add(Length);
         data.frames.Add(frame);
     }
 

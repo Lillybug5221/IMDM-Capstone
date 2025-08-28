@@ -7,10 +7,10 @@ using System.Collections.Generic;
 namespace Quantum {
     [System.Serializable]
     public struct QHitboxData {
-        public ushort frameNum;
-        public FPVector3 Position;
-        public FPVector3 RotationEuler;
-        public FP Height;
+        public ushort FrameNum;
+        public FPVector3 BasePosition;
+        public FPVector3 EndPosition;
+        public FP Length;
         public FP Radius;
     }
     [System.Serializable]

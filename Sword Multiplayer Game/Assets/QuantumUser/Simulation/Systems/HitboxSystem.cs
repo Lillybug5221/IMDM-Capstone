@@ -34,10 +34,33 @@ namespace Quantum
                     transform->Position = playerTransform->Position;
                     transform->Rotation = playerTransform->Rotation;
 
+                    //calculate center and rotation
+                    var dir = hitbox -> EndPoint - hitbox -> BasePoint;
+
+                    FPVector3 targetUp = dir.Normalized;
+
+                    // pick a forward that isn’t parallel to targetUp
+                    FPVector3 forward = FPVector3.Cross(targetUp, FPVector3.Right);
+                    if (forward.SqrMagnitude < FP.FromFloat_UNSAFE(0.001f))
+                    {
+                        forward = FPVector3.Cross(targetUp, FPVector3.Forward);
+                    }
+                    forward = forward.Normalized;
+
+                    FPVector3 center = hitbox -> BasePoint + ((targetUp * hitbox -> Height) / (FP)2);
+
+                    if(hitbox -> Height == -1){
+                        center = (hitbox -> BasePoint + hitbox -> EndPoint)/((FP)2);
+                        hitbox -> Height = dir.Magnitude;
+                    }
+
+                    // build rotation
+                    FPQuaternion rotation = FPQuaternion.LookRotation(forward, targetUp);
+
                     //offset collider according to input.
                     var collider = filter.Collider;
                     var Extent = (hitbox -> Height / 2) - hitbox -> Radius;
-                    collider -> Shape =  Shape3D.CreateCapsule(hitbox -> Radius, Extent, hitbox -> Center, hitbox -> Rotation);
+                    collider -> Shape =  Shape3D.CreateCapsule(hitbox -> Radius, Extent, center, rotation);
                     //Log.Debug("opponent pos is" + opponentPosition);
                 }else{
                     frame.Destroy(filter.Entity);

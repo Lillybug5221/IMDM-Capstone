@@ -447,1678 +447,1507 @@ MonoBehaviour:
   HitboxesRemain: 1
   AttackHitboxData:
   - Hitboxes:
-    - frameNum: 1
-      Position:
+    - FrameNum: 1
+      BasePosition:
         X:
-          RawValue: -36440
+          RawValue: -30833
         Y:
-          RawValue: 67135
+          RawValue: 76898
         Z:
-          RawValue: 89556
-      RotationEuler:
+          RawValue: 61662
+      EndPosition:
         X:
-          RawValue: 19377472
+          RawValue: -42597
         Y:
-          RawValue: 19934202
+          RawValue: 56416
         Z:
-          RawValue: 14515815
-      Height:
-        RawValue: 0
+          RawValue: 120186
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 2
-      Position:
+        RawValue: 6554
+    - FrameNum: 2
+      BasePosition:
         X:
-          RawValue: -55542
+          RawValue: -48640
         Y:
-          RawValue: 61824
+          RawValue: 75797
         Z:
-          RawValue: 66495
-      RotationEuler:
+          RawValue: 40766
+      EndPosition:
         X:
-          RawValue: 20741112
+          RawValue: -63121
         Y:
-          RawValue: 18668064
+          RawValue: 46482
         Z:
-          RawValue: 15084396
-      Height:
-        RawValue: 0
+          RawValue: 94747
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 3
-      Position:
+        RawValue: 6554
+    - FrameNum: 3
+      BasePosition:
         X:
-          RawValue: -60729
+          RawValue: -51620
         Y:
-          RawValue: 63128
+          RawValue: 76337
         Z:
-          RawValue: 42416
-      RotationEuler:
+          RawValue: 16972
+      EndPosition:
         X:
-          RawValue: 21677500
+          RawValue: -70730
         Y:
-          RawValue: 17444068
+          RawValue: 48623
         Z:
-          RawValue: 15714836
-      Height:
-        RawValue: 0
+          RawValue: 70356
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 4
-      Position:
+        RawValue: 6554
+    - FrameNum: 4
+      BasePosition:
         X:
-          RawValue: -58663
+          RawValue: -44098
         Y:
-          RawValue: 67168
+          RawValue: 77715
         Z:
-          RawValue: 24661
-      RotationEuler:
+          RawValue: 547
+      EndPosition:
         X:
-          RawValue: 22058936
+          RawValue: -74657
         Y:
-          RawValue: 16265531
+          RawValue: 55588
         Z:
-          RawValue: 16222786
-      Height:
-        RawValue: 0
+          RawValue: 51139
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 5
-      Position:
+        RawValue: 6554
+    - FrameNum: 5
+      BasePosition:
         X:
-          RawValue: -56638
+          RawValue: -35069
         Y:
-          RawValue: 69617
+          RawValue: 77485
         Z:
-          RawValue: 12269
-      RotationEuler:
+          RawValue: -7165
+      EndPosition:
         X:
-          RawValue: 22096182
+          RawValue: -80321
         Y:
-          RawValue: 14979868
+          RawValue: 60978
         Z:
-          RawValue: 16614196
-      Height:
-        RawValue: 0
+          RawValue: 33610
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 6
-      Position:
+        RawValue: 6554
+    - FrameNum: 6
+      BasePosition:
         X:
-          RawValue: -55816
+          RawValue: -28720
         Y:
-          RawValue: 71468
+          RawValue: 75909
         Z:
-          RawValue: 907
-      RotationEuler:
+          RawValue: -11379
+      EndPosition:
         X:
-          RawValue: 22206984
+          RawValue: -85568
         Y:
-          RawValue: 13611984
+          RawValue: 66592
         Z:
-          RawValue: 17097854
-      Height:
-        RawValue: 0
+          RawValue: 14398
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 7
-      Position:
+        RawValue: 6554
+    - FrameNum: 7
+      BasePosition:
         X:
-          RawValue: -54022
+          RawValue: -24368
         Y:
-          RawValue: 76516
+          RawValue: 76762
         Z:
-          RawValue: -11141
-      RotationEuler:
+          RawValue: -16184
+      EndPosition:
         X:
-          RawValue: 22549058
+          RawValue: -86584
         Y:
-          RawValue: 12437733
+          RawValue: 76246
         Z:
-          RawValue: 17662788
-      Height:
-        RawValue: 0
+          RawValue: -5604
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 8
-      Position:
+        RawValue: 6554
+    - FrameNum: 8
+      BasePosition:
         X:
-          RawValue: -47337
+          RawValue: -17616
         Y:
-          RawValue: 82061
+          RawValue: 77474
         Z:
-          RawValue: -21230
-      RotationEuler:
+          RawValue: -20550
+      EndPosition:
         X:
-          RawValue: 22887106
+          RawValue: -79973
         Y:
-          RawValue: 11600365
+          RawValue: 87098
         Z:
-          RawValue: 18279944
-      Height:
-        RawValue: 0
+          RawValue: -21977
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 9
-      Position:
+        RawValue: 6554
+    - FrameNum: 9
+      BasePosition:
         X:
-          RawValue: -36289
+          RawValue: -10000
         Y:
-          RawValue: 85149
+          RawValue: 78536
         Z:
-          RawValue: -29232
-      RotationEuler:
+          RawValue: -16193
+      EndPosition:
         X:
-          RawValue: 23200416
+          RawValue: -65156
         Y:
-          RawValue: 9978841
+          RawValue: 92410
         Z:
-          RawValue: 18531630
-      Height:
-        RawValue: 0
+          RawValue: -43549
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 10
-      Position:
+        RawValue: 6554
+    - FrameNum: 10
+      BasePosition:
         X:
-          RawValue: -14769
+          RawValue: 568
         Y:
-          RawValue: 85342
+          RawValue: 77725
         Z:
-          RawValue: -37300
-      RotationEuler:
+          RawValue: -12570
+      EndPosition:
         X:
-          RawValue: 23573958
+          RawValue: -31612
         Y:
-          RawValue: 7977916
+          RawValue: 93705
         Z:
-          RawValue: 18655928
-      Height:
-        RawValue: 0
+          RawValue: -64454
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 11
-      Position:
+        RawValue: 6554
+    - FrameNum: 11
+      BasePosition:
         X:
-          RawValue: 13305
+          RawValue: 14062
         Y:
-          RawValue: 82686
+          RawValue: 75513
         Z:
-          RawValue: -35191
-      RotationEuler:
+          RawValue: -5988
+      EndPosition:
         X:
-          RawValue: 261404
+          RawValue: 12474
         Y:
-          RawValue: 6059823
+          RawValue: 90562
         Z:
-          RawValue: 18601064
-      Height:
-        RawValue: 0
+          RawValue: -67258
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 12
-      Position:
+        RawValue: 6554
+    - FrameNum: 12
+      BasePosition:
         X:
-          RawValue: 37557
+          RawValue: 27813
         Y:
-          RawValue: 78628
+          RawValue: 72326
         Z:
-          RawValue: -24493
-      RotationEuler:
+          RawValue: 3258
+      EndPosition:
         X:
-          RawValue: 341417
+          RawValue: 48257
         Y:
-          RawValue: 4703695
+          RawValue: 85547
         Z:
-          RawValue: 18490528
-      Height:
-        RawValue: 0
+          RawValue: -54967
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 13
-      Position:
+        RawValue: 6554
+    - FrameNum: 13
+      BasePosition:
         X:
-          RawValue: 50956
+          RawValue: 39511
         Y:
-          RawValue: 78069
+          RawValue: 72042
         Z:
-          RawValue: -15649
-      RotationEuler:
+          RawValue: 11508
+      EndPosition:
         X:
-          RawValue: 238621
+          RawValue: 63524
         Y:
-          RawValue: 4449427
+          RawValue: 84687
         Z:
-          RawValue: 18453690
-      Height:
-        RawValue: 0
+          RawValue: -45469
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 14
-      Position:
+        RawValue: 6554
+    - FrameNum: 14
+      BasePosition:
         X:
-          RawValue: 54979
+          RawValue: 25669
         Y:
-          RawValue: 65357
+          RawValue: 66888
         Z:
-          RawValue: 35174
-      RotationEuler:
+          RawValue: 41766
+      EndPosition:
         X:
-          RawValue: 347530
+          RawValue: 87162
         Y:
-          RawValue: 812938
+          RawValue: 63677
         Z:
-          RawValue: 17502742
-      Height:
-        RawValue: 0
+          RawValue: 27936
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 15
-      Position:
+        RawValue: 6554
+    - FrameNum: 15
+      BasePosition:
         X:
-          RawValue: -3525
+          RawValue: -18319
         Y:
-          RawValue: 56065
+          RawValue: 60418
         Z:
-          RawValue: 73094
-      RotationEuler:
+          RawValue: 47266
+      EndPosition:
         X:
-          RawValue: 564830
+          RawValue: 12717
         Y:
-          RawValue: 19564636
+          RawValue: 51287
         Z:
-          RawValue: 17143250
-      Height:
-        RawValue: 0
+          RawValue: 101454
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 16
-      Position:
+        RawValue: 6554
+    - FrameNum: 16
+      BasePosition:
         X:
-          RawValue: -55862
+          RawValue: -38353
         Y:
-          RawValue: 58947
+          RawValue: 64126
         Z:
-          RawValue: 41976
-      RotationEuler:
+          RawValue: 18070
+      EndPosition:
         X:
-          RawValue: 23128934
+          RawValue: -75087
         Y:
-          RawValue: 15402584
+          RawValue: 53260
         Z:
-          RawValue: 17039926
-      Height:
-        RawValue: 0
+          RawValue: 68225
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 17
-      Position:
+        RawValue: 6554
+    - FrameNum: 17
+      BasePosition:
         X:
-          RawValue: -59606
+          RawValue: -30440
         Y:
-          RawValue: 69618
+          RawValue: 67023
         Z:
-          RawValue: 5926
-      RotationEuler:
+          RawValue: -962
+      EndPosition:
         X:
-          RawValue: 22451608
+          RawValue: -91632
         Y:
-          RawValue: 12565542
+          RawValue: 72466
         Z:
-          RawValue: 18034586
-      Height:
-        RawValue: 0
+          RawValue: 13492
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 18
-      Position:
+        RawValue: 6554
+    - FrameNum: 18
+      BasePosition:
         X:
-          RawValue: -49426
+          RawValue: -20361
         Y:
-          RawValue: 74101
+          RawValue: 67107
         Z:
-          RawValue: -10645
-      RotationEuler:
+          RawValue: -7305
+      EndPosition:
         X:
-          RawValue: 22116674
+          RawValue: -81341
         Y:
-          RawValue: 10993981
+          RawValue: 81781
         Z:
-          RawValue: 18650188
-      Height:
-        RawValue: 0
+          RawValue: -14312
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 19
-      Position:
+        RawValue: 6554
+    - FrameNum: 19
+      BasePosition:
         X:
-          RawValue: -45271
+          RawValue: -17554
         Y:
-          RawValue: 76627
+          RawValue: 68456
         Z:
-          RawValue: -16856
-      RotationEuler:
+          RawValue: -8498
+      EndPosition:
         X:
-          RawValue: 22058350
+          RawValue: -75706
         Y:
-          RawValue: 10236589
+          RawValue: 85599
         Z:
-          RawValue: 18823096
-      Height:
-        RawValue: 0
+          RawValue: -26034
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 20
-      Position:
+        RawValue: 6554
+    - FrameNum: 20
+      BasePosition:
         X:
-          RawValue: -40828
+          RawValue: -14652
         Y:
-          RawValue: 78353
+          RawValue: 69856
         Z:
-          RawValue: -20774
-      RotationEuler:
+          RawValue: -8631
+      EndPosition:
         X:
-          RawValue: 21983030
+          RawValue: -69571
         Y:
-          RawValue: 9658539
+          RawValue: 87684
         Z:
-          RawValue: 18880632
-      Height:
-        RawValue: 0
+          RawValue: -34108
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 21
-      Position:
+        RawValue: 6554
+    - FrameNum: 21
+      BasePosition:
         X:
-          RawValue: -36869
+          RawValue: -12050
         Y:
-          RawValue: 79856
+          RawValue: 71604
         Z:
-          RawValue: -23932
-      RotationEuler:
+          RawValue: -9073
+      EndPosition:
         X:
-          RawValue: 21884360
+          RawValue: -64122
         Y:
-          RawValue: 9245056
+          RawValue: 88917
         Z:
-          RawValue: 18860092
-      Height:
-        RawValue: 0
+          RawValue: -40247
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 22
-      Position:
+        RawValue: 6554
+    - FrameNum: 22
+      BasePosition:
         X:
-          RawValue: -33667
+          RawValue: -9842
         Y:
-          RawValue: 81715
+          RawValue: 74059
         Z:
-          RawValue: -27062
-      RotationEuler:
+          RawValue: -10371
+      EndPosition:
         X:
-          RawValue: 21772544
+          RawValue: -59828
         Y:
-          RawValue: 8979485
+          RawValue: 90123
         Z:
-          RawValue: 18790434
-      Height:
-        RawValue: 0
+          RawValue: -45391
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 23
-      Position:
+        RawValue: 6554
+    - FrameNum: 23
+      BasePosition:
         X:
-          RawValue: -31501
+          RawValue: -8197
         Y:
-          RawValue: 83356
+          RawValue: 76423
         Z:
-          RawValue: -29197
-      RotationEuler:
+          RawValue: -11484
+      EndPosition:
         X:
-          RawValue: 21677318
+          RawValue: -57090
         Y:
-          RawValue: 8857042
+          RawValue: 90968
         Z:
-          RawValue: 18698244
-      Height:
-        RawValue: 0
+          RawValue: -48645
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 24
-      Position:
+        RawValue: 6554
+    - FrameNum: 24
+      BasePosition:
         X:
-          RawValue: -31091
+          RawValue: -7816
         Y:
-          RawValue: 83989
+          RawValue: 77689
         Z:
-          RawValue: -29812
-      RotationEuler:
+          RawValue: -11827
+      EndPosition:
         X:
-          RawValue: 21627038
+          RawValue: -56647
         Y:
-          RawValue: 8860701
+          RawValue: 90907
         Z:
-          RawValue: 18611944
-      Height:
-        RawValue: 0
+          RawValue: -49560
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 25
-      Position:
+        RawValue: 6554
+    - FrameNum: 25
+      BasePosition:
         X:
-          RawValue: -31951
+          RawValue: -8390
         Y:
-          RawValue: 83804
+          RawValue: 78049
         Z:
-          RawValue: -29435
-      RotationEuler:
+          RawValue: -11642
+      EndPosition:
         X:
-          RawValue: 21610990
+          RawValue: -57822
         Y:
-          RawValue: 8940081
+          RawValue: 90123
         Z:
-          RawValue: 18533200
-      Height:
-        RawValue: 0
+          RawValue: -48974
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 26
-      Position:
+        RawValue: 6554
+    - FrameNum: 26
+      BasePosition:
         X:
-          RawValue: -33075
+          RawValue: -9097
         Y:
-          RawValue: 83326
+          RawValue: 78192
         Z:
-          RawValue: -28798
-      RotationEuler:
+          RawValue: -11375
+      EndPosition:
         X:
-          RawValue: 21598780
+          RawValue: -59404
         Y:
-          RawValue: 9054314
+          RawValue: 88964
         Z:
-          RawValue: 18442906
-      Height:
-        RawValue: 0
+          RawValue: -47929
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 27
-      Position:
+        RawValue: 6554
+    - FrameNum: 27
+      BasePosition:
         X:
-          RawValue: -34399
+          RawValue: -9899
         Y:
-          RawValue: 82610
+          RawValue: 78163
         Z:
-          RawValue: -27932
-      RotationEuler:
+          RawValue: -11056
+      EndPosition:
         X:
-          RawValue: 21591958
+          RawValue: -61301
         Y:
-          RawValue: 9200000
+          RawValue: 87493
         Z:
-          RawValue: 18342438
-      Height:
-        RawValue: 0
+          RawValue: -46464
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 28
-      Position:
+        RawValue: 6554
+    - FrameNum: 28
+      BasePosition:
         X:
-          RawValue: -35882
+          RawValue: -10782
         Y:
-          RawValue: 81701
+          RawValue: 77992
         Z:
-          RawValue: -26868
-      RotationEuler:
+          RawValue: -10709
+      EndPosition:
         X:
-          RawValue: 21592200
+          RawValue: -63442
         Y:
-          RawValue: 9373284
+          RawValue: 85774
         Z:
-          RawValue: 18234060
-      Height:
-        RawValue: 0
+          RawValue: -44612
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 29
-      Position:
+        RawValue: 6554
+    - FrameNum: 29
+      BasePosition:
         X:
-          RawValue: -37478
+          RawValue: -11728
         Y:
-          RawValue: 80614
+          RawValue: 77683
         Z:
-          RawValue: -25638
-      RotationEuler:
+          RawValue: -10367
+      EndPosition:
         X:
-          RawValue: 21601050
+          RawValue: -65753
         Y:
-          RawValue: 9570717
+          RawValue: 83833
         Z:
-          RawValue: 18119874
-      Height:
-        RawValue: 0
+          RawValue: -42406
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 30
-      Position:
+        RawValue: 6554
+    - FrameNum: 30
+      BasePosition:
         X:
-          RawValue: -39047
+          RawValue: -12626
         Y:
-          RawValue: 79416
+          RawValue: 77284
         Z:
-          RawValue: -24337
-      RotationEuler:
+          RawValue: -10116
+      EndPosition:
         X:
-          RawValue: 21619900
+          RawValue: -68059
         Y:
-          RawValue: 9787713
+          RawValue: 81757
         Z:
-          RawValue: 18002736
-      Height:
-        RawValue: 0
+          RawValue: -39952
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 31
-      Position:
+        RawValue: 6554
+    - FrameNum: 31
+      BasePosition:
         X:
-          RawValue: -40657
+          RawValue: -13570
         Y:
-          RawValue: 78143
+          RawValue: 76816
         Z:
-          RawValue: -22903
-      RotationEuler:
+          RawValue: -9887
+      EndPosition:
         X:
-          RawValue: 21649696
+          RawValue: -70399
         Y:
-          RawValue: 10020070
+          RawValue: 79600
         Z:
-          RawValue: 17885354
-      Height:
-        RawValue: 0
+          RawValue: -37195
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 32
-      Position:
+        RawValue: 6554
+    - FrameNum: 32
+      BasePosition:
         X:
-          RawValue: -42251
+          RawValue: -14530
         Y:
-          RawValue: 76830
+          RawValue: 76300
         Z:
-          RawValue: -21292
-      RotationEuler:
+          RawValue: -9624
+      EndPosition:
         X:
-          RawValue: 21690968
+          RawValue: -72690
         Y:
-          RawValue: 10263771
+          RawValue: 77413
         Z:
-          RawValue: 17770488
-      Height:
-        RawValue: 0
+          RawValue: -34103
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 33
-      Position:
+        RawValue: 6554
+    - FrameNum: 33
+      BasePosition:
         X:
-          RawValue: -43790
+          RawValue: -15490
         Y:
-          RawValue: 75499
+          RawValue: 75735
         Z:
-          RawValue: -19481
-      RotationEuler:
+          RawValue: -9288
+      EndPosition:
         X:
-          RawValue: 21743620
+          RawValue: -74865
         Y:
-          RawValue: 10514175
+          RawValue: 75239
         Z:
-          RawValue: 17661244
-      Height:
-        RawValue: 0
+          RawValue: -30673
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 34
-      Position:
+        RawValue: 6554
+    - FrameNum: 34
+      BasePosition:
         X:
-          RawValue: -45272
+          RawValue: -16464
         Y:
-          RawValue: 74139
+          RawValue: 75096
         Z:
-          RawValue: -17455
-      RotationEuler:
+          RawValue: -8849
+      EndPosition:
         X:
-          RawValue: 21807328
+          RawValue: -76904
         Y:
-          RawValue: 10768023
+          RawValue: 73087
         Z:
-          RawValue: 17560250
-      Height:
-        RawValue: 0
+          RawValue: -26905
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 35
-      Position:
+        RawValue: 6554
+    - FrameNum: 35
+      BasePosition:
         X:
-          RawValue: -46711
+          RawValue: -17484
         Y:
-          RawValue: 72750
+          RawValue: 74365
         Z:
-          RawValue: -15095
-      RotationEuler:
+          RawValue: -8164
+      EndPosition:
         X:
-          RawValue: 21881086
+          RawValue: -78803
         Y:
-          RawValue: 11021141
+          RawValue: 70977
         Z:
-          RawValue: 17470052
-      Height:
-        RawValue: 0
+          RawValue: -22706
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 36
-      Position:
+        RawValue: 6554
+    - FrameNum: 36
+      BasePosition:
         X:
-          RawValue: -48106
+          RawValue: -18558
         Y:
-          RawValue: 71398
+          RawValue: 73593
         Z:
-          RawValue: -12426
-      RotationEuler:
+          RawValue: -7232
+      EndPosition:
         X:
-          RawValue: 21963688
+          RawValue: -80550
         Y:
-          RawValue: 11270422
+          RawValue: 68988
         Z:
-          RawValue: 17392368
-      Height:
-        RawValue: 0
+          RawValue: -18130
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 37
-      Position:
+        RawValue: 6554
+    - FrameNum: 37
+      BasePosition:
         X:
-          RawValue: -49429
+          RawValue: -19664
         Y:
-          RawValue: 70165
+          RawValue: 72848
         Z:
-          RawValue: -9669
-      RotationEuler:
+          RawValue: -6244
+      EndPosition:
         X:
-          RawValue: 22053436
+          RawValue: -82112
         Y:
-          RawValue: 11512529
+          RawValue: 67218
         Z:
-          RawValue: 17328914
-      Height:
-        RawValue: 0
+          RawValue: -13430
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 38
-      Position:
+        RawValue: 6554
+    - FrameNum: 38
+      BasePosition:
         X:
-          RawValue: -50663
+          RawValue: -20785
         Y:
-          RawValue: 69117
+          RawValue: 72185
         Z:
-          RawValue: -7035
-      RotationEuler:
+          RawValue: -5385
+      EndPosition:
         X:
-          RawValue: 22148684
+          RawValue: -83471
         Y:
-          RawValue: 11745322
+          RawValue: 65748
         Z:
-          RawValue: 17280666
-      Height:
-        RawValue: 0
+          RawValue: -8846
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 39
-      Position:
+        RawValue: 6554
+    - FrameNum: 39
+      BasePosition:
         X:
-          RawValue: -51794
+          RawValue: -21900
         Y:
-          RawValue: 68318
+          RawValue: 71658
         Z:
-          RawValue: -4746
-      RotationEuler:
+          RawValue: -4846
+      EndPosition:
         X:
-          RawValue: 22247340
+          RawValue: -84620
         Y:
-          RawValue: 11966180
+          RawValue: 64650
         Z:
-          RawValue: 17248416
-      Height:
-        RawValue: 0
+          RawValue: -4637
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 40
-      Position:
+        RawValue: 6554
+    - FrameNum: 40
+      BasePosition:
         X:
-          RawValue: -52808
+          RawValue: -22986
         Y:
-          RawValue: 67796
+          RawValue: 71308
         Z:
-          RawValue: -3065
-      RotationEuler:
+          RawValue: -4841
+      EndPosition:
         X:
-          RawValue: 22346790
+          RawValue: -85554
         Y:
-          RawValue: 12172057
+          RawValue: 63938
         Z:
-          RawValue: 17229748
-      Height:
-        RawValue: 0
+          RawValue: -1115
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 41
-      Position:
+        RawValue: 6554
+    - FrameNum: 41
+      BasePosition:
         X:
-          RawValue: -54620
+          RawValue: -24908
         Y:
-          RawValue: 68570
+          RawValue: 71008
         Z:
-          RawValue: -58
-      RotationEuler:
+          RawValue: -4068
+      EndPosition:
         X:
-          RawValue: 22472314
+          RawValue: -87246
         Y:
-          RawValue: 12394088
+          RawValue: 65894
         Z:
-          RawValue: 17375984
-      Height:
-        RawValue: 0
+          RawValue: 4343
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 42
-      Position:
+        RawValue: 6554
+    - FrameNum: 42
+      BasePosition:
         X:
-          RawValue: -58304
+          RawValue: -29036
         Y:
-          RawValue: 70940
+          RawValue: 70833
         Z:
-          RawValue: 5412
-      RotationEuler:
+          RawValue: -1533
+      EndPosition:
         X:
-          RawValue: 22665562
+          RawValue: -90441
         Y:
-          RawValue: 12667994
+          RawValue: 71057
         Z:
-          RawValue: 17708428
-      Height:
-        RawValue: 0
+          RawValue: 13038
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 43
-      Position:
+        RawValue: 6554
+    - FrameNum: 43
+      BasePosition:
         X:
-          RawValue: -61368
+          RawValue: -33081
         Y:
-          RawValue: 73349
+          RawValue: 70736
         Z:
-          RawValue: 10510
-      RotationEuler:
+          RawValue: 614
+      EndPosition:
         X:
-          RawValue: 22953954
+          RawValue: -92427
         Y:
-          RawValue: 13003921
+          RawValue: 76217
         Z:
-          RawValue: 18026058
-      Height:
-        RawValue: 0
+          RawValue: 21376
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 44
-      Position:
+        RawValue: 6554
+    - FrameNum: 44
+      BasePosition:
         X:
-          RawValue: -63718
+          RawValue: -36961
         Y:
-          RawValue: 75368
+          RawValue: 69963
         Z:
-          RawValue: 16787
-      RotationEuler:
+          RawValue: 4150
+      EndPosition:
         X:
-          RawValue: 23267652
+          RawValue: -93099
         Y:
-          RawValue: 13393756
+          RawValue: 81303
         Z:
-          RawValue: 18375680
-      Height:
-        RawValue: 0
+          RawValue: 30664
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 45
-      Position:
+        RawValue: 6554
+    - FrameNum: 45
+      BasePosition:
         X:
-          RawValue: -64928
+          RawValue: -40113
         Y:
-          RawValue: 76780
+          RawValue: 68531
         Z:
-          RawValue: 23738
-      RotationEuler:
+          RawValue: 8871
+      EndPosition:
         X:
-          RawValue: 65071
+          RawValue: -92176
         Y:
-          RawValue: 13841794
+          RawValue: 85838
         Z:
-          RawValue: 18738000
-      Height:
-        RawValue: 0
+          RawValue: 40062
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 46
-      Position:
+        RawValue: 6554
+    - FrameNum: 46
+      BasePosition:
         X:
-          RawValue: -64571
+          RawValue: -41852
         Y:
-          RawValue: 76905
+          RawValue: 66151
         Z:
-          RawValue: 31299
-      RotationEuler:
+          RawValue: 14774
+      EndPosition:
         X:
-          RawValue: 528754
+          RawValue: -89517
         Y:
-          RawValue: 14361676
+          RawValue: 88714
         Z:
-          RawValue: 19081964
-      Height:
-        RawValue: 0
+          RawValue: 49444
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 47
-      Position:
+        RawValue: 6554
+    - FrameNum: 47
+      BasePosition:
         X:
-          RawValue: -62417
+          RawValue: -41748
         Y:
-          RawValue: 75461
+          RawValue: 62802
         Z:
-          RawValue: 39378
-      RotationEuler:
+          RawValue: 21563
+      EndPosition:
         X:
-          RawValue: 1045247
+          RawValue: -85113
         Y:
-          RawValue: 14966927
+          RawValue: 89360
         Z:
-          RawValue: 19395710
-      Height:
-        RawValue: 0
+          RawValue: 58940
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 48
-      Position:
+        RawValue: 6554
+    - FrameNum: 48
+      BasePosition:
         X:
-          RawValue: -58633
+          RawValue: -39654
         Y:
-          RawValue: 73020
+          RawValue: 58935
         Z:
-          RawValue: 47368
-      RotationEuler:
+          RawValue: 28760
+      EndPosition:
         X:
-          RawValue: 1620797
+          RawValue: -79473
         Y:
-          RawValue: 15634442
+          RawValue: 88486
         Z:
-          RawValue: 19728470
-      Height:
-        RawValue: 0
+          RawValue: 67801
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 49
-      Position:
+        RawValue: 6554
+    - FrameNum: 49
+      BasePosition:
         X:
-          RawValue: -53504
+          RawValue: -35421
         Y:
-          RawValue: 69997
+          RawValue: 55043
         Z:
-          RawValue: 54685
-      RotationEuler:
+          RawValue: 35864
+      EndPosition:
         X:
-          RawValue: 2277315
+          RawValue: -73360
         Y:
-          RawValue: 16355466
+          RawValue: 86418
         Z:
-          RawValue: 20134746
-      Height:
-        RawValue: 0
+          RawValue: 75351
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 50
-      Position:
+        RawValue: 6554
+    - FrameNum: 50
+      BasePosition:
         X:
-          RawValue: -46983
+          RawValue: -29000
         Y:
-          RawValue: 66272
+          RawValue: 51358
         Z:
-          RawValue: 61127
-      RotationEuler:
+          RawValue: 42179
+      EndPosition:
         X:
-          RawValue: 2988487
+          RawValue: -66729
         Y:
-          RawValue: 17180936
+          RawValue: 82648
         Z:
-          RawValue: 20651954
-      Height:
-        RawValue: 0
+          RawValue: 81934
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 51
-      Position:
+        RawValue: 6554
+    - FrameNum: 51
+      BasePosition:
         X:
-          RawValue: -39440
+          RawValue: -21108
         Y:
-          RawValue: 62036
+          RawValue: 48233
         Z:
-          RawValue: 66381
-      RotationEuler:
+          RawValue: 46932
+      EndPosition:
         X:
-          RawValue: 3707815
+          RawValue: -59570
         Y:
-          RawValue: 18231052
+          RawValue: 77192
         Z:
-          RawValue: 21391700
-      Height:
-        RawValue: 0
+          RawValue: 87737
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 52
-      Position:
+        RawValue: 6554
+    - FrameNum: 52
+      BasePosition:
         X:
-          RawValue: -30579
+          RawValue: -11999
         Y:
-          RawValue: 57551
+          RawValue: 45823
         Z:
-          RawValue: 70284
-      RotationEuler:
+          RawValue: 49739
+      EndPosition:
         X:
-          RawValue: 4341807
+          RawValue: -50980
         Y:
-          RawValue: 19797724
+          RawValue: 70429
         Z:
-          RawValue: 22642124
-      Height:
-        RawValue: 0
+          RawValue: 92844
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 53
-      Position:
+        RawValue: 6554
+    - FrameNum: 53
+      BasePosition:
         X:
-          RawValue: -20674
+          RawValue: -2453
         Y:
-          RawValue: 53464
+          RawValue: 44383
         Z:
-          RawValue: 72565
-      RotationEuler:
+          RawValue: 50420
+      EndPosition:
         X:
-          RawValue: 4680751
+          RawValue: -40681
         Y:
-          RawValue: 22291124
+          RawValue: 63436
         Z:
-          RawValue: 1221231
-      Height:
-        RawValue: 0
+          RawValue: 96882
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 54
-      Position:
+        RawValue: 6554
+    - FrameNum: 54
+      BasePosition:
         X:
-          RawValue: -10299
+          RawValue: 6741
         Y:
-          RawValue: 50432
+          RawValue: 44013
         Z:
-          RawValue: 73103
-      RotationEuler:
+          RawValue: 49160
+      EndPosition:
         X:
-          RawValue: 4515320
+          RawValue: -29011
         Y:
-          RawValue: 1316316
+          RawValue: 57481
         Z:
-          RawValue: 3515906
-      Height:
-        RawValue: 0
+          RawValue: 99394
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 55
-      Position:
+        RawValue: 6554
+    - FrameNum: 55
+      BasePosition:
         X:
-          RawValue: -322
+          RawValue: 14901
         Y:
-          RawValue: 48998
+          RawValue: 44653
         Z:
-          RawValue: 72033
-      RotationEuler:
+          RawValue: 46455
+      EndPosition:
         X:
-          RawValue: 4035933
+          RawValue: -17039
         Y:
-          RawValue: 2856494
+          RawValue: 53769
         Z:
-          RawValue: 4740265
-      Height:
-        RawValue: 0
+          RawValue: 100118
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 56
-      Position:
+        RawValue: 6554
+    - FrameNum: 56
+      BasePosition:
         X:
-          RawValue: 8937
+          RawValue: 22007
         Y:
-          RawValue: 48817
+          RawValue: 45839
         Z:
-          RawValue: 70319
-      RotationEuler:
+          RawValue: 43390
+      EndPosition:
         X:
-          RawValue: 3452428
+          RawValue: -5415
         Y:
-          RawValue: 3710005
+          RawValue: 52087
         Z:
-          RawValue: 5282309
-      Height:
-        RawValue: 0
+          RawValue: 99887
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 57
-      Position:
+        RawValue: 6554
+    - FrameNum: 57
+      BasePosition:
         X:
-          RawValue: 17646
+          RawValue: 28526
         Y:
-          RawValue: 49931
+          RawValue: 47931
         Z:
-          RawValue: 67153
-      RotationEuler:
+          RawValue: 39179
+      EndPosition:
         X:
-          RawValue: 2813964
+          RawValue: 5700
         Y:
-          RawValue: 4272504
+          RawValue: 52127
         Z:
-          RawValue: 5556729
-      Height:
-        RawValue: 0
+          RawValue: 97868
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 58
-      Position:
+        RawValue: 6554
+    - FrameNum: 58
+      BasePosition:
         X:
-          RawValue: 25098
+          RawValue: 34026
         Y:
-          RawValue: 52236
+          RawValue: 50952
         Z:
-          RawValue: 62676
-      RotationEuler:
+          RawValue: 33979
+      EndPosition:
         X:
-          RawValue: 2159671
+          RawValue: 15294
         Y:
-          RawValue: 4661614
+          RawValue: 53646
         Z:
-          RawValue: 5707146
-      Height:
-        RawValue: 0
+          RawValue: 94186
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 59
-      Position:
+        RawValue: 6554
+    - FrameNum: 59
+      BasePosition:
         X:
-          RawValue: 30686
+          RawValue: 38100
         Y:
-          RawValue: 55411
+          RawValue: 54756
         Z:
-          RawValue: 57246
-      RotationEuler:
+          RawValue: 28101
+      EndPosition:
         X:
-          RawValue: 1521176
+          RawValue: 22545
         Y:
-          RawValue: 4927851
+          RawValue: 56129
         Z:
-          RawValue: 5809364
-      Height:
-        RawValue: 0
+          RawValue: 89249
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 60
-      Position:
+        RawValue: 6554
+    - FrameNum: 60
+      BasePosition:
         X:
-          RawValue: 34091
+          RawValue: 38100
         Y:
-          RawValue: 59018
+          RawValue: 54756
         Z:
-          RawValue: 51304
-      RotationEuler:
+          RawValue: 28101
+      EndPosition:
         X:
-          RawValue: 925005
+          RawValue: 22545
         Y:
-          RawValue: 5095007
+          RawValue: 56129
         Z:
-          RawValue: 5906111
-      Height:
-        RawValue: 0
+          RawValue: 89249
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 61
-      Position:
+        RawValue: 6554
+    - FrameNum: 61
+      BasePosition:
         X:
-          RawValue: 35335
+          RawValue: 40264
         Y:
-          RawValue: 62616
+          RawValue: 61095
         Z:
-          RawValue: 45332
-      RotationEuler:
+          RawValue: 20866
+      EndPosition:
         X:
-          RawValue: 394991
+          RawValue: 25489
         Y:
-          RawValue: 5176022
+          RawValue: 60739
         Z:
-          RawValue: 6020129
-      Height:
-        RawValue: 0
+          RawValue: 82223
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 62
-      Position:
+        RawValue: 6554
+    - FrameNum: 62
+      BasePosition:
         X:
-          RawValue: 34702
+          RawValue: 39997
         Y:
-          RawValue: 65858
+          RawValue: 66870
         Z:
-          RawValue: 39772
-      RotationEuler:
+          RawValue: 14961
+      EndPosition:
         X:
-          RawValue: 23543882
+          RawValue: 24750
         Y:
-          RawValue: 5182426
+          RawValue: 64525
         Z:
-          RawValue: 6159059
-      Height:
-        RawValue: 0
+          RawValue: 76157
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 63
-      Position:
+        RawValue: 6554
+    - FrameNum: 63
+      BasePosition:
         X:
-          RawValue: 32632
+          RawValue: 38420
         Y:
-          RawValue: 68573
+          RawValue: 72569
         Z:
-          RawValue: 34884
-      RotationEuler:
+          RawValue: 10806
+      EndPosition:
         X:
-          RawValue: 23194724
+          RawValue: 21444
         Y:
-          RawValue: 5129187
+          RawValue: 69338
         Z:
-          RawValue: 6318842
-      Height:
-        RawValue: 0
+          RawValue: 71505
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 64
-      Position:
+        RawValue: 6554
+    - FrameNum: 64
+      BasePosition:
         X:
-          RawValue: 29637
+          RawValue: 36308
         Y:
-          RawValue: 70699
+          RawValue: 77470
         Z:
-          RawValue: 30815
-      RotationEuler:
+          RawValue: 8039
+      EndPosition:
         X:
-          RawValue: 22939468
+          RawValue: 16885
         Y:
-          RawValue: 5035773
+          RawValue: 74141
         Z:
-          RawValue: 6487713
-      Height:
-        RawValue: 0
+          RawValue: 67994
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 65
-      Position:
+        RawValue: 6554
+    - FrameNum: 65
+      BasePosition:
         X:
-          RawValue: 26199
+          RawValue: 34027
         Y:
-          RawValue: 72269
+          RawValue: 81429
         Z:
-          RawValue: 27619
-      RotationEuler:
+          RawValue: 6189
+      EndPosition:
         X:
-          RawValue: 22764400
+          RawValue: 11945
         Y:
-          RawValue: 4919880
+          RawValue: 78544
         Z:
-          RawValue: 6652169
-      Height:
-        RawValue: 0
+          RawValue: 65240
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 66
-      Position:
+        RawValue: 6554
+    - FrameNum: 66
+      BasePosition:
         X:
-          RawValue: 22743
+          RawValue: 32084
         Y:
-          RawValue: 73307
+          RawValue: 84301
         Z:
-          RawValue: 25264
-      RotationEuler:
+          RawValue: 4894
+      EndPosition:
         X:
-          RawValue: 22649422
+          RawValue: 7755
         Y:
-          RawValue: 4797110
+          RawValue: 81728
         Z:
-          RawValue: 6804153
-      Height:
-        RawValue: 0
+          RawValue: 63071
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 67
-      Position:
+        RawValue: 6554
+    - FrameNum: 67
+      BasePosition:
         X:
-          RawValue: 19656
+          RawValue: 30647
         Y:
-          RawValue: 73827
+          RawValue: 86004
         Z:
-          RawValue: 23676
-      RotationEuler:
+          RawValue: 4405
+      EndPosition:
         X:
-          RawValue: 22571526
+          RawValue: 4600
         Y:
-          RawValue: 4675339
+          RawValue: 83193
         Z:
-          RawValue: 6944884
-      Height:
-        RawValue: 0
+          RawValue: 61822
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 68
-      Position:
+        RawValue: 6554
+    - FrameNum: 68
+      BasePosition:
         X:
-          RawValue: 17304
+          RawValue: 28937
         Y:
-          RawValue: 74128
+          RawValue: 86785
         Z:
-          RawValue: 22937
-      RotationEuler:
+          RawValue: 5149
+      EndPosition:
         X:
-          RawValue: 22491532
+          RawValue: 4483
         Y:
-          RawValue: 4563076
+          RawValue: 82508
         Z:
-          RawValue: 7042622
-      Height:
-        RawValue: 0
+          RawValue: 63172
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 69
-      Position:
+        RawValue: 6554
+    - FrameNum: 69
+      BasePosition:
         X:
-          RawValue: 17304
+          RawValue: 27661
         Y:
-          RawValue: 74128
+          RawValue: 87216
         Z:
-          RawValue: 22937
-      RotationEuler:
+          RawValue: 6201
+      EndPosition:
         X:
-          RawValue: 22491532
+          RawValue: 4638
         Y:
-          RawValue: 4563076
+          RawValue: 81477
         Z:
-          RawValue: 7042622
-      Height:
-        RawValue: 0
+          RawValue: 64682
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 70
-      Position:
+        RawValue: 6554
+    - FrameNum: 70
+      BasePosition:
         X:
-          RawValue: 15939
+          RawValue: 26160
         Y:
-          RawValue: 74167
+          RawValue: 87235
         Z:
-          RawValue: 23735
-      RotationEuler:
+          RawValue: 7863
+      EndPosition:
         X:
-          RawValue: 22451188
+          RawValue: 6444
         Y:
-          RawValue: 4451536
+          RawValue: 79118
         Z:
-          RawValue: 7030695
-      Height:
-        RawValue: 0
+          RawValue: 67263
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 71
-      Position:
+        RawValue: 6554
+    - FrameNum: 71
+      BasePosition:
         X:
-          RawValue: 15134
+          RawValue: 25334
         Y:
-          RawValue: 74105
+          RawValue: 87338
         Z:
-          RawValue: 25023
-      RotationEuler:
+          RawValue: 9717
+      EndPosition:
         X:
-          RawValue: 22422232
+          RawValue: 2586
         Y:
-          RawValue: 4361270
+          RawValue: 78349
         Z:
-          RawValue: 6977274
-      Height:
-        RawValue: 0
+          RawValue: 67896
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 72
-      Position:
+        RawValue: 6554
+    - FrameNum: 72
+      BasePosition:
         X:
-          RawValue: 14739
+          RawValue: 24400
         Y:
-          RawValue: 74076
+          RawValue: 87505
         Z:
-          RawValue: 26625
-      RotationEuler:
+          RawValue: 12025
+      EndPosition:
         X:
-          RawValue: 22401502
+          RawValue: -2780
         Y:
-          RawValue: 4304117
+          RawValue: 77007
         Z:
-          RawValue: 6884792
-      Height:
-        RawValue: 0
+          RawValue: 68008
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 73
-      Position:
+        RawValue: 6554
+    - FrameNum: 73
+      BasePosition:
         X:
-          RawValue: 14547
+          RawValue: 22107
         Y:
-          RawValue: 74020
+          RawValue: 87566
         Z:
-          RawValue: 28393
-      RotationEuler:
+          RawValue: 15177
+      EndPosition:
         X:
-          RawValue: 22411438
+          RawValue: -11840
         Y:
-          RawValue: 4270161
+          RawValue: 75654
         Z:
-          RawValue: 6774869
-      Height:
-        RawValue: 0
+          RawValue: 67030
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 74
-      Position:
+        RawValue: 6554
+    - FrameNum: 74
+      BasePosition:
         X:
-          RawValue: 14409
+          RawValue: 14279
         Y:
-          RawValue: 73871
+          RawValue: 87480
         Z:
-          RawValue: 30156
-      RotationEuler:
+          RawValue: 20500
+      EndPosition:
         X:
-          RawValue: 22464750
+          RawValue: -33992
         Y:
-          RawValue: 4249114
+          RawValue: 73670
         Z:
-          RawValue: 6666879
-      Height:
-        RawValue: 0
+          RawValue: 58739
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 75
-      Position:
+        RawValue: 6554
+    - FrameNum: 14
+      BasePosition:
         X:
-          RawValue: 14225
+          RawValue: 63524
         Y:
-          RawValue: 73541
+          RawValue: 84687
         Z:
-          RawValue: 31760
-      RotationEuler:
+          RawValue: -45469
+      EndPosition:
         X:
-          RawValue: 22568570
+          RawValue: 87162
         Y:
-          RawValue: 4230173
+          RawValue: 63677
         Z:
-          RawValue: 6580186
-      Height:
-        RawValue: 0
+          RawValue: 27936
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 76
-      Position:
+        RawValue: 6554
+    - FrameNum: 15
+      BasePosition:
         X:
-          RawValue: 13943
+          RawValue: 25669
         Y:
-          RawValue: 72935
+          RawValue: 66888
         Z:
-          RawValue: 33060
-      RotationEuler:
+          RawValue: 41766
+      EndPosition:
         X:
-          RawValue: 22724046
+          RawValue: 12717
         Y:
-          RawValue: 4206291
+          RawValue: 51287
         Z:
-          RawValue: 6531827
-      Height:
-        RawValue: 0
+          RawValue: 101454
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 77
-      Position:
+        RawValue: 6554
+    - FrameNum: 15
+      BasePosition:
         X:
-          RawValue: 13663
+          RawValue: 87162
         Y:
-          RawValue: 72056
+          RawValue: 63677
         Z:
-          RawValue: 34076
-      RotationEuler:
+          RawValue: 27936
+      EndPosition:
         X:
-          RawValue: 22922650
+          RawValue: 12717
         Y:
-          RawValue: 4187552
+          RawValue: 51287
         Z:
-          RawValue: 6519837
-      Height:
-        RawValue: 0
+          RawValue: 101454
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 78
-      Position:
+        RawValue: 6554
+    - FrameNum: 16
+      BasePosition:
         X:
-          RawValue: 13460
+          RawValue: 12717
         Y:
-          RawValue: 70960
+          RawValue: 51287
         Z:
-          RawValue: 34894
-      RotationEuler:
+          RawValue: 101454
+      EndPosition:
         X:
-          RawValue: 23142488
+          RawValue: -75087
         Y:
-          RawValue: 4182829
+          RawValue: 53260
         Z:
-          RawValue: 6533673
-      Height:
-        RawValue: 0
+          RawValue: 68225
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 79
-      Position:
+        RawValue: 6554
+    - FrameNum: 17
+      BasePosition:
         X:
-          RawValue: 13305
+          RawValue: -75087
         Y:
-          RawValue: 69726
+          RawValue: 53260
         Z:
-          RawValue: 35481
-      RotationEuler:
+          RawValue: 68225
+      EndPosition:
         X:
-          RawValue: 23364292
+          RawValue: -91632
         Y:
-          RawValue: 4188865
+          RawValue: 72466
         Z:
-          RawValue: 6569730
-      Height:
-        RawValue: 0
+          RawValue: 13492
+      Length:
+        RawValue: -65536
       Radius:
-        RawValue: 0
-    - frameNum: 80
-      Position:
-        X:
-          RawValue: 13187
-        Y:
-          RawValue: 68464
-        Z:
-          RawValue: 35831
-      RotationEuler:
-        X:
-          RawValue: 23571832
-        Y:
-          RawValue: 4202722
-        Z:
-          RawValue: 6621238
-      Height:
-        RawValue: 0
-      Radius:
-        RawValue: 0
-    - frameNum: 81
-      Position:
-        X:
-          RawValue: 13115
-        Y:
-          RawValue: 67277
-        Z:
-          RawValue: 35963
-      RotationEuler:
-        X:
-          RawValue: 161280
-        Y:
-          RawValue: 4221484
-        Z:
-          RawValue: 6679829
-      Height:
-        RawValue: 0
-      Radius:
-        RawValue: 0
-    - frameNum: 82
-      Position:
-        X:
-          RawValue: 13104
-        Y:
-          RawValue: 66258
-        Z:
-          RawValue: 35921
-      RotationEuler:
-        X:
-          RawValue: 311485
-        Y:
-          RawValue: 4241844
-        Z:
-          RawValue: 6736775
-      Height:
-        RawValue: 0
-      Radius:
-        RawValue: 0
-    - frameNum: 83
-      Position:
-        X:
-          RawValue: 13172
-        Y:
-          RawValue: 65472
-        Z:
-          RawValue: 35754
-      RotationEuler:
-        X:
-          RawValue: 426687
-        Y:
-          RawValue: 4260486
-        Z:
-          RawValue: 6784732
-      Height:
-        RawValue: 0
-      Radius:
-        RawValue: 0
-    - frameNum: 84
-      Position:
-        X:
-          RawValue: 13327
-        Y:
-          RawValue: 64946
-        Z:
-          RawValue: 35507
-      RotationEuler:
-        X:
-          RawValue: 507339
-        Y:
-          RawValue: 4274559
-        Z:
-          RawValue: 6818740
-      Height:
-        RawValue: 0
-      Radius:
-        RawValue: 0
-    - frameNum: 85
-      Position:
-        X:
-          RawValue: 13659
-        Y:
-          RawValue: 64893
-        Z:
-          RawValue: 35173
-      RotationEuler:
-        X:
-          RawValue: 530250
-        Y:
-          RawValue: 4273862
-        Z:
-          RawValue: 6821875
-      Height:
-        RawValue: 0
-      Radius:
-        RawValue: 0
-    - frameNum: 86
-      Position:
-        X:
-          RawValue: 13997
-        Y:
-          RawValue: 64869
-        Z:
-          RawValue: 34831
-      RotationEuler:
-        X:
-          RawValue: 552096
-        Y:
-          RawValue: 4272483
-        Z:
-          RawValue: 6823549
-      Height:
-        RawValue: 0
-      Radius:
-        RawValue: 0
-    - frameNum: 87
-      Position:
-        X:
-          RawValue: 14331
-        Y:
-          RawValue: 64851
-        Z:
-          RawValue: 34487
-      RotationEuler:
-        X:
-          RawValue: 575588
-        Y:
-          RawValue: 4271137
-        Z:
-          RawValue: 6825224
-      Height:
-        RawValue: 0
-      Radius:
-        RawValue: 0
-    - frameNum: 14
-      Position:
-        X:
-          RawValue: 41872
-        Y:
-          RawValue: 65357
-        Z:
-          RawValue: 45875
-      RotationEuler:
-        X:
-          RawValue: 347530
-        Y:
-          RawValue: 3762058
-        Z:
-          RawValue: 18813462
-      Height:
-        RawValue: 0
-      Radius:
-        RawValue: 0
+        RawValue: 6554
     AttackVals:
       attackName: 6
       direction: {x: -1, y: 0}

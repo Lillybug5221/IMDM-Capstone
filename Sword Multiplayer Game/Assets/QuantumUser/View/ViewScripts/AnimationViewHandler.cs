@@ -6,7 +6,8 @@ using Photon.Deterministic;
 
 public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext>
 {
-    private Transform swordPosition;
+    private Transform swordBase;
+    private Transform swordEnd;
     private Animator anim;
     [SerializeField]
     private ParticleSystem attackParticleSys;
@@ -19,7 +20,8 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
     public override void OnInitialize(){
         anim = GetComponentInChildren<Animator>();
         if(HitboxJSONBuilder.Instance.CreateJSON){
-            swordPosition = FindInChildrenByName(transform, "Sword_Center");
+            swordBase = FindInChildrenByName(transform, "Sword_Base");
+            swordEnd = FindInChildrenByName(transform, "Sword_End");
         }
         
     }
@@ -35,10 +37,9 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
                 int temp = PredictedFrame.Number - startFrame;
                 if(temp != currFrame){
                     currFrame ++;
-                    Vector3 relativePos = transform.InverseTransformPoint(swordPosition.position);
-                    Quaternion relativeRot = Quaternion.Inverse(transform.rotation) * swordPosition.rotation;
-                    Debug.Log(HitboxJSONBuilder.Instance.TestingAnimationName + " playing, Frame: " +  currFrame + ":"+ (relativePos) +":" + relativeRot);
-                    HitboxJSONBuilder.Instance.AddToLists(relativePos, relativeRot.eulerAngles, currFrame);
+                    Vector3 relativeBasePos = transform.InverseTransformPoint(swordBase.position);
+                    Vector3 relativeEndPos = transform.InverseTransformPoint(swordEnd.position);
+                    HitboxJSONBuilder.Instance.AddToLists(relativeBasePos, relativeEndPos, currFrame);
 
                 }
             }else{

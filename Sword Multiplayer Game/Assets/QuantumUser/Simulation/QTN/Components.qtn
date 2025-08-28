@@ -12,8 +12,8 @@ component MeleeHitbox
     FP Radius;         // How big the hitbox is
     FP Height;
     FPVector2 HitDirection;
-    FPVector3 Center;
-    FPQuaternion Rotation;
+    FPVector3 BasePoint;
+    FPVector3 EndPoint;
     ushort Lifetime;       // Seconds until removal
     int SpawnFrame;      // When it was spawned
     ushort Damage;        // Damage to deal

@@ -29,11 +29,13 @@ namespace Quantum.Editor {
             var newAttackData = new QAttackData();
             newAttackData.AttackVals = wrapper.attackData;
             newAttackData.Hitboxes = new List<QHitboxData>();
-            for (int i = 0; i < wrapper.positions.Count; i++) {
+            for (int i = 0; i < wrapper.basePositions.Count; i++) {
                 var temp = new QHitboxData();
-                temp.frameNum = (ushort)wrapper.frames[i];
-                temp.Position = new FPVector3(FP.FromFloat_UNSAFE(wrapper.positions[i].x), FP.FromFloat_UNSAFE(wrapper.positions[i].y), FP.FromFloat_UNSAFE(wrapper.positions[i].z));
-                temp.RotationEuler = new FPVector3(FP.FromFloat_UNSAFE(wrapper.rotations[i].x), FP.FromFloat_UNSAFE(wrapper.rotations[i].y), FP.FromFloat_UNSAFE(wrapper.rotations[i].z));
+                temp.FrameNum = (ushort)wrapper.frames[i];
+                temp.Radius = wrapper.radii[i];
+                temp.Length = wrapper.lengths[i];
+                temp.BasePosition = new FPVector3(FP.FromFloat_UNSAFE(wrapper.basePositions[i].x), FP.FromFloat_UNSAFE(wrapper.basePositions[i].y), FP.FromFloat_UNSAFE(wrapper.basePositions[i].z));
+                temp.EndPosition = new FPVector3(FP.FromFloat_UNSAFE(wrapper.endPositions[i].x), FP.FromFloat_UNSAFE(wrapper.endPositions[i].y), FP.FromFloat_UNSAFE(wrapper.endPositions[i].z));
                 newAttackData.Hitboxes.Add(temp);
             }
             config.AttackHitboxData.Add(newAttackData);

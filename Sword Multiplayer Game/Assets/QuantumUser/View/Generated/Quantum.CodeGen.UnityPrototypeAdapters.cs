@@ -145,9 +145,8 @@ namespace Quantum.Prototypes.Unity {
     public FP Radius;
     public FP Height;
     public FPVector2 HitDirection;
-    public FPVector3 Center;
-    [UnitAttribute(Units.Degrees)]
-    public FPVector3 Rotation;
+    public FPVector3 BasePoint;
+    public FPVector3 EndPoint;
     public UInt16 Lifetime;
     public Int32 SpawnFrame;
     public UInt16 Damage;
@@ -159,8 +158,8 @@ namespace Quantum.Prototypes.Unity {
       converter.Convert(this.Radius, out result.Radius);
       converter.Convert(this.Height, out result.Height);
       converter.Convert(this.HitDirection, out result.HitDirection);
-      converter.Convert(this.Center, out result.Center);
-      converter.Convert(this.Rotation, out result.Rotation);
+      converter.Convert(this.BasePoint, out result.BasePoint);
+      converter.Convert(this.EndPoint, out result.EndPoint);
       converter.Convert(this.Lifetime, out result.Lifetime);
       converter.Convert(this.SpawnFrame, out result.SpawnFrame);
       converter.Convert(this.Damage, out result.Damage);

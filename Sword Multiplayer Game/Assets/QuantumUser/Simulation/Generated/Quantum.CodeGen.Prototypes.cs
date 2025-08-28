@@ -674,9 +674,8 @@ namespace Quantum.Prototypes {
     public FP Radius;
     public FP Height;
     public FPVector2 HitDirection;
-    public FPVector3 Center;
-    [UnitAttribute(Units.Degrees)]
-    public FPVector3 Rotation;
+    public FPVector3 BasePoint;
+    public FPVector3 EndPoint;
     public UInt16 Lifetime;
     public Int32 SpawnFrame;
     public UInt16 Damage;
@@ -691,8 +690,8 @@ namespace Quantum.Prototypes {
         result.Radius = this.Radius;
         result.Height = this.Height;
         result.HitDirection = this.HitDirection;
-        result.Center = this.Center;
-        result.Rotation = FPQuaternion.Euler(this.Rotation);
+        result.BasePoint = this.BasePoint;
+        result.EndPoint = this.EndPoint;
         result.Lifetime = this.Lifetime;
         result.SpawnFrame = this.SpawnFrame;
         result.Damage = this.Damage;

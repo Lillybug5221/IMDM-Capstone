@@ -90,20 +90,22 @@ namespace Quantum
                     //get a list of hitboxes that corrospond to this frame
                     List<QHitboxData> hitboxesToSpawn = new List<QHitboxData>();
                     for(int i = 0; i < AttackData.Hitboxes.Count; i++){
-                        if(AttackData.Hitboxes[i].frameNum == (ushort)frameNumber){
+                        if(AttackData.Hitboxes[i].FrameNum == (ushort)frameNumber){
                             hitboxesToSpawn.Add(AttackData.Hitboxes[i]);
                         }
                     }
                     Log.Debug(hitboxesToSpawn.Count + " hitboxes this frame");
                     foreach(QHitboxData hitboxData in hitboxesToSpawn){
                         var hitbox = frame.Create(hitboxPrototype);
+                        //compute base and end points
+                        //calculate direction towards end point from basePoint
                         frame.Add(hitbox, new MeleeHitbox{
                             Owner = filter.Entity,
-                            Radius = FP.FromFloat_UNSAFE(0.1f),         // half a meter
-                            Height = FP.FromFloat_UNSAFE(1.5f),
+                            Radius = hitboxData.Radius,         // half a meter
+                            Height = hitboxData.Length,
                             HitDirection = currAction->Direction,
-                            Center = hitboxData.Position,
-                            Rotation = FPQuaternion.Euler(hitboxData.RotationEuler),
+                            BasePoint = hitboxData.BasePosition,
+                            EndPoint = hitboxData.EndPosition,
                             Lifetime  = 0,   
                             SpawnFrame = frame.Number,
                             Damage = currAction->Damage,

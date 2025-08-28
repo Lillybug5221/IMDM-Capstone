@@ -1736,7 +1736,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct MeleeHitbox : Quantum.IComponent {
-    public const Int32 SIZE = 112;
+    public const Int32 SIZE = 104;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(16)]
     public EntityRef Owner;
@@ -1747,9 +1747,9 @@ namespace Quantum {
     [FieldOffset(40)]
     public FPVector2 HitDirection;
     [FieldOffset(56)]
-    public FPVector3 Center;
+    public FPVector3 BasePoint;
     [FieldOffset(80)]
-    public FPQuaternion Rotation;
+    public FPVector3 EndPoint;
     [FieldOffset(2)]
     public UInt16 Lifetime;
     [FieldOffset(4)]
@@ -1765,8 +1765,8 @@ namespace Quantum {
         hash = hash * 31 + Radius.GetHashCode();
         hash = hash * 31 + Height.GetHashCode();
         hash = hash * 31 + HitDirection.GetHashCode();
-        hash = hash * 31 + Center.GetHashCode();
-        hash = hash * 31 + Rotation.GetHashCode();
+        hash = hash * 31 + BasePoint.GetHashCode();
+        hash = hash * 31 + EndPoint.GetHashCode();
         hash = hash * 31 + Lifetime.GetHashCode();
         hash = hash * 31 + SpawnFrame.GetHashCode();
         hash = hash * 31 + Damage.GetHashCode();
@@ -1784,8 +1784,8 @@ namespace Quantum {
         FP.Serialize(&p->Height, serializer);
         FP.Serialize(&p->Radius, serializer);
         FPVector2.Serialize(&p->HitDirection, serializer);
-        FPVector3.Serialize(&p->Center, serializer);
-        FPQuaternion.Serialize(&p->Rotation, serializer);
+        FPVector3.Serialize(&p->BasePoint, serializer);
+        FPVector3.Serialize(&p->EndPoint, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
