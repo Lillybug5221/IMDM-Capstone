@@ -79,8 +79,25 @@ namespace Quantum
             if(bufferedAction.exists){
                 // Trigger the attack this frame
                 if(bufferedAction.input.LightAttack || bufferedAction.input.HeavyAttack){
+                    //this is kinda dumb but it works for now.
+                    AttackType attackType = AttackType.Light;
+                    if(bufferedAction.input.HeavyAttack){
+                        attackType = AttackType.Heavy;
+                    }
                     DefaultCurrAction(frame, currAction, transform -> Position, opponentPosition);
-                    QAttackData FoundAttack = attackData[0];//this is a magic number for now. Ill read the direcitonalinput when I implement more attacks.
+
+                    //find attack from direction
+                    Log.Debug(moveDirection);
+                    FPVector2 attackDir = moveDirection;                 
+                    QAttackData FoundAttack = attackData[0];
+                    FP minDistance = (FP) 10; 
+                    foreach(QAttackData attack in attackData){
+                        var foundDistance = (attack.AttackVals.direction - attackDir).Magnitude;
+                        if(foundDistance < minDistance && attack.AttackVals.attackType == attackType){
+                            minDistance = foundDistance;
+                            FoundAttack = attack;
+                        }
+                    }
                     currAction -> ActionType = (byte)ActionType.Attack;
                     currAction -> AttackIndex = (byte)(FoundAttack.AttackVals.attackName); 
                     currAction -> StartUpFrames = (ushort)FoundAttack.AttackVals.startupFrames;
@@ -90,7 +107,8 @@ namespace Quantum
                     currAction -> ActionPhase = (byte)1;
                     currAction -> Damage = (ushort)FoundAttack.AttackVals.damage;
                     //trigger attack anim
-                    AnimatorComponent.SetTrigger(frame, filter.Animator, "Light_L");
+                    AnimatorComponent.SetTrigger(frame, filter.Animator, FoundAttack.AttackVals.attackName.ToString());
+                    //AnimatorComponent.SetTrigger(frame, filter.Animator, "Heavy_R");
                 }if(bufferedAction.input.Parry){
                     DefaultCurrAction(frame, currAction, transform -> Position, opponentPosition);
                     currAction -> ActionType = (byte)ActionType.Parry;

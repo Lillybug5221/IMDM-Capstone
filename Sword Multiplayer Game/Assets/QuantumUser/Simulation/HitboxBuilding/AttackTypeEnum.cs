@@ -43,7 +43,7 @@ public enum ActionType{
 [Serializable]
 public struct Attack{
     public AttackName attackName;
-    public Vector2 direction;
+    public FPVector2 direction;
     public AttackType attackType;
     public int startupFrames;
     public int activeFrames;
