@@ -52,6 +52,7 @@ namespace Quantum {
         controls.Gameplay.Parry.started += ctx => parry = true;
         controls.Gameplay.Parry.canceled += ctx => parry = false;
 
+        //special
         controls.Gameplay.Special.started += ctx => special = true;
         controls.Gameplay.Special.canceled += ctx => special = false;
         
@@ -69,10 +70,6 @@ namespace Quantum {
     /// </summary>
     /// <param name="callback"></param>
     public void PollInput(CallbackPollInput callback) {
-
-      //find gamepad
-      Gamepad gamepad = Gamepad.current;
-      if(gamepad == null){return;}//no gamepad found
       
       Quantum.Input i = new Quantum.Input();
       i.LeftStickDirection = new FPVector2(moveInput.x.ToFP(),moveInput.y.ToFP());

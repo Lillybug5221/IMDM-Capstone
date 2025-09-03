@@ -70,145 +70,176 @@ namespace Quantum
             }
             #endregion
 
+            //this should be refactored with something closer to scriptable objects.
             #region Start Up
-            if(currAction -> ActionPhase == 1){
-                currAction -> StartUpFrames--;
-                if(currAction -> StartUpFrames <= 0){
-                    currAction -> ActionPhase++;
+            if (currAction->ActionPhase == 1)
+            {
+                currAction->StartUpFrames--;
+                if (currAction->StartUpFrames <= 0)
+                {
+                    currAction->ActionPhase++;
                 }
-            #endregion
-            #region Active
-            }else if(currAction -> ActionPhase == 2){
-                if(currentActionType == ActionType.Attack){
-                     // activate hitboxes
+                #endregion
+                #region Active
+            }
+            else if (currAction->ActionPhase == 2)
+            {
+                if (currentActionType == ActionType.Attack)
+                {
+                    // activate hitboxes
                     int AttackDataIndex = GetAttackDataFromEnum((AttackName)currAction->AttackIndex, attacksData);
                     QAttackData AttackData = attacksData[AttackDataIndex];
-                    
+
                     AssetRef<EntityPrototype> hitboxPrototype = frame.FindAsset(frame.SimulationConfig.HitboxPrototype);
-                    
+
                     //get a list of hitboxes that corrospond to this frame
                     List<QHitboxData> hitboxesToSpawn = new List<QHitboxData>();
-                    for(int i = 0; i < AttackData.Hitboxes.Count; i++){
-                        if(AttackData.Hitboxes[i].FrameNum == (ushort)frameNumber){
+                    for (int i = 0; i < AttackData.Hitboxes.Count; i++)
+                    {
+                        if (AttackData.Hitboxes[i].FrameNum == (ushort)frameNumber)
+                        {
                             hitboxesToSpawn.Add(AttackData.Hitboxes[i]);
                         }
                     }
                     Log.Debug(hitboxesToSpawn.Count + " hitboxes this frame");
-                    foreach(QHitboxData hitboxData in hitboxesToSpawn){
+                    foreach (QHitboxData hitboxData in hitboxesToSpawn)
+                    {
                         var hitbox = frame.Create(hitboxPrototype);
                         //compute base and end points
                         //calculate direction towards end point from basePoint
-                        frame.Add(hitbox, new MeleeHitbox{
+                        frame.Add(hitbox, new MeleeHitbox
+                        {
                             Owner = filter.Entity,
                             Radius = hitboxData.Radius,         // half a meter
                             Height = hitboxData.Length,
                             HitDirection = currAction->Direction,
                             BasePoint = hitboxData.BasePosition,
                             EndPoint = hitboxData.EndPosition,
-                            Lifetime  = 0,   
+                            Lifetime = 0,
                             SpawnFrame = frame.Number,
                             Damage = currAction->Damage,
                             DamageApplied = false
                         });
-                        
-                    }
-                        
-                        
 
-                    
-                }else if(currentActionType == ActionType.Parry){
+                    }
+
+
+
+
+                }
+                else if (currentActionType == ActionType.Parry)
+                {
                     var parry = new ParryComponent()
                     {
                         HeavyParry = false,
-                        Direction = new FPVector2(0,0)
+                        Direction = new FPVector2(0, 0)
                     };
                     frame.Add(filter.Entity, parry);
-                    
+
                 }
 
-                currAction -> ActiveFrames--;
-                if(currAction -> ActiveFrames <= 0){
-                    currAction -> ActionPhase++;
+                currAction->ActiveFrames--;
+                if (currAction->ActiveFrames <= 0)
+                {
+                    currAction->ActionPhase++;
 
                     //if parrying, start end animation
-                    if(currentActionType == ActionType.Parry){
+                    if (currentActionType == ActionType.Parry)
+                    {
                         AnimatorComponent.SetTrigger(frame, filter.Animator, "Parry_Endlag");
                         if (frame.TryGet<ParryComponent>(filter.Entity, out var parryComponent))
                         {
                             frame.Remove<ParryComponent>(filter.Entity);
-                        }else{
+                        }
+                        else
+                        {
                             Log.Error("Parry Component Unexpectedly Disappeared");
                         }
                     }
                 }
-            #endregion
-            #region EndLag
-            }else if(currAction -> ActionPhase == 3){
-                if(currentActionType == ActionType.Dodge){
+                #endregion
+                #region EndLag
+            }
+            else if (currAction->ActionPhase == 3)
+            {
+                if (currentActionType == ActionType.Dodge)
+                {
                     //directly transform the position along the inputed direction. check for collisions before applying each frame.
                     //for each frame, grab the action completeness precent and pass that through an animation curve to get the completed distance precentage and set the player position between a 
                     //roll start positon and end position at that lerp value. always draw a line between the start position and the target position, if there is a collision with something, stop there.
-                                        
-                    //Setup endpos on startup
-                    if(frameNumber == 0){
 
-                        FPVector2 dashDirection2D = (currAction -> Direction).Normalized;
-                        FP dashMagnitude = (currAction -> Direction).Magnitude;
-                        FPVector3 dashDirectionWorld = new FPVector3(dashDirection2D.X,0,dashDirection2D.Y);
+                    //Setup endpos on startup
+                    if (frameNumber == 0)
+                    {
+
+                        FPVector2 dashDirection2D = (currAction->Direction).Normalized;
+                        FP dashMagnitude = (currAction->Direction).Magnitude;
+                        FPVector3 dashDirectionWorld = new FPVector3(dashDirection2D.X, 0, dashDirection2D.Y);
 
                         //maybe pass a player start position into the action instead of using the current position
-                        FPVector3 dirToTarget = (new FPVector3((FP)currAction -> EnemyPosition.X, (FP)currAction->PlayerPosition.Y, (FP)currAction->EnemyPosition.Z) - currAction -> PlayerPosition).Normalized;
+                        FPVector3 dirToTarget = (new FPVector3((FP)currAction->EnemyPosition.X, (FP)currAction->PlayerPosition.Y, (FP)currAction->EnemyPosition.Z) - currAction->PlayerPosition).Normalized;
                         FPQuaternion lookRot = FPQuaternion.LookRotation(dirToTarget, FPVector3.Up);
                         FPVector3 rotatedVector = lookRot * dashDirectionWorld;
                         //Log.Debug(dashDirectionWorld + "rotated is" + rotatedVector);
-                        FPVector3 endPosition = currAction -> PlayerPosition + (rotatedVector * dashMagnitude * frame.SimulationConfig.DashDistance);
-                        Hit3D? foundHit = frame.Physics3D.Linecast(currAction -> PlayerPosition, endPosition);
-                        currAction -> DashEndPos = endPosition;
-                        if (!foundHit.HasValue){
-                            currAction -> PrecentageOfDodgeCompletable = (FP)1;
-                        }else{
-                            FP TotalDistance = (endPosition - currAction -> PlayerPosition).Magnitude;
-                            FP CompletableDistance = (foundHit.Value.Point - currAction -> PlayerPosition).Magnitude;
-                            FP Ratio = (CompletableDistance/TotalDistance);
-                            //this is a hack to stop clipping when a dash is initated into a wall when they are already toucing.
-                            if(Ratio < FP.FromFloat_UNSAFE(0.2f)){Ratio = 0;}
-                            currAction -> PrecentageOfDodgeCompletable = Ratio;
-                            Log.Debug(currAction -> PrecentageOfDodgeCompletable);
+                        FPVector3 endPosition = currAction->PlayerPosition + (rotatedVector * dashMagnitude * frame.SimulationConfig.DashDistance);
+                        Hit3D? foundHit = frame.Physics3D.Linecast(currAction->PlayerPosition, endPosition);
+                        currAction->DashEndPos = endPosition;
+                        if (!foundHit.HasValue)
+                        {
+                            currAction->PrecentageOfDodgeCompletable = (FP)1;
                         }
-                        
+                        else
+                        {
+                            FP TotalDistance = (endPosition - currAction->PlayerPosition).Magnitude;
+                            FP CompletableDistance = (foundHit.Value.Point - currAction->PlayerPosition).Magnitude;
+                            FP Ratio = (CompletableDistance / TotalDistance);
+                            //this is a hack to stop clipping when a dash is initated into a wall when they are already toucing.
+                            if (Ratio < FP.FromFloat_UNSAFE(0.2f)) { Ratio = 0; }
+                            currAction->PrecentageOfDodgeCompletable = Ratio;
+                            Log.Debug(currAction->PrecentageOfDodgeCompletable);
+                        }
+
                     }
-                    
-                    FP t = (FP)frameNumber/(FP)(currAction -> EndLagFrames + frameNumber);
+
+                    FP t = (FP)frameNumber / (FP)(currAction->EndLagFrames + frameNumber);
                     SimCurve dashCurve = frame.SimulationConfig.DashSimCurve;
                     t = dashCurve.Evaluate(t);
-                    if(t <= currAction -> PrecentageOfDodgeCompletable){
-                        FPVector3 nextPosition = FPVector3.Lerp(currAction ->PlayerPosition, currAction -> DashEndPos, t);
-                        FPVector3 collisionTestDir = nextPosition - transform -> Position;
+                    if (t <= currAction->PrecentageOfDodgeCompletable)
+                    {
+                        FPVector3 nextPosition = FPVector3.Lerp(currAction->PlayerPosition, currAction->DashEndPos, t);
+                        FPVector3 collisionTestDir = nextPosition - transform->Position;
 
-                        
+
                         var hits = frame.Physics3D.ShapeCastAll(transform->Position, transform->Rotation, collider->Shape, collisionTestDir);
-                        if (hits.Count <= 0){
-                            transform -> Position = nextPosition; // safe
-                        } else {
+                        if (hits.Count <= 0)
+                        {
+                            transform->Position = nextPosition; // safe
+                        }
+                        else
+                        {
                             // hit a wall before nextPos, place at hit.Point instead
                             //playerTransform.Position = hit.Point;
                         }
                     }
-                    
+
                 }
 
-                currAction -> EndLagFrames--;
-                if(currAction -> EndLagFrames <= 0){
-                    currAction -> ActionPhase++;
+                currAction->EndLagFrames--;
+                if (currAction->EndLagFrames <= 0)
+                {
+                    currAction->ActionPhase++;
                     //Log.Debug("Action Cancelable");
                 }
-            #endregion
-            #region Cancelable
-            }else if(currAction -> ActionPhase == 4){
-                currAction -> CancelableFrames--;
-                if(currAction -> CancelableFrames <= 0){
+                #endregion
+                #region Cancelable
+            }
+            else if (currAction->ActionPhase == 4)
+            {
+                currAction->CancelableFrames--;
+                if (currAction->CancelableFrames <= 0)
+                {
                     //Log.Debug("Action Over");
-                    currAction -> ActionPhase++;
+                    currAction->ActionPhase++;
                 }
             }
             #endregion
