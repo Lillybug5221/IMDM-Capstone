@@ -444,7 +444,7 @@ MonoBehaviour:
   DashSimCurve: {fileID: 11400000, guid: 3d869b5861455e04791f0dcbc6badb2b, type: 2}
   DashDistance:
     RawValue: 196608
-  HitboxesRemain: 1
+  HitboxesRemain: 0
   AttackHitboxData:
   - Hitboxes:
     - FrameNum: 1
