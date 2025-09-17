@@ -266,20 +266,32 @@ namespace Quantum.Prototypes {
   public unsafe partial class InputPrototype : StructPrototype {
     public FPVector2 LeftStickDirection;
     public Button Jump;
+    public Button JumpHeld;
     public Button Dodge;
+    public Button DodgeHeld;
     public Button LightAttack;
+    public Button LightAttackHeld;
     public Button HeavyAttack;
+    public Button HeavyAttackHeld;
     public Button Parry;
+    public Button ParryHeld;
     public Button Special;
+    public Button SpecialHeld;
     partial void MaterializeUser(Frame frame, ref Quantum.Input result, in PrototypeMaterializationContext context);
     public void Materialize(Frame frame, ref Quantum.Input result, in PrototypeMaterializationContext context = default) {
         result.LeftStickDirection = this.LeftStickDirection;
         result.Jump = this.Jump;
+        result.JumpHeld = this.JumpHeld;
         result.Dodge = this.Dodge;
+        result.DodgeHeld = this.DodgeHeld;
         result.LightAttack = this.LightAttack;
+        result.LightAttackHeld = this.LightAttackHeld;
         result.HeavyAttack = this.HeavyAttack;
+        result.HeavyAttackHeld = this.HeavyAttackHeld;
         result.Parry = this.Parry;
+        result.ParryHeld = this.ParryHeld;
         result.Special = this.Special;
+        result.SpecialHeld = this.SpecialHeld;
         MaterializeUser(frame, ref result, in context);
     }
   }

@@ -76,11 +76,17 @@ namespace Quantum {
   [System.FlagsAttribute()]
   public enum InputButtons : int {
     Jump = 1 << 0,
-    Dodge = 1 << 1,
-    LightAttack = 1 << 2,
-    HeavyAttack = 1 << 3,
-    Parry = 1 << 4,
-    Special = 1 << 5,
+    JumpHeld = 1 << 1,
+    Dodge = 1 << 2,
+    DodgeHeld = 1 << 3,
+    LightAttack = 1 << 4,
+    LightAttackHeld = 1 << 5,
+    HeavyAttack = 1 << 6,
+    HeavyAttackHeld = 1 << 7,
+    Parry = 1 << 8,
+    ParryHeld = 1 << 9,
+    Special = 1 << 10,
+    SpecialHeld = 1 << 11,
   }
   public static unsafe partial class FlagsExtensions {
     public static Boolean IsFlagSet(this InputButtons self, InputButtons flag) {
@@ -562,32 +568,50 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Input {
-    public const Int32 SIZE = 88;
+    public const Int32 SIZE = 160;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(72)]
+    [FieldOffset(144)]
     public FPVector2 LeftStickDirection;
-    [FieldOffset(24)]
+    [FieldOffset(48)]
     public Button Jump;
+    [FieldOffset(60)]
+    public Button JumpHeld;
     [FieldOffset(0)]
     public Button Dodge;
-    [FieldOffset(36)]
-    public Button LightAttack;
     [FieldOffset(12)]
+    public Button DodgeHeld;
+    [FieldOffset(72)]
+    public Button LightAttack;
+    [FieldOffset(84)]
+    public Button LightAttackHeld;
+    [FieldOffset(24)]
     public Button HeavyAttack;
-    [FieldOffset(48)]
+    [FieldOffset(36)]
+    public Button HeavyAttackHeld;
+    [FieldOffset(96)]
     public Button Parry;
-    [FieldOffset(60)]
+    [FieldOffset(108)]
+    public Button ParryHeld;
+    [FieldOffset(120)]
     public Button Special;
+    [FieldOffset(132)]
+    public Button SpecialHeld;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 19249;
         hash = hash * 31 + LeftStickDirection.GetHashCode();
         hash = hash * 31 + Jump.GetHashCode();
+        hash = hash * 31 + JumpHeld.GetHashCode();
         hash = hash * 31 + Dodge.GetHashCode();
+        hash = hash * 31 + DodgeHeld.GetHashCode();
         hash = hash * 31 + LightAttack.GetHashCode();
+        hash = hash * 31 + LightAttackHeld.GetHashCode();
         hash = hash * 31 + HeavyAttack.GetHashCode();
+        hash = hash * 31 + HeavyAttackHeld.GetHashCode();
         hash = hash * 31 + Parry.GetHashCode();
+        hash = hash * 31 + ParryHeld.GetHashCode();
         hash = hash * 31 + Special.GetHashCode();
+        hash = hash * 31 + SpecialHeld.GetHashCode();
         return hash;
       }
     }
@@ -597,33 +621,51 @@ namespace Quantum {
     public Boolean IsDown(InputButtons button) {
       switch (button) {
         case InputButtons.Jump: return Jump.IsDown;
+        case InputButtons.JumpHeld: return JumpHeld.IsDown;
         case InputButtons.Dodge: return Dodge.IsDown;
+        case InputButtons.DodgeHeld: return DodgeHeld.IsDown;
         case InputButtons.LightAttack: return LightAttack.IsDown;
+        case InputButtons.LightAttackHeld: return LightAttackHeld.IsDown;
         case InputButtons.HeavyAttack: return HeavyAttack.IsDown;
+        case InputButtons.HeavyAttackHeld: return HeavyAttackHeld.IsDown;
         case InputButtons.Parry: return Parry.IsDown;
+        case InputButtons.ParryHeld: return ParryHeld.IsDown;
         case InputButtons.Special: return Special.IsDown;
+        case InputButtons.SpecialHeld: return SpecialHeld.IsDown;
         default: return false;
       }
     }
     public Boolean WasPressed(InputButtons button) {
       switch (button) {
         case InputButtons.Jump: return Jump.WasPressed;
+        case InputButtons.JumpHeld: return JumpHeld.WasPressed;
         case InputButtons.Dodge: return Dodge.WasPressed;
+        case InputButtons.DodgeHeld: return DodgeHeld.WasPressed;
         case InputButtons.LightAttack: return LightAttack.WasPressed;
+        case InputButtons.LightAttackHeld: return LightAttackHeld.WasPressed;
         case InputButtons.HeavyAttack: return HeavyAttack.WasPressed;
+        case InputButtons.HeavyAttackHeld: return HeavyAttackHeld.WasPressed;
         case InputButtons.Parry: return Parry.WasPressed;
+        case InputButtons.ParryHeld: return ParryHeld.WasPressed;
         case InputButtons.Special: return Special.WasPressed;
+        case InputButtons.SpecialHeld: return SpecialHeld.WasPressed;
         default: return false;
       }
     }
     static partial void SerializeCodeGen(void* ptr, FrameSerializer serializer) {
         var p = (Input*)ptr;
         Button.Serialize(&p->Dodge, serializer);
+        Button.Serialize(&p->DodgeHeld, serializer);
         Button.Serialize(&p->HeavyAttack, serializer);
+        Button.Serialize(&p->HeavyAttackHeld, serializer);
         Button.Serialize(&p->Jump, serializer);
+        Button.Serialize(&p->JumpHeld, serializer);
         Button.Serialize(&p->LightAttack, serializer);
+        Button.Serialize(&p->LightAttackHeld, serializer);
         Button.Serialize(&p->Parry, serializer);
+        Button.Serialize(&p->ParryHeld, serializer);
         Button.Serialize(&p->Special, serializer);
+        Button.Serialize(&p->SpecialHeld, serializer);
         FPVector2.Serialize(&p->LeftStickDirection, serializer);
     }
   }
@@ -988,7 +1030,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 792;
+    public const Int32 SIZE = 936;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     public AssetRef<Map> Map;
@@ -1012,12 +1054,12 @@ namespace Quantum {
     public Int32 PlayerConnectedCount;
     [FieldOffset(608)]
     [FramePrinter.FixedArrayAttribute(typeof(Input), 2)]
-    private fixed Byte _input_[176];
-    [FieldOffset(784)]
+    private fixed Byte _input_[320];
+    [FieldOffset(928)]
     public BitSet2 PlayerLastConnectionState;
     public readonly FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 88, 2); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 160, 2); }
       }
     }
     public override readonly Int32 GetHashCode() {
@@ -1944,11 +1986,17 @@ namespace Quantum {
       var i = _globals->input.GetPointer(player);
       i->LeftStickDirection = input.LeftStickDirection;
       i->Jump = i->Jump.Update(this.Number, input.Jump);
+      i->JumpHeld = i->JumpHeld.Update(this.Number, input.JumpHeld);
       i->Dodge = i->Dodge.Update(this.Number, input.Dodge);
+      i->DodgeHeld = i->DodgeHeld.Update(this.Number, input.DodgeHeld);
       i->LightAttack = i->LightAttack.Update(this.Number, input.LightAttack);
+      i->LightAttackHeld = i->LightAttackHeld.Update(this.Number, input.LightAttackHeld);
       i->HeavyAttack = i->HeavyAttack.Update(this.Number, input.HeavyAttack);
+      i->HeavyAttackHeld = i->HeavyAttackHeld.Update(this.Number, input.HeavyAttackHeld);
       i->Parry = i->Parry.Update(this.Number, input.Parry);
+      i->ParryHeld = i->ParryHeld.Update(this.Number, input.ParryHeld);
       i->Special = i->Special.Update(this.Number, input.Special);
+      i->SpecialHeld = i->SpecialHeld.Update(this.Number, input.SpecialHeld);
     }
     public Input* GetPlayerInput(PlayerRef player) {
       if ((int)player >= (int)_globals->input.Length) { throw new System.ArgumentOutOfRangeException("player"); }
