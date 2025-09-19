@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eed135bcdd38a94b922d541e8a98714, type: 3}
+  m_Name: DefaultCancelRules
+  m_EditorClassIdentifier: 
+  Identifier:
+    Path: QuantumUser/Simulation/Actions/DefaultCancelRules
+    Guid:
+      Value: 377472214767898890
+  Rules:
+  - TargetAction: Movement
+    RequiredFlags: 16
+    useSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
+  - TargetAction: Movement
+    RequiredFlags: 0
+    useSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 5
+  - TargetAction: Attack
+    RequiredFlags: 2
+    useSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
+  - TargetAction: Dodge
+    RequiredFlags: 32
+    useSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
+  - TargetAction: Parry
+    RequiredFlags: 64
+    useSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
+  - TargetAction: HeavyParry
+    RequiredFlags: 128
+    useSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4

@@ -52,21 +52,20 @@ component CurrentAction{
 input {
     FPVector2 LeftStickDirection;
     button Jump;
-    button JumpHeld;
+    bool JumpHeld;
     button Dodge;
-    button DodgeHeld;
+    bool DodgeHeld;
     button LightAttack;
-    button LightAttackHeld;
+    bool LightAttackHeld;
     button HeavyAttack;
-    button HeavyAttackHeld;
+    bool HeavyAttackHeld;
     button Parry;
-    button ParryHeld;
+    bool ParryHeld;
     button Special;
-    button SpecialHeld;
+    bool SpecialHeld;
 }
 
 //this is gross but I couldn't find a better way to do it
-//maybe held button shouldn't be buffered.
 component InputBuffer {
     FPVector2 LastDirection0;
     bool Jump0;
