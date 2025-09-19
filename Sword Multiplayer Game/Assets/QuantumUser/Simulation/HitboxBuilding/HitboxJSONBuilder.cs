@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Photon.Deterministic;
+using Quantum;
 
 [System.Serializable]
 public class TransformData {

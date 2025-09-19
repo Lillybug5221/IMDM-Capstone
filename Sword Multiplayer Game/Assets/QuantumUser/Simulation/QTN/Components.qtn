@@ -52,11 +52,17 @@ component CurrentAction{
 input {
     FPVector2 LeftStickDirection;
     button Jump;
+    bool JumpHeld;
     button Dodge;
+    bool DodgeHeld;
     button LightAttack;
+    bool LightAttackHeld;
     button HeavyAttack;
+    bool HeavyAttackHeld;
     button Parry;
+    bool ParryHeld;
     button Special;
+    bool SpecialHeld;
 }
 
 //this is gross but I couldn't find a better way to do it

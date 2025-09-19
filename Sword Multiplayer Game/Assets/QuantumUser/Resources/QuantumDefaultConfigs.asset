@@ -169,6 +169,12 @@ MonoBehaviour:
     StartDisabled: 0
     Children: []
   - SystemType:
+      AssemblyQualifiedName: Quantum.ActionStateMachine, Quantum.Simulation, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    SystemName: 
+    StartDisabled: 0
+    Children: []
+  - SystemType:
       AssemblyQualifiedName: Quantum.ActionHandlerSystem, Quantum.Simulation, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     SystemName: 
@@ -444,7 +450,7 @@ MonoBehaviour:
   DashSimCurve: {fileID: 11400000, guid: 3d869b5861455e04791f0dcbc6badb2b, type: 2}
   DashDistance:
     RawValue: 196608
-  HitboxesRemain: 1
+  HitboxesRemain: 0
   AttackHitboxData:
   - Hitboxes:
     - FrameNum: 1
@@ -1961,6 +1967,7 @@ MonoBehaviour:
       endlagFrames: 34
       cancelableFrames: 32
       damage: 5
+      specialCancels: []
   - Hitboxes:
     - FrameNum: 1
       BasePosition:
@@ -3837,6 +3844,7 @@ MonoBehaviour:
       endlagFrames: 34
       cancelableFrames: 32
       damage: 5
+      specialCancels: []
   - Hitboxes:
     - FrameNum: 1
       BasePosition:
@@ -5637,6 +5645,7 @@ MonoBehaviour:
       endlagFrames: 34
       cancelableFrames: 32
       damage: 5
+      specialCancels: []
   - Hitboxes:
     - FrameNum: 1
       BasePosition:
@@ -7608,6 +7617,7 @@ MonoBehaviour:
       endlagFrames: 34
       cancelableFrames: 32
       damage: 5
+      specialCancels: []
   - Hitboxes:
     - FrameNum: 1
       BasePosition:
@@ -9579,6 +9589,7 @@ MonoBehaviour:
       endlagFrames: 34
       cancelableFrames: 32
       damage: 5
+      specialCancels: []
   - Hitboxes:
     - FrameNum: 1
       BasePosition:
@@ -11550,6 +11561,7 @@ MonoBehaviour:
       endlagFrames: 34
       cancelableFrames: 32
       damage: 5
+      specialCancels: []
   - Hitboxes:
     - FrameNum: 1
       BasePosition:
@@ -13635,6 +13647,7 @@ MonoBehaviour:
       endlagFrames: 34
       cancelableFrames: 32
       damage: 5
+      specialCancels: []
   - Hitboxes:
     - FrameNum: 1
       BasePosition:
@@ -15112,6 +15125,8 @@ MonoBehaviour:
       endlagFrames: 34
       cancelableFrames: 32
       damage: 5
+      specialCancels: []
+  ActionConfigs: []
 --- !u!114 &6784878198909911470
 MonoBehaviour:
   m_ObjectHideFlags: 0

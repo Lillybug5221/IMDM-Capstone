@@ -562,32 +562,50 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Input {
-    public const Int32 SIZE = 88;
+    public const Int32 SIZE = 112;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(72)]
+    [FieldOffset(96)]
     public FPVector2 LeftStickDirection;
-    [FieldOffset(24)]
+    [FieldOffset(48)]
     public Button Jump;
-    [FieldOffset(0)]
+    [FieldOffset(8)]
+    public QBoolean JumpHeld;
+    [FieldOffset(24)]
     public Button Dodge;
-    [FieldOffset(36)]
+    [FieldOffset(0)]
+    public QBoolean DodgeHeld;
+    [FieldOffset(60)]
     public Button LightAttack;
     [FieldOffset(12)]
+    public QBoolean LightAttackHeld;
+    [FieldOffset(36)]
     public Button HeavyAttack;
-    [FieldOffset(48)]
+    [FieldOffset(4)]
+    public QBoolean HeavyAttackHeld;
+    [FieldOffset(72)]
     public Button Parry;
-    [FieldOffset(60)]
+    [FieldOffset(16)]
+    public QBoolean ParryHeld;
+    [FieldOffset(84)]
     public Button Special;
+    [FieldOffset(20)]
+    public QBoolean SpecialHeld;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 19249;
         hash = hash * 31 + LeftStickDirection.GetHashCode();
         hash = hash * 31 + Jump.GetHashCode();
+        hash = hash * 31 + JumpHeld.GetHashCode();
         hash = hash * 31 + Dodge.GetHashCode();
+        hash = hash * 31 + DodgeHeld.GetHashCode();
         hash = hash * 31 + LightAttack.GetHashCode();
+        hash = hash * 31 + LightAttackHeld.GetHashCode();
         hash = hash * 31 + HeavyAttack.GetHashCode();
+        hash = hash * 31 + HeavyAttackHeld.GetHashCode();
         hash = hash * 31 + Parry.GetHashCode();
+        hash = hash * 31 + ParryHeld.GetHashCode();
         hash = hash * 31 + Special.GetHashCode();
+        hash = hash * 31 + SpecialHeld.GetHashCode();
         return hash;
       }
     }
@@ -618,6 +636,12 @@ namespace Quantum {
     }
     static partial void SerializeCodeGen(void* ptr, FrameSerializer serializer) {
         var p = (Input*)ptr;
+        QBoolean.Serialize(&p->DodgeHeld, serializer);
+        QBoolean.Serialize(&p->HeavyAttackHeld, serializer);
+        QBoolean.Serialize(&p->JumpHeld, serializer);
+        QBoolean.Serialize(&p->LightAttackHeld, serializer);
+        QBoolean.Serialize(&p->ParryHeld, serializer);
+        QBoolean.Serialize(&p->SpecialHeld, serializer);
         Button.Serialize(&p->Dodge, serializer);
         Button.Serialize(&p->HeavyAttack, serializer);
         Button.Serialize(&p->Jump, serializer);
@@ -988,7 +1012,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct _globals_ {
-    public const Int32 SIZE = 792;
+    public const Int32 SIZE = 840;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     public AssetRef<Map> Map;
@@ -1012,12 +1036,12 @@ namespace Quantum {
     public Int32 PlayerConnectedCount;
     [FieldOffset(608)]
     [FramePrinter.FixedArrayAttribute(typeof(Input), 2)]
-    private fixed Byte _input_[176];
-    [FieldOffset(784)]
+    private fixed Byte _input_[224];
+    [FieldOffset(832)]
     public BitSet2 PlayerLastConnectionState;
     public readonly FixedArray<Input> input {
       get {
-        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 88, 2); }
+        fixed (byte* p = _input_) { return new FixedArray<Input>(p, 112, 2); }
       }
     }
     public override readonly Int32 GetHashCode() {
@@ -1944,11 +1968,17 @@ namespace Quantum {
       var i = _globals->input.GetPointer(player);
       i->LeftStickDirection = input.LeftStickDirection;
       i->Jump = i->Jump.Update(this.Number, input.Jump);
+      i->JumpHeld = input.JumpHeld;
       i->Dodge = i->Dodge.Update(this.Number, input.Dodge);
+      i->DodgeHeld = input.DodgeHeld;
       i->LightAttack = i->LightAttack.Update(this.Number, input.LightAttack);
+      i->LightAttackHeld = input.LightAttackHeld;
       i->HeavyAttack = i->HeavyAttack.Update(this.Number, input.HeavyAttack);
+      i->HeavyAttackHeld = input.HeavyAttackHeld;
       i->Parry = i->Parry.Update(this.Number, input.Parry);
+      i->ParryHeld = input.ParryHeld;
       i->Special = i->Special.Update(this.Number, input.Special);
+      i->SpecialHeld = input.SpecialHeld;
     }
     public Input* GetPlayerInput(PlayerRef player) {
       if ((int)player >= (int)_globals->input.Length) { throw new System.ArgumentOutOfRangeException("player"); }
