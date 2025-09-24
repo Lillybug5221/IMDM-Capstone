@@ -66,6 +66,7 @@ input {
 }
 
 //this is gross but I couldn't find a better way to do it
+//maybe held button shouldn't be buffered.
 component InputBuffer {
     FPVector2 LastDirection0;
     bool Jump0;
