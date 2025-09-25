@@ -141,6 +141,7 @@ namespace Quantum.Prototypes {
   [Quantum.Prototypes.Prototype(typeof(Quantum.CurrentAction))]
   public unsafe partial class CurrentActionPrototype : ComponentPrototype<Quantum.CurrentAction> {
     public Int32 ActionNumber;
+    public Int32 ActionIndex;
     public Byte ActionType;
     public FPVector2 Direction;
     public FPVector3 PlayerPosition;
@@ -149,7 +150,7 @@ namespace Quantum.Prototypes {
     public Int32 StartTick;
     public UInt16 StartUpFrames;
     public UInt16 ActiveFrames;
-    public UInt16 EndLagFrames;
+    public UInt16 RecoveryFrames;
     public UInt16 CancelableFrames;
     public Byte ActionPhase;
     public UInt16 Damage;
@@ -164,6 +165,7 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref Quantum.CurrentAction result, in PrototypeMaterializationContext context = default) {
         result.ActionNumber = this.ActionNumber;
+        result.ActionIndex = this.ActionIndex;
         result.ActionType = this.ActionType;
         result.Direction = this.Direction;
         result.PlayerPosition = this.PlayerPosition;
@@ -172,7 +174,7 @@ namespace Quantum.Prototypes {
         result.StartTick = this.StartTick;
         result.StartUpFrames = this.StartUpFrames;
         result.ActiveFrames = this.ActiveFrames;
-        result.EndLagFrames = this.EndLagFrames;
+        result.RecoveryFrames = this.RecoveryFrames;
         result.CancelableFrames = this.CancelableFrames;
         result.ActionPhase = this.ActionPhase;
         result.Damage = this.Damage;

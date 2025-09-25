@@ -23,6 +23,7 @@ namespace Quantum
             var transform = filter.Transform;
             var attacksData = frame.SimulationConfig.AttackHitboxData;
             var collider = filter.Collider;
+            var actionConfigs = frame.SimulationConfig.ActionConfigs;
 
             if(HitstopTickSystem.GlobalHitstopActive(frame)){
                 currAction -> StartTick += 1;
@@ -30,10 +31,12 @@ namespace Quantum
 			}
             
             //Log.Debug("Start Tick is" + CurrentAction->StartTick);
+            /*
             ActionType currentActionType = (ActionType)(currAction->ActionType);
             if(currentActionType == ActionType.None || currentActionType == ActionType.Movement){
                 return;
             }
+            */
             int frameNumber = frame.Number - currAction -> StartTick;
 
 
@@ -70,20 +73,21 @@ namespace Quantum
             }
             #endregion
 
-            //this should be refactored with something closer to scriptable objects.
             #region Start Up
             if (currAction->ActionPhase == 1)
             {
-                currAction->StartUpFrames--;
                 if (currAction->StartUpFrames <= 0)
                 {
                     currAction->ActionPhase++;
+                }else{
+                    actionConfigs[currAction->ActionIndex].StartupLogic(frame, ref filter);
+                    currAction->StartUpFrames--;
                 }
                 #endregion
                 #region Active
             }
-            else if (currAction->ActionPhase == 2)
-            {
+            if (currAction->ActionPhase == 2)
+            {   /*
                 if (currentActionType == ActionType.Attack)
                 {
                     // activate hitboxes
@@ -136,13 +140,11 @@ namespace Quantum
                     };
                     frame.Add(filter.Entity, parry);
 
-                }
-
-                currAction->ActiveFrames--;
+                }*/
                 if (currAction->ActiveFrames <= 0)
                 {
                     currAction->ActionPhase++;
-
+                    /*
                     //if parrying, start end animation
                     if (currentActionType == ActionType.Parry)
                     {
@@ -156,12 +158,17 @@ namespace Quantum
                             Log.Error("Parry Component Unexpectedly Disappeared");
                         }
                     }
+                    */
+                }else{
+                    actionConfigs[currAction->ActionIndex].ActiveLogic(frame, ref filter);
+                    currAction->ActiveFrames--;
                 }
                 #endregion
                 #region EndLag
             }
-            else if (currAction->ActionPhase == 3)
-            {
+            if (currAction->ActionPhase == 3)
+            {   
+                /*
                 if (currentActionType == ActionType.Dodge)
                 {
                     //directly transform the position along the inputed direction. check for collisions before applying each frame.
@@ -201,7 +208,7 @@ namespace Quantum
 
                     }
 
-                    FP t = (FP)frameNumber / (FP)(currAction->EndLagFrames + frameNumber);
+                    FP t = (FP)frameNumber / (FP)(currAction->RecoveryFrames + frameNumber);
                     SimCurve dashCurve = frame.SimulationConfig.DashSimCurve;
                     t = dashCurve.Evaluate(t);
                     if (t <= currAction->PrecentageOfDodgeCompletable)
@@ -223,23 +230,29 @@ namespace Quantum
                     }
 
                 }
+                */
 
-                currAction->EndLagFrames--;
-                if (currAction->EndLagFrames <= 0)
+                
+                if (currAction->RecoveryFrames <= 0)
                 {
                     currAction->ActionPhase++;
                     //Log.Debug("Action Cancelable");
+                }else{
+                    actionConfigs[currAction->ActionIndex].RecoveryLogic(frame, ref filter);
+                    currAction->RecoveryFrames--;
                 }
                 #endregion
                 #region Cancelable
             }
-            else if (currAction->ActionPhase == 4)
+            if (currAction->ActionPhase == 4)
             {
-                currAction->CancelableFrames--;
                 if (currAction->CancelableFrames <= 0)
                 {
                     //Log.Debug("Action Over");
                     currAction->ActionPhase++;
+                }else{
+                    actionConfigs[currAction->ActionIndex].CancelableLogic(frame, ref filter);
+                    currAction->CancelableFrames--;
                 }
             }
             #endregion

@@ -1211,8 +1211,10 @@ namespace Quantum {
   public unsafe partial struct CurrentAction : Quantum.IComponent {
     public const Int32 SIZE = 128;
     public const Int32 ALIGNMENT = 8;
-    [FieldOffset(16)]
+    [FieldOffset(20)]
     public Int32 ActionNumber;
+    [FieldOffset(16)]
+    public Int32 ActionIndex;
     [FieldOffset(1)]
     public Byte ActionType;
     [FieldOffset(40)]
@@ -1223,14 +1225,14 @@ namespace Quantum {
     public FPVector3 EnemyPosition;
     [FieldOffset(2)]
     public Byte AttackIndex;
-    [FieldOffset(20)]
+    [FieldOffset(24)]
     public Int32 StartTick;
     [FieldOffset(12)]
     public UInt16 StartUpFrames;
     [FieldOffset(4)]
     public UInt16 ActiveFrames;
     [FieldOffset(10)]
-    public UInt16 EndLagFrames;
+    public UInt16 RecoveryFrames;
     [FieldOffset(6)]
     public UInt16 CancelableFrames;
     [FieldOffset(0)]
@@ -1241,12 +1243,13 @@ namespace Quantum {
     public FPVector3 DashEndPos;
     [FieldOffset(32)]
     public FP PrecentageOfDodgeCompletable;
-    [FieldOffset(24)]
+    [FieldOffset(28)]
     public QBoolean DamageApplied;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 109;
         hash = hash * 31 + ActionNumber.GetHashCode();
+        hash = hash * 31 + ActionIndex.GetHashCode();
         hash = hash * 31 + ActionType.GetHashCode();
         hash = hash * 31 + Direction.GetHashCode();
         hash = hash * 31 + PlayerPosition.GetHashCode();
@@ -1255,7 +1258,7 @@ namespace Quantum {
         hash = hash * 31 + StartTick.GetHashCode();
         hash = hash * 31 + StartUpFrames.GetHashCode();
         hash = hash * 31 + ActiveFrames.GetHashCode();
-        hash = hash * 31 + EndLagFrames.GetHashCode();
+        hash = hash * 31 + RecoveryFrames.GetHashCode();
         hash = hash * 31 + CancelableFrames.GetHashCode();
         hash = hash * 31 + ActionPhase.GetHashCode();
         hash = hash * 31 + Damage.GetHashCode();
@@ -1273,8 +1276,9 @@ namespace Quantum {
         serializer.Stream.Serialize(&p->ActiveFrames);
         serializer.Stream.Serialize(&p->CancelableFrames);
         serializer.Stream.Serialize(&p->Damage);
-        serializer.Stream.Serialize(&p->EndLagFrames);
+        serializer.Stream.Serialize(&p->RecoveryFrames);
         serializer.Stream.Serialize(&p->StartUpFrames);
+        serializer.Stream.Serialize(&p->ActionIndex);
         serializer.Stream.Serialize(&p->ActionNumber);
         serializer.Stream.Serialize(&p->StartTick);
         QBoolean.Serialize(&p->DamageApplied, serializer);

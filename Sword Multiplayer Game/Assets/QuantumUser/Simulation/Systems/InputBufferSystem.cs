@@ -17,6 +17,7 @@ namespace Quantum
             public CurrentAction* CurrAction;
             public InputBuffer* Buffer;
             
+            
         }
 
         const int BUFFER_FRAMES = 10;
@@ -37,11 +38,16 @@ namespace Quantum
             }
 
             //return if hitstop
+            UpdateInputBuffer(buffer, frame, filter.Link->Player);
             if(HitstopTickSystem.GlobalHitstopActive(frame)){
-                UpdateInputBuffer(buffer, frame, filter.Link->Player);
                 return;
             }
 
+            currAction -> Direction = moveDirection;
+
+
+
+            /*
             if(currAction -> ActionPhase < 4){
                 //attack not yet cancelable
                 UpdateInputBuffer(buffer, frame, filter.Link->Player);
@@ -102,7 +108,7 @@ namespace Quantum
                     currAction -> AttackIndex = (byte)(FoundAttack.AttackVals.attackName); 
                     currAction -> StartUpFrames = (ushort)FoundAttack.AttackVals.startupFrames;
                     currAction -> ActiveFrames = (ushort)FoundAttack.AttackVals.activeFrames;
-                    currAction -> EndLagFrames = (ushort)FoundAttack.AttackVals.endlagFrames;
+                    currAction -> RecoveryFrames = (ushort)FoundAttack.AttackVals.RecoveryFrames;
                     currAction -> CancelableFrames = (ushort)FoundAttack.AttackVals.cancelableFrames;
                     currAction -> ActionPhase = (byte)1;
                     currAction -> Damage = (ushort)FoundAttack.AttackVals.damage;
@@ -115,7 +121,7 @@ namespace Quantum
                     currAction -> AttackIndex = (byte)(0); 
                     currAction -> StartUpFrames = (ushort)0;
                     currAction -> ActiveFrames = (ushort)12;
-                    currAction -> EndLagFrames = (ushort)12;
+                    currAction -> RecoveryFrames = (ushort)12;
                     currAction -> CancelableFrames = (ushort)30;
                     currAction -> ActionPhase = (byte)2;// we start in phase 2 because there is no startup
                     AnimatorComponent.SetTrigger(frame, filter.Animator, "Parry_Activate");
@@ -130,7 +136,7 @@ namespace Quantum
                     currAction -> Direction = DodgeDir;
                     currAction -> StartUpFrames = (ushort)0;
                     currAction -> ActiveFrames = (ushort)0;
-                    currAction -> EndLagFrames = (ushort)30;
+                    currAction -> RecoveryFrames = (ushort)30;
                     currAction -> CancelableFrames = (ushort)30;
                     currAction -> ActionPhase = (byte)3;// we start in phase 2 because there is no startup
                     AnimatorComponent.SetFixedPoint(frame, filter.Animator, "MoveX", DodgeDir.X);
@@ -152,6 +158,8 @@ namespace Quantum
             
             UpdateInputBuffer(buffer, frame, filter.Link->Player);
 
+            */
+
         }
 
         private void DefaultCurrAction(Frame frame, CurrentAction* currAction, FPVector3 playerPosition, FPVector3 opponentPosition){
@@ -160,7 +168,7 @@ namespace Quantum
             currAction -> StartTick = frame.Number;
             currAction -> StartUpFrames = (ushort)0;
             currAction -> ActiveFrames = (ushort)0;
-            currAction -> EndLagFrames = (ushort)0;
+            currAction -> RecoveryFrames = (ushort)0;
             currAction -> CancelableFrames = (ushort)0;
             currAction -> ActionPhase = (byte)1;
             currAction -> Damage = (ushort)0;

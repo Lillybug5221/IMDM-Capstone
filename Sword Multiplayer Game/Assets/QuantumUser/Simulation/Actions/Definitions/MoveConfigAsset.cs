@@ -1,26 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Deterministic;
+using System.Runtime.Versioning;
+using Quantum;
+using Quantum.Addons.Animator;
 namespace Quantum
 {
-    using Photon.Deterministic;
-    using System.Runtime.Versioning;
-    using System.Collections.Generic;
-    using Quantum;
-    using Quantum.Addons.Animator;
-    using Quantum.Physics3D;
-    
-    public unsafe class MovementSystem : SystemMainThreadFilter<MovementSystem.Filter>{//, ISignalOnAnimatorRootMotion3D{
-        public struct Filter
-        {
-            public EntityRef Entity;
-            public Transform3D* Transform;
-            public KCC* KCC;
-            public PlayerLink* Link;
-            public AnimatorComponent* Animator;
-            public CurrentAction* CurrAction;
-            public PhysicsCollider3D* Collider;
+    public unsafe class MoveConfigAsset : ActionConfigAsset
+    {
+        public override void StartupLogic(Frame frame, ref ActionHandlerSystem.Filter filter){
+            return;
         }
-        
-        public override void Update(Frame frame, ref Filter filter)
-        {
+        public override void ActiveLogic(Frame frame, ref ActionHandlerSystem.Filter filter){
+            return;
+        }
+        public override void RecoveryLogic(Frame frame, ref ActionHandlerSystem.Filter filter){
+            return;
+        }
+        public override void CancelableLogic(Frame frame, ref ActionHandlerSystem.Filter filter){
+            Log.Debug("walking");
             
             KCC* kcc = filter.KCC;
             var collider = filter.Collider;
@@ -41,6 +40,8 @@ namespace Quantum
             FPQuaternion currentRotation = filter.Transform->Rotation;  
             FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
             filter.Transform->Rotation = slerpedRotation;
+
+            //hitstop probably doesn't need to be handled here, it could be handled just in the actionhandler
             #region hitstop
             //return if hitstop
             if(HitstopTickSystem.GlobalHitstopActive(frame)){
@@ -48,22 +49,13 @@ namespace Quantum
                 return;
             }
             #endregion
+
+
             #region movement
             //check current action to see if movement is possible
             //read directional input
-            if((ActionType)(currAction->ActionType) == ActionType.None){
-                Log.Debug("no current action");
-                return;
-            }
             FPVector2 moveDirection = new FPVector2(0,0);
-            if((ActionType)(currAction->ActionType) == ActionType.Movement){
-                moveDirection = currAction->Direction;
-            }else{
-                //other action ocurring
-                kcc->SetInputDirection(new FPVector3(0,0,0));
-                return;
-            }
-            
+            moveDirection = currAction->Direction;
             
             //apply movement
             FPVector3 moveDir = GetMovementDirection(moveDirection, forwardDir);
@@ -71,6 +63,8 @@ namespace Quantum
             
         }
         #endregion
+
+
         #region helper functons
         public static FPVector3 GetMovementDirection(FPVector2 inputDirection, FPVector3 forward) {
             // Assume up is Y-up (0,1,0)
@@ -97,5 +91,3 @@ namespace Quantum
         #endregion
     }
 }
-
-

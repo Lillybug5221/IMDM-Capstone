@@ -1623,6 +1623,12 @@ MonoBehaviour:
   heavyAttack: 0
   parry: 0
   special: 0
+  jumpHeld: 0
+  dodgeHeld: 0
+  lightAttackHeld: 0
+  heavyAttackHeld: 0
+  parryHeld: 0
+  specialHeld: 0
 --- !u!4 &709988253
 Transform:
   m_ObjectHideFlags: 0

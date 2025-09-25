@@ -27,7 +27,7 @@ namespace Quantum
                             currAction -> StartTick = frame.Number;
                             currAction -> StartUpFrames = (ushort)0;
                             currAction -> ActiveFrames = (ushort)0;
-                            currAction -> EndLagFrames = (ushort)30;
+                            currAction -> RecoveryFrames = (ushort)30;
                             currAction -> CancelableFrames = (ushort)30;
                             currAction -> ActionPhase = (byte)3;// we start in phase 3 because there is no startup or active
                             currAction -> Damage = (ushort)0;
@@ -44,7 +44,7 @@ namespace Quantum
                             currAction -> StartTick = frame.Number;
                             currAction -> StartUpFrames = (ushort)0;
                             currAction -> ActiveFrames = (ushort)0;
-                            currAction -> EndLagFrames = (ushort)45;
+                            currAction -> RecoveryFrames = (ushort)45;
                             currAction -> CancelableFrames = (ushort)30;
                             currAction -> ActionPhase = (byte)3;// we start in phase 3 because there is no startup or active
                             currAction -> Damage = (ushort)0;

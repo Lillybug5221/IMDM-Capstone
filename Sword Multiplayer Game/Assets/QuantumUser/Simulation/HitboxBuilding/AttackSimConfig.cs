@@ -7,6 +7,8 @@ namespace Quantum
     {
         public List<QAttackData> AttackHitboxData;
 
+        public DefaultCancelRulesAsset DefaultCancelRules;
+
         public List<ActionConfigAsset> ActionConfigs;
     }
 }

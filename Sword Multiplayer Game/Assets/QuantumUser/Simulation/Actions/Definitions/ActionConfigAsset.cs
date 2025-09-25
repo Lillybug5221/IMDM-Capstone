@@ -31,17 +31,22 @@ namespace Quantum
     }
 
 
-    public class ActionConfigAsset : AssetObject
+    public unsafe abstract class ActionConfigAsset : AssetObject
     {
         public string ActionName;
 
         public int StartUpFrames;
         public int ActiveFrames;
         public int RecoveryFrames;
-        public int AnimationEndFrames;
+        public int CancelableFrames;
 
         public GameStateFlags RequiredFlags;
         public CancelRule[] CustomCancelRules;
+
+        public abstract void StartupLogic(Frame frame,ref ActionHandlerSystem.Filter filter);
+        public abstract void ActiveLogic(Frame frame, ref ActionHandlerSystem.Filter filter);
+        public abstract void RecoveryLogic(Frame frame, ref ActionHandlerSystem.Filter filter);
+        public abstract void CancelableLogic(Frame frame, ref ActionHandlerSystem.Filter filter);
         /*
         public ActionType Type;
         public AttackData AttackData;
