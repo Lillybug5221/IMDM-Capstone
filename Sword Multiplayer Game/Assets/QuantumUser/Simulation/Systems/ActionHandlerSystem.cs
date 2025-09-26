@@ -16,6 +16,7 @@ namespace Quantum
             public CurrentAction* CurrAction;
             public KCC* KCC;
             public PhysicsCollider3D* Collider;
+            public CurrentGameStateFlags * GameStateFlags;
         }
         public override void Update(Frame frame,ref Filter filter)
         {

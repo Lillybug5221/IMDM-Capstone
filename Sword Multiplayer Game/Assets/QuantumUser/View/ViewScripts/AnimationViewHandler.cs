@@ -69,6 +69,8 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
         }
         
         if (PredictedFrame.TryGet<CurrentAction>(EntityRef, out var currAction)) {
+            //refactor this
+            /*
             if((ActionType)(currAction.ActionType) == ActionType.Attack && !attackParticleSys.isPlaying){
                 if(currAction.ActionPhase == 2){
                     attackParticleSys.Play();
@@ -77,6 +79,7 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
                      ((ActionType)(currAction.ActionType) == ActionType.Attack && currAction.ActionPhase != 2)){
                 attackParticleSys.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
+            */
 
 
             

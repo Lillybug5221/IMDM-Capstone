@@ -16,6 +16,7 @@ namespace Quantum
             public AnimatorComponent* Animator;
             public CurrentAction* CurrAction;
             public InputBuffer* Buffer;
+            public CurrentGameStateFlags* GameStateFlags;
             
             
         }
@@ -29,6 +30,7 @@ namespace Quantum
             var currAction = filter.CurrAction;
             var transform = filter.Transform;
             var buffer = filter.Buffer;
+            var gameStateFlags = filter.GameStateFlags;
 
             //the direction of an attack is based off the current direction, no matter what direction was held when an attack was buffered
             var moveDirection = input->LeftStickDirection;
@@ -44,6 +46,12 @@ namespace Quantum
             }
 
             currAction -> Direction = moveDirection;
+            if(input-> LightAttack){
+                gameStateFlags->Flags |= (int) GameStateFlags.IsLightAttacking;
+            }
+            if(moveDirection != new FPVector2(0,0)){
+                gameStateFlags->Flags |= (int) GameStateFlags.IsDirectionalInput;
+            }
 
 
 
@@ -282,7 +290,7 @@ namespace Quantum
 
         private (bool exists, Input input) GetOldestActionInBuffer(InputBuffer* buffer){
             Quantum.Input input = new Quantum.Input();
-            for (int i = 0; i < 3; i++) { // last 3 frames in buffer
+            for (int i = 0; i < 10; i++) { // last  10 frames in buffer frames in buffer
                 bool actionPressed = i switch {
                     0 => buffer->Jump0||buffer->Dodge0||buffer->LightAttack0||buffer->HeavyAttack0||buffer->Parry0||buffer->Special0,
                     1 => buffer->Jump1||buffer->Dodge1||buffer->LightAttack1||buffer->HeavyAttack1||buffer->Parry1||buffer->Special1,

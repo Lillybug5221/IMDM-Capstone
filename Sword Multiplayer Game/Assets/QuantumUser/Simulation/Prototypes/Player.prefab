@@ -9990,6 +9990,7 @@ GameObject:
   - component: {fileID: 3649794869335545105}
   - component: {fileID: 790016333672194274}
   - component: {fileID: 6674607080262247956}
+  - component: {fileID: -4347090220658967027}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -10626,7 +10627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prototype:
     ActionNumber: 0
-    ActionType: 0
+    ActionIndex: 0
     Direction:
       X:
         RawValue: 0
@@ -10650,7 +10651,7 @@ MonoBehaviour:
     StartTick: 0
     StartUpFrames: 0
     ActiveFrames: 0
-    EndLagFrames: 0
+    RecoveryFrames: 0
     CancelableFrames: 0
     ActionPhase: 5
     Damage: 0
@@ -10665,6 +10666,20 @@ MonoBehaviour:
       RawValue: 0
     DamageApplied:
       Value: 0
+--- !u!114 &-4347090220658967027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472594335652766015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8754c46e8ba90e9469701f42c4f07a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prototype:
+    GameState: 0
 --- !u!1 &3729670431120426559
 GameObject:
   m_ObjectHideFlags: 0

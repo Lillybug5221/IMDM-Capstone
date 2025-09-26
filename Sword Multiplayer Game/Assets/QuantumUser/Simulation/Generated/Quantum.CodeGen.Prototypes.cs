@@ -142,7 +142,6 @@ namespace Quantum.Prototypes {
   public unsafe partial class CurrentActionPrototype : ComponentPrototype<Quantum.CurrentAction> {
     public Int32 ActionNumber;
     public Int32 ActionIndex;
-    public Byte ActionType;
     public FPVector2 Direction;
     public FPVector3 PlayerPosition;
     public FPVector3 EnemyPosition;
@@ -166,7 +165,6 @@ namespace Quantum.Prototypes {
     public void Materialize(Frame frame, ref Quantum.CurrentAction result, in PrototypeMaterializationContext context = default) {
         result.ActionNumber = this.ActionNumber;
         result.ActionIndex = this.ActionIndex;
-        result.ActionType = this.ActionType;
         result.Direction = this.Direction;
         result.PlayerPosition = this.PlayerPosition;
         result.EnemyPosition = this.EnemyPosition;
@@ -181,6 +179,21 @@ namespace Quantum.Prototypes {
         result.DashEndPos = this.DashEndPos;
         result.PrecentageOfDodgeCompletable = this.PrecentageOfDodgeCompletable;
         result.DamageApplied = this.DamageApplied;
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.CurrentGameStateFlags))]
+  public unsafe partial class CurrentGameStateFlagsPrototype : ComponentPrototype<Quantum.CurrentGameStateFlags> {
+    public Int32 Flags;
+    partial void MaterializeUser(Frame frame, ref Quantum.CurrentGameStateFlags result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.CurrentGameStateFlags component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.CurrentGameStateFlags result, in PrototypeMaterializationContext context = default) {
+        result.Flags = this.Flags;
         MaterializeUser(frame, ref result, in context);
     }
   }

@@ -16,10 +16,10 @@ MonoBehaviour:
     Path: QuantumUser/Simulation/Actions/MoveConfigAsset
     Guid:
       Value: 493570292215728877
-  ActionName: 
   StartUpFrames: 0
   ActiveFrames: 0
   RecoveryFrames: 0
   CancelableFrames: 1
-  RequiredFlags: 16
+  RequiredFlags: 1
+  ForbiddenFlags: 62
   CustomCancelRules: []

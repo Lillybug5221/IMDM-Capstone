@@ -18,6 +18,7 @@ namespace Quantum
             public CurrentAction* CurrAction;
             public KCC* KCC;
             public PhysicsCollider3D* Collider;
+            public CurrentGameStateFlags * GameStateFlags;
             
         }
 
@@ -25,7 +26,38 @@ namespace Quantum
         {
             var currAction = filter.CurrAction;
             var actionConfigs = frame.SimulationConfig.ActionConfigs;
+            var defaultCancelRules = frame.SimulationConfig.DefaultCancelRules;
             var transform = filter.Transform;
+
+            var kcc = filter.KCC;
+
+            //return for hitstop
+            #region hitstop
+            //return if hitstop
+            if(HitstopTickSystem.GlobalHitstopActive(frame)){
+                kcc->SetInputDirection(new FPVector3(0,0,0));
+                return;
+            }
+            #endregion
+
+            //keep rotation consistent no matter the current action;
+
+            //set rotation to action saved enemy position
+            FPVector3 playerPosition = filter.Transform->Position;
+            FPVector3 savedOpponentPosition = currAction -> EnemyPosition;
+
+            FPVector3 forwardDir = savedOpponentPosition - playerPosition;
+            forwardDir.Y = FP._0;
+            forwardDir = FPVector3.Normalize(forwardDir);
+
+            //face player towards opponent
+            FPQuaternion targetRotation = FPQuaternion.LookRotation(forwardDir, FPVector3.Up);
+            FP rotationSpeed = FP._1;
+            FPQuaternion currentRotation = filter.Transform->Rotation;  
+            FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
+            filter.Transform->Rotation = slerpedRotation;
+
+
 
             //Read current gamestate component, and update action accordingly.
             //update enemy position
@@ -42,7 +74,41 @@ namespace Quantum
                 }
             }
 
-            SetCurrAction(0, frame, currAction, transform->Position, opponentPosition);
+            //get current gamestate as a byte flag
+
+            //for the current action, get its list of possibily cancels
+
+            //for each of those cancels, if its criteria is met in frame value and gamestate, 
+            //set that to the current action
+
+            CancelRule[] currActionCancelRules = defaultCancelRules.Rules;
+            GameStateFlags currFlags = (GameStateFlags)(filter.GameStateFlags -> Flags);
+            Log.Debug(currAction -> ActionIndex);
+            ActionConfigAsset currActionConfig = actionConfigs[currAction -> ActionIndex];
+            bool nextActionFound = false;
+            for(int i = 0; i < currActionCancelRules.Length; i++){
+                ActionConfigAsset nextAction = currActionCancelRules[i].TargetAction;
+                //check if in right phase
+                if(currAction -> ActionPhase >= currActionCancelRules[i].CancelablePhase){
+
+                }else{
+                    continue;
+                }
+                //check if flags are met
+                bool meetsFlags = (currFlags & nextAction.RequiredFlags) == nextAction.RequiredFlags && (currFlags & nextAction.ForbiddenFlags) == 0;
+                if(meetsFlags && ! nextActionFound){
+                    nextActionFound = true;
+                    //Log.Debug("flags met");
+                    currActionConfig.Deinitialize(frame, ref filter);
+                    SetCurrAction(actionConfigs.IndexOf(nextAction), frame, currAction, transform->Position, opponentPosition);
+                    nextAction.Initialize(frame, ref filter);
+                }
+            }
+
+            
+
+            //reset flags
+            filter.GameStateFlags -> Flags = 0;
             
         }
 

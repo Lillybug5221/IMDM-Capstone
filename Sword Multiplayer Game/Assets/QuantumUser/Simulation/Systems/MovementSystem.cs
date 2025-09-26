@@ -21,7 +21,7 @@ namespace Quantum
         
         public override void Update(Frame frame, ref Filter filter)
         {
-            
+            /*
             KCC* kcc = filter.KCC;
             var collider = filter.Collider;
             Transform3D* transform = filter.Transform;
@@ -68,10 +68,9 @@ namespace Quantum
             //apply movement
             FPVector3 moveDir = GetMovementDirection(moveDirection, forwardDir);
             kcc->SetInputDirection(moveDir);
-            
+            */
         }
-        #endregion
-        #region helper functons
+        /*
         public static FPVector3 GetMovementDirection(FPVector2 inputDirection, FPVector3 forward) {
             // Assume up is Y-up (0,1,0)
             FPVector3 up = FPVector3.Up;
@@ -91,10 +90,11 @@ namespace Quantum
                 moveDir = moveDir.Normalized;
             }
             */
-
+            /*
             return moveDir;
         }
-        #endregion
+        */
+       
     }
 }
 

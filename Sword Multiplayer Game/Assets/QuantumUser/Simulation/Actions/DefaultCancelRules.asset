@@ -17,38 +17,17 @@ MonoBehaviour:
     Guid:
       Value: 377472214767898890
   Rules:
-  - TargetAction: Movement
-    RequiredFlags: 16
+  - TargetAction: {fileID: 11400000, guid: 247ff9bdcb3a91d479ad61ed8c20f48f, type: 2}
     useSpecializedCancelFrame: 0
     SpecializedCancelabilityStartFrame: 0
     SpecializedCancelabilityEndFrame: 0
     CancelablePhase: 4
-  - TargetAction: Movement
-    RequiredFlags: 0
+  - TargetAction: {fileID: 11400000, guid: e4a9560d3240bba4ba585e86c53f7bb0, type: 2}
     useSpecializedCancelFrame: 0
     SpecializedCancelabilityStartFrame: 0
     SpecializedCancelabilityEndFrame: 0
     CancelablePhase: 5
-  - TargetAction: Attack
-    RequiredFlags: 2
-    useSpecializedCancelFrame: 0
-    SpecializedCancelabilityStartFrame: 0
-    SpecializedCancelabilityEndFrame: 0
-    CancelablePhase: 4
-  - TargetAction: Dodge
-    RequiredFlags: 32
-    useSpecializedCancelFrame: 0
-    SpecializedCancelabilityStartFrame: 0
-    SpecializedCancelabilityEndFrame: 0
-    CancelablePhase: 4
-  - TargetAction: Parry
-    RequiredFlags: 64
-    useSpecializedCancelFrame: 0
-    SpecializedCancelabilityStartFrame: 0
-    SpecializedCancelabilityEndFrame: 0
-    CancelablePhase: 4
-  - TargetAction: HeavyParry
-    RequiredFlags: 128
+  - TargetAction: {fileID: 11400000, guid: 17c7708cda524ca499520f56b66214d2, type: 2}
     useSpecializedCancelFrame: 0
     SpecializedCancelabilityStartFrame: 0
     SpecializedCancelabilityEndFrame: 0

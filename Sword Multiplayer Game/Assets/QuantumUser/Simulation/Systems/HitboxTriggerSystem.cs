@@ -21,7 +21,7 @@ namespace Quantum
                     if(frame.Unsafe.TryGetPointer<ParryComponent>(info.Other, out var activeParry)){
                         frame.Remove<ParryComponent>(info.Other);
                         if(frame.Unsafe.TryGetPointer<CurrentAction>(info.Other, out var currAction) && frame.Unsafe.TryGetPointer<AnimatorComponent>(info.Other, out var parryAnimator)){
-                            currAction -> ActionType = (byte)ActionType.Stun;
+                            //currAction -> ActionType = (byte)ActionType.Stun;
                             currAction -> AttackIndex = (byte)(0); 
                             currAction -> EnemyPosition = currAction -> EnemyPosition;
                             currAction -> StartTick = frame.Number;
@@ -38,7 +38,7 @@ namespace Quantum
                     }else{
                         if(frame.Unsafe.TryGetPointer<CurrentAction>(info.Other, out var currAction) && frame.Unsafe.TryGetPointer<AnimatorComponent>(info.Other, out var hitAnimator)){
                             Log.Debug("trying to animate the hit");
-                            currAction -> ActionType = (byte)ActionType.Stun;
+                            //currAction -> ActionType = (byte)ActionType.Stun;
                             currAction -> AttackIndex = (byte)(0); 
                             currAction -> EnemyPosition = currAction -> EnemyPosition;
                             currAction -> StartTick = frame.Number;

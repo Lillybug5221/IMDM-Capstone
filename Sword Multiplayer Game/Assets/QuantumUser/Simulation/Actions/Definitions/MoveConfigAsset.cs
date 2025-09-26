@@ -9,6 +9,19 @@ namespace Quantum
 {
     public unsafe class MoveConfigAsset : ActionConfigAsset
     {
+        public override void Initialize(Frame frame, ref ActionStateMachine.Filter filter){
+            //setup animation
+            AnimatorComponent.SetTrigger(frame, filter.Animator, "Walk");
+            return;
+        }
+
+        public override void Deinitialize(Frame frame, ref ActionStateMachine.Filter filter){
+            Log.Debug(" deinitializing movement");
+            KCC* kcc = filter.KCC;
+            kcc->SetInputDirection(new FPVector3(0,0,0));
+            return;
+        }
+
         public override void StartupLogic(Frame frame, ref ActionHandlerSystem.Filter filter){
             return;
         }
@@ -19,27 +32,11 @@ namespace Quantum
             return;
         }
         public override void CancelableLogic(Frame frame, ref ActionHandlerSystem.Filter filter){
-            Log.Debug("walking");
             
             KCC* kcc = filter.KCC;
             var collider = filter.Collider;
             Transform3D* transform = filter.Transform;
             var currAction = filter.CurrAction;
-
-            //set rotation to action saved enemy position
-            FPVector3 playerPosition = filter.Transform->Position;
-            FPVector3 opponentPosition = currAction -> EnemyPosition;
-
-            FPVector3 forwardDir = opponentPosition - playerPosition;
-            forwardDir.Y = FP._0;
-            forwardDir = FPVector3.Normalize(forwardDir);
-
-            //face player towards opponent
-            FPQuaternion targetRotation = FPQuaternion.LookRotation(forwardDir, FPVector3.Up);
-            FP rotationSpeed = FP._1;
-            FPQuaternion currentRotation = filter.Transform->Rotation;  
-            FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
-            filter.Transform->Rotation = slerpedRotation;
 
             //hitstop probably doesn't need to be handled here, it could be handled just in the actionhandler
             #region hitstop
@@ -49,6 +46,13 @@ namespace Quantum
                 return;
             }
             #endregion
+
+            FPVector3 playerPosition = filter.Transform->Position;
+            FPVector3 opponentPosition = currAction -> EnemyPosition;
+
+            FPVector3 forwardDir = opponentPosition - playerPosition;
+            forwardDir.Y = FP._0;
+            forwardDir = FPVector3.Normalize(forwardDir);
 
 
             #region movement
