@@ -18,17 +18,62 @@ MonoBehaviour:
       Value: 377472214767898890
   Rules:
   - TargetAction: {fileID: 11400000, guid: 247ff9bdcb3a91d479ad61ed8c20f48f, type: 2}
-    useSpecializedCancelFrame: 0
+    UseSpecializedCancelFrame: 0
     SpecializedCancelabilityStartFrame: 0
     SpecializedCancelabilityEndFrame: 0
     CancelablePhase: 4
   - TargetAction: {fileID: 11400000, guid: e4a9560d3240bba4ba585e86c53f7bb0, type: 2}
-    useSpecializedCancelFrame: 0
+    UseSpecializedCancelFrame: 0
     SpecializedCancelabilityStartFrame: 0
     SpecializedCancelabilityEndFrame: 0
     CancelablePhase: 5
   - TargetAction: {fileID: 11400000, guid: 17c7708cda524ca499520f56b66214d2, type: 2}
-    useSpecializedCancelFrame: 0
+    UseSpecializedCancelFrame: 0
     SpecializedCancelabilityStartFrame: 0
     SpecializedCancelabilityEndFrame: 0
     CancelablePhase: 4
+  - TargetAction: {fileID: 11400000, guid: b63b0cd18df4268419735918b6571b47, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
+  - TargetAction: {fileID: 11400000, guid: 28be9584f088f1b408983008ab1edac1, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
+  - TargetAction: {fileID: 11400000, guid: 29c8965cd8d98e24fbd8e8bfed885209, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
+  - TargetAction: {fileID: 11400000, guid: 5d9362ee203cc38409eded2d3fa94583, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
+  - TargetAction: {fileID: 11400000, guid: f9c73be54a9422f46a69eb6480e1272a, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 1
+  - TargetAction: {fileID: 11400000, guid: f9c73be54a9422f46a69eb6480e1272a, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 2
+  - TargetAction: {fileID: 11400000, guid: f9c73be54a9422f46a69eb6480e1272a, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 3
+  - TargetAction: {fileID: 11400000, guid: f9c73be54a9422f46a69eb6480e1272a, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
+  - TargetAction: {fileID: 11400000, guid: f9c73be54a9422f46a69eb6480e1272a, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 5

@@ -83,9 +83,10 @@ namespace Quantum
 
             CancelRule[] currActionCancelRules = defaultCancelRules.Rules;
             GameStateFlags currFlags = (GameStateFlags)(filter.GameStateFlags -> Flags);
-            Log.Debug(currAction -> ActionIndex);
+
             ActionConfigAsset currActionConfig = actionConfigs[currAction -> ActionIndex];
-            bool nextActionFound = false;
+            FPVector2 inputDirection = filter.GameStateFlags -> InputDirection;
+            int foundIndex = -1;
             for(int i = 0; i < currActionCancelRules.Length; i++){
                 ActionConfigAsset nextAction = currActionCancelRules[i].TargetAction;
                 //check if in right phase
@@ -96,26 +97,33 @@ namespace Quantum
                 }
                 //check if flags are met
                 bool meetsFlags = (currFlags & nextAction.RequiredFlags) == nextAction.RequiredFlags && (currFlags & nextAction.ForbiddenFlags) == 0;
-                if(meetsFlags && ! nextActionFound){
-                    nextActionFound = true;
+                if(meetsFlags){
+                    if(foundIndex == -1){
+                        foundIndex = i;
+                    }else if(FPVector2.DistanceSquared(inputDirection, nextAction.RequiredDirection) < FPVector2.DistanceSquared(inputDirection, currActionCancelRules[foundIndex].TargetAction.RequiredDirection)){
+                        foundIndex = i;
+                    }
                     //Log.Debug("flags met");
-                    currActionConfig.Deinitialize(frame, ref filter);
-                    SetCurrAction(actionConfigs.IndexOf(nextAction), frame, currAction, transform->Position, opponentPosition);
-                    nextAction.Initialize(frame, ref filter);
                 }
             }
 
-            
+            if(foundIndex != -1){
+                ActionConfigAsset nextAction = currActionCancelRules[foundIndex].TargetAction;
+                currActionConfig.Deinitialize(frame, ref filter);
+                SetCurrAction(actionConfigs.IndexOf(nextAction), frame, currAction, transform->Position, opponentPosition, inputDirection);
+                nextAction.Initialize(frame, ref filter);
+            }
 
             //reset flags
             filter.GameStateFlags -> Flags = 0;
             
         }
 
-        private void SetCurrAction(int actionIndex, Frame frame, CurrentAction* currAction, FPVector3 playerPosition, FPVector3 opponentPosition){
+        private void SetCurrAction(int actionIndex, Frame frame, CurrentAction* currAction, FPVector3 playerPosition, FPVector3 opponentPosition, FPVector2 inputDir){
             var actionConfigs = frame.SimulationConfig.ActionConfigs;
             currAction -> ActionNumber = currAction -> ActionNumber + 1;
             currAction -> ActionIndex = actionIndex;
+            currAction -> Direction = inputDir;
             //currAction -> ActionType = (byte)ActionType.Attack;
             currAction -> EnemyPosition = opponentPosition;
             currAction -> PlayerPosition = playerPosition;

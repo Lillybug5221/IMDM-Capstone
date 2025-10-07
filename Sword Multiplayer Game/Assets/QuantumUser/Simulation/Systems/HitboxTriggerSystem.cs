@@ -17,6 +17,12 @@ namespace Quantum
                     }else{
                         hitterAction->DamageApplied = true;
                     }
+
+                    frame.Unsafe.TryGetPointer<CurrentGameStateFlags>(info.Other, out var gameStateFlags);
+                    gameStateFlags->Flags |= (int) GameStateFlags.IsHitConnected;
+
+
+                    /*
                     hitbox ->DamageApplied = true;
                     if(frame.Unsafe.TryGetPointer<ParryComponent>(info.Other, out var activeParry)){
                         frame.Remove<ParryComponent>(info.Other);
@@ -63,22 +69,13 @@ namespace Quantum
                             //frame.Destroy(info.Other);
                         }
                     }
+                    */
                     
                     
                 }
             }
         }
 
-        public void AddGlobalHitstop(Frame f, int frames, int delayFrames){
-            var globalEntity = Globals.Get(f);
-            var ghs = f.Get<GlobalHitstop>(globalEntity);
-
-            if (frames > ghs.FramesLeft) {
-                ghs.FramesLeft = frames;
-                ghs.DelayLeft = delayFrames;
-            }
-
-            f.Set(globalEntity, ghs);
-        }
+        
     }
 }

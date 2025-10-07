@@ -1287,20 +1287,24 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct CurrentGameStateFlags : Quantum.IComponent {
-    public const Int32 SIZE = 4;
-    public const Int32 ALIGNMENT = 4;
+    public const Int32 SIZE = 24;
+    public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     public Int32 Flags;
+    [FieldOffset(8)]
+    public FPVector2 InputDirection;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 4663;
         hash = hash * 31 + Flags.GetHashCode();
+        hash = hash * 31 + InputDirection.GetHashCode();
         return hash;
       }
     }
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (CurrentGameStateFlags*)ptr;
         serializer.Stream.Serialize(&p->Flags);
+        FPVector2.Serialize(&p->InputDirection, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]

@@ -7,18 +7,16 @@ using Quantum;
 using Quantum.Addons.Animator;
 namespace Quantum
 {
-    public unsafe class MoveConfigAsset : ActionConfigAsset
+    public unsafe class HitConfigAsset : ActionConfigAsset
     {
         public override void Initialize(Frame frame, ref ActionStateMachine.Filter filter){
             //setup animation
-            AnimatorComponent.SetTrigger(frame, filter.Animator, "Walk");
+            AnimatorComponent.SetTrigger(frame, filter.Animator, "Hit_Stagger");
+            AddGlobalHitstop(frame, 3, 3);
             return;
         }
 
         public override void Deinitialize(Frame frame, ref ActionStateMachine.Filter filter){
-            Log.Debug(" deinitializing movement");
-            KCC* kcc = filter.KCC;
-            kcc->SetInputDirection(new FPVector3(0,0,0));
             return;
         }
 
@@ -32,41 +30,8 @@ namespace Quantum
             return;
         }
         public override void CancelableLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){
-            
-            KCC* kcc = filter.KCC;
-            var collider = filter.Collider;
-            Transform3D* transform = filter.Transform;
-            var currAction = filter.CurrAction;
-
-            //hitstop probably doesn't need to be handled here, it could be handled just in the actionhandler
-            #region hitstop
-            //return if hitstop
-            if(HitstopTickSystem.GlobalHitstopActive(frame)){
-                kcc->SetInputDirection(new FPVector3(0,0,0));
-                return;
-            }
-            #endregion
-
-            FPVector3 playerPosition = filter.Transform->Position;
-            FPVector3 opponentPosition = currAction -> EnemyPosition;
-
-            FPVector3 forwardDir = opponentPosition - playerPosition;
-            forwardDir.Y = FP._0;
-            forwardDir = FPVector3.Normalize(forwardDir);
-
-
-            #region movement
-            //check current action to see if movement is possible
-            //read directional input
-            FPVector2 moveDirection = new FPVector2(0,0);
-            moveDirection = currAction->Direction;
-            
-            //apply movement
-            FPVector3 moveDir = GetMovementDirection(moveDirection, forwardDir);
-            kcc->SetInputDirection(moveDir);
-            
+            return;  
         }
-        #endregion
 
 
         #region helper functons
@@ -92,6 +57,19 @@ namespace Quantum
 
             return moveDir;
         }
+
+        public void AddGlobalHitstop(Frame f, int frames, int delayFrames){
+            var globalEntity = Globals.Get(f);
+            var ghs = f.Get<GlobalHitstop>(globalEntity);
+
+            if (frames > ghs.FramesLeft) {
+                ghs.FramesLeft = frames;
+                ghs.DelayLeft = delayFrames;
+            }
+
+            f.Set(globalEntity, ghs);
+        }
+
         #endregion
     }
 }

@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd73b302cc5f09499b98e893741629d, type: 3}
-  m_Name: MoveConfigAsset
+  m_Script: {fileID: 11500000, guid: 73ac19fcbce0fd946af4be02003ec157, type: 3}
+  m_Name: HitConfig
   m_EditorClassIdentifier: 
   Identifier:
-    Path: QuantumUser/Simulation/Actions/MoveConfigAsset
+    Path: QuantumUser/Simulation/Actions/HitConfig
     Guid:
-      Value: 493570292215728877
+      Value: 356172246504399809
   StartUpFrames: 0
   ActiveFrames: 0
-  RecoveryFrames: 0
-  CancelableFrames: 1
-  RequiredFlags: 1
-  ForbiddenFlags: 126
+  RecoveryFrames: 30
+  CancelableFrames: 0
+  RequiredFlags: 64
+  ForbiddenFlags: 48
   RequiredDirection:
     X:
       RawValue: 0

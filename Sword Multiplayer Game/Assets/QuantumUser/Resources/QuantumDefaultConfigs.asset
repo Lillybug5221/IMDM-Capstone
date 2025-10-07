@@ -435,16 +435,6 @@ MonoBehaviour:
   HeapPageShift: 15
   HeapPageCount: 256
   HeapExtraCount: 0
-  HitboxPrototype:
-    Id:
-      Value: 1502326855038452239
-  ParryEffectPrototype:
-    Id:
-      Value: 1502326855038452239
-  DashSimCurve: {fileID: 11400000, guid: 3d869b5861455e04791f0dcbc6badb2b, type: 2}
-  DashDistance:
-    RawValue: 196608
-  HitboxesRemain: 0
   AttackHitboxData:
   - Hitboxes:
     - FrameNum: 1
@@ -3843,1807 +3833,6 @@ MonoBehaviour:
     - FrameNum: 1
       BasePosition:
         X:
-          RawValue: 45438
-        Y:
-          RawValue: 100264
-        Z:
-          RawValue: -8123
-      EndPosition:
-        X:
-          RawValue: 100408
-        Y:
-          RawValue: 131265
-        Z:
-          RawValue: -8672
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 2
-      BasePosition:
-        X:
-          RawValue: 43143
-        Y:
-          RawValue: 97324
-        Z:
-          RawValue: -14641
-      EndPosition:
-        X:
-          RawValue: 99150
-        Y:
-          RawValue: 125980
-        Z:
-          RawValue: -19647
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 3
-      BasePosition:
-        X:
-          RawValue: 39487
-        Y:
-          RawValue: 94246
-        Z:
-          RawValue: -19733
-      EndPosition:
-        X:
-          RawValue: 96202
-        Y:
-          RawValue: 120285
-        Z:
-          RawValue: -29138
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 4
-      BasePosition:
-        X:
-          RawValue: 34278
-        Y:
-          RawValue: 90983
-        Z:
-          RawValue: -22947
-      EndPosition:
-        X:
-          RawValue: 91513
-        Y:
-          RawValue: 113938
-        Z:
-          RawValue: -36374
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 5
-      BasePosition:
-        X:
-          RawValue: 29189
-        Y:
-          RawValue: 87473
-        Z:
-          RawValue: -24566
-      EndPosition:
-        X:
-          RawValue: 86915
-        Y:
-          RawValue: 106801
-        Z:
-          RawValue: -41214
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 6
-      BasePosition:
-        X:
-          RawValue: 24623
-        Y:
-          RawValue: 84236
-        Z:
-          RawValue: -25888
-      EndPosition:
-        X:
-          RawValue: 83003
-        Y:
-          RawValue: 99509
-        Z:
-          RawValue: -44366
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 7
-      BasePosition:
-        X:
-          RawValue: 19978
-        Y:
-          RawValue: 81091
-        Z:
-          RawValue: -26975
-      EndPosition:
-        X:
-          RawValue: 79211
-        Y:
-          RawValue: 92722
-        Z:
-          RawValue: -45392
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 8
-      BasePosition:
-        X:
-          RawValue: 15031
-        Y:
-          RawValue: 77697
-        Z:
-          RawValue: -27323
-      EndPosition:
-        X:
-          RawValue: 73668
-        Y:
-          RawValue: 88863
-        Z:
-          RawValue: -47817
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 9
-      BasePosition:
-        X:
-          RawValue: 8293
-        Y:
-          RawValue: 75535
-        Z:
-          RawValue: -27662
-      EndPosition:
-        X:
-          RawValue: 63837
-        Y:
-          RawValue: 90072
-        Z:
-          RawValue: -53864
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 10
-      BasePosition:
-        X:
-          RawValue: 533
-        Y:
-          RawValue: 74626
-        Z:
-          RawValue: -26530
-      EndPosition:
-        X:
-          RawValue: 50877
-        Y:
-          RawValue: 94211
-        Z:
-          RawValue: -59163
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 11
-      BasePosition:
-        X:
-          RawValue: -6448
-        Y:
-          RawValue: 74512
-        Z:
-          RawValue: -25245
-      EndPosition:
-        X:
-          RawValue: 38361
-        Y:
-          RawValue: 98561
-        Z:
-          RawValue: -62618
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 12
-      BasePosition:
-        X:
-          RawValue: -11031
-        Y:
-          RawValue: 73736
-        Z:
-          RawValue: -23504
-      EndPosition:
-        X:
-          RawValue: 30660
-        Y:
-          RawValue: 100876
-        Z:
-          RawValue: -62340
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 13
-      BasePosition:
-        X:
-          RawValue: -10173
-        Y:
-          RawValue: 69679
-        Z:
-          RawValue: -21966
-      EndPosition:
-        X:
-          RawValue: 29539
-        Y:
-          RawValue: 105134
-        Z:
-          RawValue: -55862
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 14
-      BasePosition:
-        X:
-          RawValue: -8842
-        Y:
-          RawValue: 65146
-        Z:
-          RawValue: -19222
-      EndPosition:
-        X:
-          RawValue: 20475
-        Y:
-          RawValue: 111614
-        Z:
-          RawValue: -50273
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 15
-      BasePosition:
-        X:
-          RawValue: -12412
-        Y:
-          RawValue: 60864
-        Z:
-          RawValue: -11959
-      EndPosition:
-        X:
-          RawValue: 14835
-        Y:
-          RawValue: 107704
-        Z:
-          RawValue: -44311
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 16
-      BasePosition:
-        X:
-          RawValue: -15706
-        Y:
-          RawValue: 56654
-        Z:
-          RawValue: -4962
-      EndPosition:
-        X:
-          RawValue: 10125
-        Y:
-          RawValue: 98827
-        Z:
-          RawValue: -44169
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 17
-      BasePosition:
-        X:
-          RawValue: -17464
-        Y:
-          RawValue: 54610
-        Z:
-          RawValue: 2172
-      EndPosition:
-        X:
-          RawValue: 2949
-        Y:
-          RawValue: 85978
-        Z:
-          RawValue: -48643
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 18
-      BasePosition:
-        X:
-          RawValue: -20096
-        Y:
-          RawValue: 51357
-        Z:
-          RawValue: 9085
-      EndPosition:
-        X:
-          RawValue: -18384
-        Y:
-          RawValue: 56224
-        Z:
-          RawValue: -53814
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 19
-      BasePosition:
-        X:
-          RawValue: 557
-        Y:
-          RawValue: 59031
-        Z:
-          RawValue: 41439
-      EndPosition:
-        X:
-          RawValue: -30646
-        Y:
-          RawValue: 9925
-        Z:
-          RawValue: 16985
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 20
-      BasePosition:
-        X:
-          RawValue: 18418
-        Y:
-          RawValue: 102970
-        Z:
-          RawValue: 44006
-      EndPosition:
-        X:
-          RawValue: -1831
-        Y:
-          RawValue: 66155
-        Z:
-          RawValue: 91097
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 21
-      BasePosition:
-        X:
-          RawValue: 20831
-        Y:
-          RawValue: 127438
-        Z:
-          RawValue: 15521
-      EndPosition:
-        X:
-          RawValue: 14580
-        Y:
-          RawValue: 127807
-        Z:
-          RawValue: 78321
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 22
-      BasePosition:
-        X:
-          RawValue: 15432
-        Y:
-          RawValue: 125459
-        Z:
-          RawValue: -21835
-      EndPosition:
-        X:
-          RawValue: 25561
-        Y:
-          RawValue: 159699
-        Z:
-          RawValue: 30203
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 23
-      BasePosition:
-        X:
-          RawValue: 6636
-        Y:
-          RawValue: 101622
-        Z:
-          RawValue: -44151
-      EndPosition:
-        X:
-          RawValue: 29315
-        Y:
-          RawValue: 154704
-        Z:
-          RawValue: -18636
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 24
-      BasePosition:
-        X:
-          RawValue: -1651
-        Y:
-          RawValue: 77165
-        Z:
-          RawValue: -46840
-      EndPosition:
-        X:
-          RawValue: 26277
-        Y:
-          RawValue: 133662
-        Z:
-          RawValue: -50168
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 25
-      BasePosition:
-        X:
-          RawValue: -7474
-        Y:
-          RawValue: 61660
-        Z:
-          RawValue: -40941
-      EndPosition:
-        X:
-          RawValue: 17847
-        Y:
-          RawValue: 112451
-        Z:
-          RawValue: -68547
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 26
-      BasePosition:
-        X:
-          RawValue: -10374
-        Y:
-          RawValue: 52510
-        Z:
-          RawValue: -33176
-      EndPosition:
-        X:
-          RawValue: 7962
-        Y:
-          RawValue: 92838
-        Z:
-          RawValue: -78124
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 27
-      BasePosition:
-        X:
-          RawValue: -11841
-        Y:
-          RawValue: 47449
-        Z:
-          RawValue: -26253
-      EndPosition:
-        X:
-          RawValue: -1517
-        Y:
-          RawValue: 75714
-        Z:
-          RawValue: -81728
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 28
-      BasePosition:
-        X:
-          RawValue: -13020
-        Y:
-          RawValue: 44700
-        Z:
-          RawValue: -20983
-      EndPosition:
-        X:
-          RawValue: -9075
-        Y:
-          RawValue: 61996
-        Z:
-          RawValue: -81549
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 29
-      BasePosition:
-        X:
-          RawValue: -14103
-        Y:
-          RawValue: 43161
-        Z:
-          RawValue: -17039
-      EndPosition:
-        X:
-          RawValue: -14465
-        Y:
-          RawValue: 51132
-        Z:
-          RawValue: -79643
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 30
-      BasePosition:
-        X:
-          RawValue: -14808
-        Y:
-          RawValue: 42300
-        Z:
-          RawValue: -13983
-      EndPosition:
-        X:
-          RawValue: -18254
-        Y:
-          RawValue: 41781
-        Z:
-          RawValue: -76997
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 31
-      BasePosition:
-        X:
-          RawValue: -15281
-        Y:
-          RawValue: 41832
-        Z:
-          RawValue: -11794
-      EndPosition:
-        X:
-          RawValue: -20685
-        Y:
-          RawValue: 33785
-        Z:
-          RawValue: -74156
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 32
-      BasePosition:
-        X:
-          RawValue: -15631
-        Y:
-          RawValue: 41564
-        Z:
-          RawValue: -10413
-      EndPosition:
-        X:
-          RawValue: -22095
-        Y:
-          RawValue: 27018
-        Z:
-          RawValue: -71484
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 33
-      BasePosition:
-        X:
-          RawValue: -15949
-        Y:
-          RawValue: 41358
-        Z:
-          RawValue: -9770
-      EndPosition:
-        X:
-          RawValue: -22872
-        Y:
-          RawValue: 21355
-        Z:
-          RawValue: -69226
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 34
-      BasePosition:
-        X:
-          RawValue: -16288
-        Y:
-          RawValue: 41261
-        Z:
-          RawValue: -9702
-      EndPosition:
-        X:
-          RawValue: -23369
-        Y:
-          RawValue: 16822
-        Z:
-          RawValue: -67457
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 35
-      BasePosition:
-        X:
-          RawValue: -16603
-        Y:
-          RawValue: 41372
-        Z:
-          RawValue: -9960
-      EndPosition:
-        X:
-          RawValue: -23816
-        Y:
-          RawValue: 13479
-        Z:
-          RawValue: -66111
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 36
-      BasePosition:
-        X:
-          RawValue: -16857
-        Y:
-          RawValue: 41633
-        Z:
-          RawValue: -10323
-      EndPosition:
-        X:
-          RawValue: -24399
-        Y:
-          RawValue: 11217
-        Z:
-          RawValue: -65104
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 37
-      BasePosition:
-        X:
-          RawValue: -17169
-        Y:
-          RawValue: 41979
-        Z:
-          RawValue: -10813
-      EndPosition:
-        X:
-          RawValue: -25486
-        Y:
-          RawValue: 9789
-        Z:
-          RawValue: -64457
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 38
-      BasePosition:
-        X:
-          RawValue: -17665
-        Y:
-          RawValue: 42366
-        Z:
-          RawValue: -11542
-      EndPosition:
-        X:
-          RawValue: -27253
-        Y:
-          RawValue: 8944
-        Z:
-          RawValue: -64211
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 39
-      BasePosition:
-        X:
-          RawValue: -18219
-        Y:
-          RawValue: 42765
-        Z:
-          RawValue: -12440
-      EndPosition:
-        X:
-          RawValue: -29299
-        Y:
-          RawValue: 8519
-        Z:
-          RawValue: -64280
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 40
-      BasePosition:
-        X:
-          RawValue: -18710
-        Y:
-          RawValue: 43173
-        Z:
-          RawValue: -13485
-      EndPosition:
-        X:
-          RawValue: -31206
-        Y:
-          RawValue: 8417
-        Z:
-          RawValue: -64660
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 41
-      BasePosition:
-        X:
-          RawValue: -19111
-        Y:
-          RawValue: 43595
-        Z:
-          RawValue: -14668
-      EndPosition:
-        X:
-          RawValue: -32818
-        Y:
-          RawValue: 8604
-        Z:
-          RawValue: -65370
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 42
-      BasePosition:
-        X:
-          RawValue: -19389
-        Y:
-          RawValue: 44033
-        Z:
-          RawValue: -15979
-      EndPosition:
-        X:
-          RawValue: -33984
-        Y:
-          RawValue: 9044
-        Z:
-          RawValue: -66435
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 43
-      BasePosition:
-        X:
-          RawValue: -19518
-        Y:
-          RawValue: 44495
-        Z:
-          RawValue: -17413
-      EndPosition:
-        X:
-          RawValue: -34561
-        Y:
-          RawValue: 9710
-        Z:
-          RawValue: -67878
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 44
-      BasePosition:
-        X:
-          RawValue: -19474
-        Y:
-          RawValue: 44983
-        Z:
-          RawValue: -18959
-      EndPosition:
-        X:
-          RawValue: -34414
-        Y:
-          RawValue: 10575
-        Z:
-          RawValue: -69713
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 45
-      BasePosition:
-        X:
-          RawValue: -19231
-        Y:
-          RawValue: 45507
-        Z:
-          RawValue: -20609
-      EndPosition:
-        X:
-          RawValue: -33400
-        Y:
-          RawValue: 11631
-        Z:
-          RawValue: -71938
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 46
-      BasePosition:
-        X:
-          RawValue: -18765
-        Y:
-          RawValue: 46077
-        Z:
-          RawValue: -22349
-      EndPosition:
-        X:
-          RawValue: -31379
-        Y:
-          RawValue: 12880
-        Z:
-          RawValue: -74521
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 47
-      BasePosition:
-        X:
-          RawValue: -18050
-        Y:
-          RawValue: 46701
-        Z:
-          RawValue: -24164
-      EndPosition:
-        X:
-          RawValue: -28199
-        Y:
-          RawValue: 14335
-        Z:
-          RawValue: -77385
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 48
-      BasePosition:
-        X:
-          RawValue: -17064
-        Y:
-          RawValue: 47386
-        Z:
-          RawValue: -26025
-      EndPosition:
-        X:
-          RawValue: -23708
-        Y:
-          RawValue: 16014
-        Z:
-          RawValue: -80381
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 49
-      BasePosition:
-        X:
-          RawValue: -15837
-        Y:
-          RawValue: 48133
-        Z:
-          RawValue: -27937
-      EndPosition:
-        X:
-          RawValue: -17963
-        Y:
-          RawValue: 17946
-        Z:
-          RawValue: -83319
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 50
-      BasePosition:
-        X:
-          RawValue: -14370
-        Y:
-          RawValue: 48960
-        Z:
-          RawValue: -29960
-      EndPosition:
-        X:
-          RawValue: -11151
-        Y:
-          RawValue: 20132
-        Z:
-          RawValue: -86010
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 51
-      BasePosition:
-        X:
-          RawValue: -12658
-        Y:
-          RawValue: 49857
-        Z:
-          RawValue: -31975
-      EndPosition:
-        X:
-          RawValue: -3403
-        Y:
-          RawValue: 22468
-        Z:
-          RawValue: -88075
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 52
-      BasePosition:
-        X:
-          RawValue: -10711
-        Y:
-          RawValue: 50804
-        Z:
-          RawValue: -33865
-      EndPosition:
-        X:
-          RawValue: 5087
-        Y:
-          RawValue: 24829
-        Z:
-          RawValue: -89170
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 53
-      BasePosition:
-        X:
-          RawValue: -8556
-        Y:
-          RawValue: 51784
-        Z:
-          RawValue: -35531
-      EndPosition:
-        X:
-          RawValue: 14067
-        Y:
-          RawValue: 27092
-        Z:
-          RawValue: -89023
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 54
-      BasePosition:
-        X:
-          RawValue: -6176
-        Y:
-          RawValue: 52793
-        Z:
-          RawValue: -36871
-      EndPosition:
-        X:
-          RawValue: 23288
-        Y:
-          RawValue: 29174
-        Z:
-          RawValue: -87439
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 55
-      BasePosition:
-        X:
-          RawValue: -3397
-        Y:
-          RawValue: 53920
-        Z:
-          RawValue: -37715
-      EndPosition:
-        X:
-          RawValue: 32662
-        Y:
-          RawValue: 31135
-        Z:
-          RawValue: -84229
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 56
-      BasePosition:
-        X:
-          RawValue: -906
-        Y:
-          RawValue: 54896
-        Z:
-          RawValue: -38296
-      EndPosition:
-        X:
-          RawValue: 41253
-        Y:
-          RawValue: 32720
-        Z:
-          RawValue: -79693
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 57
-      BasePosition:
-        X:
-          RawValue: 1464
-        Y:
-          RawValue: 55800
-        Z:
-          RawValue: -38532
-      EndPosition:
-        X:
-          RawValue: 49022
-        Y:
-          RawValue: 34127
-        Z:
-          RawValue: -73910
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 58
-      BasePosition:
-        X:
-          RawValue: 3774
-        Y:
-          RawValue: 56672
-        Z:
-          RawValue: -38354
-      EndPosition:
-        X:
-          RawValue: 55876
-        Y:
-          RawValue: 35529
-        Z:
-          RawValue: -67013
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 59
-      BasePosition:
-        X:
-          RawValue: 5790
-        Y:
-          RawValue: 57573
-        Z:
-          RawValue: -37571
-      EndPosition:
-        X:
-          RawValue: 61530
-        Y:
-          RawValue: 37288
-        Z:
-          RawValue: -59127
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 60
-      BasePosition:
-        X:
-          RawValue: 7649
-        Y:
-          RawValue: 58600
-        Z:
-          RawValue: -36411
-      EndPosition:
-        X:
-          RawValue: 66113
-        Y:
-          RawValue: 39670
-        Z:
-          RawValue: -50785
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 61
-      BasePosition:
-        X:
-          RawValue: 9403
-        Y:
-          RawValue: 59747
-        Z:
-          RawValue: -35041
-      EndPosition:
-        X:
-          RawValue: 69692
-        Y:
-          RawValue: 42577
-        Z:
-          RawValue: -42353
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 62
-      BasePosition:
-        X:
-          RawValue: 11155
-        Y:
-          RawValue: 61059
-        Z:
-          RawValue: -33601
-      EndPosition:
-        X:
-          RawValue: 72410
-        Y:
-          RawValue: 45875
-        Z:
-          RawValue: -34140
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 63
-      BasePosition:
-        X:
-          RawValue: 12934
-        Y:
-          RawValue: 62530
-        Z:
-          RawValue: -32231
-      EndPosition:
-        X:
-          RawValue: 74373
-        Y:
-          RawValue: 49319
-        Z:
-          RawValue: -26421
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 64
-      BasePosition:
-        X:
-          RawValue: 14904
-        Y:
-          RawValue: 64169
-        Z:
-          RawValue: -30923
-      EndPosition:
-        X:
-          RawValue: 75786
-        Y:
-          RawValue: 52869
-        Z:
-          RawValue: -18731
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 65
-      BasePosition:
-        X:
-          RawValue: 17156
-        Y:
-          RawValue: 65972
-        Z:
-          RawValue: -29580
-      EndPosition:
-        X:
-          RawValue: 76551
-        Y:
-          RawValue: 56323
-        Z:
-          RawValue: -10551
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 66
-      BasePosition:
-        X:
-          RawValue: 19612
-        Y:
-          RawValue: 67917
-        Z:
-          RawValue: -28247
-      EndPosition:
-        X:
-          RawValue: 76550
-        Y:
-          RawValue: 59417
-        Z:
-          RawValue: -2386
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 67
-      BasePosition:
-        X:
-          RawValue: 22198
-        Y:
-          RawValue: 69958
-        Z:
-          RawValue: -26902
-      EndPosition:
-        X:
-          RawValue: 75839
-        Y:
-          RawValue: 62097
-        Z:
-          RawValue: 5407
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 68
-      BasePosition:
-        X:
-          RawValue: 24796
-        Y:
-          RawValue: 71978
-        Z:
-          RawValue: -25398
-      EndPosition:
-        X:
-          RawValue: 74332
-        Y:
-          RawValue: 64195
-        Z:
-          RawValue: 12923
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 69
-      BasePosition:
-        X:
-          RawValue: 27264
-        Y:
-          RawValue: 73897
-        Z:
-          RawValue: -23598
-      EndPosition:
-        X:
-          RawValue: 71911
-        Y:
-          RawValue: 65639
-        Z:
-          RawValue: 20234
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 70
-      BasePosition:
-        X:
-          RawValue: 29418
-        Y:
-          RawValue: 75664
-        Z:
-          RawValue: -21409
-      EndPosition:
-        X:
-          RawValue: 68411
-        Y:
-          RawValue: 66450
-        Z:
-          RawValue: 27352
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 71
-      BasePosition:
-        X:
-          RawValue: 31039
-        Y:
-          RawValue: 77259
-        Z:
-          RawValue: -18751
-      EndPosition:
-        X:
-          RawValue: 63607
-        Y:
-          RawValue: 66725
-        Z:
-          RawValue: 34271
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 72
-      BasePosition:
-        X:
-          RawValue: 31850
-        Y:
-          RawValue: 78523
-        Z:
-          RawValue: -15919
-      EndPosition:
-        X:
-          RawValue: 57576
-        Y:
-          RawValue: 66397
-        Z:
-          RawValue: 40419
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 73
-      BasePosition:
-        X:
-          RawValue: 32120
-        Y:
-          RawValue: 79554
-        Z:
-          RawValue: -13140
-      EndPosition:
-        X:
-          RawValue: 51160
-        Y:
-          RawValue: 65658
-        Z:
-          RawValue: 45402
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 74
-      BasePosition:
-        X:
-          RawValue: 31925
-        Y:
-          RawValue: 80322
-        Z:
-          RawValue: -10562
-      EndPosition:
-        X:
-          RawValue: 44712
-        Y:
-          RawValue: 64626
-        Z:
-          RawValue: 49213
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 75
-      BasePosition:
-        X:
-          RawValue: 31357
-        Y:
-          RawValue: 80793
-        Z:
-          RawValue: -8320
-      EndPosition:
-        X:
-          RawValue: 38554
-        Y:
-          RawValue: 63406
-        Z:
-          RawValue: 51919
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 76
-      BasePosition:
-        X:
-          RawValue: 30516
-        Y:
-          RawValue: 80997
-        Z:
-          RawValue: -6578
-      EndPosition:
-        X:
-          RawValue: 32905
-        Y:
-          RawValue: 62248
-        Z:
-          RawValue: 53636
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 77
-      BasePosition:
-        X:
-          RawValue: 29506
-        Y:
-          RawValue: 81031
-        Z:
-          RawValue: -5370
-      EndPosition:
-        X:
-          RawValue: 27800
-        Y:
-          RawValue: 61355
-        Z:
-          RawValue: 54571
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 78
-      BasePosition:
-        X:
-          RawValue: 28423
-        Y:
-          RawValue: 80955
-        Z:
-          RawValue: -4616
-      EndPosition:
-        X:
-          RawValue: 23250
-        Y:
-          RawValue: 60743
-        Z:
-          RawValue: 54945
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 79
-      BasePosition:
-        X:
-          RawValue: 27359
-        Y:
-          RawValue: 80844
-        Z:
-          RawValue: -4222
-      EndPosition:
-        X:
-          RawValue: 19268
-        Y:
-          RawValue: 60432
-        Z:
-          RawValue: 54946
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 80
-      BasePosition:
-        X:
-          RawValue: 27359
-        Y:
-          RawValue: 80844
-        Z:
-          RawValue: -4222
-      EndPosition:
-        X:
-          RawValue: 19268
-        Y:
-          RawValue: 60432
-        Z:
-          RawValue: 54946
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 81
-      BasePosition:
-        X:
-          RawValue: 26570
-        Y:
-          RawValue: 80222
-        Z:
-          RawValue: -3806
-      EndPosition:
-        X:
-          RawValue: 16001
-        Y:
-          RawValue: 60901
-        Z:
-          RawValue: 55337
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 82
-      BasePosition:
-        X:
-          RawValue: 26023
-        Y:
-          RawValue: 79685
-        Z:
-          RawValue: -3485
-      EndPosition:
-        X:
-          RawValue: 13458
-        Y:
-          RawValue: 61494
-        Z:
-          RawValue: 55626
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 83
-      BasePosition:
-        X:
-          RawValue: 25759
-        Y:
-          RawValue: 79267
-        Z:
-          RawValue: -3104
-      EndPosition:
-        X:
-          RawValue: 11485
-        Y:
-          RawValue: 62047
-        Z:
-          RawValue: 55910
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 84
-      BasePosition:
-        X:
-          RawValue: 25777
-        Y:
-          RawValue: 78946
-        Z:
-          RawValue: -2532
-      EndPosition:
-        X:
-          RawValue: 9882
-        Y:
-          RawValue: 62447
-        Z:
-          RawValue: 56272
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 85
-      BasePosition:
-        X:
-          RawValue: 26017
-        Y:
-          RawValue: 78658
-        Z:
-          RawValue: -1671
-      EndPosition:
-        X:
-          RawValue: 8424
-        Y:
-          RawValue: 62667
-        Z:
-          RawValue: 56790
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 86
-      BasePosition:
-        X:
-          RawValue: 26310
-        Y:
-          RawValue: 78151
-        Z:
-          RawValue: -421
-      EndPosition:
-        X:
-          RawValue: 6580
-        Y:
-          RawValue: 62421
-        Z:
-          RawValue: 57426
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 87
-      BasePosition:
-        X:
-          RawValue: 26609
-        Y:
-          RawValue: 77544
-        Z:
-          RawValue: 1074
-      EndPosition:
-        X:
-          RawValue: 4706
-        Y:
-          RawValue: 62029
-        Z:
-          RawValue: 58193
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 88
-      BasePosition:
-        X:
-          RawValue: 26881
-        Y:
-          RawValue: 76880
-        Z:
-          RawValue: 2653
-      EndPosition:
-        X:
-          RawValue: 3187
-        Y:
-          RawValue: 61591
-        Z:
-          RawValue: 59114
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 89
-      BasePosition:
-        X:
-          RawValue: 27091
-        Y:
-          RawValue: 76121
-        Z:
-          RawValue: 4170
-      EndPosition:
-        X:
-          RawValue: 2080
-        Y:
-          RawValue: 60992
-        Z:
-          RawValue: 60103
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 90
-      BasePosition:
-        X:
-          RawValue: 27237
-        Y:
-          RawValue: 75279
-        Z:
-          RawValue: 5524
-      EndPosition:
-        X:
-          RawValue: 1265
-        Y:
-          RawValue: 60224
-        Z:
-          RawValue: 61038
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 91
-      BasePosition:
-        X:
-          RawValue: 27342
-        Y:
-          RawValue: 74397
-        Z:
-          RawValue: 6643
-      EndPosition:
-        X:
-          RawValue: 697
-        Y:
-          RawValue: 59337
-        Z:
-          RawValue: 61836
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 92
-      BasePosition:
-        X:
-          RawValue: 27441
-        Y:
-          RawValue: 73515
-        Z:
-          RawValue: 7499
-      EndPosition:
-        X:
-          RawValue: 339
-        Y:
-          RawValue: 58416
-        Z:
-          RawValue: 62458
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 93
-      BasePosition:
-        X:
-          RawValue: 27560
-        Y:
-          RawValue: 72666
-        Z:
-          RawValue: 8094
-      EndPosition:
-        X:
-          RawValue: 158
-        Y:
-          RawValue: 57530
-        Z:
-          RawValue: 62894
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    - FrameNum: 94
-      BasePosition:
-        X:
-          RawValue: 27716
-        Y:
-          RawValue: 71869
-        Z:
-          RawValue: 8452
-      EndPosition:
-        X:
-          RawValue: 118
-        Y:
-          RawValue: 56719
-        Z:
-          RawValue: 63150
-      Length:
-        RawValue: -65536
-      Radius:
-        RawValue: 6554
-    AttackVals:
-      attackName: 0
-      direction:
-        X:
-          RawValue: 0
-        Y:
-          RawValue: 65536
-      attackType: 0
-      startupFrames: 18
-      activeFrames: 5
-      endlagFrames: 34
-      cancelableFrames: 32
-      damage: 5
-      specialCancels: []
-  - Hitboxes:
-    - FrameNum: 1
-      BasePosition:
-        X:
           RawValue: -15826
         Y:
           RawValue: 51945
@@ -7608,6 +5797,1807 @@ MonoBehaviour:
       attackType: 0
       startupFrames: 25
       activeFrames: 4
+      endlagFrames: 34
+      cancelableFrames: 32
+      damage: 5
+      specialCancels: []
+  - Hitboxes:
+    - FrameNum: 1
+      BasePosition:
+        X:
+          RawValue: 45438
+        Y:
+          RawValue: 100264
+        Z:
+          RawValue: -8123
+      EndPosition:
+        X:
+          RawValue: 100408
+        Y:
+          RawValue: 131265
+        Z:
+          RawValue: -8672
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 2
+      BasePosition:
+        X:
+          RawValue: 43143
+        Y:
+          RawValue: 97324
+        Z:
+          RawValue: -14641
+      EndPosition:
+        X:
+          RawValue: 99150
+        Y:
+          RawValue: 125980
+        Z:
+          RawValue: -19647
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 3
+      BasePosition:
+        X:
+          RawValue: 39487
+        Y:
+          RawValue: 94246
+        Z:
+          RawValue: -19733
+      EndPosition:
+        X:
+          RawValue: 96202
+        Y:
+          RawValue: 120285
+        Z:
+          RawValue: -29138
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 4
+      BasePosition:
+        X:
+          RawValue: 34278
+        Y:
+          RawValue: 90983
+        Z:
+          RawValue: -22947
+      EndPosition:
+        X:
+          RawValue: 91513
+        Y:
+          RawValue: 113938
+        Z:
+          RawValue: -36374
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 5
+      BasePosition:
+        X:
+          RawValue: 29189
+        Y:
+          RawValue: 87473
+        Z:
+          RawValue: -24566
+      EndPosition:
+        X:
+          RawValue: 86915
+        Y:
+          RawValue: 106801
+        Z:
+          RawValue: -41214
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 6
+      BasePosition:
+        X:
+          RawValue: 24623
+        Y:
+          RawValue: 84236
+        Z:
+          RawValue: -25888
+      EndPosition:
+        X:
+          RawValue: 83003
+        Y:
+          RawValue: 99509
+        Z:
+          RawValue: -44366
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 7
+      BasePosition:
+        X:
+          RawValue: 19978
+        Y:
+          RawValue: 81091
+        Z:
+          RawValue: -26975
+      EndPosition:
+        X:
+          RawValue: 79211
+        Y:
+          RawValue: 92722
+        Z:
+          RawValue: -45392
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 8
+      BasePosition:
+        X:
+          RawValue: 15031
+        Y:
+          RawValue: 77697
+        Z:
+          RawValue: -27323
+      EndPosition:
+        X:
+          RawValue: 73668
+        Y:
+          RawValue: 88863
+        Z:
+          RawValue: -47817
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 9
+      BasePosition:
+        X:
+          RawValue: 8293
+        Y:
+          RawValue: 75535
+        Z:
+          RawValue: -27662
+      EndPosition:
+        X:
+          RawValue: 63837
+        Y:
+          RawValue: 90072
+        Z:
+          RawValue: -53864
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 10
+      BasePosition:
+        X:
+          RawValue: 533
+        Y:
+          RawValue: 74626
+        Z:
+          RawValue: -26530
+      EndPosition:
+        X:
+          RawValue: 50877
+        Y:
+          RawValue: 94211
+        Z:
+          RawValue: -59163
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 11
+      BasePosition:
+        X:
+          RawValue: -6448
+        Y:
+          RawValue: 74512
+        Z:
+          RawValue: -25245
+      EndPosition:
+        X:
+          RawValue: 38361
+        Y:
+          RawValue: 98561
+        Z:
+          RawValue: -62618
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 12
+      BasePosition:
+        X:
+          RawValue: -11031
+        Y:
+          RawValue: 73736
+        Z:
+          RawValue: -23504
+      EndPosition:
+        X:
+          RawValue: 30660
+        Y:
+          RawValue: 100876
+        Z:
+          RawValue: -62340
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 13
+      BasePosition:
+        X:
+          RawValue: -10173
+        Y:
+          RawValue: 69679
+        Z:
+          RawValue: -21966
+      EndPosition:
+        X:
+          RawValue: 29539
+        Y:
+          RawValue: 105134
+        Z:
+          RawValue: -55862
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 14
+      BasePosition:
+        X:
+          RawValue: -8842
+        Y:
+          RawValue: 65146
+        Z:
+          RawValue: -19222
+      EndPosition:
+        X:
+          RawValue: 20475
+        Y:
+          RawValue: 111614
+        Z:
+          RawValue: -50273
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 15
+      BasePosition:
+        X:
+          RawValue: -12412
+        Y:
+          RawValue: 60864
+        Z:
+          RawValue: -11959
+      EndPosition:
+        X:
+          RawValue: 14835
+        Y:
+          RawValue: 107704
+        Z:
+          RawValue: -44311
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 16
+      BasePosition:
+        X:
+          RawValue: -15706
+        Y:
+          RawValue: 56654
+        Z:
+          RawValue: -4962
+      EndPosition:
+        X:
+          RawValue: 10125
+        Y:
+          RawValue: 98827
+        Z:
+          RawValue: -44169
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 17
+      BasePosition:
+        X:
+          RawValue: -17464
+        Y:
+          RawValue: 54610
+        Z:
+          RawValue: 2172
+      EndPosition:
+        X:
+          RawValue: 2949
+        Y:
+          RawValue: 85978
+        Z:
+          RawValue: -48643
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 18
+      BasePosition:
+        X:
+          RawValue: -20096
+        Y:
+          RawValue: 51357
+        Z:
+          RawValue: 9085
+      EndPosition:
+        X:
+          RawValue: -18384
+        Y:
+          RawValue: 56224
+        Z:
+          RawValue: -53814
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 19
+      BasePosition:
+        X:
+          RawValue: 557
+        Y:
+          RawValue: 59031
+        Z:
+          RawValue: 41439
+      EndPosition:
+        X:
+          RawValue: -30646
+        Y:
+          RawValue: 9925
+        Z:
+          RawValue: 16985
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 20
+      BasePosition:
+        X:
+          RawValue: 18418
+        Y:
+          RawValue: 102970
+        Z:
+          RawValue: 44006
+      EndPosition:
+        X:
+          RawValue: -1831
+        Y:
+          RawValue: 66155
+        Z:
+          RawValue: 91097
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 21
+      BasePosition:
+        X:
+          RawValue: 20831
+        Y:
+          RawValue: 127438
+        Z:
+          RawValue: 15521
+      EndPosition:
+        X:
+          RawValue: 14580
+        Y:
+          RawValue: 127807
+        Z:
+          RawValue: 78321
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 22
+      BasePosition:
+        X:
+          RawValue: 15432
+        Y:
+          RawValue: 125459
+        Z:
+          RawValue: -21835
+      EndPosition:
+        X:
+          RawValue: 25561
+        Y:
+          RawValue: 159699
+        Z:
+          RawValue: 30203
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 23
+      BasePosition:
+        X:
+          RawValue: 6636
+        Y:
+          RawValue: 101622
+        Z:
+          RawValue: -44151
+      EndPosition:
+        X:
+          RawValue: 29315
+        Y:
+          RawValue: 154704
+        Z:
+          RawValue: -18636
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 24
+      BasePosition:
+        X:
+          RawValue: -1651
+        Y:
+          RawValue: 77165
+        Z:
+          RawValue: -46840
+      EndPosition:
+        X:
+          RawValue: 26277
+        Y:
+          RawValue: 133662
+        Z:
+          RawValue: -50168
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 25
+      BasePosition:
+        X:
+          RawValue: -7474
+        Y:
+          RawValue: 61660
+        Z:
+          RawValue: -40941
+      EndPosition:
+        X:
+          RawValue: 17847
+        Y:
+          RawValue: 112451
+        Z:
+          RawValue: -68547
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 26
+      BasePosition:
+        X:
+          RawValue: -10374
+        Y:
+          RawValue: 52510
+        Z:
+          RawValue: -33176
+      EndPosition:
+        X:
+          RawValue: 7962
+        Y:
+          RawValue: 92838
+        Z:
+          RawValue: -78124
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 27
+      BasePosition:
+        X:
+          RawValue: -11841
+        Y:
+          RawValue: 47449
+        Z:
+          RawValue: -26253
+      EndPosition:
+        X:
+          RawValue: -1517
+        Y:
+          RawValue: 75714
+        Z:
+          RawValue: -81728
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 28
+      BasePosition:
+        X:
+          RawValue: -13020
+        Y:
+          RawValue: 44700
+        Z:
+          RawValue: -20983
+      EndPosition:
+        X:
+          RawValue: -9075
+        Y:
+          RawValue: 61996
+        Z:
+          RawValue: -81549
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 29
+      BasePosition:
+        X:
+          RawValue: -14103
+        Y:
+          RawValue: 43161
+        Z:
+          RawValue: -17039
+      EndPosition:
+        X:
+          RawValue: -14465
+        Y:
+          RawValue: 51132
+        Z:
+          RawValue: -79643
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 30
+      BasePosition:
+        X:
+          RawValue: -14808
+        Y:
+          RawValue: 42300
+        Z:
+          RawValue: -13983
+      EndPosition:
+        X:
+          RawValue: -18254
+        Y:
+          RawValue: 41781
+        Z:
+          RawValue: -76997
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 31
+      BasePosition:
+        X:
+          RawValue: -15281
+        Y:
+          RawValue: 41832
+        Z:
+          RawValue: -11794
+      EndPosition:
+        X:
+          RawValue: -20685
+        Y:
+          RawValue: 33785
+        Z:
+          RawValue: -74156
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 32
+      BasePosition:
+        X:
+          RawValue: -15631
+        Y:
+          RawValue: 41564
+        Z:
+          RawValue: -10413
+      EndPosition:
+        X:
+          RawValue: -22095
+        Y:
+          RawValue: 27018
+        Z:
+          RawValue: -71484
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 33
+      BasePosition:
+        X:
+          RawValue: -15949
+        Y:
+          RawValue: 41358
+        Z:
+          RawValue: -9770
+      EndPosition:
+        X:
+          RawValue: -22872
+        Y:
+          RawValue: 21355
+        Z:
+          RawValue: -69226
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 34
+      BasePosition:
+        X:
+          RawValue: -16288
+        Y:
+          RawValue: 41261
+        Z:
+          RawValue: -9702
+      EndPosition:
+        X:
+          RawValue: -23369
+        Y:
+          RawValue: 16822
+        Z:
+          RawValue: -67457
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 35
+      BasePosition:
+        X:
+          RawValue: -16603
+        Y:
+          RawValue: 41372
+        Z:
+          RawValue: -9960
+      EndPosition:
+        X:
+          RawValue: -23816
+        Y:
+          RawValue: 13479
+        Z:
+          RawValue: -66111
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 36
+      BasePosition:
+        X:
+          RawValue: -16857
+        Y:
+          RawValue: 41633
+        Z:
+          RawValue: -10323
+      EndPosition:
+        X:
+          RawValue: -24399
+        Y:
+          RawValue: 11217
+        Z:
+          RawValue: -65104
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 37
+      BasePosition:
+        X:
+          RawValue: -17169
+        Y:
+          RawValue: 41979
+        Z:
+          RawValue: -10813
+      EndPosition:
+        X:
+          RawValue: -25486
+        Y:
+          RawValue: 9789
+        Z:
+          RawValue: -64457
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 38
+      BasePosition:
+        X:
+          RawValue: -17665
+        Y:
+          RawValue: 42366
+        Z:
+          RawValue: -11542
+      EndPosition:
+        X:
+          RawValue: -27253
+        Y:
+          RawValue: 8944
+        Z:
+          RawValue: -64211
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 39
+      BasePosition:
+        X:
+          RawValue: -18219
+        Y:
+          RawValue: 42765
+        Z:
+          RawValue: -12440
+      EndPosition:
+        X:
+          RawValue: -29299
+        Y:
+          RawValue: 8519
+        Z:
+          RawValue: -64280
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 40
+      BasePosition:
+        X:
+          RawValue: -18710
+        Y:
+          RawValue: 43173
+        Z:
+          RawValue: -13485
+      EndPosition:
+        X:
+          RawValue: -31206
+        Y:
+          RawValue: 8417
+        Z:
+          RawValue: -64660
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 41
+      BasePosition:
+        X:
+          RawValue: -19111
+        Y:
+          RawValue: 43595
+        Z:
+          RawValue: -14668
+      EndPosition:
+        X:
+          RawValue: -32818
+        Y:
+          RawValue: 8604
+        Z:
+          RawValue: -65370
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 42
+      BasePosition:
+        X:
+          RawValue: -19389
+        Y:
+          RawValue: 44033
+        Z:
+          RawValue: -15979
+      EndPosition:
+        X:
+          RawValue: -33984
+        Y:
+          RawValue: 9044
+        Z:
+          RawValue: -66435
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 43
+      BasePosition:
+        X:
+          RawValue: -19518
+        Y:
+          RawValue: 44495
+        Z:
+          RawValue: -17413
+      EndPosition:
+        X:
+          RawValue: -34561
+        Y:
+          RawValue: 9710
+        Z:
+          RawValue: -67878
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 44
+      BasePosition:
+        X:
+          RawValue: -19474
+        Y:
+          RawValue: 44983
+        Z:
+          RawValue: -18959
+      EndPosition:
+        X:
+          RawValue: -34414
+        Y:
+          RawValue: 10575
+        Z:
+          RawValue: -69713
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 45
+      BasePosition:
+        X:
+          RawValue: -19231
+        Y:
+          RawValue: 45507
+        Z:
+          RawValue: -20609
+      EndPosition:
+        X:
+          RawValue: -33400
+        Y:
+          RawValue: 11631
+        Z:
+          RawValue: -71938
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 46
+      BasePosition:
+        X:
+          RawValue: -18765
+        Y:
+          RawValue: 46077
+        Z:
+          RawValue: -22349
+      EndPosition:
+        X:
+          RawValue: -31379
+        Y:
+          RawValue: 12880
+        Z:
+          RawValue: -74521
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 47
+      BasePosition:
+        X:
+          RawValue: -18050
+        Y:
+          RawValue: 46701
+        Z:
+          RawValue: -24164
+      EndPosition:
+        X:
+          RawValue: -28199
+        Y:
+          RawValue: 14335
+        Z:
+          RawValue: -77385
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 48
+      BasePosition:
+        X:
+          RawValue: -17064
+        Y:
+          RawValue: 47386
+        Z:
+          RawValue: -26025
+      EndPosition:
+        X:
+          RawValue: -23708
+        Y:
+          RawValue: 16014
+        Z:
+          RawValue: -80381
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 49
+      BasePosition:
+        X:
+          RawValue: -15837
+        Y:
+          RawValue: 48133
+        Z:
+          RawValue: -27937
+      EndPosition:
+        X:
+          RawValue: -17963
+        Y:
+          RawValue: 17946
+        Z:
+          RawValue: -83319
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 50
+      BasePosition:
+        X:
+          RawValue: -14370
+        Y:
+          RawValue: 48960
+        Z:
+          RawValue: -29960
+      EndPosition:
+        X:
+          RawValue: -11151
+        Y:
+          RawValue: 20132
+        Z:
+          RawValue: -86010
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 51
+      BasePosition:
+        X:
+          RawValue: -12658
+        Y:
+          RawValue: 49857
+        Z:
+          RawValue: -31975
+      EndPosition:
+        X:
+          RawValue: -3403
+        Y:
+          RawValue: 22468
+        Z:
+          RawValue: -88075
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 52
+      BasePosition:
+        X:
+          RawValue: -10711
+        Y:
+          RawValue: 50804
+        Z:
+          RawValue: -33865
+      EndPosition:
+        X:
+          RawValue: 5087
+        Y:
+          RawValue: 24829
+        Z:
+          RawValue: -89170
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 53
+      BasePosition:
+        X:
+          RawValue: -8556
+        Y:
+          RawValue: 51784
+        Z:
+          RawValue: -35531
+      EndPosition:
+        X:
+          RawValue: 14067
+        Y:
+          RawValue: 27092
+        Z:
+          RawValue: -89023
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 54
+      BasePosition:
+        X:
+          RawValue: -6176
+        Y:
+          RawValue: 52793
+        Z:
+          RawValue: -36871
+      EndPosition:
+        X:
+          RawValue: 23288
+        Y:
+          RawValue: 29174
+        Z:
+          RawValue: -87439
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 55
+      BasePosition:
+        X:
+          RawValue: -3397
+        Y:
+          RawValue: 53920
+        Z:
+          RawValue: -37715
+      EndPosition:
+        X:
+          RawValue: 32662
+        Y:
+          RawValue: 31135
+        Z:
+          RawValue: -84229
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 56
+      BasePosition:
+        X:
+          RawValue: -906
+        Y:
+          RawValue: 54896
+        Z:
+          RawValue: -38296
+      EndPosition:
+        X:
+          RawValue: 41253
+        Y:
+          RawValue: 32720
+        Z:
+          RawValue: -79693
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 57
+      BasePosition:
+        X:
+          RawValue: 1464
+        Y:
+          RawValue: 55800
+        Z:
+          RawValue: -38532
+      EndPosition:
+        X:
+          RawValue: 49022
+        Y:
+          RawValue: 34127
+        Z:
+          RawValue: -73910
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 58
+      BasePosition:
+        X:
+          RawValue: 3774
+        Y:
+          RawValue: 56672
+        Z:
+          RawValue: -38354
+      EndPosition:
+        X:
+          RawValue: 55876
+        Y:
+          RawValue: 35529
+        Z:
+          RawValue: -67013
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 59
+      BasePosition:
+        X:
+          RawValue: 5790
+        Y:
+          RawValue: 57573
+        Z:
+          RawValue: -37571
+      EndPosition:
+        X:
+          RawValue: 61530
+        Y:
+          RawValue: 37288
+        Z:
+          RawValue: -59127
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 60
+      BasePosition:
+        X:
+          RawValue: 7649
+        Y:
+          RawValue: 58600
+        Z:
+          RawValue: -36411
+      EndPosition:
+        X:
+          RawValue: 66113
+        Y:
+          RawValue: 39670
+        Z:
+          RawValue: -50785
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 61
+      BasePosition:
+        X:
+          RawValue: 9403
+        Y:
+          RawValue: 59747
+        Z:
+          RawValue: -35041
+      EndPosition:
+        X:
+          RawValue: 69692
+        Y:
+          RawValue: 42577
+        Z:
+          RawValue: -42353
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 62
+      BasePosition:
+        X:
+          RawValue: 11155
+        Y:
+          RawValue: 61059
+        Z:
+          RawValue: -33601
+      EndPosition:
+        X:
+          RawValue: 72410
+        Y:
+          RawValue: 45875
+        Z:
+          RawValue: -34140
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 63
+      BasePosition:
+        X:
+          RawValue: 12934
+        Y:
+          RawValue: 62530
+        Z:
+          RawValue: -32231
+      EndPosition:
+        X:
+          RawValue: 74373
+        Y:
+          RawValue: 49319
+        Z:
+          RawValue: -26421
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 64
+      BasePosition:
+        X:
+          RawValue: 14904
+        Y:
+          RawValue: 64169
+        Z:
+          RawValue: -30923
+      EndPosition:
+        X:
+          RawValue: 75786
+        Y:
+          RawValue: 52869
+        Z:
+          RawValue: -18731
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 65
+      BasePosition:
+        X:
+          RawValue: 17156
+        Y:
+          RawValue: 65972
+        Z:
+          RawValue: -29580
+      EndPosition:
+        X:
+          RawValue: 76551
+        Y:
+          RawValue: 56323
+        Z:
+          RawValue: -10551
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 66
+      BasePosition:
+        X:
+          RawValue: 19612
+        Y:
+          RawValue: 67917
+        Z:
+          RawValue: -28247
+      EndPosition:
+        X:
+          RawValue: 76550
+        Y:
+          RawValue: 59417
+        Z:
+          RawValue: -2386
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 67
+      BasePosition:
+        X:
+          RawValue: 22198
+        Y:
+          RawValue: 69958
+        Z:
+          RawValue: -26902
+      EndPosition:
+        X:
+          RawValue: 75839
+        Y:
+          RawValue: 62097
+        Z:
+          RawValue: 5407
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 68
+      BasePosition:
+        X:
+          RawValue: 24796
+        Y:
+          RawValue: 71978
+        Z:
+          RawValue: -25398
+      EndPosition:
+        X:
+          RawValue: 74332
+        Y:
+          RawValue: 64195
+        Z:
+          RawValue: 12923
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 69
+      BasePosition:
+        X:
+          RawValue: 27264
+        Y:
+          RawValue: 73897
+        Z:
+          RawValue: -23598
+      EndPosition:
+        X:
+          RawValue: 71911
+        Y:
+          RawValue: 65639
+        Z:
+          RawValue: 20234
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 70
+      BasePosition:
+        X:
+          RawValue: 29418
+        Y:
+          RawValue: 75664
+        Z:
+          RawValue: -21409
+      EndPosition:
+        X:
+          RawValue: 68411
+        Y:
+          RawValue: 66450
+        Z:
+          RawValue: 27352
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 71
+      BasePosition:
+        X:
+          RawValue: 31039
+        Y:
+          RawValue: 77259
+        Z:
+          RawValue: -18751
+      EndPosition:
+        X:
+          RawValue: 63607
+        Y:
+          RawValue: 66725
+        Z:
+          RawValue: 34271
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 72
+      BasePosition:
+        X:
+          RawValue: 31850
+        Y:
+          RawValue: 78523
+        Z:
+          RawValue: -15919
+      EndPosition:
+        X:
+          RawValue: 57576
+        Y:
+          RawValue: 66397
+        Z:
+          RawValue: 40419
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 73
+      BasePosition:
+        X:
+          RawValue: 32120
+        Y:
+          RawValue: 79554
+        Z:
+          RawValue: -13140
+      EndPosition:
+        X:
+          RawValue: 51160
+        Y:
+          RawValue: 65658
+        Z:
+          RawValue: 45402
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 74
+      BasePosition:
+        X:
+          RawValue: 31925
+        Y:
+          RawValue: 80322
+        Z:
+          RawValue: -10562
+      EndPosition:
+        X:
+          RawValue: 44712
+        Y:
+          RawValue: 64626
+        Z:
+          RawValue: 49213
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 75
+      BasePosition:
+        X:
+          RawValue: 31357
+        Y:
+          RawValue: 80793
+        Z:
+          RawValue: -8320
+      EndPosition:
+        X:
+          RawValue: 38554
+        Y:
+          RawValue: 63406
+        Z:
+          RawValue: 51919
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 76
+      BasePosition:
+        X:
+          RawValue: 30516
+        Y:
+          RawValue: 80997
+        Z:
+          RawValue: -6578
+      EndPosition:
+        X:
+          RawValue: 32905
+        Y:
+          RawValue: 62248
+        Z:
+          RawValue: 53636
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 77
+      BasePosition:
+        X:
+          RawValue: 29506
+        Y:
+          RawValue: 81031
+        Z:
+          RawValue: -5370
+      EndPosition:
+        X:
+          RawValue: 27800
+        Y:
+          RawValue: 61355
+        Z:
+          RawValue: 54571
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 78
+      BasePosition:
+        X:
+          RawValue: 28423
+        Y:
+          RawValue: 80955
+        Z:
+          RawValue: -4616
+      EndPosition:
+        X:
+          RawValue: 23250
+        Y:
+          RawValue: 60743
+        Z:
+          RawValue: 54945
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 79
+      BasePosition:
+        X:
+          RawValue: 27359
+        Y:
+          RawValue: 80844
+        Z:
+          RawValue: -4222
+      EndPosition:
+        X:
+          RawValue: 19268
+        Y:
+          RawValue: 60432
+        Z:
+          RawValue: 54946
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 80
+      BasePosition:
+        X:
+          RawValue: 27359
+        Y:
+          RawValue: 80844
+        Z:
+          RawValue: -4222
+      EndPosition:
+        X:
+          RawValue: 19268
+        Y:
+          RawValue: 60432
+        Z:
+          RawValue: 54946
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 81
+      BasePosition:
+        X:
+          RawValue: 26570
+        Y:
+          RawValue: 80222
+        Z:
+          RawValue: -3806
+      EndPosition:
+        X:
+          RawValue: 16001
+        Y:
+          RawValue: 60901
+        Z:
+          RawValue: 55337
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 82
+      BasePosition:
+        X:
+          RawValue: 26023
+        Y:
+          RawValue: 79685
+        Z:
+          RawValue: -3485
+      EndPosition:
+        X:
+          RawValue: 13458
+        Y:
+          RawValue: 61494
+        Z:
+          RawValue: 55626
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 83
+      BasePosition:
+        X:
+          RawValue: 25759
+        Y:
+          RawValue: 79267
+        Z:
+          RawValue: -3104
+      EndPosition:
+        X:
+          RawValue: 11485
+        Y:
+          RawValue: 62047
+        Z:
+          RawValue: 55910
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 84
+      BasePosition:
+        X:
+          RawValue: 25777
+        Y:
+          RawValue: 78946
+        Z:
+          RawValue: -2532
+      EndPosition:
+        X:
+          RawValue: 9882
+        Y:
+          RawValue: 62447
+        Z:
+          RawValue: 56272
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 85
+      BasePosition:
+        X:
+          RawValue: 26017
+        Y:
+          RawValue: 78658
+        Z:
+          RawValue: -1671
+      EndPosition:
+        X:
+          RawValue: 8424
+        Y:
+          RawValue: 62667
+        Z:
+          RawValue: 56790
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 86
+      BasePosition:
+        X:
+          RawValue: 26310
+        Y:
+          RawValue: 78151
+        Z:
+          RawValue: -421
+      EndPosition:
+        X:
+          RawValue: 6580
+        Y:
+          RawValue: 62421
+        Z:
+          RawValue: 57426
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 87
+      BasePosition:
+        X:
+          RawValue: 26609
+        Y:
+          RawValue: 77544
+        Z:
+          RawValue: 1074
+      EndPosition:
+        X:
+          RawValue: 4706
+        Y:
+          RawValue: 62029
+        Z:
+          RawValue: 58193
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 88
+      BasePosition:
+        X:
+          RawValue: 26881
+        Y:
+          RawValue: 76880
+        Z:
+          RawValue: 2653
+      EndPosition:
+        X:
+          RawValue: 3187
+        Y:
+          RawValue: 61591
+        Z:
+          RawValue: 59114
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 89
+      BasePosition:
+        X:
+          RawValue: 27091
+        Y:
+          RawValue: 76121
+        Z:
+          RawValue: 4170
+      EndPosition:
+        X:
+          RawValue: 2080
+        Y:
+          RawValue: 60992
+        Z:
+          RawValue: 60103
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 90
+      BasePosition:
+        X:
+          RawValue: 27237
+        Y:
+          RawValue: 75279
+        Z:
+          RawValue: 5524
+      EndPosition:
+        X:
+          RawValue: 1265
+        Y:
+          RawValue: 60224
+        Z:
+          RawValue: 61038
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 91
+      BasePosition:
+        X:
+          RawValue: 27342
+        Y:
+          RawValue: 74397
+        Z:
+          RawValue: 6643
+      EndPosition:
+        X:
+          RawValue: 697
+        Y:
+          RawValue: 59337
+        Z:
+          RawValue: 61836
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 92
+      BasePosition:
+        X:
+          RawValue: 27441
+        Y:
+          RawValue: 73515
+        Z:
+          RawValue: 7499
+      EndPosition:
+        X:
+          RawValue: 339
+        Y:
+          RawValue: 58416
+        Z:
+          RawValue: 62458
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 93
+      BasePosition:
+        X:
+          RawValue: 27560
+        Y:
+          RawValue: 72666
+        Z:
+          RawValue: 8094
+      EndPosition:
+        X:
+          RawValue: 158
+        Y:
+          RawValue: 57530
+        Z:
+          RawValue: 62894
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 94
+      BasePosition:
+        X:
+          RawValue: 27716
+        Y:
+          RawValue: 71869
+        Z:
+          RawValue: 8452
+      EndPosition:
+        X:
+          RawValue: 118
+        Y:
+          RawValue: 56719
+        Z:
+          RawValue: 63150
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    AttackVals:
+      attackName: 0
+      direction:
+        X:
+          RawValue: 0
+        Y:
+          RawValue: 65536
+      attackType: 0
+      startupFrames: 18
+      activeFrames: 5
       endlagFrames: 34
       cancelableFrames: 32
       damage: 5
@@ -15124,7 +15114,22 @@ MonoBehaviour:
   ActionConfigs:
   - {fileID: 11400000, guid: 247ff9bdcb3a91d479ad61ed8c20f48f, type: 2}
   - {fileID: 11400000, guid: e4a9560d3240bba4ba585e86c53f7bb0, type: 2}
+  - {fileID: 11400000, guid: b63b0cd18df4268419735918b6571b47, type: 2}
   - {fileID: 11400000, guid: 17c7708cda524ca499520f56b66214d2, type: 2}
+  - {fileID: 11400000, guid: 29c8965cd8d98e24fbd8e8bfed885209, type: 2}
+  - {fileID: 11400000, guid: 28be9584f088f1b408983008ab1edac1, type: 2}
+  - {fileID: 11400000, guid: 5d9362ee203cc38409eded2d3fa94583, type: 2}
+  - {fileID: 11400000, guid: f9c73be54a9422f46a69eb6480e1272a, type: 2}
+  HitboxPrototype:
+    Id:
+      Value: 1502326855038452239
+  ParryEffectPrototype:
+    Id:
+      Value: 1502326855038452239
+  DashSimCurve: {fileID: 11400000, guid: 3d869b5861455e04791f0dcbc6badb2b, type: 2}
+  DashDistance:
+    RawValue: 196608
+  HitboxesRemain: 0
 --- !u!114 &6784878198909911470
 MonoBehaviour:
   m_ObjectHideFlags: 0

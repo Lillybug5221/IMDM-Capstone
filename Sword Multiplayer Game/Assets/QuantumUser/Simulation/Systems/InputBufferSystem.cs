@@ -45,13 +45,37 @@ namespace Quantum
                 return;
             }
 
-            currAction -> Direction = moveDirection;
+            /*
             if(input-> LightAttack){
                 gameStateFlags->Flags |= (int) GameStateFlags.IsLightAttacking;
             }
             if(moveDirection != new FPVector2(0,0)){
                 gameStateFlags->Flags |= (int) GameStateFlags.IsDirectionalInput;
             }
+            */
+
+            
+            var bufferedAction = GetNewestActionInBuffer(buffer);
+            if(bufferedAction.exists){
+                if(bufferedAction.input.LightAttack){
+                    /*
+                    for buffer testing
+                    if(input -> LightAttack){
+                        Log.Debug("button rpessed at frame " + frame.Number);
+                    }
+                    */
+                    gameStateFlags->Flags |= (int) GameStateFlags.IsLightAttacking;
+                }
+                if(bufferedAction.input.Dodge){
+                    gameStateFlags->Flags |= (int) GameStateFlags.IsDodging;
+                }
+                if(moveDirection != new FPVector2(0,0)){
+                    gameStateFlags->Flags |= (int) GameStateFlags.IsDirectionalInput;
+                }
+            }
+            
+
+            gameStateFlags -> InputDirection = moveDirection;
 
 
 
@@ -213,7 +237,7 @@ namespace Quantum
             buffer->LightAttack9 = buffer->LightAttack8;
             buffer->HeavyAttack9 = buffer->HeavyAttack8;
             buffer->Parry9 = buffer->Parry8;
-            buffer->Special9 = buffer->Special9;
+            buffer->Special9 = buffer->Special8;
 
             buffer->LastDirection8 = buffer->LastDirection7;
             buffer->Jump8 = buffer->Jump7;
@@ -288,7 +312,7 @@ namespace Quantum
             buffer->Special0 = currInput-> Special == true;
         }
 
-        private (bool exists, Input input) GetOldestActionInBuffer(InputBuffer* buffer){
+        private (bool exists, Input input) GetNewestActionInBuffer(InputBuffer* buffer){
             Quantum.Input input = new Quantum.Input();
             for (int i = 0; i < 10; i++) { // last  10 frames in buffer frames in buffer
                 bool actionPressed = i switch {
@@ -358,6 +382,7 @@ namespace Quantum
                         9 => buffer->LightAttack9==true,
                         _ => false
                     };
+
                     input.HeavyAttack = i switch {
                         0 => buffer->HeavyAttack0==true,
                         1 => buffer->HeavyAttack1==true,

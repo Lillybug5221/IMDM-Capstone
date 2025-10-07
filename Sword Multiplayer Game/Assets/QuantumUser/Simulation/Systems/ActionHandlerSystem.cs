@@ -81,7 +81,7 @@ namespace Quantum
                 {
                     currAction->ActionPhase++;
                 }else{
-                    actionConfigs[currAction->ActionIndex].StartupLogic(frame, ref filter);
+                    actionConfigs[currAction->ActionIndex].StartupLogic(frame, ref filter, frameNumber);
                     currAction->StartUpFrames--;
                 }
                 #endregion
@@ -161,7 +161,7 @@ namespace Quantum
                     }
                     */
                 }else{
-                    actionConfigs[currAction->ActionIndex].ActiveLogic(frame, ref filter);
+                    actionConfigs[currAction->ActionIndex].ActiveLogic(frame, ref filter, frameNumber);
                     currAction->ActiveFrames--;
                 }
                 #endregion
@@ -239,7 +239,7 @@ namespace Quantum
                     currAction->ActionPhase++;
                     //Log.Debug("Action Cancelable");
                 }else{
-                    actionConfigs[currAction->ActionIndex].RecoveryLogic(frame, ref filter);
+                    actionConfigs[currAction->ActionIndex].RecoveryLogic(frame, ref filter, frameNumber);
                     currAction->RecoveryFrames--;
                 }
                 #endregion
@@ -252,7 +252,7 @@ namespace Quantum
                     //Log.Debug("Action Over");
                     currAction->ActionPhase++;
                 }else{
-                    actionConfigs[currAction->ActionIndex].CancelableLogic(frame, ref filter);
+                    actionConfigs[currAction->ActionIndex].CancelableLogic(frame, ref filter, frameNumber);
                     currAction->CancelableFrames--;
                 }
             }
@@ -276,7 +276,7 @@ namespace Quantum
             if (currentState == null)
                 Log.Error("Current state not found.");
             else{
-                Log.Debug(currentState);
+                //Log.Debug(currentState);
             }
             
             var currentMotion = currentState.Motion;

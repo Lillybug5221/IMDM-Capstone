@@ -27,6 +27,7 @@ component ParryComponent{
 
 component CurrentGameStateFlags{
     int Flags; //packed enum
+    FPVector2 InputDirection;
 }
 
 component CurrentAction{

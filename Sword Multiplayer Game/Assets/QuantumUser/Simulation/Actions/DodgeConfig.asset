@@ -9,22 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd73b302cc5f09499b98e893741629d, type: 3}
-  m_Name: MoveConfigAsset
+  m_Script: {fileID: 11500000, guid: a5d2e4f6a0739944c93a13d5200b2f14, type: 3}
+  m_Name: DodgeConfig
   m_EditorClassIdentifier: 
   Identifier:
-    Path: QuantumUser/Simulation/Actions/MoveConfigAsset
+    Path: QuantumUser/Simulation/Actions/DodgeConfig
     Guid:
-      Value: 493570292215728877
+      Value: 507780143444608200
   StartUpFrames: 0
   ActiveFrames: 0
-  RecoveryFrames: 0
-  CancelableFrames: 1
-  RequiredFlags: 1
-  ForbiddenFlags: 126
+  RecoveryFrames: 30
+  CancelableFrames: 0
+  RequiredFlags: 8
+  ForbiddenFlags: 118
   RequiredDirection:
     X:
       RawValue: 0
     Y:
       RawValue: 0
   CustomCancelRules: []
+  dodgeDistance:
+    RawValue: 196608
+  DashSimCurve: {fileID: 11400000, guid: 3d869b5861455e04791f0dcbc6badb2b, type: 2}

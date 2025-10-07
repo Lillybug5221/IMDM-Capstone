@@ -186,6 +186,7 @@ namespace Quantum.Prototypes {
   [Quantum.Prototypes.Prototype(typeof(Quantum.CurrentGameStateFlags))]
   public unsafe partial class CurrentGameStateFlagsPrototype : ComponentPrototype<Quantum.CurrentGameStateFlags> {
     public Int32 Flags;
+    public FPVector2 InputDirection;
     partial void MaterializeUser(Frame frame, ref Quantum.CurrentGameStateFlags result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
         Quantum.CurrentGameStateFlags component = default;
@@ -194,6 +195,7 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref Quantum.CurrentGameStateFlags result, in PrototypeMaterializationContext context = default) {
         result.Flags = this.Flags;
+        result.InputDirection = this.InputDirection;
         MaterializeUser(frame, ref result, in context);
     }
   }
