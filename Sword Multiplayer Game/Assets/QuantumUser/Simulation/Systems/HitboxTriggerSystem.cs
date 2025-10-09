@@ -19,7 +19,21 @@ namespace Quantum
                     }
 
                     frame.Unsafe.TryGetPointer<CurrentGameStateFlags>(info.Other, out var gameStateFlags);
-                    gameStateFlags->Flags |= (int) GameStateFlags.IsHitConnected;
+
+                    if(frame.Unsafe.TryGetPointer<ParryComponent>(info.Other, out var activeParry)){
+                        if(!activeParry->HeldBlock){
+                            Log.Debug("perfect blocked");
+                            //perfect parry
+                            gameStateFlags->Flags |= (int) GameStateFlags.IsPerfectParryConnected;
+                        }else{
+                            Log.Debug("normal blocked");
+                            //block
+                            gameStateFlags->Flags |= (int) GameStateFlags.IsBlockConnected;
+                        }
+                    }else{
+                        //hit
+                        gameStateFlags->Flags |= (int) GameStateFlags.IsHitConnected;
+                    }
 
 
                     /*

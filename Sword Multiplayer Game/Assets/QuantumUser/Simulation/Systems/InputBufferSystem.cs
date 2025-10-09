@@ -73,8 +73,18 @@ namespace Quantum
                     gameStateFlags->Flags |= (int) GameStateFlags.IsParrying;
                 }
             }
+
+            //if parry is being held, then set the flag to active
+            if(input->ParryHeld){
+                gameStateFlags->Flags |= (int) GameStateFlags.IsParrying;
+            }
             if(moveDirection != new FPVector2(0,0)){
                 gameStateFlags->Flags |= (int) GameStateFlags.IsDirectionalInput;
+            }
+
+            //hitstun debug
+            if(input->Special){
+                gameStateFlags->Flags |= (int) GameStateFlags.IsPerfectParryConnected;
             }
             
 

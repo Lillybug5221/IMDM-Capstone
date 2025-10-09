@@ -731,6 +731,7 @@ namespace Quantum.Prototypes {
   [Quantum.Prototypes.Prototype(typeof(Quantum.ParryComponent))]
   public unsafe partial class ParryComponentPrototype : ComponentPrototype<Quantum.ParryComponent> {
     public QBoolean HeavyParry;
+    public QBoolean HeldBlock;
     public FPVector2 Direction;
     partial void MaterializeUser(Frame frame, ref Quantum.ParryComponent result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
@@ -740,6 +741,7 @@ namespace Quantum.Prototypes {
     }
     public void Materialize(Frame frame, ref Quantum.ParryComponent result, in PrototypeMaterializationContext context = default) {
         result.HeavyParry = this.HeavyParry;
+        result.HeldBlock = this.HeldBlock;
         result.Direction = this.Direction;
         MaterializeUser(frame, ref result, in context);
     }

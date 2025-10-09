@@ -1840,12 +1840,15 @@ namespace Quantum {
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
     public QBoolean HeavyParry;
+    [FieldOffset(4)]
+    public QBoolean HeldBlock;
     [FieldOffset(8)]
     public FPVector2 Direction;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 6067;
         hash = hash * 31 + HeavyParry.GetHashCode();
+        hash = hash * 31 + HeldBlock.GetHashCode();
         hash = hash * 31 + Direction.GetHashCode();
         return hash;
       }
@@ -1853,6 +1856,7 @@ namespace Quantum {
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (ParryComponent*)ptr;
         QBoolean.Serialize(&p->HeavyParry, serializer);
+        QBoolean.Serialize(&p->HeldBlock, serializer);
         FPVector2.Serialize(&p->Direction, serializer);
     }
   }

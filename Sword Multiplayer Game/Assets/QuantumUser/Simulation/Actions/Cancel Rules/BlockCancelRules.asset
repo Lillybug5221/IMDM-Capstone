@@ -10,14 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eed135bcdd38a94b922d541e8a98714, type: 3}
-  m_Name: ParryCancelRules
+  m_Name: BlockCancelRules
   m_EditorClassIdentifier: 
   Identifier:
-    Path: QuantumUser/Simulation/Actions/ParryCancelRules
+    Path: QuantumUser/Simulation/Actions/Cancel Rules/BlockCancelRules
     Guid:
-      Value: 395009834053876060
+      Value: 375435810910571050
   Rules:
   - TargetAction: {fileID: 11400000, guid: 8459cd24d6b3e424aa634ccd81bc613b, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 0
+  - TargetAction: {fileID: 11400000, guid: 3aecf000f82584c41ad90a26bbb4ac28, type: 2}
     UseSpecializedCancelFrame: 0
     SpecializedCancelabilityStartFrame: 0
     SpecializedCancelabilityEndFrame: 0

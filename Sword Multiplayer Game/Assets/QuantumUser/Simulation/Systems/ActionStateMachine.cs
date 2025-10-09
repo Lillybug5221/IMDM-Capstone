@@ -85,6 +85,9 @@ namespace Quantum
             GameStateFlags currFlags = (GameStateFlags)(filter.GameStateFlags -> Flags);
 
             ActionConfigAsset currActionConfig = actionConfigs[currAction -> ActionIndex];
+            if(currActionConfig.HasCustomCancelRules()){
+                currActionCancelRules = currActionConfig.CustomCancelRules.Rules;
+            }
             FPVector2 inputDirection = filter.GameStateFlags -> InputDirection;
             int foundIndex = -1;
             for(int i = 0; i < currActionCancelRules.Length; i++){
@@ -103,7 +106,6 @@ namespace Quantum
                     }else if(FPVector2.DistanceSquared(inputDirection, nextAction.RequiredDirection) < FPVector2.DistanceSquared(inputDirection, currActionCancelRules[foundIndex].TargetAction.RequiredDirection)){
                         foundIndex = i;
                     }
-                    //Log.Debug("flags met");
                 }
             }
 

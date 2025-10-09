@@ -22,6 +22,7 @@ component MeleeHitbox
 
 component ParryComponent{
     bool HeavyParry;
+    bool HeldBlock;
     FPVector2 Direction;
 }
 

@@ -13,6 +13,8 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
     private ParticleSystem attackParticleSys;
     [SerializeField]
     private GameObject ParryIndicator;
+
+    private List<ActionConfigAsset> actionConfigs;
     
     private int startFrame = -1;
     private int currFrame = 0;
@@ -26,6 +28,9 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
         
     }
     public override void OnUpdateView(){
+        if(actionConfigs == null){
+            actionConfigs = PredictedFrame.SimulationConfig.ActionConfigs;
+        }
         //hitbox builder
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         if(HitboxJSONBuilder.Instance.CreateJSON){
@@ -69,17 +74,19 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
         }
         
         if (PredictedFrame.TryGet<CurrentAction>(EntityRef, out var currAction)) {
-            //refactor this
-            /*
-            if((ActionType)(currAction.ActionType) == ActionType.Attack && !attackParticleSys.isPlaying){
+            
+            ActionConfigAsset currActionConfig = actionConfigs[currAction.ActionIndex];
+            if(currActionConfig is AttackConfigAsset && !attackParticleSys.isPlaying){
                 if(currAction.ActionPhase == 2){
                     attackParticleSys.Play();
                 }
-            }else if(((ActionType)(currAction.ActionType) != ActionType.Attack && attackParticleSys.isPlaying) ||
-                     ((ActionType)(currAction.ActionType) == ActionType.Attack && currAction.ActionPhase != 2)){
+            }else if((currActionConfig is AttackConfigAsset && attackParticleSys.isPlaying) ||
+                     (currActionConfig is AttackConfigAsset && currAction.ActionPhase != 2)){
                 attackParticleSys.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
-            */
+            
+            
+            
 
 
             

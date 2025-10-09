@@ -28,6 +28,8 @@ namespace Quantum
         IsParrying = 1 << 4,
         IsHeavyParrying = 1 << 5,
         IsHitConnected = 1 << 6,
+        IsPerfectParryConnected = 1 << 7,
+        IsBlockConnected = 1 << 8,
     }
 
 
@@ -45,7 +47,7 @@ namespace Quantum
 
         public FPVector2 RequiredDirection;
 
-        public CancelRule[] CustomCancelRules;
+        public DefaultCancelRulesAsset CustomCancelRules;
 
         public abstract void Initialize(Frame frame, ref ActionStateMachine.Filter filter);
         public abstract void StartupLogic(Frame frame,ref ActionHandlerSystem.Filter filter, int frameNumber);
@@ -54,7 +56,9 @@ namespace Quantum
         public abstract void CancelableLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber);
         public abstract void Deinitialize(Frame frame, ref ActionStateMachine.Filter filter);
         
-
+        public bool HasCustomCancelRules(){
+            return CustomCancelRules!=null;
+        }
     }
 
     [System.Serializable]
@@ -65,6 +69,7 @@ namespace Quantum
         public int SpecializedCancelabilityEndFrame;
         public int CancelablePhase;
     }
+
 
     
 }

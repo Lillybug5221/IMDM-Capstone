@@ -84,7 +84,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9991,7 +9991,7 @@ GameObject:
   - component: {fileID: 790016333672194274}
   - component: {fileID: 6674607080262247956}
   - component: {fileID: -4347090220658967027}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10158,7 +10158,7 @@ MonoBehaviour:
       IsPersistent: 1
       CompoundShapes: []
     LayerSource: 0
-    Layer: 0
+    Layer: 6
     CallbackFlags:
       Value: 0
   PhysicsBody:
@@ -10679,7 +10679,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prototype:
-    GameState: 0
+    Flags: 0
+    InputDirection:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
 --- !u!1 &3729670431120426559
 GameObject:
   m_ObjectHideFlags: 0

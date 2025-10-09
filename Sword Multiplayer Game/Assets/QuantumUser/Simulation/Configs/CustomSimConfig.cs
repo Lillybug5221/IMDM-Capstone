@@ -8,10 +8,6 @@ namespace Quantum
 
         public AssetRef<EntityPrototype> ParryEffectPrototype;
 
-        public SimCurve DashSimCurve;
-
-        public FP DashDistance; 
-
         public bool HitboxesRemain;
         
     }

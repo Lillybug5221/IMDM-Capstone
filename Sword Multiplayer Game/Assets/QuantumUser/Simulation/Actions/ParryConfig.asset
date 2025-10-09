@@ -18,7 +18,7 @@ MonoBehaviour:
       Value: 459881273578435298
   StartUpFrames: 0
   ActiveFrames: 12
-  RecoveryFrames: 12
+  RecoveryFrames: 0
   CancelableFrames: 30
   RequiredFlags: 16
   ForbiddenFlags: 110
@@ -27,4 +27,4 @@ MonoBehaviour:
       RawValue: 0
     Y:
       RawValue: 0
-  CustomCancelRules: []
+  CustomCancelRules: {fileID: 11400000, guid: 03e02b57d9b6fde4d8a7665382be41d4, type: 2}

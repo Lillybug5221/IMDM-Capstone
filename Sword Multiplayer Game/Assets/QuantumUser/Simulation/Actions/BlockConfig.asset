@@ -9,22 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d598db88c8bdb1447906e78c7be3eb66, type: 3}
-  m_Name: ParryEndlag
+  m_Script: {fileID: 11500000, guid: 6533e6c2150709c41be533047cb4a0cb, type: 3}
+  m_Name: BlockConfig
   m_EditorClassIdentifier: 
   Identifier:
-    Path: QuantumUser/Simulation/Actions/ParryEndlag
+    Path: QuantumUser/Simulation/Actions/BlockConfig
     Guid:
-      Value: 351960928011793911
+      Value: 383964520477901590
   StartUpFrames: 0
   ActiveFrames: 0
   RecoveryFrames: 0
   CancelableFrames: 0
-  RequiredFlags: 0
-  ForbiddenFlags: 16
+  RequiredFlags: 16
+  ForbiddenFlags: 0
   RequiredDirection:
     X:
       RawValue: 0
     Y:
       RawValue: 0
-  CustomCancelRules: []
+  CustomCancelRules: {fileID: 11400000, guid: 0eee5086606eca84a830abebe349ffc7, type: 2}
