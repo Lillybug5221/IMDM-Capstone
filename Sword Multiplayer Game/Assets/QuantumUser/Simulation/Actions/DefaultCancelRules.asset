@@ -77,3 +77,8 @@ MonoBehaviour:
     SpecializedCancelabilityStartFrame: 0
     SpecializedCancelabilityEndFrame: 0
     CancelablePhase: 5
+  - TargetAction: {fileID: 11400000, guid: d11cb28bbc905064d8eee17697113101, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4

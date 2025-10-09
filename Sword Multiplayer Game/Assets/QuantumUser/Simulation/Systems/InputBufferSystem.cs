@@ -69,9 +69,12 @@ namespace Quantum
                 if(bufferedAction.input.Dodge){
                     gameStateFlags->Flags |= (int) GameStateFlags.IsDodging;
                 }
-                if(moveDirection != new FPVector2(0,0)){
-                    gameStateFlags->Flags |= (int) GameStateFlags.IsDirectionalInput;
+                if(bufferedAction.input.Parry){
+                    gameStateFlags->Flags |= (int) GameStateFlags.IsParrying;
                 }
+            }
+            if(moveDirection != new FPVector2(0,0)){
+                gameStateFlags->Flags |= (int) GameStateFlags.IsDirectionalInput;
             }
             
 

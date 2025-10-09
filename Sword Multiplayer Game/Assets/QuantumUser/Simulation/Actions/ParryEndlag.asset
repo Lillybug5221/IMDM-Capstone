@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd73b302cc5f09499b98e893741629d, type: 3}
-  m_Name: MoveConfigAsset
+  m_Script: {fileID: 11500000, guid: d598db88c8bdb1447906e78c7be3eb66, type: 3}
+  m_Name: ParryEndlag
   m_EditorClassIdentifier: 
   Identifier:
-    Path: QuantumUser/Simulation/Actions/MoveConfigAsset
+    Path: QuantumUser/Simulation/Actions/ParryEndlag
     Guid:
-      Value: 493570292215728877
+      Value: 351960928011793911
   StartUpFrames: 0
   ActiveFrames: 0
   RecoveryFrames: 0
-  CancelableFrames: 1
-  RequiredFlags: 1
-  ForbiddenFlags: 254
+  CancelableFrames: 0
+  RequiredFlags: 0
+  ForbiddenFlags: 16
   RequiredDirection:
     X:
       RawValue: 0

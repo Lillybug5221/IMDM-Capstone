@@ -28,11 +28,6 @@ namespace Quantum
         IsParrying = 1 << 4,
         IsHeavyParrying = 1 << 5,
         IsHitConnected = 1 << 6,
-        //CurrentActionPhase1 = 1 << 6,
-        //CurrentActionPhase2 = 1 << 7,
-        //CurrentActionPhase3 = 1 << 8,
-        //CurrentActionPhase4 = 1 << 9,
-        //CurrentActionPhase5 = 1 << 10,
     }
 
 
