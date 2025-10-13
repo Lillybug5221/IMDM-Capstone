@@ -44,30 +44,18 @@ namespace Quantum
             if(HitstopTickSystem.GlobalHitstopActive(frame)){
                 return;
             }
-
-            /*
-            if(input-> LightAttack){
-                gameStateFlags->Flags |= (int) GameStateFlags.IsLightAttacking;
-            }
-            if(moveDirection != new FPVector2(0,0)){
-                gameStateFlags->Flags |= (int) GameStateFlags.IsDirectionalInput;
-            }
-            */
-
             
             var bufferedAction = GetNewestActionInBuffer(buffer);
             if(bufferedAction.exists){
                 if(bufferedAction.input.LightAttack){
-                    /*
-                    for buffer testing
-                    if(input -> LightAttack){
-                        Log.Debug("button rpessed at frame " + frame.Number);
-                    }
-                    */
                     gameStateFlags->Flags |= (int) GameStateFlags.IsLightAttacking;
                 }
-                if(bufferedAction.input.Dodge){
-                    gameStateFlags->Flags |= (int) GameStateFlags.IsDodging;
+                if(bufferedAction.input.HeavyAttack){
+                    gameStateFlags->Flags |= (int) GameStateFlags.IsHeavyAttacking;
+                }
+                if (bufferedAction.input.Dodge)
+                {
+                    gameStateFlags->Flags |= (int)GameStateFlags.IsDodging;
                 }
                 if(bufferedAction.input.Parry){
                     gameStateFlags->Flags |= (int) GameStateFlags.IsParrying;
@@ -80,11 +68,6 @@ namespace Quantum
             }
             if(moveDirection != new FPVector2(0,0)){
                 gameStateFlags->Flags |= (int) GameStateFlags.IsDirectionalInput;
-            }
-
-            //hitstun debug
-            if(input->Special){
-                gameStateFlags->Flags |= (int) GameStateFlags.IsPerfectParryConnected;
             }
             
 

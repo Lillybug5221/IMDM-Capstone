@@ -56,8 +56,12 @@ namespace Quantum
 
             bool transitioning = filter.Animator->IsInTransition(frame, 0);
             if(deltaFrame != new FPVector3(0,0,0) && !transitioning){
-                
-                FPVector3 dirToTarget = (new FPVector3((FP)currAction -> EnemyPosition.X, (FP)currAction->PlayerPosition.Y, (FP)currAction->EnemyPosition.Z) - currAction -> PlayerPosition).Normalized;
+                FPVector3 enemyPos = currAction->EnemyPosition;
+                if (currAction -> RootMotionTracking)
+                {
+                    enemyPos = currAction->UpdatedEnemyPosition;
+                }
+                FPVector3 dirToTarget = (new FPVector3((FP)enemyPos.X, (FP)currAction->PlayerPosition.Y, (FP)enemyPos.Z) - currAction -> PlayerPosition).Normalized;
                 FPQuaternion lookRot = FPQuaternion.LookRotation(dirToTarget, FPVector3.Up);
                 FPVector3 rotatedVector = lookRot * deltaFrame;
 
@@ -77,10 +81,17 @@ namespace Quantum
             #region Start Up
             if (currAction->ActionPhase == 1)
             {
+                if (frameNumber == 0) {
+                    actionConfigs[currAction->ActionIndex].StartupLogicFirstFrame(frame, ref filter, frameNumber);
+                }
+
                 if (currAction->StartUpFrames <= 0)
                 {
                     currAction->ActionPhase++;
-                }else{
+                    actionConfigs[currAction->ActionIndex].ActiveLogicFirstFrame(frame, ref filter, frameNumber);
+                }
+                else
+                {
                     actionConfigs[currAction->ActionIndex].StartupLogic(frame, ref filter, frameNumber);
                     currAction->StartUpFrames--;
                 }
@@ -145,6 +156,7 @@ namespace Quantum
                 if (currAction->ActiveFrames <= 0)
                 {
                     currAction->ActionPhase++;
+                    actionConfigs[currAction->ActionIndex].RecoveryLogicFirstFrame(frame, ref filter, frameNumber);
                     /*
                     //if parrying, start end animation
                     if (currentActionType == ActionType.Parry)
@@ -160,7 +172,9 @@ namespace Quantum
                         }
                     }
                     */
-                }else{
+                }
+                else
+                {
                     actionConfigs[currAction->ActionIndex].ActiveLogic(frame, ref filter, frameNumber);
                     currAction->ActiveFrames--;
                 }
@@ -236,6 +250,7 @@ namespace Quantum
                 
                 if (currAction->RecoveryFrames <= 0)
                 {
+                    actionConfigs[currAction->ActionIndex].CancelableLogicFirstFrame(frame, ref filter, frameNumber);
                     currAction->ActionPhase++;
                     //Log.Debug("Action Cancelable");
                 }else{

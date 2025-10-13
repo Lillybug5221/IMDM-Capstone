@@ -62,17 +62,23 @@ namespace Quantum
             //Read current gamestate component, and update action accordingly.
             //update enemy position
             FPVector3 opponentPosition = new FPVector3(0,0,0);
-            foreach (var pair in frame.GetComponentIterator<PlayerLink>()) {
+            foreach (var pair in frame.GetComponentIterator<PlayerLink>())
+            {
                 EntityRef entity = pair.Entity;
                 PlayerLink playerLink = pair.Component;
-                if(playerLink.Player != filter.Link -> Player){
-                    if(frame.Unsafe.TryGetPointer<Transform3D>(entity, out var enemyTransform))
+                if (playerLink.Player != filter.Link->Player)
+                {
+                    if (frame.Unsafe.TryGetPointer<Transform3D>(entity, out var enemyTransform))
                     {
                         opponentPosition = enemyTransform->Position;
                         //Log.Debug("opponent pos is" + opponentPosition);
                     }
                 }
             }
+
+            // update currAction's Updated Enemy Position used for tracking
+
+            currAction->UpdatedEnemyPosition = opponentPosition;
 
             //get current gamestate as a byte flag
 

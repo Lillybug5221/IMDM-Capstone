@@ -50,15 +50,34 @@ namespace Quantum
         public DefaultCancelRulesAsset CustomCancelRules;
 
         public abstract void Initialize(Frame frame, ref ActionStateMachine.Filter filter);
-        public abstract void StartupLogic(Frame frame,ref ActionHandlerSystem.Filter filter, int frameNumber);
+
+        public virtual void StartupLogicFirstFrame(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber)
+        {
+            return;
+        }
+        public abstract void StartupLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber);
+        public virtual void ActiveLogicFirstFrame(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber)
+        {
+            return;
+        }
         public abstract void ActiveLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber);
+        public virtual void RecoveryLogicFirstFrame(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber)
+        {
+            return;
+        }
         public abstract void RecoveryLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber);
+        public virtual void CancelableLogicFirstFrame(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber)
+        {
+            return;
+        }
         public abstract void CancelableLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber);
         public abstract void Deinitialize(Frame frame, ref ActionStateMachine.Filter filter);
-        
-        public bool HasCustomCancelRules(){
-            return CustomCancelRules!=null;
+
+        public bool HasCustomCancelRules()
+        {
+            return CustomCancelRules != null;
         }
+        
     }
 
     [System.Serializable]
