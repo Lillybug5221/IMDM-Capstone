@@ -1209,7 +1209,7 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct CurrentAction : Quantum.IComponent {
-    public const Int32 SIZE = 152;
+    public const Int32 SIZE = 128;
     public const Int32 ALIGNMENT = 8;
     [FieldOffset(16)]
     public Int32 ActionNumber;
@@ -1221,10 +1221,8 @@ namespace Quantum {
     public FPVector3 PlayerPosition;
     [FieldOffset(80)]
     public FPVector3 EnemyPosition;
-    [FieldOffset(128)]
-    public FPVector3 UpdatedEnemyPosition;
     [FieldOffset(28)]
-    public QBoolean RootMotionTracking;
+    public QBoolean TrackingActive;
     [FieldOffset(1)]
     public Byte AttackIndex;
     [FieldOffset(20)]
@@ -1255,8 +1253,7 @@ namespace Quantum {
         hash = hash * 31 + Direction.GetHashCode();
         hash = hash * 31 + PlayerPosition.GetHashCode();
         hash = hash * 31 + EnemyPosition.GetHashCode();
-        hash = hash * 31 + UpdatedEnemyPosition.GetHashCode();
-        hash = hash * 31 + RootMotionTracking.GetHashCode();
+        hash = hash * 31 + TrackingActive.GetHashCode();
         hash = hash * 31 + AttackIndex.GetHashCode();
         hash = hash * 31 + StartTick.GetHashCode();
         hash = hash * 31 + StartUpFrames.GetHashCode();
@@ -1284,13 +1281,12 @@ namespace Quantum {
         serializer.Stream.Serialize(&p->ActionNumber);
         serializer.Stream.Serialize(&p->StartTick);
         QBoolean.Serialize(&p->DamageApplied, serializer);
-        QBoolean.Serialize(&p->RootMotionTracking, serializer);
+        QBoolean.Serialize(&p->TrackingActive, serializer);
         FP.Serialize(&p->PrecentageOfDodgeCompletable, serializer);
         FPVector2.Serialize(&p->Direction, serializer);
         FPVector3.Serialize(&p->DashEndPos, serializer);
         FPVector3.Serialize(&p->EnemyPosition, serializer);
         FPVector3.Serialize(&p->PlayerPosition, serializer);
-        FPVector3.Serialize(&p->UpdatedEnemyPosition, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]

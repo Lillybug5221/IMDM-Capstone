@@ -45,7 +45,6 @@ namespace Quantum
 
                 FPVector2 dashDirection2D = (currAction->Direction).Normalized;
                 if(dashDirection2D.Magnitude < FP.FromFloat_UNSAFE(0.001f)){dashDirection2D = new FPVector2(0,-1);}
-                Log.Debug(dashDirection2D);
                 FP dashMagnitude = dodgeDistance;
                 FPVector3 dashDirectionWorld = new FPVector3(dashDirection2D.X, 0, dashDirection2D.Y);
 

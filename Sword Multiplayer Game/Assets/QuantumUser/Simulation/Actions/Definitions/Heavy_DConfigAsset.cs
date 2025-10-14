@@ -12,32 +12,36 @@ namespace Quantum
 
         public FP MaxDistance;
 
+        public SimCurve MovementSimCurve;
+
         public int frameNumTrackingEnds;
         public override void Initialize(Frame frame, ref ActionStateMachine.Filter filter){
             return; 
         }
 
         public override void Deinitialize(Frame frame, ref ActionStateMachine.Filter filter){
+            var currAction = filter.CurrAction;
+            currAction->TrackingActive = false;
             return;
         }
 
         public override void StartupLogicFirstFrame(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber)
         {
             AnimatorComponent.SetTrigger(frame, filter.Animator, "Heavy_D");
-            filter.CurrAction->RootMotionTracking = true;
+            filter.CurrAction->TrackingActive = true;
         }
 
         public override void StartupLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber)
         {
             var currAction = filter.CurrAction;
-            var enemyPosition = currAction->UpdatedEnemyPosition;
+            var enemyPosition = currAction->EnemyPosition;
             var startPosition = currAction->PlayerPosition;
             var direction = FPVector3.Normalize(startPosition - enemyPosition);
             var endPosition = enemyPosition + direction * EndpointDistanceFromEnemy;
 
             if(frameNumber > frameNumTrackingEnds)
             {
-                currAction->RootMotionTracking = false;
+                currAction->TrackingActive = false;
             }
             
 
@@ -48,6 +52,9 @@ namespace Quantum
             
             var playerTransform = filter.Transform;
             FP PrecentageComplete = (FP)frameNumber / (FP)StartUpFrames;
+            //evealute position according to sim curve.
+            PrecentageComplete = MovementSimCurve.Evaluate(PrecentageComplete);
+
             playerTransform->Position = FPVector3.Lerp(startPosition, endPosition, PrecentageComplete);
             return;
         }

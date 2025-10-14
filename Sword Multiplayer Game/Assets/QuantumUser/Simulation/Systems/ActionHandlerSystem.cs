@@ -57,10 +57,6 @@ namespace Quantum
             bool transitioning = filter.Animator->IsInTransition(frame, 0);
             if(deltaFrame != new FPVector3(0,0,0) && !transitioning){
                 FPVector3 enemyPos = currAction->EnemyPosition;
-                if (currAction -> RootMotionTracking)
-                {
-                    enemyPos = currAction->UpdatedEnemyPosition;
-                }
                 FPVector3 dirToTarget = (new FPVector3((FP)enemyPos.X, (FP)currAction->PlayerPosition.Y, (FP)enemyPos.Z) - currAction -> PlayerPosition).Normalized;
                 FPQuaternion lookRot = FPQuaternion.LookRotation(dirToTarget, FPVector3.Up);
                 FPVector3 rotatedVector = lookRot * deltaFrame;

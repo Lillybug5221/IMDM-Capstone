@@ -36,6 +36,14 @@ namespace Quantum
         }
 
         public override void Deinitialize(Frame frame, ref ActionStateMachine.Filter filter){
+            if (frame.TryGet<ParryComponent>(filter.Entity, out var parryComponent))
+            {
+                frame.Remove<ParryComponent>(filter.Entity);
+            }
+            else
+            {
+                Log.Error("Parry Component Unexpectedly Disappeared");
+            }
             return;
         }
 

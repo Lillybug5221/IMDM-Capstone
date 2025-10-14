@@ -145,8 +145,7 @@ namespace Quantum.Prototypes {
     public FPVector2 Direction;
     public FPVector3 PlayerPosition;
     public FPVector3 EnemyPosition;
-    public FPVector3 UpdatedEnemyPosition;
-    public QBoolean RootMotionTracking;
+    public QBoolean TrackingActive;
     public Byte AttackIndex;
     public Int32 StartTick;
     public UInt16 StartUpFrames;
@@ -170,8 +169,7 @@ namespace Quantum.Prototypes {
         result.Direction = this.Direction;
         result.PlayerPosition = this.PlayerPosition;
         result.EnemyPosition = this.EnemyPosition;
-        result.UpdatedEnemyPosition = this.UpdatedEnemyPosition;
-        result.RootMotionTracking = this.RootMotionTracking;
+        result.TrackingActive = this.TrackingActive;
         result.AttackIndex = this.AttackIndex;
         result.StartTick = this.StartTick;
         result.StartUpFrames = this.StartUpFrames;

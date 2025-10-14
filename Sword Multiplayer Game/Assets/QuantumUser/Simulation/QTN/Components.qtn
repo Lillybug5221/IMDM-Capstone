@@ -37,8 +37,7 @@ component CurrentAction{
     FPVector2 Direction;
     FPVector3 PlayerPosition; //player position at beginning of action
     FPVector3 EnemyPosition; //enemy position at baginning of action
-    FPVector3 UpdatedEnemyPosition;
-    bool RootMotionTracking;
+    bool TrackingActive;
     byte AttackIndex; //correlates to an AttackTypeEnum.
     int StartTick;
     ushort StartUpFrames;

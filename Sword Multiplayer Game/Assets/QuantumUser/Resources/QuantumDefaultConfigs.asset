@@ -15127,6 +15127,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1fe4e6c49dd66ca4a94cab50e9a1a6cb, type: 2}
   - {fileID: 11400000, guid: f41c280dd3908f34c8b75b317397336f, type: 2}
   - {fileID: 11400000, guid: 86a91ee571fea584cadf98e5cb027c6c, type: 2}
+  - {fileID: 11400000, guid: 1ab9a637e4c87b64e8a33af2ec5e735c, type: 2}
+  - {fileID: 11400000, guid: c6fa4850704eb3b4e8d80fe9a9f74842, type: 2}
   HitboxPrototype:
     Id:
       Value: 1502326855038452239

@@ -40,24 +40,6 @@ namespace Quantum
             }
             #endregion
 
-            //keep rotation consistent no matter the current action;
-
-            //set rotation to action saved enemy position
-            FPVector3 playerPosition = filter.Transform->Position;
-            FPVector3 savedOpponentPosition = currAction -> EnemyPosition;
-
-            FPVector3 forwardDir = savedOpponentPosition - playerPosition;
-            forwardDir.Y = FP._0;
-            forwardDir = FPVector3.Normalize(forwardDir);
-
-            //face player towards opponent
-            FPQuaternion targetRotation = FPQuaternion.LookRotation(forwardDir, FPVector3.Up);
-            FP rotationSpeed = FP._1;
-            FPQuaternion currentRotation = filter.Transform->Rotation;  
-            FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
-            filter.Transform->Rotation = slerpedRotation;
-
-
 
             //Read current gamestate component, and update action accordingly.
             //update enemy position
@@ -78,7 +60,27 @@ namespace Quantum
 
             // update currAction's Updated Enemy Position used for tracking
 
-            currAction->UpdatedEnemyPosition = opponentPosition;
+            if(currAction->TrackingActive){
+                currAction -> EnemyPosition = opponentPosition;
+            }
+
+
+            //keep rotation consistent no matter the current action;
+
+            //set rotation to action saved enemy position
+            FPVector3 playerPosition = filter.Transform->Position;
+            FPVector3 savedOpponentPosition = currAction -> EnemyPosition;
+
+            FPVector3 forwardDir = savedOpponentPosition - playerPosition;
+            forwardDir.Y = FP._0;
+            forwardDir = FPVector3.Normalize(forwardDir);
+
+            //face player towards opponent
+            FPQuaternion targetRotation = FPQuaternion.LookRotation(forwardDir, FPVector3.Up);
+            FP rotationSpeed = FP._1;
+            FPQuaternion currentRotation = filter.Transform->Rotation;  
+            FPQuaternion slerpedRotation = FPQuaternion.Slerp(currentRotation, targetRotation, rotationSpeed);
+            filter.Transform->Rotation = slerpedRotation;
 
             //get current gamestate as a byte flag
 

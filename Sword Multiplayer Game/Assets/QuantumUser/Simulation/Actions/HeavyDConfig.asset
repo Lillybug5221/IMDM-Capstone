@@ -28,10 +28,11 @@ MonoBehaviour:
     Y:
       RawValue: -65536
   CustomCancelRules: {fileID: 0}
-  AttackName: Heavy_D
+  AttackName: Heavy_L
   AttackDataIndex: 5
   EndpointDistanceFromEnemy:
     RawValue: 49152
   MaxDistance:
     RawValue: 327680
+  MovementSimCurve: {fileID: 11400000, guid: 5b78096c19dc8174487647c2f5ba4537, type: 2}
   frameNumTrackingEnds: 20

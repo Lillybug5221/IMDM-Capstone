@@ -10,21 +10,11 @@ using Quantum.Physics3D;
 
 namespace Quantum
 {
+    //this is basically just an empty in between.
     public unsafe class ParryEndlagConfigAsset : ActionConfigAsset
     {
-
         public override void Initialize(Frame frame, ref ActionStateMachine.Filter filter){
-            //setup animation
-            Log.Debug("parry endlag");
-            AnimatorComponent.SetTrigger(frame, filter.Animator, "Parry_Endlag");
-            if (frame.TryGet<ParryComponent>(filter.Entity, out var parryComponent))
-            {
-                frame.Remove<ParryComponent>(filter.Entity);
-            }
-            else
-            {
-                Log.Error("Parry Component Unexpectedly Disappeared");
-            }
+            return;
         }
 
         public override void Deinitialize(Frame frame, ref ActionStateMachine.Filter filter){

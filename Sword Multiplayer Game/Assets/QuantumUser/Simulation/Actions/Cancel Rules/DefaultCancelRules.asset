@@ -57,6 +57,16 @@ MonoBehaviour:
     SpecializedCancelabilityStartFrame: 0
     SpecializedCancelabilityEndFrame: 0
     CancelablePhase: 4
+  - TargetAction: {fileID: 11400000, guid: 1ab9a637e4c87b64e8a33af2ec5e735c, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
+  - TargetAction: {fileID: 11400000, guid: c6fa4850704eb3b4e8d80fe9a9f74842, type: 2}
+    UseSpecializedCancelFrame: 0
+    SpecializedCancelabilityStartFrame: 0
+    SpecializedCancelabilityEndFrame: 0
+    CancelablePhase: 4
   - TargetAction: {fileID: 11400000, guid: 5d9362ee203cc38409eded2d3fa94583, type: 2}
     UseSpecializedCancelFrame: 0
     SpecializedCancelabilityStartFrame: 0
