@@ -21,7 +21,7 @@ MonoBehaviour:
   RecoveryFrames: 10
   CancelableFrames: 0
   RequiredFlags: 8
-  ForbiddenFlags: 118
+  ForbiddenFlags: 1014
   RequiredDirection:
     X:
       RawValue: 0

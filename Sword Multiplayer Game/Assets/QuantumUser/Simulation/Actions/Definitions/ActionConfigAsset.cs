@@ -30,6 +30,7 @@ namespace Quantum
         IsHitConnected = 1 << 6,
         IsPerfectParryConnected = 1 << 7,
         IsBlockConnected = 1 << 8,
+        IsHeavyParryStagger = 1 << 9,
     }
 
 

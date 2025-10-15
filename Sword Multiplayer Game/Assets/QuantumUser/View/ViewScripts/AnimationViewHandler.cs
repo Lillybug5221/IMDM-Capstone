@@ -34,25 +34,27 @@ public class AnimationViewHandler : QuantumEntityViewComponent<CustomViewContext
         //hitbox builder
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         if(HitboxJSONBuilder.Instance.CreateJSON){
-            if(stateInfo.IsName(HitboxJSONBuilder.Instance.TestingAnimationName)){
-                if(startFrame == -1){
-                    startFrame = PredictedFrame.Number;
-                    currFrame = 0;
-                } 
-                int temp = PredictedFrame.Number - startFrame;
-                if(temp != currFrame){
-                    currFrame ++;
-                    Vector3 relativeBasePos = transform.InverseTransformPoint(swordBase.position);
-                    Vector3 relativeEndPos = transform.InverseTransformPoint(swordEnd.position);
-                    HitboxJSONBuilder.Instance.AddToLists(relativeBasePos, relativeEndPos, currFrame);
+            if (PredictedFrame.TryGet<CurrentAction>(EntityRef, out var currentAction)) {
+                if(actionConfigs[currentAction.ActionIndex] == HitboxJSONBuilder.Instance.ActionToBuild){
+                    if(startFrame == -1){
+                        startFrame = PredictedFrame.Number;
+                        currFrame = 0;
+                    } 
+                    int temp = PredictedFrame.Number - startFrame;
+                    if(temp != currFrame){
+                        currFrame ++;
+                        Vector3 relativeBasePos = transform.InverseTransformPoint(swordBase.position);
+                        Vector3 relativeEndPos = transform.InverseTransformPoint(swordEnd.position);
+                        HitboxJSONBuilder.Instance.AddToLists(relativeBasePos, relativeEndPos, currFrame);
 
+                    }
+                }else{
+                    if(currFrame != 0){
+                        HitboxJSONBuilder.Instance.Save();
+                        currFrame = 0;
+                    }
+                    startFrame = -1;
                 }
-            }else{
-                if(currFrame != 0){
-                    HitboxJSONBuilder.Instance.Save();
-                    currFrame = 0;
-                }
-                startFrame = -1;
             }
         }
 

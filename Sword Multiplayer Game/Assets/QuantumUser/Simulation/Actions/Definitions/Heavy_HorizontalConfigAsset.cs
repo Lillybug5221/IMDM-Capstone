@@ -14,6 +14,8 @@ namespace Quantum
 
         public SimCurve MovementSimCurve;
 
+        public bool TracksLeft;
+
         public int frameNumTrackingEnds;
         public override void Initialize(Frame frame, ref ActionStateMachine.Filter filter){
             return; 
@@ -38,6 +40,27 @@ namespace Quantum
             var startPosition = currAction->PlayerPosition;
             var direction = FPVector3.Normalize(startPosition - enemyPosition);
             var endPosition = enemyPosition + direction * EndpointDistanceFromEnemy;
+
+            //check for left or right
+            var ogEnemyPosition = currAction -> EnemyPositionAtActionStart;
+            var directionToStartEnemyPos = FPVector3.Normalize(startPosition - ogEnemyPosition);
+            FPVector3 cross = FPVector3.Cross(direction, directionToStartEnemyPos);
+            FP side = FPVector3.Dot(cross, FPVector3.Up);
+
+            if(TracksLeft){
+                if(side >= 0){
+                    currAction -> TrackingActive = true;
+                }else{
+                    currAction -> TrackingActive = false;
+                }
+            }else{
+                if(side <= 0){
+                    currAction -> TrackingActive = true;
+                }else{
+                    currAction -> TrackingActive = false;
+                }
+            }
+
 
             if(frameNumber > frameNumTrackingEnds)
             {

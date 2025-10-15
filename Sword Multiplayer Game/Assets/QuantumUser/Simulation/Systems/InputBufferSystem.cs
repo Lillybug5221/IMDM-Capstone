@@ -60,6 +60,9 @@ namespace Quantum
                 if(bufferedAction.input.Parry){
                     gameStateFlags->Flags |= (int) GameStateFlags.IsParrying;
                 }
+                if(bufferedAction.input.Special){
+                    gameStateFlags->Flags |= (int) GameStateFlags.IsHeavyParrying;
+                }
             }
 
             //if parry is being held, then set the flag to active

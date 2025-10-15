@@ -21,7 +21,21 @@ namespace Quantum
                     frame.Unsafe.TryGetPointer<CurrentGameStateFlags>(info.Other, out var gameStateFlags);
 
                     if(frame.Unsafe.TryGetPointer<ParryComponent>(info.Other, out var activeParry)){
-                        if(!activeParry->HeldBlock){
+                        if(activeParry -> HeavyParry){
+                            FPVector2 ParryDirection = activeParry -> Direction;
+                            FPVector2 HitDirection = hitbox -> HitDirection;
+                            //reverse horizontal
+                            HitDirection = new FPVector2(-HitDirection.X, HitDirection.Y);
+                            if(ParryDirection + HitDirection == FPVector2.Zero){
+                                Log.Debug("Successful Heavy Parry");
+                                frame.Unsafe.TryGetPointer<CurrentGameStateFlags>(hitbox->Owner, out var hitterGameStateFlags);
+                                hitterGameStateFlags->Flags |= (int) GameStateFlags.IsHeavyParryStagger;
+
+                            }else{
+                                Log.Debug("Wrong Direction Heavy Parry");
+                                gameStateFlags->Flags |= (int) GameStateFlags.IsHitConnected;
+                            }
+                        }else if(!activeParry->HeldBlock){
                             Log.Debug("perfect blocked");
                             //perfect parry
                             gameStateFlags->Flags |= (int) GameStateFlags.IsPerfectParryConnected;

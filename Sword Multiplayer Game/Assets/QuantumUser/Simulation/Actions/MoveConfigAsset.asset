@@ -21,10 +21,10 @@ MonoBehaviour:
   RecoveryFrames: 0
   CancelableFrames: 1
   RequiredFlags: 1
-  ForbiddenFlags: 254
+  ForbiddenFlags: 1022
   RequiredDirection:
     X:
       RawValue: 0
     Y:
       RawValue: 0
-  CustomCancelRules: []
+  CustomCancelRules: {fileID: 0}

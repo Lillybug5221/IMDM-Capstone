@@ -22,7 +22,7 @@ public class HitboxJSONBuilder : MonoBehaviour
 
     public string FileName;
     [SerializeField]
-    public string TestingAnimationName;
+    public ActionConfigAsset ActionToBuild;
     public bool CreateJSON;
     public FP Radius;
     public FP Length;

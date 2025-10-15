@@ -15,12 +15,12 @@ namespace Quantum
         public FP PushbackDistance;
         public SimCurve PushbackSimCurve;
         public string AnimationName;
-        public int HitstopStartupFrames;
+        public int HitStopStartupFrames;
         public int HitStopActiveFrames;
         
         public override void Initialize(Frame frame, ref ActionStateMachine.Filter filter){
             AnimatorComponent.SetTrigger(frame, filter.Animator, AnimationName);
-            AddGlobalHitstop(frame, HitstopStartupFrames, HitStopActiveFrames);
+            AddGlobalHitstop(frame, HitStopActiveFrames, HitStopStartupFrames);
             return;
         }
 

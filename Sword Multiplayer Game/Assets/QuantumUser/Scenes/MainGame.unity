@@ -1630,7 +1630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1063080622
 Transform:
   m_ObjectHideFlags: 0
@@ -2012,8 +2012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ed742fa7525f94b802b6ba4f62cadc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FileName: Heavy_R
-  TestingAnimationName: Heavy_R
+  FileName: Light_U
+  ActionToBuild: {fileID: 11400000, guid: 28be9584f088f1b408983008ab1edac1, type: 2}
   CreateJSON: 0
   Radius:
     RawValue: 6554

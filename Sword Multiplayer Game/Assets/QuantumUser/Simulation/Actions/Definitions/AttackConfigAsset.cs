@@ -44,12 +44,13 @@ namespace Quantum
                 var hitbox = frame.Create(hitboxPrototype);
                 //compute base and end points
                 //calculate direction towards end point from basePoint
+                Log.Debug("direciton is " + RequiredDirection);
                 frame.Add(hitbox, new MeleeHitbox
                 {
                     Owner = filter.Entity,
                     Radius = hitboxData.Radius,         // half a meter
                     Height = hitboxData.Length,
-                    HitDirection = currAction->Direction,
+                    HitDirection = RequiredDirection,
                     BasePoint = hitboxData.BasePosition,
                     EndPoint = hitboxData.EndPosition,
                     Lifetime = 0,
