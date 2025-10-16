@@ -162,7 +162,8 @@ component InputBuffer {
 
 component Damageable
 {
-    ushort Health;
+    ushort MaxHealth;
+    ushort CurrHealth;
 }
 
 component Hitstop {
@@ -179,4 +180,11 @@ component GlobalHitstop{
 component GlobalTag{ }
 
 component HitstopStarted{ }
+
+event BarChange {
+    PlayerRef Player;
+    FP MaxValue;
+    FP NewValue;
+    byte BarNum;
+}
 

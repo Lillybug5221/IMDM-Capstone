@@ -1320,19 +1320,21 @@ namespace Quantum {
     public const Int32 SIZE = 4;
     public const Int32 ALIGNMENT = 2;
     [FieldOffset(2)]
-    private fixed Byte _alignment_padding_[2];
+    public UInt16 MaxHealth;
     [FieldOffset(0)]
-    public UInt16 Health;
+    public UInt16 CurrHealth;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 21187;
-        hash = hash * 31 + Health.GetHashCode();
+        hash = hash * 31 + MaxHealth.GetHashCode();
+        hash = hash * 31 + CurrHealth.GetHashCode();
         return hash;
       }
     }
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (Damageable*)ptr;
-        serializer.Stream.Serialize(&p->Health);
+        serializer.Stream.Serialize(&p->CurrHealth);
+        serializer.Stream.Serialize(&p->MaxHealth);
     }
   }
   [StructLayout(LayoutKind.Explicit)]

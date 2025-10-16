@@ -10378,7 +10378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prototype:
-    Health: 100
+    MaxHealth: 100
+    CurrHealth: 100
 --- !u!114 &8876274898980101821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10647,6 +10648,15 @@ MonoBehaviour:
         RawValue: 0
       Z:
         RawValue: 0
+    EnemyPositionAtActionStart:
+      X:
+        RawValue: 0
+      Y:
+        RawValue: 0
+      Z:
+        RawValue: 0
+    TrackingActive:
+      Value: 0
     AttackIndex: 0
     StartTick: 0
     StartUpFrames: 0

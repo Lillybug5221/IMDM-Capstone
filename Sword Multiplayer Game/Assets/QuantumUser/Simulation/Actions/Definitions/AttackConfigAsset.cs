@@ -1,12 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Deterministic;
 
 namespace Quantum
 {
     public unsafe class AttackConfigAsset : ActionConfigAsset
     {
         public string AttackName;
+
+        public ushort HitHPDamage = 5;
+        public ushort HitStanceDamage = 5;
+
+        public ushort BlockHPDamage = 5;
+        public ushort BlockStanceDamage;
+
+        public ushort ParryHPDamage;
+        public ushort ParryStanceDamage;
+
+        public ushort HeavyParryHPDamage;
+        public ushort HeavyParryStanceDamage;
 
         //the QAttackData should probably be tied to the asset object, but for now we will just use this index to the AttackData list in the sim config.
         public int AttackDataIndex;
@@ -55,7 +68,7 @@ namespace Quantum
                     EndPoint = hitboxData.EndPosition,
                     Lifetime = 0,
                     SpawnFrame = frame.Number,
-                    Damage = currAction->Damage,
+                    Damage = HitHPDamage,
                     DamageApplied = false
                 });
 

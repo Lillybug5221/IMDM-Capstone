@@ -19,6 +19,7 @@ namespace Quantum
                     }
 
                     frame.Unsafe.TryGetPointer<CurrentGameStateFlags>(info.Other, out var gameStateFlags);
+                    frame.Unsafe.TryGetPointer<PlayerLink>(info.Other, out var otherPlayerLink);
 
                     if(frame.Unsafe.TryGetPointer<ParryComponent>(info.Other, out var activeParry)){
                         if(activeParry -> HeavyParry){
@@ -47,6 +48,8 @@ namespace Quantum
                     }else{
                         //hit
                         gameStateFlags->Flags |= (int) GameStateFlags.IsHitConnected;
+                        damageable -> CurrHealth = (ushort)(damageable -> CurrHealth - hitbox -> Damage);
+                        frame.Events.BarChange(otherPlayerLink -> Player, damageable -> MaxHealth, damageable -> CurrHealth, 0);
                     }
 
 

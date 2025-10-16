@@ -53,7 +53,7 @@ namespace Quantum {
   public unsafe partial class Frame {
     public unsafe partial struct FrameEvents {
       static partial void GetEventTypeCountCodeGen(ref Int32 eventCount) {
-        eventCount = 1;
+        eventCount = 2;
       }
       static partial void GetParentEventIDCodeGen(Int32 eventID, ref Int32 parentEventID) {
         switch (eventID) {
@@ -62,8 +62,49 @@ namespace Quantum {
       }
       static partial void GetEventTypeCodeGen(Int32 eventID, ref System.Type result) {
         switch (eventID) {
+          case EventBarChange.ID: result = typeof(EventBarChange); return;
           default: break;
         }
+      }
+      public EventBarChange BarChange(PlayerRef Player, FP MaxValue, FP NewValue, Byte BarNum) {
+        var ev = _f.Context.AcquireEvent<EventBarChange>(EventBarChange.ID);
+        ev.Player = Player;
+        ev.MaxValue = MaxValue;
+        ev.NewValue = NewValue;
+        ev.BarNum = BarNum;
+        _f.AddEvent(ev);
+        return ev;
+      }
+    }
+  }
+  public unsafe partial class EventBarChange : EventBase {
+    public new const Int32 ID = 1;
+    public PlayerRef Player;
+    public FP MaxValue;
+    public FP NewValue;
+    public Byte BarNum;
+    protected EventBarChange(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventBarChange() : 
+        base(1, EventFlags.Server|EventFlags.Client) {
+    }
+    public new QuantumGame Game {
+      get {
+        return (QuantumGame)base.Game;
+      }
+      set {
+        base.Game = value;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 41;
+        hash = hash * 31 + Player.GetHashCode();
+        hash = hash * 31 + MaxValue.GetHashCode();
+        hash = hash * 31 + NewValue.GetHashCode();
+        hash = hash * 31 + BarNum.GetHashCode();
+        return hash;
       }
     }
   }
