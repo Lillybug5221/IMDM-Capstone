@@ -18,8 +18,21 @@ namespace Quantum
                         hitterAction->DamageApplied = true;
                     }
 
-                    frame.Unsafe.TryGetPointer<CurrentGameStateFlags>(info.Other, out var gameStateFlags);
+
                     frame.Unsafe.TryGetPointer<PlayerLink>(info.Other, out var otherPlayerLink);
+                    frame.Unsafe.TryGetPointer<PlayerLink>(hitbox->Owner, out var hitterPlayerLink);
+                    frame.Unsafe.TryGetPointer<CurrentStunVals>(info.Other, out var otherPlayerStunVals);
+                    frame.Unsafe.TryGetPointer<CurrentAction>(hitbox->Owner, out var hitterCurrAction);
+                    var actionConfigs = frame.SimulationConfig.ActionConfigs;
+                    ActionConfigAsset hitterActionConfig = actionConfigs[hitterAction -> ActionIndex];
+                    AttackConfigAsset hitterAttackConfig = null;
+                    if(hitterActionConfig is AttackConfigAsset){
+                        hitterAttackConfig = (AttackConfigAsset) hitterActionConfig;
+                    }else{
+                        Log.Error("NO ATTACK CONFIG FOUND FOR HITTER");
+                        return;
+                    }
+
 
                     if(frame.Unsafe.TryGetPointer<ParryComponent>(info.Other, out var activeParry)){
                         if(activeParry -> HeavyParry){
@@ -29,82 +42,49 @@ namespace Quantum
                             HitDirection = new FPVector2(-HitDirection.X, HitDirection.Y);
                             if(ParryDirection + HitDirection == FPVector2.Zero){
                                 Log.Debug("Successful Heavy Parry");
-                                frame.Unsafe.TryGetPointer<CurrentGameStateFlags>(hitbox->Owner, out var hitterGameStateFlags);
-                                hitterGameStateFlags->Flags |= (int) GameStateFlags.IsHeavyParryStagger;
+                                //Expose these hard coded values to the a config later.
+                                DealDamage(frame, hitterPlayerLink, damageable, 0, 20);
+                                ApplyStun(frame, hitterPlayerLink, otherPlayerStunVals, KnockBackType.GuardBreak, 0, 60);
 
                             }else{
-                                Log.Debug("Wrong Direction Heavy Parry");
-                                gameStateFlags->Flags |= (int) GameStateFlags.IsHitConnected;
+                                //Wrong Way Heavy Parry
                             }
                         }else if(!activeParry->HeldBlock){
-                            Log.Debug("perfect blocked");
                             //perfect parry
-                            gameStateFlags->Flags |= (int) GameStateFlags.IsPerfectParryConnected;
+                            DealDamage(frame, otherPlayerLink, damageable, hitterAttackConfig.ParryHPDamage, hitterAttackConfig.ParryStanceDamage);
+                            ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.ParryKnockBackType, hitterAttackConfig.ParryKnockbackDistance, hitterAttackConfig.ParryStunTime);
                         }else{
-                            Log.Debug("normal blocked");
                             //block
-                            gameStateFlags->Flags |= (int) GameStateFlags.IsBlockConnected;
+                            DealDamage(frame, otherPlayerLink, damageable, hitterAttackConfig.BlockHPDamage, hitterAttackConfig.BlockStanceDamage);
+                            ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.BlockKnockBackType, hitterAttackConfig.BlockKnockbackDistance, hitterAttackConfig.BlockStunTime);
                         }
                     }else{
                         //hit
-                        gameStateFlags->Flags |= (int) GameStateFlags.IsHitConnected;
-                        damageable -> CurrHealth = (ushort)(damageable -> CurrHealth - hitbox -> Damage);
-                        frame.Events.BarChange(otherPlayerLink -> Player, damageable -> MaxHealth, damageable -> CurrHealth, 0);
-                    }
+                        DealDamage(frame, otherPlayerLink, damageable, hitterAttackConfig.HitHPDamage, hitterAttackConfig.HitStanceDamage);
+                        ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.HitKnockBackType, hitterAttackConfig.HitKnockbackDistance, hitterAttackConfig.HitStunTime);
 
-
-                    /*
-                    hitbox ->DamageApplied = true;
-                    if(frame.Unsafe.TryGetPointer<ParryComponent>(info.Other, out var activeParry)){
-                        frame.Remove<ParryComponent>(info.Other);
-                        if(frame.Unsafe.TryGetPointer<CurrentAction>(info.Other, out var currAction) && frame.Unsafe.TryGetPointer<AnimatorComponent>(info.Other, out var parryAnimator)){
-                            //currAction -> ActionType = (byte)ActionType.Stun;
-                            currAction -> AttackIndex = (byte)(0); 
-                            currAction -> EnemyPosition = currAction -> EnemyPosition;
-                            currAction -> StartTick = frame.Number;
-                            currAction -> StartUpFrames = (ushort)0;
-                            currAction -> ActiveFrames = (ushort)0;
-                            currAction -> RecoveryFrames = (ushort)30;
-                            currAction -> CancelableFrames = (ushort)30;
-                            currAction -> ActionPhase = (byte)3;// we start in phase 3 because there is no startup or active
-                            currAction -> Damage = (ushort)0;
-                            currAction -> ActionNumber += 1;
-                            AnimatorComponent.SetTrigger(frame, parryAnimator, "Parry_Deflect");
-                            AddGlobalHitstop(frame, 3, 3);
-                        }
-                    }else{
-                        if(frame.Unsafe.TryGetPointer<CurrentAction>(info.Other, out var currAction) && frame.Unsafe.TryGetPointer<AnimatorComponent>(info.Other, out var hitAnimator)){
-                            Log.Debug("trying to animate the hit");
-                            //currAction -> ActionType = (byte)ActionType.Stun;
-                            currAction -> AttackIndex = (byte)(0); 
-                            currAction -> EnemyPosition = currAction -> EnemyPosition;
-                            currAction -> StartTick = frame.Number;
-                            currAction -> StartUpFrames = (ushort)0;
-                            currAction -> ActiveFrames = (ushort)0;
-                            currAction -> RecoveryFrames = (ushort)45;
-                            currAction -> CancelableFrames = (ushort)30;
-                            currAction -> ActionPhase = (byte)3;// we start in phase 3 because there is no startup or active
-                            currAction -> Damage = (ushort)0;
-                            currAction -> ActionNumber += 1;
-                            AnimatorComponent.SetFixedPoint(frame, hitAnimator, "HitDirX", hitterAction->Direction.X);
-                            AnimatorComponent.SetFixedPoint(frame, hitAnimator, "HitDirY", hitterAction->Direction.Y);
-                            AnimatorComponent.SetTrigger(frame, hitAnimator, "Hit_Stagger");
-                            AddGlobalHitstop(frame, 3, 3);
-                        }else{
-                            Log.Debug("couldn't animate the hit");
-                        }
-                        damageable->Health -= hitbox->Damage;
-                        Log.Debug("damageable hit, health remaining: " + damageable->Health);
-                        if(damageable->Health <= 0){
-                            Log.Debug("player died");
-                            //frame.Destroy(info.Other);
-                        }
                     }
-                    */
                     
                     
                 }
             }
+        }
+
+        private void DealDamage(Frame frame, PlayerLink* playerToDamage, Damageable* damageable, ushort hpDamage, ushort stanceDamage){
+            damageable -> CurrHealth = (ushort)(damageable -> CurrHealth - hpDamage);
+            frame.Events.BarChange(playerToDamage -> Player, damageable -> MaxHealth, damageable -> CurrHealth, 0);
+
+            damageable -> CurrStance = (ushort)(damageable -> CurrStance - stanceDamage);
+            frame.Events.BarChange(playerToDamage -> Player, damageable -> MaxStance, damageable -> CurrStance, 1);
+        }
+
+        private void ApplyStun(Frame frame, PlayerLink* playerToStun, CurrentStunVals* stunVals, KnockBackType knockbackType, FP knockbackDistance, ushort stunTime){
+            frame.Unsafe.TryGetPointer<CurrentGameStateFlags>(playerToStun->Entity, out var gameStateFlags);
+            stunVals -> KnockbackType = (int)knockbackType;
+            stunVals -> KnockbackDistance = knockbackDistance;
+            stunVals -> StunTime = stunTime;
+
+            gameStateFlags->Flags |= (int) GameStateFlags.IsStunActive;
         }
 
         

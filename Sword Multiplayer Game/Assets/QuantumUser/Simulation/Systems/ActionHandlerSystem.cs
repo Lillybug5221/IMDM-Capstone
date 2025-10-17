@@ -17,9 +17,11 @@ namespace Quantum
             public KCC* KCC;
             public PhysicsCollider3D* Collider;
             public CurrentGameStateFlags * GameStateFlags;
+            public CurrentStunVals* StunVals;
         }
         public override void Update(Frame frame,ref Filter filter)
         {
+            Log.Debug("stun value time is " + filter.StunVals -> StunTime);
             var currAction = filter.CurrAction;
             var transform = filter.Transform;
             var attacksData = frame.SimulationConfig.AttackHitboxData;

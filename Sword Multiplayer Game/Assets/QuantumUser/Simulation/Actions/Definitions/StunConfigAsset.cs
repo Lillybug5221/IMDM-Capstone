@@ -12,14 +12,35 @@ namespace Quantum
 {
     public unsafe class StunConfigAsset : ActionConfigAsset
     {
-        public FP PushbackDistance;
         public SimCurve PushbackSimCurve;
-        public string AnimationName;
         public int HitStopStartupFrames;
         public int HitStopActiveFrames;
         
         public override void Initialize(Frame frame, ref ActionStateMachine.Filter filter){
+            
+           
+            string AnimationName = "Hit_Stagger";
+            var currStun = filter.StunVals;
+            var currAction = filter.CurrAction;
+
+            //play the right animation
+            if((KnockBackType)currStun -> KnockbackType == KnockBackType.InPlaceStagger){
+                AnimationName = "Hit_Stagger";
+            }else if((KnockBackType)currStun -> KnockbackType == KnockBackType.GroundSplat){
+                AnimationName = "Ground_Splat";
+            }else if((KnockBackType)currStun -> KnockbackType == KnockBackType.FlyBack){
+                AnimationName = "Fly_Back";
+            }else if((KnockBackType)currStun -> KnockbackType == KnockBackType.Parry){
+                AnimationName = "Parry_Deflect";
+            }else if((KnockBackType)currStun -> KnockbackType == KnockBackType.Block){
+                AnimationName = "Block_Stagger";
+            }else if((KnockBackType)currStun -> KnockbackType == KnockBackType.GuardBreak){
+                AnimationName = "Heavy_Parry_Stagger";
+            }
             AnimatorComponent.SetTrigger(frame, filter.Animator, AnimationName);
+            //overwrite the recovery framees of currAction
+            currAction -> RecoveryFrames = currStun -> StunTime;
+            //addHitstop
             AddGlobalHitstop(frame, HitStopActiveFrames, HitStopStartupFrames);
             return;
         }
@@ -34,12 +55,15 @@ namespace Quantum
             return;
         }
         public override void RecoveryLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){
-            if(PushbackDistance == 0){
-                return;
-            }
+            
             var currAction = filter.CurrAction;
+            var currStun = filter.StunVals;
             var transform = filter.Transform;
             var collider = filter.Collider;
+
+            if(currStun -> StunTime == 0){
+                return;
+            }
             //directly transform the position along the inputed direction. check for collisions before applying each frame.
             //for each frame, grab the action completeness precent and pass that through an animation curve to get the completed distance precentage and set the player position between a 
             //roll start positon and end position at that lerp value. always draw a line between the start position and the target position, if there is a collision with something, stop there.
@@ -47,7 +71,7 @@ namespace Quantum
             if (frameNumber == 0)
             {
                 FPVector2 dashDirection2D = new FPVector2(0,-1);
-                FP dashMagnitude = PushbackDistance;
+                FP dashMagnitude = currStun -> KnockbackDistance;
                 FPVector3 dashDirectionWorld = new FPVector3(dashDirection2D.X, 0, dashDirection2D.Y);
 
                 //maybe pass a player start position into the action instead of using the current position

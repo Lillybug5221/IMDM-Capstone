@@ -27,10 +27,7 @@ namespace Quantum
         IsDodging = 1 << 3,
         IsParrying = 1 << 4,
         IsHeavyParrying = 1 << 5,
-        IsHitConnected = 1 << 6,
-        IsPerfectParryConnected = 1 << 7,
-        IsBlockConnected = 1 << 8,
-        IsHeavyParryStagger = 1 << 9,
+        IsStunActive = 1 << 10
     }
 
 

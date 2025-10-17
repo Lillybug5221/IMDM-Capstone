@@ -83,7 +83,7 @@ namespace Quantum
             return;
         }
 
-        public override void ActiveLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber)
+        /*public override void ActiveLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber)
         {
             var attacksData = frame.SimulationConfig.AttackHitboxData;
             var currAction = filter.CurrAction;
@@ -116,12 +116,11 @@ namespace Quantum
                     EndPoint = hitboxData.EndPosition,
                     Lifetime = 0,
                     SpawnFrame = frame.Number,
-                    Damage = currAction->Damage,
                     DamageApplied = false
                 });
 
             }
-        }
+        }*/
 
         public override void RecoveryLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){
             return;

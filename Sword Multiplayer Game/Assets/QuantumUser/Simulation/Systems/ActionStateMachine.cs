@@ -19,6 +19,7 @@ namespace Quantum
             public KCC* KCC;
             public PhysicsCollider3D* Collider;
             public CurrentGameStateFlags * GameStateFlags;
+            public CurrentStunVals* StunVals;
             
         }
 
@@ -144,7 +145,6 @@ namespace Quantum
             currAction -> RecoveryFrames = (ushort)actionConfigs[actionIndex].RecoveryFrames;
             currAction -> CancelableFrames = (ushort)actionConfigs[actionIndex].CancelableFrames;
             currAction -> ActionPhase = (byte)1;
-            currAction -> Damage = (ushort)0;
             currAction -> DamageApplied = false;
         }
     }

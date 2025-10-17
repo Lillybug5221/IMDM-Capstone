@@ -5,24 +5,55 @@ using Photon.Deterministic;
 
 namespace Quantum
 {
+
+    public enum KnockBackType{
+        None,
+        InPlaceStagger,
+        GroundSplat,
+        FlyBack,
+        Parry,
+        Block,
+        GuardBreak,
+
+    }
+
     public unsafe class AttackConfigAsset : ActionConfigAsset
     {
         public string AttackName;
 
-        public ushort HitHPDamage = 5;
-        public ushort HitStanceDamage = 5;
-
-        public ushort BlockHPDamage = 5;
-        public ushort BlockStanceDamage;
-
-        public ushort ParryHPDamage;
-        public ushort ParryStanceDamage;
-
-        public ushort HeavyParryHPDamage;
-        public ushort HeavyParryStanceDamage;
-
         //the QAttackData should probably be tied to the asset object, but for now we will just use this index to the AttackData list in the sim config.
         public int AttackDataIndex;
+
+        [Header("On Hit")]
+        public ushort HitHPDamage = 5;
+        public ushort HitStanceDamage = 5;
+        public FP HitKnockbackDistance;
+        public ushort HitStunTime;
+        public KnockBackType HitKnockBackType;
+
+        [Header("On Block")]
+        public ushort BlockHPDamage = 5;
+        public ushort BlockStanceDamage = 5;
+        public FP BlockKnockbackDistance;
+        public ushort BlockStunTime;
+        public KnockBackType BlockKnockBackType;
+
+        [Header("On Parry")]
+        public ushort ParryHPDamage = 5;
+        public ushort ParryStanceDamage = 5;
+        public FP ParryKnockbackDistance;
+        public ushort ParryStunTime;
+        public KnockBackType ParryKnockBackType;
+
+        [Header("On Reversal")]
+        public ushort HeavyParryHPDamage = 5;
+        public ushort HeavyParryStanceDamage = 5;
+        public FP HeavyParryKnockbackDistance;
+        //Heavy parry can't be stunned
+
+        
+
+        
 
         public override void Initialize(Frame frame, ref ActionStateMachine.Filter filter){
             AnimatorComponent.SetTrigger(frame, filter.Animator, AttackName);

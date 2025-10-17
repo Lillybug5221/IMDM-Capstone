@@ -154,7 +154,6 @@ namespace Quantum.Prototypes {
     public UInt16 RecoveryFrames;
     public UInt16 CancelableFrames;
     public Byte ActionPhase;
-    public UInt16 Damage;
     public FPVector3 DashEndPos;
     public FP PrecentageOfDodgeCompletable;
     public QBoolean DamageApplied;
@@ -179,7 +178,6 @@ namespace Quantum.Prototypes {
         result.RecoveryFrames = this.RecoveryFrames;
         result.CancelableFrames = this.CancelableFrames;
         result.ActionPhase = this.ActionPhase;
-        result.Damage = this.Damage;
         result.DashEndPos = this.DashEndPos;
         result.PrecentageOfDodgeCompletable = this.PrecentageOfDodgeCompletable;
         result.DamageApplied = this.DamageApplied;
@@ -204,10 +202,31 @@ namespace Quantum.Prototypes {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.CurrentStunVals))]
+  public unsafe partial class CurrentStunValsPrototype : ComponentPrototype<Quantum.CurrentStunVals> {
+    public Int32 KnockbackType;
+    public FP KnockbackDistance;
+    public UInt16 StunTime;
+    partial void MaterializeUser(Frame frame, ref Quantum.CurrentStunVals result, in PrototypeMaterializationContext context);
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.CurrentStunVals component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.CurrentStunVals result, in PrototypeMaterializationContext context = default) {
+        result.KnockbackType = this.KnockbackType;
+        result.KnockbackDistance = this.KnockbackDistance;
+        result.StunTime = this.StunTime;
+        MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.Damageable))]
   public unsafe partial class DamageablePrototype : ComponentPrototype<Quantum.Damageable> {
     public UInt16 MaxHealth;
     public UInt16 CurrHealth;
+    public UInt16 MaxStance;
+    public UInt16 CurrStance;
     partial void MaterializeUser(Frame frame, ref Quantum.Damageable result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
         Quantum.Damageable component = default;
@@ -217,6 +236,8 @@ namespace Quantum.Prototypes {
     public void Materialize(Frame frame, ref Quantum.Damageable result, in PrototypeMaterializationContext context = default) {
         result.MaxHealth = this.MaxHealth;
         result.CurrHealth = this.CurrHealth;
+        result.MaxStance = this.MaxStance;
+        result.CurrStance = this.CurrStance;
         MaterializeUser(frame, ref result, in context);
     }
   }

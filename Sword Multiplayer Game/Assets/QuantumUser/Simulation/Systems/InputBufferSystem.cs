@@ -192,7 +192,7 @@ namespace Quantum
             */
 
         }
-
+        /*
         private void DefaultCurrAction(Frame frame, CurrentAction* currAction, FPVector3 playerPosition, FPVector3 opponentPosition){
             currAction -> EnemyPosition = opponentPosition;
             currAction -> PlayerPosition = playerPosition;
@@ -205,7 +205,7 @@ namespace Quantum
             currAction -> Damage = (ushort)0;
             currAction -> ActionNumber += 1;
             currAction -> DamageApplied = false;
-        }
+        }*/
 
         public void OnPlayerAdded(Frame frame, PlayerRef player, bool firstTime)
         {

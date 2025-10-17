@@ -30,6 +30,28 @@ MonoBehaviour:
   CustomCancelRules: {fileID: 0}
   AttackName: Heavy_R
   AttackDataIndex: 7
+  HitHPDamage: 10
+  HitStanceDamage: 20
+  HitKnockbackDistance:
+    RawValue: 131072
+  HitStunTime: 40
+  HitKnockBackType: 1
+  BlockHPDamage: 3
+  BlockStanceDamage: 15
+  BlockKnockbackDistance:
+    RawValue: 65536
+  BlockStunTime: 35
+  BlockKnockBackType: 6
+  ParryHPDamage: 0
+  ParryStanceDamage: 5
+  ParryKnockbackDistance:
+    RawValue: 32768
+  ParryStunTime: 25
+  ParryKnockBackType: 4
+  HeavyParryHPDamage: 0
+  HeavyParryStanceDamage: 0
+  HeavyParryKnockbackDistance:
+    RawValue: 0
   EndpointDistanceFromEnemy:
     RawValue: 32768
   MaxDistance:

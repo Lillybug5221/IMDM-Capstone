@@ -30,3 +30,25 @@ MonoBehaviour:
   CustomCancelRules: {fileID: 0}
   AttackName: Light_D
   AttackDataIndex: 2
+  HitHPDamage: 5
+  HitStanceDamage: 10
+  HitKnockbackDistance:
+    RawValue: 65536
+  HitStunTime: 30
+  HitKnockBackType: 1
+  BlockHPDamage: 1
+  BlockStanceDamage: 5
+  BlockKnockbackDistance:
+    RawValue: 32768
+  BlockStunTime: 25
+  BlockKnockBackType: 5
+  ParryHPDamage: 0
+  ParryStanceDamage: 0
+  ParryKnockbackDistance:
+    RawValue: 6554
+  ParryStunTime: 20
+  ParryKnockBackType: 4
+  HeavyParryHPDamage: 0
+  HeavyParryStanceDamage: 0
+  HeavyParryKnockbackDistance:
+    RawValue: 0
