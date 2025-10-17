@@ -47,6 +47,8 @@ namespace Quantum
 
         public DefaultCancelRulesAsset CustomCancelRules;
 
+        public FPVector2 StanceRegenAtEmptyAndFull;
+
         public abstract void Initialize(Frame frame, ref ActionStateMachine.Filter filter);
 
         public virtual void StartupLogicFirstFrame(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber)

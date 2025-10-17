@@ -53,7 +53,7 @@ namespace Quantum {
   public unsafe partial class Frame {
     public unsafe partial struct FrameEvents {
       static partial void GetEventTypeCountCodeGen(ref Int32 eventCount) {
-        eventCount = 2;
+        eventCount = 3;
       }
       static partial void GetParentEventIDCodeGen(Int32 eventID, ref Int32 parentEventID) {
         switch (eventID) {
@@ -63,6 +63,7 @@ namespace Quantum {
       static partial void GetEventTypeCodeGen(Int32 eventID, ref System.Type result) {
         switch (eventID) {
           case EventBarChange.ID: result = typeof(EventBarChange); return;
+          case EventUpdateScore.ID: result = typeof(EventUpdateScore); return;
           default: break;
         }
       }
@@ -72,6 +73,14 @@ namespace Quantum {
         ev.MaxValue = MaxValue;
         ev.NewValue = NewValue;
         ev.BarNum = BarNum;
+        _f.AddEvent(ev);
+        return ev;
+      }
+      public EventUpdateScore UpdateScore(PlayerRef Player1Player, UInt16 Player1Score, UInt16 Player2Score) {
+        var ev = _f.Context.AcquireEvent<EventUpdateScore>(EventUpdateScore.ID);
+        ev.Player1Player = Player1Player;
+        ev.Player1Score = Player1Score;
+        ev.Player2Score = Player2Score;
         _f.AddEvent(ev);
         return ev;
       }
@@ -104,6 +113,35 @@ namespace Quantum {
         hash = hash * 31 + MaxValue.GetHashCode();
         hash = hash * 31 + NewValue.GetHashCode();
         hash = hash * 31 + BarNum.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public unsafe partial class EventUpdateScore : EventBase {
+    public new const Int32 ID = 2;
+    public PlayerRef Player1Player;
+    public UInt16 Player1Score;
+    public UInt16 Player2Score;
+    protected EventUpdateScore(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventUpdateScore() : 
+        base(2, EventFlags.Server|EventFlags.Client) {
+    }
+    public new QuantumGame Game {
+      get {
+        return (QuantumGame)base.Game;
+      }
+      set {
+        base.Game = value;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 43;
+        hash = hash * 31 + Player1Player.GetHashCode();
+        hash = hash * 31 + Player1Score.GetHashCode();
+        hash = hash * 31 + Player2Score.GetHashCode();
         return hash;
       }
     }

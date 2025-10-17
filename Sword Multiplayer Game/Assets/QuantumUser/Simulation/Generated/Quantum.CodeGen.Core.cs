@@ -1339,19 +1339,22 @@ namespace Quantum {
   }
   [StructLayout(LayoutKind.Explicit)]
   public unsafe partial struct Damageable : Quantum.IComponent {
-    public const Int32 SIZE = 8;
-    public const Int32 ALIGNMENT = 2;
-    [FieldOffset(4)]
-    public UInt16 MaxHealth;
+    public const Int32 SIZE = 40;
+    public const Int32 ALIGNMENT = 8;
     [FieldOffset(0)]
-    public UInt16 CurrHealth;
-    [FieldOffset(6)]
-    public UInt16 MaxStance;
-    [FieldOffset(2)]
-    public UInt16 CurrStance;
+    public QBoolean Invincible;
+    [FieldOffset(24)]
+    public FP MaxHealth;
+    [FieldOffset(8)]
+    public FP CurrHealth;
+    [FieldOffset(32)]
+    public FP MaxStance;
+    [FieldOffset(16)]
+    public FP CurrStance;
     public override readonly Int32 GetHashCode() {
       unchecked { 
         var hash = 21187;
+        hash = hash * 31 + Invincible.GetHashCode();
         hash = hash * 31 + MaxHealth.GetHashCode();
         hash = hash * 31 + CurrHealth.GetHashCode();
         hash = hash * 31 + MaxStance.GetHashCode();
@@ -1361,10 +1364,53 @@ namespace Quantum {
     }
     public static void Serialize(void* ptr, FrameSerializer serializer) {
         var p = (Damageable*)ptr;
-        serializer.Stream.Serialize(&p->CurrHealth);
-        serializer.Stream.Serialize(&p->CurrStance);
-        serializer.Stream.Serialize(&p->MaxHealth);
-        serializer.Stream.Serialize(&p->MaxStance);
+        QBoolean.Serialize(&p->Invincible, serializer);
+        FP.Serialize(&p->CurrHealth, serializer);
+        FP.Serialize(&p->CurrStance, serializer);
+        FP.Serialize(&p->MaxHealth, serializer);
+        FP.Serialize(&p->MaxStance, serializer);
+    }
+  }
+  [StructLayout(LayoutKind.Explicit)]
+  public unsafe partial struct GameState : Quantum.IComponent {
+    public const Int32 SIZE = 32;
+    public const Int32 ALIGNMENT = 8;
+    [FieldOffset(4)]
+    public UInt16 playersConnected;
+    [FieldOffset(8)]
+    public PlayerRef Player1Player;
+    [FieldOffset(16)]
+    public EntityRef Player1Entity;
+    [FieldOffset(12)]
+    public PlayerRef Player2Player;
+    [FieldOffset(24)]
+    public EntityRef Player2Entity;
+    [FieldOffset(0)]
+    public UInt16 Player1Score;
+    [FieldOffset(2)]
+    public UInt16 Player2Score;
+    public override readonly Int32 GetHashCode() {
+      unchecked { 
+        var hash = 6701;
+        hash = hash * 31 + playersConnected.GetHashCode();
+        hash = hash * 31 + Player1Player.GetHashCode();
+        hash = hash * 31 + Player1Entity.GetHashCode();
+        hash = hash * 31 + Player2Player.GetHashCode();
+        hash = hash * 31 + Player2Entity.GetHashCode();
+        hash = hash * 31 + Player1Score.GetHashCode();
+        hash = hash * 31 + Player2Score.GetHashCode();
+        return hash;
+      }
+    }
+    public static void Serialize(void* ptr, FrameSerializer serializer) {
+        var p = (GameState*)ptr;
+        serializer.Stream.Serialize(&p->Player1Score);
+        serializer.Stream.Serialize(&p->Player2Score);
+        serializer.Stream.Serialize(&p->playersConnected);
+        PlayerRef.Serialize(&p->Player1Player, serializer);
+        PlayerRef.Serialize(&p->Player2Player, serializer);
+        EntityRef.Serialize(&p->Player1Entity, serializer);
+        EntityRef.Serialize(&p->Player2Entity, serializer);
     }
   }
   [StructLayout(LayoutKind.Explicit)]
@@ -1938,7 +1984,7 @@ namespace Quantum {
     void OnAnimatorRootMotion2D(Frame f, EntityRef entity, AnimatorFrame deltaFrame, AnimatorFrame currentFrame);
   }
   public static unsafe partial class Constants {
-    public const Int32 PLAYER_COUNT = 2;
+    public const Int32 MAX_PLAYER_COUNT = 2;
   }
   public unsafe partial class Frame {
     private ISignalOnAnimatorStateEnter[] _ISignalOnAnimatorStateEnterSystems;
@@ -1978,6 +2024,8 @@ namespace Quantum {
       BuildSignalsArrayOnComponentRemoved<Quantum.CurrentStunVals>();
       BuildSignalsArrayOnComponentAdded<Quantum.Damageable>();
       BuildSignalsArrayOnComponentRemoved<Quantum.Damageable>();
+      BuildSignalsArrayOnComponentAdded<Quantum.GameState>();
+      BuildSignalsArrayOnComponentRemoved<Quantum.GameState>();
       BuildSignalsArrayOnComponentAdded<Quantum.GlobalHitstop>();
       BuildSignalsArrayOnComponentRemoved<Quantum.GlobalHitstop>();
       BuildSignalsArrayOnComponentAdded<Quantum.GlobalTag>();
@@ -2173,6 +2221,7 @@ namespace Quantum {
       typeRegistry.Register(typeof(FPVector3), FPVector3.SIZE);
       typeRegistry.Register(typeof(FrameMetaData), FrameMetaData.SIZE);
       typeRegistry.Register(typeof(FrameTimer), FrameTimer.SIZE);
+      typeRegistry.Register(typeof(Quantum.GameState), Quantum.GameState.SIZE);
       typeRegistry.Register(typeof(Quantum.GlobalHitstop), Quantum.GlobalHitstop.SIZE);
       typeRegistry.Register(typeof(Quantum.GlobalTag), Quantum.GlobalTag.SIZE);
       typeRegistry.Register(typeof(HingeJoint), HingeJoint.SIZE);
@@ -2241,13 +2290,14 @@ namespace Quantum {
       typeRegistry.Register(typeof(Quantum._globals_), Quantum._globals_.SIZE);
     }
     static partial void InitComponentTypeIdGen() {
-      ComponentTypeId.Reset(ComponentTypeId.BuiltInComponentCount + 15)
+      ComponentTypeId.Reset(ComponentTypeId.BuiltInComponentCount + 16)
         .AddBuiltInComponents()
         .Add<Quantum.AnimatorComponent>(Quantum.AnimatorComponent.Serialize, null, Quantum.AnimatorComponent.OnRemoved, ComponentFlags.None)
         .Add<Quantum.CurrentAction>(Quantum.CurrentAction.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.CurrentGameStateFlags>(Quantum.CurrentGameStateFlags.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.CurrentStunVals>(Quantum.CurrentStunVals.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.Damageable>(Quantum.Damageable.Serialize, null, null, ComponentFlags.None)
+        .Add<Quantum.GameState>(Quantum.GameState.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.GlobalHitstop>(Quantum.GlobalHitstop.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.GlobalTag>(Quantum.GlobalTag.Serialize, null, null, ComponentFlags.None)
         .Add<Quantum.Hitstop>(Quantum.Hitstop.Serialize, null, null, ComponentFlags.None)

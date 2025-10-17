@@ -21,29 +21,34 @@ MonoBehaviour:
   RecoveryFrames: 30
   CancelableFrames: 32
   RequiredFlags: 4
-  ForbiddenFlags: 1018
+  ForbiddenFlags: 1082
   RequiredDirection:
     X:
       RawValue: 0
     Y:
       RawValue: -65536
   CustomCancelRules: {fileID: 0}
+  StanceRegenAtEmptyAndFull:
+    X:
+      RawValue: 0
+    Y:
+      RawValue: 0
   AttackName: Heavy_D
   AttackDataIndex: 5
   HitHPDamage: 10
-  HitStanceDamage: 20
+  HitStanceDamage: 60
   HitKnockbackDistance:
     RawValue: 32768
   HitStunTime: 90
   HitKnockBackType: 2
   BlockHPDamage: 3
-  BlockStanceDamage: 15
+  BlockStanceDamage: 40
   BlockKnockbackDistance:
     RawValue: 65536
   BlockStunTime: 35
   BlockKnockBackType: 6
   ParryHPDamage: 0
-  ParryStanceDamage: 5
+  ParryStanceDamage: 10
   ParryKnockbackDistance:
     RawValue: 32768
   ParryStunTime: 25

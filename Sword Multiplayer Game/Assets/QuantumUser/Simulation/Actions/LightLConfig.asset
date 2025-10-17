@@ -21,29 +21,34 @@ MonoBehaviour:
   RecoveryFrames: 34
   CancelableFrames: 32
   RequiredFlags: 2
-  ForbiddenFlags: 1020
+  ForbiddenFlags: 1084
   RequiredDirection:
     X:
       RawValue: -65536
     Y:
       RawValue: 0
   CustomCancelRules: {fileID: 0}
+  StanceRegenAtEmptyAndFull:
+    X:
+      RawValue: 0
+    Y:
+      RawValue: 0
   AttackName: Light_L
   AttackDataIndex: 0
   HitHPDamage: 5
-  HitStanceDamage: 10
+  HitStanceDamage: 40
   HitKnockbackDistance:
     RawValue: 65536
   HitStunTime: 30
   HitKnockBackType: 1
   BlockHPDamage: 1
-  BlockStanceDamage: 5
+  BlockStanceDamage: 20
   BlockKnockbackDistance:
     RawValue: 32768
   BlockStunTime: 25
   BlockKnockBackType: 5
   ParryHPDamage: 0
-  ParryStanceDamage: 0
+  ParryStanceDamage: 5
   ParryKnockbackDistance:
     RawValue: 6554
   ParryStunTime: 20

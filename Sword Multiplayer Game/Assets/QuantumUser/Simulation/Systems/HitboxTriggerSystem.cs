@@ -12,7 +12,7 @@ namespace Quantum
             if(frame.Unsafe.TryGetPointer<MeleeHitbox>(info.Entity, out var hitbox)){
                 if(hitbox->DamageApplied == false && info.Other != hitbox->Owner && frame.Unsafe.TryGetPointer<Damageable>(info.Other, out var damageable) && frame.Unsafe.TryGetPointer<CurrentAction>(hitbox->Owner, out var hitterAction)){
                     //return if damage already dealt by this action.
-                    if(hitterAction->DamageApplied){
+                    if(hitterAction->DamageApplied || damageable -> Invincible){
                         return;
                     }else{
                         hitterAction->DamageApplied = true;
@@ -22,6 +22,7 @@ namespace Quantum
                     frame.Unsafe.TryGetPointer<PlayerLink>(info.Other, out var otherPlayerLink);
                     frame.Unsafe.TryGetPointer<PlayerLink>(hitbox->Owner, out var hitterPlayerLink);
                     frame.Unsafe.TryGetPointer<CurrentStunVals>(info.Other, out var otherPlayerStunVals);
+                    frame.Unsafe.TryGetPointer<CurrentStunVals>(hitbox->Owner, out var hitterStunVals);
                     frame.Unsafe.TryGetPointer<CurrentAction>(hitbox->Owner, out var hitterCurrAction);
                     var actionConfigs = frame.SimulationConfig.ActionConfigs;
                     ActionConfigAsset hitterActionConfig = actionConfigs[hitterAction -> ActionIndex];
@@ -43,8 +44,8 @@ namespace Quantum
                             if(ParryDirection + HitDirection == FPVector2.Zero){
                                 Log.Debug("Successful Heavy Parry");
                                 //Expose these hard coded values to the a config later.
-                                DealDamage(frame, hitterPlayerLink, damageable, 0, 20);
-                                ApplyStun(frame, hitterPlayerLink, otherPlayerStunVals, KnockBackType.GuardBreak, 0, 60);
+                                //DealDamage(frame, hitterPlayerLink, damageable, 0, 0);
+                                ApplyStun(frame, hitterPlayerLink, hitterStunVals, KnockBackType.GuardBreak, 0, 60);
 
                             }else{
                                 //Wrong Way Heavy Parry
@@ -56,12 +57,31 @@ namespace Quantum
                         }else{
                             //block
                             DealDamage(frame, otherPlayerLink, damageable, hitterAttackConfig.BlockHPDamage, hitterAttackConfig.BlockStanceDamage);
-                            ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.BlockKnockBackType, hitterAttackConfig.BlockKnockbackDistance, hitterAttackConfig.BlockStunTime);
+                            if(damageable -> CurrStance >= 0){
+                                ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.BlockKnockBackType, hitterAttackConfig.BlockKnockbackDistance, hitterAttackConfig.BlockStunTime);
+                            }else{
+                                //stance break
+                                //hard coded values for now.
+                                Log.Debug("STANCE BROKEN ON BLOCK");
+                                ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, KnockBackType.StanceBreak, 0, 120);
+                                damageable -> CurrStance = damageable -> MaxStance;
+                                frame.Events.BarChange(otherPlayerLink -> Player, damageable -> MaxStance, damageable -> CurrStance, 1);
+                            }
                         }
                     }else{
                         //hit
                         DealDamage(frame, otherPlayerLink, damageable, hitterAttackConfig.HitHPDamage, hitterAttackConfig.HitStanceDamage);
-                        ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.HitKnockBackType, hitterAttackConfig.HitKnockbackDistance, hitterAttackConfig.HitStunTime);
+                        if(damageable -> CurrStance >= 0){
+                            ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.HitKnockBackType, hitterAttackConfig.HitKnockbackDistance, hitterAttackConfig.HitStunTime);
+                        }else{
+                            //stance break
+                            //hard coded values for now.
+                            Log.Debug("STANCE BROKEN ON HIT");
+                            ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, KnockBackType.StanceBreak, 0, 120);
+                            damageable -> CurrStance = damageable -> MaxStance;
+                            frame.Events.BarChange(otherPlayerLink -> Player, damageable -> MaxStance, damageable -> CurrStance, 1);
+                        }
+                        
 
                     }
                     
@@ -70,11 +90,11 @@ namespace Quantum
             }
         }
 
-        private void DealDamage(Frame frame, PlayerLink* playerToDamage, Damageable* damageable, ushort hpDamage, ushort stanceDamage){
-            damageable -> CurrHealth = (ushort)(damageable -> CurrHealth - hpDamage);
+        private void DealDamage(Frame frame, PlayerLink* playerToDamage, Damageable* damageable, FP hpDamage, FP stanceDamage){
+            damageable -> CurrHealth = (damageable -> CurrHealth - hpDamage);
             frame.Events.BarChange(playerToDamage -> Player, damageable -> MaxHealth, damageable -> CurrHealth, 0);
 
-            damageable -> CurrStance = (ushort)(damageable -> CurrStance - stanceDamage);
+            damageable -> CurrStance = (damageable -> CurrStance - stanceDamage);
             frame.Events.BarChange(playerToDamage -> Player, damageable -> MaxStance, damageable -> CurrStance, 1);
         }
 

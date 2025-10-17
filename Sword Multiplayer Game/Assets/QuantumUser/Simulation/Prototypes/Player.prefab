@@ -10379,10 +10379,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prototype:
-    MaxHealth: 100
-    CurrHealth: 100
-    MaxStance: 100
-    CurrStance: 100
+    Invincible:
+      Value: 0
+    MaxHealth:
+      RawValue: 6553600
+    CurrHealth:
+      RawValue: 6553600
+    MaxStance:
+      RawValue: 6553600
+    CurrStance:
+      RawValue: 6553600
 --- !u!114 &8876274898980101821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10667,7 +10673,6 @@ MonoBehaviour:
     RecoveryFrames: 0
     CancelableFrames: 0
     ActionPhase: 5
-    Damage: 0
     DashEndPos:
       X:
         RawValue: 0
@@ -10714,8 +10719,7 @@ MonoBehaviour:
     KnockbackType: 0
     KnockbackDistance:
       RawValue: 0
-    HitStunTime:
-      RawValue: 0
+    StunTime: 0
 --- !u!1 &3729670431120426559
 GameObject:
   m_ObjectHideFlags: 0

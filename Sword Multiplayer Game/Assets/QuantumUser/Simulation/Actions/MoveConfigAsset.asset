@@ -21,10 +21,15 @@ MonoBehaviour:
   RecoveryFrames: 0
   CancelableFrames: 1
   RequiredFlags: 1
-  ForbiddenFlags: 1022
+  ForbiddenFlags: 1086
   RequiredDirection:
     X:
       RawValue: 0
     Y:
       RawValue: 0
-  CustomCancelRules: {fileID: 0}
+  CustomCancelRules: {fileID: 11400000, guid: e8aeb29d5d5039542b9c82f45e06e479, type: 2}
+  StanceRegenAtEmptyAndFull:
+    X:
+      RawValue: 6554
+    Y:
+      RawValue: 52429

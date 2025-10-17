@@ -14,6 +14,7 @@ namespace Quantum
         Parry,
         Block,
         GuardBreak,
+        StanceBreak
 
     }
 

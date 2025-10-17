@@ -28,9 +28,6 @@ MonoBehaviour:
     Y:
       RawValue: 0
   CustomCancelRules: {fileID: 0}
-  PushbackDistance:
-    RawValue: 0
   PushbackSimCurve: {fileID: 0}
-  AnimationName: Heavy_Parry_Stagger
   HitStopStartupFrames: 2
   HitStopActiveFrames: 5

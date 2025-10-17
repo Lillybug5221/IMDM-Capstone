@@ -73,6 +73,29 @@ namespace Quantum.Prototypes.Unity {
     }
   }
   [System.SerializableAttribute()]
+  public unsafe partial class GameStatePrototype : Quantum.QuantumUnityPrototypeAdapter<Quantum.Prototypes.GameStatePrototype> {
+    public UInt16 playersConnected;
+    public PlayerRef Player1Player;
+    public Quantum.QuantumEntityPrototype Player1Entity;
+    public PlayerRef Player2Player;
+    public Quantum.QuantumEntityPrototype Player2Entity;
+    public UInt16 Player1Score;
+    public UInt16 Player2Score;
+    partial void ConvertUser(Quantum.QuantumEntityPrototypeConverter converter, ref Quantum.Prototypes.GameStatePrototype prototype);
+    public override Quantum.Prototypes.GameStatePrototype Convert(Quantum.QuantumEntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.GameStatePrototype();
+      converter.Convert(this.playersConnected, out result.playersConnected);
+      converter.Convert(this.Player1Player, out result.Player1Player);
+      converter.Convert(this.Player1Entity, out result.Player1Entity);
+      converter.Convert(this.Player2Player, out result.Player2Player);
+      converter.Convert(this.Player2Entity, out result.Player2Entity);
+      converter.Convert(this.Player1Score, out result.Player1Score);
+      converter.Convert(this.Player2Score, out result.Player2Score);
+      ConvertUser(converter, ref result);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   public unsafe partial class HitstopPrototype : Quantum.QuantumUnityPrototypeAdapter<Quantum.Prototypes.HitstopPrototype> {
     public Int32 FramesLeft;
     public Quantum.QuantumEntityPrototype Source;

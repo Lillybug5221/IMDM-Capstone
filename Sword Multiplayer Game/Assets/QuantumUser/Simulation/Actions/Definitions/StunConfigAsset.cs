@@ -23,6 +23,11 @@ namespace Quantum
             var currStun = filter.StunVals;
             var currAction = filter.CurrAction;
 
+            if(frame.Unsafe.TryGetPointer<Damageable>(filter.Entity, out var damageable) && (KnockBackType) currStun -> KnockbackType != KnockBackType.StanceBreak){
+                Log.Debug("Invincible Set True");
+                damageable -> Invincible = true;
+            }
+            
             //play the right animation
             if((KnockBackType)currStun -> KnockbackType == KnockBackType.InPlaceStagger){
                 AnimationName = "Hit_Stagger";
@@ -36,6 +41,8 @@ namespace Quantum
                 AnimationName = "Block_Stagger";
             }else if((KnockBackType)currStun -> KnockbackType == KnockBackType.GuardBreak){
                 AnimationName = "Heavy_Parry_Stagger";
+            }else if((KnockBackType)currStun -> KnockbackType == KnockBackType.StanceBreak){
+                AnimationName = "Stance_Break";
             }
             AnimatorComponent.SetTrigger(frame, filter.Animator, AnimationName);
             //overwrite the recovery framees of currAction
@@ -46,6 +53,10 @@ namespace Quantum
         }
 
         public override void Deinitialize(Frame frame, ref ActionStateMachine.Filter filter){
+            if(frame.Unsafe.TryGetPointer<Damageable>(filter.Entity, out var damageable)){
+                damageable -> Invincible = false;
+                Log.Debug("Invincible Set False");
+            }
             return;
         }
         public override void StartupLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){
@@ -123,6 +134,13 @@ namespace Quantum
                     // hit a wall before nextPos, place at hit.Point instead
                     //playerTransform.Position = hit.Point;
                 }
+            }
+        }
+
+        public override void CancelableLogicFirstFrame(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){
+            if(frame.Unsafe.TryGetPointer<Damageable>(filter.Entity, out var damageable)){
+                damageable -> Invincible = false;
+                Log.Debug("Invincible Set false");
             }
         }
         public override void CancelableLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){

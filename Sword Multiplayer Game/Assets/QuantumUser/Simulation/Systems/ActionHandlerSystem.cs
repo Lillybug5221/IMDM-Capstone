@@ -18,10 +18,10 @@ namespace Quantum
             public PhysicsCollider3D* Collider;
             public CurrentGameStateFlags * GameStateFlags;
             public CurrentStunVals* StunVals;
+            //public Damageable* Damageable;
         }
         public override void Update(Frame frame,ref Filter filter)
         {
-            Log.Debug("stun value time is " + filter.StunVals -> StunTime);
             var currAction = filter.CurrAction;
             var transform = filter.Transform;
             var attacksData = frame.SimulationConfig.AttackHitboxData;
@@ -75,7 +75,23 @@ namespace Quantum
                 }
             }
             #endregion
-
+            #region Stance Regen
+            //regen stance
+            
+            if(frame.Unsafe.TryGetPointer<Damageable>(filter.Entity, out var damageable)){
+                if(damageable -> CurrStance < damageable -> MaxStance){
+                    FP HealthPrecentage = damageable -> CurrHealth / damageable -> MaxHealth;
+                    //x is min, y is max
+                    var RegenMinAndMax = actionConfigs[currAction->ActionIndex].StanceRegenAtEmptyAndFull;
+                    damageable -> CurrStance += FPMath.Lerp(RegenMinAndMax.X, RegenMinAndMax.Y, HealthPrecentage);
+                    if(damageable -> CurrStance > damageable -> MaxStance){
+                        damageable -> CurrStance = damageable -> MaxStance;
+                    }
+                    frame.Events.BarChange(filter.Link -> Player, damageable -> MaxStance, damageable -> CurrStance, 1);
+                }
+            }
+            
+            #endregion
             #region Start Up
             if (currAction->ActionPhase == 1)
             {
@@ -97,79 +113,11 @@ namespace Quantum
                 #region Active
             }
             if (currAction->ActionPhase == 2)
-            {   /*
-                if (currentActionType == ActionType.Attack)
-                {
-                    // activate hitboxes
-                    int AttackDataIndex = GetAttackDataFromEnum((AttackName)currAction->AttackIndex, attacksData);
-                    QAttackData AttackData = attacksData[AttackDataIndex];
-
-                    AssetRef<EntityPrototype> hitboxPrototype = frame.FindAsset(frame.SimulationConfig.HitboxPrototype);
-
-                    //get a list of hitboxes that corrospond to this frame
-                    List<QHitboxData> hitboxesToSpawn = new List<QHitboxData>();
-                    for (int i = 0; i < AttackData.Hitboxes.Count; i++)
-                    {
-                        if (AttackData.Hitboxes[i].FrameNum == (ushort)frameNumber)
-                        {
-                            hitboxesToSpawn.Add(AttackData.Hitboxes[i]);
-                        }
-                    }
-                    Log.Debug(hitboxesToSpawn.Count + " hitboxes this frame");
-                    foreach (QHitboxData hitboxData in hitboxesToSpawn)
-                    {
-                        var hitbox = frame.Create(hitboxPrototype);
-                        //compute base and end points
-                        //calculate direction towards end point from basePoint
-                        frame.Add(hitbox, new MeleeHitbox
-                        {
-                            Owner = filter.Entity,
-                            Radius = hitboxData.Radius,         // half a meter
-                            Height = hitboxData.Length,
-                            HitDirection = currAction->Direction,
-                            BasePoint = hitboxData.BasePosition,
-                            EndPoint = hitboxData.EndPosition,
-                            Lifetime = 0,
-                            SpawnFrame = frame.Number,
-                            Damage = currAction->Damage,
-                            DamageApplied = false
-                        });
-
-                    }
-
-
-
-
-                }
-                else if (currentActionType == ActionType.Parry)
-                {
-                    var parry = new ParryComponent()
-                    {
-                        HeavyParry = false,
-                        Direction = new FPVector2(0, 0)
-                    };
-                    frame.Add(filter.Entity, parry);
-
-                }*/
+            {   
                 if (currAction->ActiveFrames <= 0)
                 {
                     currAction->ActionPhase++;
                     actionConfigs[currAction->ActionIndex].RecoveryLogicFirstFrame(frame, ref filter, frameNumber);
-                    /*
-                    //if parrying, start end animation
-                    if (currentActionType == ActionType.Parry)
-                    {
-                        AnimatorComponent.SetTrigger(frame, filter.Animator, "Parry_Endlag");
-                        if (frame.TryGet<ParryComponent>(filter.Entity, out var parryComponent))
-                        {
-                            frame.Remove<ParryComponent>(filter.Entity);
-                        }
-                        else
-                        {
-                            Log.Error("Parry Component Unexpectedly Disappeared");
-                        }
-                    }
-                    */
                 }
                 else
                 {
@@ -181,71 +129,7 @@ namespace Quantum
             }
             if (currAction->ActionPhase == 3)
             {   
-                /*
-                if (currentActionType == ActionType.Dodge)
-                {
-                    //directly transform the position along the inputed direction. check for collisions before applying each frame.
-                    //for each frame, grab the action completeness precent and pass that through an animation curve to get the completed distance precentage and set the player position between a 
-                    //roll start positon and end position at that lerp value. always draw a line between the start position and the target position, if there is a collision with something, stop there.
 
-                    //Setup endpos on startup
-                    if (frameNumber == 0)
-                    {
-
-                        FPVector2 dashDirection2D = (currAction->Direction).Normalized;
-                        FP dashMagnitude = (currAction->Direction).Magnitude;
-                        FPVector3 dashDirectionWorld = new FPVector3(dashDirection2D.X, 0, dashDirection2D.Y);
-
-                        //maybe pass a player start position into the action instead of using the current position
-                        FPVector3 dirToTarget = (new FPVector3((FP)currAction->EnemyPosition.X, (FP)currAction->PlayerPosition.Y, (FP)currAction->EnemyPosition.Z) - currAction->PlayerPosition).Normalized;
-                        FPQuaternion lookRot = FPQuaternion.LookRotation(dirToTarget, FPVector3.Up);
-                        FPVector3 rotatedVector = lookRot * dashDirectionWorld;
-                        //Log.Debug(dashDirectionWorld + "rotated is" + rotatedVector);
-                        FPVector3 endPosition = currAction->PlayerPosition + (rotatedVector * dashMagnitude * frame.SimulationConfig.DashDistance);
-                        Hit3D? foundHit = frame.Physics3D.Linecast(currAction->PlayerPosition, endPosition);
-                        currAction->DashEndPos = endPosition;
-                        if (!foundHit.HasValue)
-                        {
-                            currAction->PrecentageOfDodgeCompletable = (FP)1;
-                        }
-                        else
-                        {
-                            FP TotalDistance = (endPosition - currAction->PlayerPosition).Magnitude;
-                            FP CompletableDistance = (foundHit.Value.Point - currAction->PlayerPosition).Magnitude;
-                            FP Ratio = (CompletableDistance / TotalDistance);
-                            //this is a hack to stop clipping when a dash is initated into a wall when they are already toucing.
-                            if (Ratio < FP.FromFloat_UNSAFE(0.2f)) { Ratio = 0; }
-                            currAction->PrecentageOfDodgeCompletable = Ratio;
-                            Log.Debug(currAction->PrecentageOfDodgeCompletable);
-                        }
-
-                    }
-
-                    FP t = (FP)frameNumber / (FP)(currAction->RecoveryFrames + frameNumber);
-                    SimCurve dashCurve = frame.SimulationConfig.DashSimCurve;
-                    t = dashCurve.Evaluate(t);
-                    if (t <= currAction->PrecentageOfDodgeCompletable)
-                    {
-                        FPVector3 nextPosition = FPVector3.Lerp(currAction->PlayerPosition, currAction->DashEndPos, t);
-                        FPVector3 collisionTestDir = nextPosition - transform->Position;
-
-
-                        var hits = frame.Physics3D.ShapeCastAll(transform->Position, transform->Rotation, collider->Shape, collisionTestDir);
-                        if (hits.Count <= 0)
-                        {
-                            transform->Position = nextPosition; // safe
-                        }
-                        else
-                        {
-                            // hit a wall before nextPos, place at hit.Point instead
-                            //playerTransform.Position = hit.Point;
-                        }
-                    }
-
-                }
-                */
-
-                
                 if (currAction->RecoveryFrames <= 0)
                 {
                     actionConfigs[currAction->ActionIndex].CancelableLogicFirstFrame(frame, ref filter, frameNumber);
@@ -294,30 +178,6 @@ namespace Quantum
             
             var currentMotion = currentState.Motion;
 
-            // Handle blend tree logic
-            /*if (currentMotion is AnimatorBlendTree blendTree)
-            {
-                // Get weights for the blend tree
-                var weights = AnimatorComponent.GetStateWeights(f, animator, currentState.Id);
-
-                // Find the motion with the highest weight
-                var activeMotionIndex = 0;
-                var maxWeight = FP._0;
-                for (var i = 0; i < blendTree.MotionCount; i++)
-                {
-                    if (weights[i] > maxWeight)
-                    {
-                        maxWeight = weights[i];
-                        activeMotionIndex = i;
-                    }
-                }
-
-                // Return the active motion
-                return blendTree.Motions[activeMotionIndex];
-                
-            }*/
-
-            // For simple motions, return directly
             return currentMotion;
         }
         private FPVector3 GetCurrentFrameHelper(AnimatorMotion motion, FP animatorTime)

@@ -28,3 +28,8 @@ MonoBehaviour:
     Y:
       RawValue: 0
   CustomCancelRules: {fileID: 11400000, guid: 0eee5086606eca84a830abebe349ffc7, type: 2}
+  StanceRegenAtEmptyAndFull:
+    X:
+      RawValue: 32768
+    Y:
+      RawValue: 65536

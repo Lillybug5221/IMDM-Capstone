@@ -12,6 +12,7 @@ namespace Quantum
             var globals = f.Create();
             f.Add<GlobalHitstop>(globals);
             f.Add<GlobalTag>(globals); // optional marker
+            f.Add<GameState>(globals);
         }
     }
 }

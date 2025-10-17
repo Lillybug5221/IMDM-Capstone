@@ -22,4 +22,14 @@ MonoBehaviour:
   CancelableFrames: 1
   RequiredFlags: 0
   ForbiddenFlags: -1
-  CustomCancelRules: []
+  RequiredDirection:
+    X:
+      RawValue: 0
+    Y:
+      RawValue: 0
+  CustomCancelRules: {fileID: 11400000, guid: 0ea1ec702f1c08b4299026b054adc02f, type: 2}
+  StanceRegenAtEmptyAndFull:
+    X:
+      RawValue: 6554
+    Y:
+      RawValue: 52429

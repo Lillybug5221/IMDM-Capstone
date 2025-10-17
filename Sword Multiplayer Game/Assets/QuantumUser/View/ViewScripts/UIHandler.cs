@@ -4,6 +4,7 @@ using UnityEngine;
 using Quantum;
 using Photon.Deterministic;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIHandler : MonoBehaviour
 {
@@ -11,12 +12,12 @@ public class UIHandler : MonoBehaviour
     public Image Player1StanceBar;
     public Image Player2HealthBar;
     public Image Player2StanceBar;
-
-    private PlayerRef localPlayer;
+    public TextMeshProUGUI ScoreText;
 
 
     public void OnEnable(){
         QuantumEvent.Subscribe<EventBarChange>(listener: this, handler: (EventBarChange e) => UpdateBar(e));
+        QuantumEvent.Subscribe<EventUpdateScore>(listener: this, handler: (EventUpdateScore e) => UpdateScore(e));
     }
 
     public void OnDisbale(){
@@ -37,6 +38,15 @@ public class UIHandler : MonoBehaviour
             }else{
                 Player2StanceBar.rectTransform.localScale = new Vector3((float)(e.NewValue/e.MaxValue),1,1);
             }
+        }
+        
+    }
+
+    private void UpdateScore(EventUpdateScore e){
+        if(QuantumRunner.Default.Game.PlayerIsLocal(e.Player1Player)){
+            ScoreText.text = "" + e.Player1Score + " - " + e.Player2Score;
+        }else{
+            ScoreText.text = "" + e.Player2Score + " - " + e.Player1Score;
         }
         
     }

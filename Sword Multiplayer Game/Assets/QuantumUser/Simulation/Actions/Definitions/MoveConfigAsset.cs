@@ -32,11 +32,11 @@ namespace Quantum
             return;
         }
         public override void CancelableLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){
-            
             KCC* kcc = filter.KCC;
             var collider = filter.Collider;
             Transform3D* transform = filter.Transform;
             var currAction = filter.CurrAction;
+            
 
             //hitstop probably doesn't need to be handled here, it could be handled just in the actionhandler
             #region hitstop

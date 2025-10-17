@@ -223,10 +223,11 @@ namespace Quantum.Prototypes {
   [System.SerializableAttribute()]
   [Quantum.Prototypes.Prototype(typeof(Quantum.Damageable))]
   public unsafe partial class DamageablePrototype : ComponentPrototype<Quantum.Damageable> {
-    public UInt16 MaxHealth;
-    public UInt16 CurrHealth;
-    public UInt16 MaxStance;
-    public UInt16 CurrStance;
+    public QBoolean Invincible;
+    public FP MaxHealth;
+    public FP CurrHealth;
+    public FP MaxStance;
+    public FP CurrStance;
     partial void MaterializeUser(Frame frame, ref Quantum.Damageable result, in PrototypeMaterializationContext context);
     public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
         Quantum.Damageable component = default;
@@ -234,11 +235,37 @@ namespace Quantum.Prototypes {
         return f.Set(entity, component) == SetResult.ComponentAdded;
     }
     public void Materialize(Frame frame, ref Quantum.Damageable result, in PrototypeMaterializationContext context = default) {
+        result.Invincible = this.Invincible;
         result.MaxHealth = this.MaxHealth;
         result.CurrHealth = this.CurrHealth;
         result.MaxStance = this.MaxStance;
         result.CurrStance = this.CurrStance;
         MaterializeUser(frame, ref result, in context);
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.Prototype(typeof(Quantum.GameState))]
+  public unsafe class GameStatePrototype : ComponentPrototype<Quantum.GameState> {
+    public UInt16 playersConnected;
+    public PlayerRef Player1Player;
+    public MapEntityId Player1Entity;
+    public PlayerRef Player2Player;
+    public MapEntityId Player2Entity;
+    public UInt16 Player1Score;
+    public UInt16 Player2Score;
+    public override Boolean AddToEntity(FrameBase f, EntityRef entity, in PrototypeMaterializationContext context) {
+        Quantum.GameState component = default;
+        Materialize((Frame)f, ref component, in context);
+        return f.Set(entity, component) == SetResult.ComponentAdded;
+    }
+    public void Materialize(Frame frame, ref Quantum.GameState result, in PrototypeMaterializationContext context = default) {
+        result.playersConnected = this.playersConnected;
+        result.Player1Player = this.Player1Player;
+        PrototypeValidator.FindMapEntity(this.Player1Entity, in context, out result.Player1Entity);
+        result.Player2Player = this.Player2Player;
+        PrototypeValidator.FindMapEntity(this.Player2Entity, in context, out result.Player2Entity);
+        result.Player1Score = this.Player1Score;
+        result.Player2Score = this.Player2Score;
     }
   }
   [System.SerializableAttribute()]

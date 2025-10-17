@@ -1,5 +1,5 @@
-#define PLAYER_COUNT 2
-#pragma max_players 2
+#define MAX_PLAYER_COUNT 2
+#pragma max_players MAX_PLAYER_COUNT
 
 component PlayerLink {
     PlayerRef Player;
@@ -167,10 +167,11 @@ component InputBuffer {
 
 component Damageable
 {
-    ushort MaxHealth;
-    ushort CurrHealth;
-    ushort MaxStance;
-    ushort CurrStance;
+    bool Invincible;
+    FP MaxHealth;
+    FP CurrHealth;
+    FP MaxStance;
+    FP CurrStance;
 }
 
 component Hitstop {
@@ -184,6 +185,16 @@ component GlobalHitstop{
     int DelayLeft;
 }
 
+component GameState{
+    ushort playersConnected;
+    PlayerRef Player1Player;
+    EntityRef Player1Entity;
+    PlayerRef Player2Player;
+    EntityRef Player2Entity;
+    ushort Player1Score;
+    ushort Player2Score;
+}
+
 component GlobalTag{ }
 
 component HitstopStarted{ }
@@ -193,5 +204,11 @@ event BarChange {
     FP MaxValue;
     FP NewValue;
     byte BarNum;
+}
+
+event UpdateScore{
+    PlayerRef Player1Player;
+    ushort Player1Score;
+    ushort Player2Score;
 }
 
