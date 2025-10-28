@@ -17,9 +17,9 @@ MonoBehaviour:
     Guid:
       Value: 341662428881890215
   StartUpFrames: 20
-  ActiveFrames: 4
-  RecoveryFrames: 34
-  CancelableFrames: 32
+  ActiveFrames: 6
+  RecoveryFrames: 18
+  CancelableFrames: 50
   RequiredFlags: 2
   ForbiddenFlags: 1084
   RequiredDirection:

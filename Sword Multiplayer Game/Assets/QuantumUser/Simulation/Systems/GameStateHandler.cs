@@ -26,6 +26,13 @@ namespace Quantum
             var globalEntity = Globals.Get(frame);
             GameState gs = frame.Get<GameState>(globalEntity);
 
+            if(frame.SimulationConfig.SinglePlayerTest){
+                gs.Player1Entity = CreatePlayerCharacter(frame, player);
+                if(frame.Unsafe.TryGetPointer<Transform3D>(gs.Player1Entity, out var p1Transform))
+                {
+                    p1Transform->Position = new FPVector3(0, 2, -3);
+                }
+            }
             gs.playersConnected += 1;
             if(gs.playersConnected == 1){
                 gs.Player1Player = player;

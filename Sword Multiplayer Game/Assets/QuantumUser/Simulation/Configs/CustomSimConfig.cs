@@ -9,6 +9,8 @@ namespace Quantum
         public AssetRef<EntityPrototype> ParryEffectPrototype;
 
         public bool HitboxesRemain;
+
+        public bool SinglePlayerTest;
         
     }
 }

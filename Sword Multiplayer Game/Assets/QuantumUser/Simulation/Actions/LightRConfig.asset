@@ -16,10 +16,10 @@ MonoBehaviour:
     Path: QuantumUser/Simulation/Actions/LightRConfig
     Guid:
       Value: 476534643817249566
-  StartUpFrames: 12
-  ActiveFrames: 6
-  RecoveryFrames: 34
-  CancelableFrames: 32
+  StartUpFrames: 20
+  ActiveFrames: 4
+  RecoveryFrames: 20
+  CancelableFrames: 50
   RequiredFlags: 2
   ForbiddenFlags: 1084
   RequiredDirection:
