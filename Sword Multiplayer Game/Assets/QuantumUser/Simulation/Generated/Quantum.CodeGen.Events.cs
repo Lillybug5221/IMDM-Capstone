@@ -53,7 +53,7 @@ namespace Quantum {
   public unsafe partial class Frame {
     public unsafe partial struct FrameEvents {
       static partial void GetEventTypeCountCodeGen(ref Int32 eventCount) {
-        eventCount = 3;
+        eventCount = 4;
       }
       static partial void GetParentEventIDCodeGen(Int32 eventID, ref Int32 parentEventID) {
         switch (eventID) {
@@ -64,6 +64,7 @@ namespace Quantum {
         switch (eventID) {
           case EventBarChange.ID: result = typeof(EventBarChange); return;
           case EventUpdateScore.ID: result = typeof(EventUpdateScore); return;
+          case EventPlaySound.ID: result = typeof(EventPlaySound); return;
           default: break;
         }
       }
@@ -81,6 +82,12 @@ namespace Quantum {
         ev.Player1Player = Player1Player;
         ev.Player1Score = Player1Score;
         ev.Player2Score = Player2Score;
+        _f.AddEvent(ev);
+        return ev;
+      }
+      public EventPlaySound PlaySound(UInt16 sfxVal) {
+        var ev = _f.Context.AcquireEvent<EventPlaySound>(EventPlaySound.ID);
+        ev.sfxVal = sfxVal;
         _f.AddEvent(ev);
         return ev;
       }
@@ -142,6 +149,31 @@ namespace Quantum {
         hash = hash * 31 + Player1Player.GetHashCode();
         hash = hash * 31 + Player1Score.GetHashCode();
         hash = hash * 31 + Player2Score.GetHashCode();
+        return hash;
+      }
+    }
+  }
+  public unsafe partial class EventPlaySound : EventBase {
+    public new const Int32 ID = 3;
+    public UInt16 sfxVal;
+    protected EventPlaySound(Int32 id, EventFlags flags) : 
+        base(id, flags) {
+    }
+    public EventPlaySound() : 
+        base(3, EventFlags.Server|EventFlags.Client) {
+    }
+    public new QuantumGame Game {
+      get {
+        return (QuantumGame)base.Game;
+      }
+      set {
+        base.Game = value;
+      }
+    }
+    public override Int32 GetHashCode() {
+      unchecked {
+        var hash = 47;
+        hash = hash * 31 + sfxVal.GetHashCode();
         return hash;
       }
     }

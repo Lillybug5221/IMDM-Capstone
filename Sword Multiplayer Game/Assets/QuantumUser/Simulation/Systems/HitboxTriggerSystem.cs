@@ -47,6 +47,9 @@ namespace Quantum
                                 //DealDamage(frame, hitterPlayerLink, damageable, 0, 0);
                                 ApplyStun(frame, hitterPlayerLink, hitterStunVals, KnockBackType.GuardBreak, 0, 60);
 
+                                //play sfx
+                                frame.Events.PlaySound((ushort)SFX.HeavyParry);
+
                             }else{
                                 //Wrong Way Heavy Parry
                             }
@@ -54,9 +57,15 @@ namespace Quantum
                             //perfect parry
                             DealDamage(frame, otherPlayerLink, damageable, hitterAttackConfig.ParryHPDamage, hitterAttackConfig.ParryStanceDamage);
                             ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.ParryKnockBackType, hitterAttackConfig.ParryKnockbackDistance, hitterAttackConfig.ParryStunTime);
+                            //trigger sfx event for view
+                            frame.Events.PlaySound((ushort)SFX.PerfectParry);
                         }else{
                             //block
                             DealDamage(frame, otherPlayerLink, damageable, hitterAttackConfig.BlockHPDamage, hitterAttackConfig.BlockStanceDamage);
+                            
+                            //play sfx
+                            frame.Events.PlaySound((ushort)SFX.Block);
+
                             if(damageable -> CurrStance >= 0){
                                 ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.BlockKnockBackType, hitterAttackConfig.BlockKnockbackDistance, hitterAttackConfig.BlockStunTime);
                             }else{
@@ -66,11 +75,16 @@ namespace Quantum
                                 ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, KnockBackType.StanceBreak, 0, 120);
                                 damageable -> CurrStance = damageable -> MaxStance;
                                 frame.Events.BarChange(otherPlayerLink -> Player, damageable -> MaxStance, damageable -> CurrStance, 1);
+
+                                //play sfx
+                                frame.Events.PlaySound((ushort)SFX.StanceBreak);
                             }
                         }
                     }else{
                         //hit
                         DealDamage(frame, otherPlayerLink, damageable, hitterAttackConfig.HitHPDamage, hitterAttackConfig.HitStanceDamage);
+                        //play sfx
+                        frame.Events.PlaySound((ushort)SFX.HitConncted);
                         if(damageable -> CurrStance >= 0){
                             ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.HitKnockBackType, hitterAttackConfig.HitKnockbackDistance, hitterAttackConfig.HitStunTime);
                         }else{
@@ -80,6 +94,9 @@ namespace Quantum
                             ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, KnockBackType.StanceBreak, 0, 120);
                             damageable -> CurrStance = damageable -> MaxStance;
                             frame.Events.BarChange(otherPlayerLink -> Player, damageable -> MaxStance, damageable -> CurrStance, 1);
+
+                            //play sfx
+                                frame.Events.PlaySound((ushort)SFX.StanceBreak);
                         }
                         
 

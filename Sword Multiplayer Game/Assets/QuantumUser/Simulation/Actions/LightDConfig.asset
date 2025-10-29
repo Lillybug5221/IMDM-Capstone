@@ -39,19 +39,19 @@ MonoBehaviour:
   HitStanceDamage: 40
   HitKnockbackDistance:
     RawValue: 65536
-  HitStunTime: 30
+  HitStunTime: 40
   HitKnockBackType: 1
   BlockHPDamage: 1
   BlockStanceDamage: 20
   BlockKnockbackDistance:
     RawValue: 32768
-  BlockStunTime: 25
+  BlockStunTime: 35
   BlockKnockBackType: 5
   ParryHPDamage: 0
   ParryStanceDamage: 5
   ParryKnockbackDistance:
     RawValue: 6554
-  ParryStunTime: 20
+  ParryStunTime: 30
   ParryKnockBackType: 4
   HeavyParryHPDamage: 0
   HeavyParryStanceDamage: 0

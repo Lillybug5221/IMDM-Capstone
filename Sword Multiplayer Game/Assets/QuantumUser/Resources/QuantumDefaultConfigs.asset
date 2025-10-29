@@ -14704,8 +14704,8 @@ MonoBehaviour:
   ParryEffectPrototype:
     Id:
       Value: 1502326855038452239
-  HitboxesRemain: 1
-  SinglePlayerTest: 1
+  HitboxesRemain: 0
+  SinglePlayerTest: 0
 --- !u!114 &6784878198909911470
 MonoBehaviour:
   m_ObjectHideFlags: 0

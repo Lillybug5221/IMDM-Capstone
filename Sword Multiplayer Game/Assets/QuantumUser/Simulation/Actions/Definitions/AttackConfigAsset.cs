@@ -17,6 +17,7 @@ namespace Quantum
         StanceBreak
 
     }
+    
 
     public unsafe class AttackConfigAsset : ActionConfigAsset
     {
@@ -57,6 +58,7 @@ namespace Quantum
         
 
         public override void Initialize(Frame frame, ref ActionStateMachine.Filter filter){
+            
             AnimatorComponent.SetTrigger(frame, filter.Animator, AttackName);
         }
 
@@ -66,6 +68,9 @@ namespace Quantum
 
         public override void StartupLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){
             return;
+        }
+        public override void ActiveLogicFirstFrame(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){
+            frame.Events.PlaySound((ushort)SFX.SwordSwing);
         }
         public override void ActiveLogic(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){
             var attacksData = frame.SimulationConfig.AttackHitboxData;

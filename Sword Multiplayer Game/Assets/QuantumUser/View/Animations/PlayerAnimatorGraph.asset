@@ -56275,7 +56275,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 1
+          DisableRootMotion: 0
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -58869,7 +58869,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 1
+          DisableRootMotion: 0
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -61946,7 +61946,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 1
+          DisableRootMotion: 0
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []
@@ -64918,7 +64918,7 @@ MonoBehaviour:
           Events: []
           LoopTime: 1
           Mirror: 0
-          DisableRootMotion: 1
+          DisableRootMotion: 0
         BlendParameterIndex: 0
         BlendParameterIndexY: 0
         Positions: []

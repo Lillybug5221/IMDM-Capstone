@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2969233735287913420}
   - component: {fileID: 140971463122459399}
   m_Layer: 0
-  m_Name: ParryEffect
+  m_Name: Hit Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151667556705301001}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.68581825, w: 0.72777283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.05, y: 4.7060003, z: -1.1409999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.6}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &2969233735287913420
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -116,8 +116,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
-      minScalar: 0.1
+      scalar: 1
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 15
+      scalar: 10
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -222,8 +222,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.3861397, b: 0, a: 1}
-      maxColor: {r: 1, g: 0.9454185, b: 0, a: 1}
+      minColor: {r: 0.2924528, g: 0.05380029, b: 0.06996876, a: 1}
+      maxColor: {r: 1, g: 0.04705883, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -287,8 +287,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.04
-      minScalar: 0.02
+      scalar: 0.08
+      minScalar: 0.04
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -612,7 +612,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 3
-      minScalar: -1
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -664,7 +664,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 0
+    type: 4
     angle: 19.5
     length: 1.2
     boxThickness: {x: 0, y: 0, z: 0}

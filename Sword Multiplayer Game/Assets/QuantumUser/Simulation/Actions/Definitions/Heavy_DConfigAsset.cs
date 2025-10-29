@@ -61,6 +61,7 @@ namespace Quantum
 
         public override void ActiveLogicFirstFrame(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber)
         {
+            base.ActiveLogicFirstFrame(frame, ref filter, frameNumber);
             AnimatorComponent.SetTrigger(frame, filter.Animator, "Heavy_D_3");
         }
 

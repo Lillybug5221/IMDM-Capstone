@@ -100,7 +100,7 @@ MonoBehaviour:
       Y:
         RawValue: 0
       Z:
-        RawValue: -670426
+        RawValue: -342746
     PhysicsMaterial:
       Id:
         Value: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
       Y:
         RawValue: 0
       Z:
-        RawValue: 655143
+        RawValue: 327463
     PhysicsMaterial:
       Id:
         Value: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
       Y:
         RawValue: 0
       Z:
-        RawValue: 686941
+        RawValue: 359261
     PhysicsMaterial:
       Id:
         Value: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
       Y:
         RawValue: 0
       Z:
-        RawValue: -678402
+        RawValue: -350722
     PhysicsMaterial:
       Id:
         Value: 0

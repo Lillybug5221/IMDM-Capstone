@@ -18,7 +18,7 @@ MonoBehaviour:
       Value: 270051043641656717
   StartUpFrames: 0
   ActiveFrames: 0
-  RecoveryFrames: 60
+  RecoveryFrames: 90
   CancelableFrames: 30
   RequiredFlags: 512
   ForbiddenFlags: 0
@@ -28,6 +28,11 @@ MonoBehaviour:
     Y:
       RawValue: 0
   CustomCancelRules: {fileID: 0}
+  StanceRegenAtEmptyAndFull:
+    X:
+      RawValue: 0
+    Y:
+      RawValue: 0
   PushbackSimCurve: {fileID: 0}
   HitStopStartupFrames: 2
   HitStopActiveFrames: 5
