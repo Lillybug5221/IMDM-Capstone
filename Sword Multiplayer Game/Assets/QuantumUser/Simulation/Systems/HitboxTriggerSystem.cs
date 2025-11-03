@@ -52,6 +52,24 @@ namespace Quantum
 
                             }else{
                                 //Wrong Way Heavy Parry
+                                //hit
+                                DealDamage(frame, otherPlayerLink, damageable, hitterAttackConfig.HitHPDamage, hitterAttackConfig.HitStanceDamage);
+                                //play sfx
+                                frame.Events.PlaySound((ushort)SFX.HitConncted);
+                                if(damageable -> CurrStance >= 0){
+                                    ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, hitterAttackConfig.HitKnockBackType, hitterAttackConfig.HitKnockbackDistance, hitterAttackConfig.HitStunTime);
+                                }else{
+                                    //stance break
+                                    //hard coded values for now.
+                                    Log.Debug("STANCE BROKEN ON HIT");
+                                    ApplyStun(frame, otherPlayerLink, otherPlayerStunVals, KnockBackType.StanceBreak, 0, 120);
+                                    damageable -> CurrStance = damageable -> MaxStance;
+                                    frame.Events.BarChange(otherPlayerLink -> Player, damageable -> MaxStance, damageable -> CurrStance, 1);
+
+                                    //play sfx
+                                        frame.Events.PlaySound((ushort)SFX.StanceBreak);
+                                }
+
                             }
                         }else if(!activeParry->HeldBlock){
                             //perfect parry
@@ -109,13 +127,19 @@ namespace Quantum
 
         private void DealDamage(Frame frame, PlayerLink* playerToDamage, Damageable* damageable, FP hpDamage, FP stanceDamage){
             damageable -> CurrHealth = (damageable -> CurrHealth - hpDamage);
-            frame.Events.BarChange(playerToDamage -> Player, damageable -> MaxHealth, damageable -> CurrHealth, 0);
-
+            frame.Events.BarChange(playerToDamage->Player, damageable->MaxHealth, damageable->CurrHealth, 0);
+            
+            frame.Unsafe.TryGetPointer<CurrentGameStateFlags>(playerToDamage->Entity, out var gameStateFlags);
+            if(((GameStateFlags)(gameStateFlags->Flags)).HasFlag(GameStateFlags.IsStanceBroken))
+            {
+                return;
+            }
             damageable -> CurrStance = (damageable -> CurrStance - stanceDamage);
             frame.Events.BarChange(playerToDamage -> Player, damageable -> MaxStance, damageable -> CurrStance, 1);
         }
 
         private void ApplyStun(Frame frame, PlayerLink* playerToStun, CurrentStunVals* stunVals, KnockBackType knockbackType, FP knockbackDistance, ushort stunTime){
+
             frame.Unsafe.TryGetPointer<CurrentGameStateFlags>(playerToStun->Entity, out var gameStateFlags);
             stunVals -> KnockbackType = (int)knockbackType;
             stunVals -> KnockbackDistance = knockbackDistance;

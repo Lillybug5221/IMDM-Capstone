@@ -19,7 +19,8 @@ namespace Quantum
     }
 
     [System.Flags]
-    public enum GameStateFlags {
+    public enum GameStateFlags
+    {
         None = 0,
         IsDirectionalInput = 1 << 0,
         IsLightAttacking = 1 << 1,
@@ -27,7 +28,9 @@ namespace Quantum
         IsDodging = 1 << 3,
         IsParrying = 1 << 4,
         IsHeavyParrying = 1 << 5,
+        IsStanceBroken = 1 << 6,
         IsStunActive = 1 << 10
+
     }
 
 

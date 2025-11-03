@@ -135,7 +135,6 @@ namespace Quantum
             currAction -> ActionNumber = currAction -> ActionNumber + 1;
             currAction -> ActionIndex = actionIndex;
             currAction -> Direction = inputDir;
-            //currAction -> ActionType = (byte)ActionType.Attack;
             currAction -> EnemyPosition = opponentPosition;
             currAction -> EnemyPositionAtActionStart = opponentPosition;
             currAction -> PlayerPosition = playerPosition;

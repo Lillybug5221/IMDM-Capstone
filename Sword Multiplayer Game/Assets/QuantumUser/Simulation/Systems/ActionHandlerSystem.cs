@@ -16,7 +16,7 @@ namespace Quantum
             public CurrentAction* CurrAction;
             public KCC* KCC;
             public PhysicsCollider3D* Collider;
-            public CurrentGameStateFlags * GameStateFlags;
+            public CurrentGameStateFlags* GameStateFlags;
             public CurrentStunVals* StunVals;
             //public Damageable* Damageable;
         }

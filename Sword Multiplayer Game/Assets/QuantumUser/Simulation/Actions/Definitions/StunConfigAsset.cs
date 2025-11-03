@@ -135,6 +135,12 @@ namespace Quantum
                     //playerTransform.Position = hit.Point;
                 }
             }
+
+            //no stance damage when stance broken hit
+            if(frame.Unsafe.TryGetPointer<Damageable>(filter.Entity, out var damageable) && (KnockBackType) currStun -> KnockbackType == KnockBackType.StanceBreak){
+                Log.Debug("disable stance damage");
+                filter.GameStateFlags->Flags |= (int) GameStateFlags.IsStanceBroken;
+            }
         }
 
         public override void CancelableLogicFirstFrame(Frame frame, ref ActionHandlerSystem.Filter filter, int frameNumber){

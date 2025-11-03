@@ -11249,6 +11249,25 @@ MonoBehaviour:
         RawValue: -65536
       Radius:
         RawValue: 6554
+    - FrameNum: 33
+      BasePosition:
+        X:
+          RawValue: -1321
+        Y:
+          RawValue: 35243
+        Z:
+          RawValue: 91485
+      EndPosition:
+        X:
+          RawValue: -43154
+        Y:
+          RawValue: 16559
+        Z:
+          RawValue: 80827
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
     - FrameNum: 34
       BasePosition:
         X:
@@ -11257,6 +11276,25 @@ MonoBehaviour:
           RawValue: 23432
         Z:
           RawValue: -706
+      EndPosition:
+        X:
+          RawValue: -78691
+        Y:
+          RawValue: 6899
+        Z:
+          RawValue: 48111
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 34
+      BasePosition:
+        X:
+          RawValue: -43154
+        Y:
+          RawValue: 16559
+        Z:
+          RawValue: 80827
       EndPosition:
         X:
           RawValue: -78691
@@ -11287,6 +11325,25 @@ MonoBehaviour:
         RawValue: -65536
       Radius:
         RawValue: 6554
+    - FrameNum: 35
+      BasePosition:
+        X:
+          RawValue: -78691
+        Y:
+          RawValue: 6899
+        Z:
+          RawValue: 48111
+      EndPosition:
+        X:
+          RawValue: -93418
+        Y:
+          RawValue: 5532
+        Z:
+          RawValue: 7879
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
     - FrameNum: 36
       BasePosition:
         X:
@@ -11295,6 +11352,25 @@ MonoBehaviour:
           RawValue: 33991
         Z:
           RawValue: -22350
+      EndPosition:
+        X:
+          RawValue: -94590
+        Y:
+          RawValue: 13517
+        Z:
+          RawValue: -20626
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 36
+      BasePosition:
+        X:
+          RawValue: -93418
+        Y:
+          RawValue: 5532
+        Z:
+          RawValue: 7879
       EndPosition:
         X:
           RawValue: -94590
@@ -13411,6 +13487,25 @@ MonoBehaviour:
         RawValue: -65536
       Radius:
         RawValue: 6554
+    - FrameNum: 37
+      BasePosition:
+        X:
+          RawValue: -9763
+        Y:
+          RawValue: 50061
+        Z:
+          RawValue: 64769
+      EndPosition:
+        X:
+          RawValue: 69390
+        Y:
+          RawValue: 5673
+        Z:
+          RawValue: 27692
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
     - FrameNum: 38
       BasePosition:
         X:
@@ -13419,6 +13514,25 @@ MonoBehaviour:
           RawValue: 61128
         Z:
           RawValue: -45850
+      EndPosition:
+        X:
+          RawValue: 73200
+        Y:
+          RawValue: 31609
+        Z:
+          RawValue: -61349
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 38
+      BasePosition:
+        X:
+          RawValue: 69390
+        Y:
+          RawValue: 5673
+        Z:
+          RawValue: 27692
       EndPosition:
         X:
           RawValue: 73200
@@ -13449,6 +13563,25 @@ MonoBehaviour:
         RawValue: -65536
       Radius:
         RawValue: 6554
+    - FrameNum: 39
+      BasePosition:
+        X:
+          RawValue: 73200
+        Y:
+          RawValue: 31609
+        Z:
+          RawValue: -61349
+      EndPosition:
+        X:
+          RawValue: 18621
+        Y:
+          RawValue: 69345
+        Z:
+          RawValue: -97526
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
     - FrameNum: 40
       BasePosition:
         X:
@@ -13457,6 +13590,25 @@ MonoBehaviour:
           RawValue: 80446
         Z:
           RawValue: -27452
+      EndPosition:
+        X:
+          RawValue: -36564
+        Y:
+          RawValue: 98965
+        Z:
+          RawValue: -86806
+      Length:
+        RawValue: -65536
+      Radius:
+        RawValue: 6554
+    - FrameNum: 40
+      BasePosition:
+        X:
+          RawValue: 18621
+        Y:
+          RawValue: 69345
+        Z:
+          RawValue: -97526
       EndPosition:
         X:
           RawValue: -36564
