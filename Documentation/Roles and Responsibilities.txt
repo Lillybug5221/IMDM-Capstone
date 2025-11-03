@@ -1,0 +1,7 @@
+﻿Roles and Responsibilities: 
+* Overview: This project will be primarily solo, with myself taking responsibility for the majority of the roles except testing.
+* Project Management: Design documents will be updated once every two weeks.
+* Programming: This project will include very limited programming. With only major responsibility being connecting hardware components to software.
+* Sound Design: Sound design will take initial priority until a POC is established, with there being a pause in development to focus on implementing TouchDesigner visuals. Once visuals have been implemented to function with sound design as an MVP, sound design and art implementation will be developed simultaneously.
+* Art Direction/Implementation: Visuals will be implemented in TouchDesigner, which will be started once a POC has been established relative to sound design. Once visuals have been implemented to function with sound design as an MVP, sound design and art implementation will be developed simultaneously.
+* Prototyping/Testing: Testing will be primarily performed by myself until the experience has reached an MVP. Afterwards, third-parties will be given the opportunity to test the experience and provide constructive feedback to further develop the experience.
