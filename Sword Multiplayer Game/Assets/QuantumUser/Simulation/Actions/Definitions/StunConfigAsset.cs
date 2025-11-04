@@ -23,7 +23,7 @@ namespace Quantum
             var currStun = filter.StunVals;
             var currAction = filter.CurrAction;
 
-            if(frame.Unsafe.TryGetPointer<Damageable>(filter.Entity, out var damageable) && (KnockBackType) currStun -> KnockbackType != KnockBackType.StanceBreak){
+            if(frame.Unsafe.TryGetPointer<Damageable>(filter.Entity, out var damageable) && (KnockBackType) currStun -> KnockbackType != KnockBackType.StanceBreak && (KnockBackType) currStun -> KnockbackType != KnockBackType.GuardBreak){
                 Log.Debug("Invincible Set True");
                 damageable -> Invincible = true;
             }

@@ -45,7 +45,7 @@ namespace Quantum
                                 Log.Debug("Successful Heavy Parry");
                                 //Expose these hard coded values to the a config later.
                                 //DealDamage(frame, hitterPlayerLink, damageable, 0, 0);
-                                ApplyStun(frame, hitterPlayerLink, hitterStunVals, KnockBackType.GuardBreak, 0, 60);
+                                ApplyStun(frame, hitterPlayerLink, hitterStunVals, KnockBackType.GuardBreak, 0, 180);
 
                                 //play sfx
                                 frame.Events.PlaySound((ushort)SFX.HeavyParry);
@@ -135,6 +135,7 @@ namespace Quantum
                 return;
             }
             damageable -> CurrStance = (damageable -> CurrStance - stanceDamage);
+            if(damageable -> CurrStance == 0){damageable -> CurrStance = 0;}
             frame.Events.BarChange(playerToDamage -> Player, damageable -> MaxStance, damageable -> CurrStance, 1);
         }
 
