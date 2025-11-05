@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aec407c328f932499522864613b38eb, type: 3}
+  m_Name: LightUConfig
+  m_EditorClassIdentifier: 
+  Identifier:
+    Path: QuantumUser/Simulation/Actions/LightUConfig
+    Guid:
+      Value: 341662428881890215
+  StartUpFrames: 20
+  ActiveFrames: 6
+  RecoveryFrames: 18
+  CancelableFrames: 50
+  RequiredFlags: 2
+  ForbiddenFlags: 1084
+  RequiredDirection:
+    X:
+      RawValue: 0
+    Y:
+      RawValue: 65536
+  CustomCancelRules: {fileID: 0}
+  StanceRegenAtEmptyAndFull:
+    X:
+      RawValue: 0
+    Y:
+      RawValue: 0
+  AttackName: Light_U
+  AttackDataIndex: 3
+  HitHPDamage: 5
+  HitStanceDamage: 40
+  HitKnockbackDistance:
+    RawValue: 65536
+  HitStunTime: 40
+  HitKnockBackType: 1
+  BlockHPDamage: 1
+  BlockStanceDamage: 20
+  BlockKnockbackDistance:
+    RawValue: 32768
+  BlockStunTime: 35
+  BlockKnockBackType: 5
+  ParryHPDamage: 0
+  ParryStanceDamage: 5
+  ParryKnockbackDistance:
+    RawValue: 6554
+  ParryStunTime: 30
+  ParryKnockBackType: 4
+  HeavyParryHPDamage: 0
+  HeavyParryStanceDamage: 0
+  HeavyParryKnockbackDistance:
+    RawValue: 0

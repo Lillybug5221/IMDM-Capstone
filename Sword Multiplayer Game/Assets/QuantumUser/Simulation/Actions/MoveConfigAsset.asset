@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd73b302cc5f09499b98e893741629d, type: 3}
+  m_Name: MoveConfigAsset
+  m_EditorClassIdentifier: 
+  Identifier:
+    Path: QuantumUser/Simulation/Actions/MoveConfigAsset
+    Guid:
+      Value: 493570292215728877
+  StartUpFrames: 0
+  ActiveFrames: 0
+  RecoveryFrames: 0
+  CancelableFrames: 1
+  RequiredFlags: 1
+  ForbiddenFlags: 1086
+  RequiredDirection:
+    X:
+      RawValue: 0
+    Y:
+      RawValue: 0
+  CustomCancelRules: {fileID: 11400000, guid: e8aeb29d5d5039542b9c82f45e06e479, type: 2}
+  StanceRegenAtEmptyAndFull:
+    X:
+      RawValue: 6554
+    Y:
+      RawValue: 52429
