@@ -1,5 +1,0 @@
-﻿Design Values Document:
-* This project will be a spatial installation of a projection. The projections will be utilizing TouchDesigner as a basis in which the visuals displayed will be audio-reactive derived from audio input. Audio will be outputted through speakers set up around the space.
-* Spatial installation should be in a medium-sized room, where there is enough space for participants to walk around, but not too much that projections take up an extensive amount of space. The room should be naturally dark to allow visuals to be the primary light source. A sound controller will be set up in one corner of the room. The other corners of the room will be installed with speakers to output audio
-* Participants get to directly manipulate the visuals projected through the sound controller (specifics TBD). Only one participant at a time will be using the controller. Other participants still have the opportunity to observe the changes in audio and projections.
-* Thematically, visuals will be retro-styled with a focus of motifs on space (and possibly incorporate marine biology as a mixture). Visual references can be accessed here. The audio genre theme is WIP.
